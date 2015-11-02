@@ -5,7 +5,7 @@
   "main": "parrot-mini-drone.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/RIAEvangelist/parrot-mini-drone"
+    "url": "git+https://github.com/RIAEvangelist/parrot-mini-drone.git"
   },
   "keywords": [
     "parrot",
@@ -23,5 +23,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Brandon Nozaki Miller",
-  "license": "DBAD"
+  "license": "SEE LICENCE IN Licence.md",
+  "bugs": {
+    "url": "https://github.com/RIAEvangelist/parrot-mini-drone/issues"
+  },
+  "homepage": "https://github.com/RIAEvangelist/parrot-mini-drone#readme",
+  "directories": {
+    "example": "examples"
+  }
 }
