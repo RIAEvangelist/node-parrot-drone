@@ -1,0 +1,27 @@
+{
+  "name": "parrot-mini-drone",
+  "version": "0.0.1",
+  "description": "extendable node module to allow control of any Parrot Mini Drone",
+  "main": "parrot-mini-drone.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RIAEvangelist/parrot-mini-drone"
+  },
+  "keywords": [
+    "parrot",
+    "drone",
+    "mini",
+    "SDK",
+    "node",
+    "javascript"
+  ],
+  "dependencies": {
+    "node-ipc": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brandon Nozaki Miller",
+  "license": "DBAD"
+}
