@@ -16,7 +16,7 @@
     "javascript"
   ],
   "dependencies": {
-    "node-ipc": "^3.0.0"
+    "node-ipc": "*"
   },
   "devDependencies": {},
   "scripts": {
