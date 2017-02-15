@@ -8,27 +8,27 @@ class Response {
     }
 
     get raw(){
-        return message.raw;
+        return this.message.raw;
     }
 
     get type(){
-        return message.type;
+        return this.message.type;
     }
 
     get id(){
-        return message.id;
+        return this.message.id;
     }
 
     get data(){
-        return message.data;
+        return this.message.data;
     }
 
     get index(){
-        return message.index;
+        return this.message.index;
     }
 
     get size(){
-        return message.size;
+        return this.message.size;
     }
 
     parse(data){
