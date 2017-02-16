@@ -16,6 +16,7 @@
     "javascript"
   ],
   "dependencies": {
+    "event-pubsub": "^4.2.4",
     "node-ipc": "*"
   },
   "devDependencies": {},

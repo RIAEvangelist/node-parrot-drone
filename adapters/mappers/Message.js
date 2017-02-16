@@ -1,55 +1,76 @@
 'use strict';
 
 class Message{
-  constructor(size,constants){
-    this.constants=constants;
-    //
-    // ARNETWORKAL_Frame_t
-    //
-    // uint8  type  - frame type ARNETWORK_FRAME_TYPE
-    // uint8  id      - identifier of the buffer sending the frame
-    // uint8  seq   - sequence number of the frame
-    // uint32 size  - size of the frame
-    //
-    this.type=this.constants.ARNETWORKAL_FRAME_TYPE_DATA;
-    this.id=this.constants.BD_NET_CD_NONACK_ID;
+  constructor(){
+    this.projectID=null;
+    this.classID=null;
+    this.command=null;
 
-    this.data=new Buffer.allocUnsafe(size);
-    this.messageIndex = [];
-    this.headerLength = 7 // size of ARNETWORKAL_Frame_t header
-    this.header = new Buffer.allocUnsafe(this.headerLength);
+    this.arguments=null;
+
+    this.messageIndex = 0;
+    this.header = new Buffer.allocUnsafe(7);
+    this.header.fill(0);
+
     this.payload=null;
-  }
-
-  get index(){
-      return this.messageIndex[this.id];
   }
 
   build() {
       this.payload=null;
-      if (!this.messageIndex[this.id]) {
-          this.messageIndex[this.id] = 0;
+      this.messageIndex++;
+
+      if (this.messageIndex > 255) {
+          this.messageIndex = 0;
       }
 
-      this.messageIndex[this.id]++;
+      const argValues=[];
+      let argSize=0;
 
-      if (this.messageIndex[this.id] > 255) {
-          this.messageIndex[this.id] = 0;
+      for(const arg of this.command.lookup){
+        const arg=command[arg];
+        let size=arg.bytes;
+        if(arg.type=='string'){
+          arg.value+='\0';
+          size=arg.value.length;
+          arg.bytes=size;
+        }
+        argValues.push(arg);
+        argSize+=size;
       }
 
-      this.header.writeUInt8(this.type, 0);
-      this.header.writeUInt8(this.id, 1);
-      this.header.writeUInt8(this.messageIndex[this.id], 2);
-      this.header.writeUInt32LE(this.data.length + this.headerLength, 3);
+      this.arguments = new Buffer.allocUnsafe(argSize);
+      this.arguments.fill(0);
 
-      this.payload=this.header;
+      for(const i in argValues){
+        switch(arg.bytes){
+          case 1 :
+            this.arguments.writeUInt8(arg.value);
+          break;
+          case 2 :
+            this.arguments.writeUInt16LE(arg.value);
+          break;
+          case 4 :
+            this.arguments.writeUInt32LE(arg.value);
+          break;
+          default :
+            this.arguments.write(arg.value);
+        }
+      }
 
-      // Buffer.concat(
-      //     [
-      //         this.header,
-      //         this.data
-      //     ]
-      // );
+      const payloadSize=this.arguments.length + this.header.length;
+
+      this.header.writeUInt8(this.projectID, 0);
+      this.header.writeUInt8(this.classID, 1);
+      this.header.writeUInt8(this.command.id, 2);
+      this.header.writeUInt32LE(payloadSize, 3);
+
+      this.payload=Buffer.concat(
+          [
+              this.header,
+              this.data
+          ],
+          payloadSize
+      );
   };
 }
 

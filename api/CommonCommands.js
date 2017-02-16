@@ -1,5 +1,5 @@
 'use strict';
-const CommonClasses=require('./Classes.js');
+const CommonClasses=require('./CommonClasses.js');
 //https://github.com/RIAEvangelist/libARCommands/blob/ARSDK3_version_3_1_0/Xml/common_commands.xml
 
 //All common drone commands

@@ -3,6 +3,7 @@ const Config =require('../configs/Wifi.js');
 const Response=require('./mappers/Response.js');
 const Message=require('./mappers/Message.js');
 const ipc=require('node-ipc');
+const Projects=require('../api/Projects.js');
 
 class MiniDroneWifi {
     constructor(){
@@ -12,6 +13,8 @@ class MiniDroneWifi {
         this.ipc.config,
         this.config.ipc
       );
+      this.projects=new Projects;
+      this.message=new Message;
     }
 
     connect(){
@@ -66,11 +69,11 @@ class MiniDroneWifi {
     }
 
     init(){
-        console.log('--------------------------')
-        var message=new Message(0,this.config.constants);
-        message.type=this.config.constants.ARCOMMANDS_ID_PROJECT_COMMON;
-        message.id=this.config.constants.ARCOMMANDS_ID_COMMON_CLASS_COMMON;
-        message.data=this.config.constants.ARCOMMANDS_ID_COMMON_COMMON_CMD_ALLSTATES;
+        const project=this.projects.common;
+
+        this.message.projectID=project.id;
+        this.message.classID=project.common.id;
+        this.message.command=project.common.allStates;
 
         this.ipc.server.on(
             'data',

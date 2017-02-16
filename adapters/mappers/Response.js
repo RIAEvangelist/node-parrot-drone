@@ -1,4 +1,6 @@
 'use strict';
+const Events=require('event-pubsub');
+
 class Response extends Events{
     constructor(data){
       this.message={};
@@ -38,8 +40,8 @@ class Response extends Events{
       this.message.index   = data.readUInt8(2);
       this.message.size    = data.readUInt32LE(3);
 
-      this.message.data       = undefined;
-      this.message.droneType  = undefined;
+      this.message.data       = null;
+      this.message.droneType  = null;
       this.message.payload    = {};
 
       if(this.message.size > 7){

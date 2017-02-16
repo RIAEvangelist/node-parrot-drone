@@ -4,15 +4,15 @@
 //API Classes abstract
 class AbstractClasses{
   constructor(){
-    this.classLookup=[];
+    this.lookup=[];
   }
 
-  //add entries to classLookup and as a key on this assigning its index as its id
+  //add entries to lookup and as a key on this assigning its index as its id
   push(...entries){
     for(const id in entries){
-      this.classLookup.push(entries[id]);
+      this.lookup.push(entries[id]);
       const newClassType=new ClassType;
-      newClassType.id=this.classLookup.length-1;
+      newClassType.id=this.lookup.length-1;
 
       this[
         entries[id]
@@ -27,15 +27,15 @@ class AbstractClasses{
 class ClassType{
   constructor(){
     this.id=null;
-    this.commandLookup=[];
+    this.lookup=[];
   }
 
-  //add commands to commandLookup and as a key on this assigning its index as its id
+  //add commands to lookup and as a key on this assigning its index as its id
   push(...entries){
     for(const id in entries){
-      this.commandLookup.push(entries[id]);
+      this.lookup.push(entries[id]);
       const newCommand=new Command;
-      newCommand.id=this.commandLookup.length-1;
+      newCommand.id=this.lookup.length-1;
 
       this[
         entries[id]
@@ -49,11 +49,15 @@ class ClassType{
 //Drone Command
 class Command{
   constructor(){
-    this.argLookup=[];
-    this.value=undefined;
+    this.lookup=[];
+    this.id=null;
   }
 
-  //adds arg objects to command and argLookup in the order they should be in response
+  create(){
+    return Object.assign({},this);
+  }
+
+  //adds arg objects to command and lookup in the order they should be in response
   push(...entries){
     for(const id in entries){
       const arg=entries[id];
@@ -61,8 +65,8 @@ class Command{
 
       delete arg.name;
 
-      this.argLookup.push(argName);
-      arg.id=this.argLookup.length-1;
+      this.lookup.push(argName);
+      arg.id=this.lookup.length-1;
 
       this[argName]=Object.assign(
         new CommandArgument,
@@ -79,7 +83,7 @@ class CommandArgument{
   constructor(){
     this.bytes=1;
     this.type='number';
-    this.value=undefined;
+    this.value=null;
   }
 }
 
