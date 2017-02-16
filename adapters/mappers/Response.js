@@ -46,6 +46,10 @@ class Response extends Events{
         data.slice(7)
       }
 
+      if(!this.messageRef.messageCommands[this.message.index]){
+        this.messageRef.messageIndex=this.message.index+1;
+      }
+      
       console.log(this.message,this.messageRef.messageCommands[this.message.index]);
       console.log(this.message.raw.toString());
 

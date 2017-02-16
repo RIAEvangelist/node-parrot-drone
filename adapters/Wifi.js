@@ -55,6 +55,11 @@ class MiniDroneWifi {
             this.bound.init
         );
 
+        this.ipc.server.on(
+            'data',
+            this.bound.gotResponse
+        );
+
         this.ipc.server.start();
 
         this.ipc.of[this.config.droneName].emit(
@@ -76,14 +81,14 @@ class MiniDroneWifi {
         this.message.classID=project.common.id;
         this.message.command=project.common.allStates;
 
-        this.ipc.server.on(
-            'data',
-            this.bound.gotResponse
-        );
-
         const payload=this.message.build();
 
         console.log(this.message);
+
+        console.log({
+            address : this.config.droneIp,
+            port    : this.config.c2d_port
+        });
 
         this.ipc.server.emit(
             {
