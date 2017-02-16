@@ -1,14 +1,25 @@
 'use strict';
 
+const FrameTypes=require('../../api/FrameTypeCollection.js');
+const FrameIDs=require('../../api/FrameIDCollection.js');
+
 class Message{
   constructor(){
-    this.projectID=null;
-    this.classID=null;
+    this.frameTypes   = new FrameTypes;
+    this.frameIDs     = new FrameIDs;
+    this.messageIndex = 0;
+
+    this.reset();
+  }
+
+  reset(){
+    this.frameType=this.frameTypes.dataType;
+    this.frameID=this.frameIDs.cdNoNack;
+
     this.command=null;
 
     this.arguments=null;
 
-    this.messageIndex = 0;
     this.header = new Buffer.allocUnsafe(7);
     this.header.fill(0);
 
@@ -38,8 +49,10 @@ class Message{
         argSize+=size;
       }
 
-      this.arguments = new Buffer.allocUnsafe(argSize);
+      this.arguments = new Buffer.allocUnsafe(argSize+1);
       this.arguments.fill(0);
+
+      this.arguments.writeUInt8(this.command.id);
 
       for(const i in argValues){
         switch(arg.bytes){
@@ -59,18 +72,20 @@ class Message{
 
       const payloadSize=this.arguments.length + this.header.length;
 
-      this.header.writeUInt8(this.projectID, 0);
-      this.header.writeUInt8(this.classID, 1);
-      this.header.writeUInt8(this.command.id, 2);
+      this.header.writeUInt8(this.frameType, 0);
+      this.header.writeUInt8(this.frameID, 1);
+      this.header.writeUInt8(this.messageIndex, 2);
       this.header.writeUInt32LE(payloadSize, 3);
 
       this.payload=Buffer.concat(
           [
               this.header,
-              this.data
+              this.arguments
           ],
           payloadSize
       );
+
+      return this.payload;
   };
 }
 

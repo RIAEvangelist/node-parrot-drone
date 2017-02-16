@@ -80,14 +80,14 @@ class MiniDroneWifi {
             this.gotResponse
         );
 
-        message.build();
+        const payload=this.message.build();
 
         this.ipc.server.emit(
             {
                 address : this.config.droneIp,
                 port    : this.config.c2d_port
             },
-            message.payload
+            payload
         );
     }
 
