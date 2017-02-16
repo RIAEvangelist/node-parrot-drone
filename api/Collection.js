@@ -7,17 +7,19 @@ class Collection{
 
   push(...entries){
     for(let id in entries){
-      if(entries[id].id){
-        id=entries[id].id;
-        entries[id]=entries[id].name;
+      let entry=entries[id];
+      if(!entry.id){
+        entry={
+          id:id,
+          name:entry
+        }
       }
 
-      const entry=entries[id];
-      entry.id=id;
+      id=entry.id;
 
       this.lookup[id]=entry;
 
-      this[entry]=id;
+      this[entry.name]=id;
     }
   }
 }

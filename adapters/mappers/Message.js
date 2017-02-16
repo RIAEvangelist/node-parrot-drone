@@ -65,13 +65,19 @@ class Message{
         const arg=command[arg];
         switch(arg.bytes){
           case 1 :
-            this.arguments.writeUInt8(arg.value);
+            this.arguments.writeUInt8(
+              Number(arg.value)
+            );
           break;
           case 2 :
-            this.arguments.writeUInt16LE(arg.value);
+            this.arguments.writeUInt16LE(
+              Number(arg.value)
+            );
           break;
           case 4 :
-            this.arguments.writeUInt32LE(arg.value);
+            this.arguments.writeUInt32LE(
+              Number(arg.value)
+            );
           break;
           default :
             this.arguments.write(arg.value);
@@ -80,8 +86,14 @@ class Message{
 
       const payloadSize=this.arguments.length + this.header.length;
 
-      this.header.writeUInt8(this.frameType, 0);
-      this.header.writeUInt8(this.frameID, 1);
+      this.header.writeUInt8(
+        Number(this.frameType),
+        0
+      );
+      this.header.writeUInt8(
+        Number(this.frameID),
+        1
+      );
       this.header.writeUInt8(this.messageIndex, 2);
       this.header.writeUInt32LE(payloadSize, 3);
 

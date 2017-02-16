@@ -1,41 +1,45 @@
 'use strict';
 const Collection=require('./Collection.js');
 
-class FrameIDs extends Collection{
+class FrameTypes extends Collection{
   constructor(){
     super();
     // ARNETWORKAL_Frame_t identifiers
     this.push(
       {
-        name:'cdNoNack',
+        name:'undefinedID',
+        id:0
+      },
+      {
+        name:'cdNoNackID',
         id:10
       },
       {
-        name:'cdAck',
+        name:'cdAckID',
         id:11
       },
       {
-        name:'cdEmergency',
+        name:'cdEmergencyID',
         id:12
       },
       {
-        name:'cdVideoAck',
+        name:'cdVideoAckID',
         id:13
       },
       {
-        name:'dcVideoData',
+        name:'dcVideoDataID',
         id:125
       },
       {
-        name:'dcEvent',
+        name:'dcEventID',
         id:126
       },
       {
-        name:'dcNavData',
+        name:'dcNavDataID',
         id:127
       }
     );
   }
 }
 
-module.exports=FrameIDs;
+module.exports=FrameTypes;

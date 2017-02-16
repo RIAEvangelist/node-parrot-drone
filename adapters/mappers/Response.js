@@ -37,8 +37,8 @@ class Response extends Events{
 
     parse(data){
       this.message.raw        = data;
-      this.message.frameType  = this.messageRef.frameTypes(data.readUInt8(0));
-      this.message.id         = this.messageRef.frameIDs(data.readUInt8(1));
+      this.message.frameType  = this.messageRef.frameTypes.lookup[data.readUInt8(0)];
+      this.message.id         = this.messageRef.frameIDs.lookup[data.readUInt8(1)];
       this.message.index      = data.readUInt8(2);
       this.message.size       = data.readUInt32LE(3);
 
@@ -48,6 +48,8 @@ class Response extends Events{
 
       console.log(this.message,this.messageRef.messageCommands[this.message.index]);
       console.log(this.message.raw.toString());
+
+      delete this.messageRef.messageCommands[this.message.index];
 
       //
       // libARNetwork/Sources/ARNETWORK_Receiver.c#ARNETWORK_Receiver_ThreadRun

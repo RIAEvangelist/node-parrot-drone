@@ -28,6 +28,7 @@ class MiniDroneWifi {
       this.bound.connectedToDrone=this.connectedToDrone.bind(this);
       this.bound.importDataFromDrone=this.importDataFromDrone.bind(this);
       this.bound.init=this.init.bind(this);
+      this.bound.gotResponse=this.gotResponse.bind(this);
 
       this.ipc.of[this.config.droneName].on(
         'connect',
@@ -77,7 +78,7 @@ class MiniDroneWifi {
 
         this.ipc.server.on(
             'data',
-            this.gotResponse
+            this.bound.gotResponse
         );
 
         const payload=this.message.build();
@@ -95,7 +96,7 @@ class MiniDroneWifi {
 
     gotResponse(data){
       console.log('<<<<<<<<<<<<>>>>>>>>>>>>>>>>');
-        const response=new Response(data);
+        const response=new Response(this.message,data);
         console.log(response.message);
     }
 }
