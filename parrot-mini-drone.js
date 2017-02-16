@@ -1,7 +1,7 @@
-const MiniDrone=require('./abstract/MiniDrone.js');
+const Wifi=require('./adapters/Wifi.js');
 
 module.exports={
-  MiniDrone
+  Wifi
 };
 
 // working on sumo

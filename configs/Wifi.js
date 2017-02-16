@@ -1,12 +1,13 @@
 'use strict';
-const parser=require('../parsers/miniDrone.js');
 const constants=require('../lib/sharedARConstants.js');
+const IPCConfig=require('./IPC.js');
 
 class MiniDroneConfig{
   constructor(){
+    this.ipc=new IPCConfig;
     this.constants=constants;
     this.droneName=undefined;
-    this.droneIp=undefined;
+    this.droneIp='192.168.2.1';
     this.discoveryPort=44444;
 
     //client sends message to drone port
@@ -32,8 +33,17 @@ class MiniDroneConfig{
   }
 
   assign(data){
-      data=parser.configure(data);
+      data=data.toString().replace(/\0/g,'');
+
+      try{
+          data=JSON.parse(data);
+      }catch(err){
+          console.log(err);
+          return;
+      }
+
       console.log(data);
+
       Object.assign(
           this,
           data

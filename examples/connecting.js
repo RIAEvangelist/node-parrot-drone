@@ -1,7 +1,6 @@
-var MiniDrone=require('../parrot-mini-drone.js').MiniDrone;
+var miniDrone=require('../parrot-mini-drone.js');
 
-var drone=new MiniDrone;
+var drone=new miniDrone.Wifi;
 drone.config.droneName='test-sumo';
-drone.config.droneIp='192.168.2.1';
 
 drone.connect();

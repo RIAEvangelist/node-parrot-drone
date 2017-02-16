@@ -1,17 +1,21 @@
 'use strict';
-const MiniDroneConfig =require('../entities/MiniDroneConfig.js');
-const IPCInterface=require('../interfaces/ipc.js');
-const parser=require('../parsers/miniDrone.js');
-const Message=require('../entities/Message.js');
+const Config =require('../configs/Wifi.js');
+const Response=require('./mappers/Response.js');
+const Message=require('./mappers/Message.js');
+const ipc=require('node-ipc');
 
-class MiniDrone {
+class MiniDroneWifi {
     constructor(){
-      this.config=new MiniDroneConfig;
-      this.ipcInterface=new IPCInterface;
+      this.config=new Config;
+      this.ipc=new ipc.IPC;
+      Object.assign(
+        this.ipc.config,
+        this.config.ipc
+      );
     }
 
     connect(){
-      this.ipcInterface.ipc.connectToNet(
+      this.ipc.connectToNet(
         this.config.droneName,
         this.config.droneIp,
         this.config.discoveryPort
@@ -22,14 +26,14 @@ class MiniDrone {
       this.bound.importDataFromDrone=this.importDataFromDrone.bind(this);
       this.bound.init=this.init.bind(this);
 
-      this.ipcInterface.ipc.of[this.config.droneName].on(
+      this.ipc.of[this.config.droneName].on(
         'connect',
-        this.bound.connectedToDrone.bind(this)
+        this.bound.connectedToDrone
       );
 
-      this.ipcInterface.ipc.of[this.config.droneName].on(
+      this.ipc.of[this.config.droneName].on(
           'data',
-          this.bound.importDataFromDrone.bind(this)
+          this.bound.importDataFromDrone
       );
     }
 
@@ -41,22 +45,22 @@ class MiniDrone {
           'd2c_port': this.config.d2c_port
         }
 
-        this.ipcInterface.ipc.serveNet(
+        this.ipc.serveNet(
             this.config.d2c_port,
             'udp4',
             this.bound.init
         );
 
-        this.ipcInterface.ipc.server.start();
+        this.ipc.server.start();
 
-        this.ipcInterface.ipc.of[this.config.droneName].emit(
+        this.ipc.of[this.config.droneName].emit(
             JSON.stringify(message)
         );
     }
 
 
     importDataFromDrone(data){
-        this.ipcInterface.ipc.disconnect(this.config.droneName);
+        this.ipc.disconnect(this.config.droneName);
 
         this.config.assign(data);
     }
@@ -68,14 +72,14 @@ class MiniDrone {
         message.id=this.config.constants.ARCOMMANDS_ID_COMMON_CLASS_COMMON;
         message.data=this.config.constants.ARCOMMANDS_ID_COMMON_COMMON_CMD_ALLSTATES;
 
-        this.ipcInterface.ipc.server.on(
-            'message',
+        this.ipc.server.on(
+            'data',
             this.gotResponse
         );
 
         message.build();
 
-        this.ipcInterface.ipc.server.emit(
+        this.ipc.server.emit(
             {
                 address : this.config.droneIp,
                 port    : this.config.c2d_port
@@ -85,9 +89,10 @@ class MiniDrone {
     }
 
     gotResponse(data){
-        response=new parser.Response(data);
+      console.log('<<<<<<<<<<<<>>>>>>>>>>>>>>>>');
+        const response=new Response(data);
         console.log(response.message);
     }
 }
 
-module.exports=MiniDrone;
+module.exports=MiniDroneWifi;
