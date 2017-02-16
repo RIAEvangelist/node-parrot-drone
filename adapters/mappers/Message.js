@@ -8,6 +8,7 @@ class Message{
     this.frameTypes   = new FrameTypes;
     this.frameIDs     = new FrameIDs;
     this.messageIndex = 0;
+    this.messageCommands=[];
 
     this.reset();
   }
@@ -16,6 +17,8 @@ class Message{
     this.frameType=this.frameTypes.dataType;
     this.frameID=this.frameIDs.cdNoNack;
 
+    this.projectID=null;
+    this.classID=null;
     this.command=null;
 
     this.arguments=null;
@@ -34,6 +37,8 @@ class Message{
           this.messageIndex = 0;
       }
 
+      this.messageCommands[this.messageIndex]=this.command;
+
       const argValues=[];
       let argSize=0;
 
@@ -49,12 +54,15 @@ class Message{
         argSize+=size;
       }
 
-      this.arguments = new Buffer.allocUnsafe(argSize+1);
+      this.arguments = new Buffer.allocUnsafe(argSize+3);
       this.arguments.fill(0);
 
+      this.arguments.writeUInt8(this.projectID);
+      this.arguments.writeUInt8(this.classID);
       this.arguments.writeUInt8(this.command.id);
 
       for(const i in argValues){
+        const arg=command[arg];
         switch(arg.bytes){
           case 1 :
             this.arguments.writeUInt8(arg.value);

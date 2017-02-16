@@ -2,9 +2,10 @@
 const Events=require('event-pubsub');
 
 class Response extends Events{
-    constructor(data){
+    constructor(messageRef,data){
       super();
       this.message={};
+      this.messageRef=messageRef;
       if(data){
         this.parse(data);
       }
@@ -35,17 +36,17 @@ class Response extends Events{
     }
 
     parse(data){
-      this.message.raw     = data;
-      this.message.type    = data.readUInt8(0);
-      this.message.id      = data.readUInt8(1);
-      this.message.index   = data.readUInt8(2);
-      this.message.size    = data.readUInt32LE(3);
+      this.message.raw        = data;
+      this.message.frameType  = this.messageRef.frameTypes(data.readUInt8(0));
+      this.message.id         = this.messageRef.frameIDs(data.readUInt8(1));
+      this.message.index      = data.readUInt8(2);
+      this.message.size       = data.readUInt32LE(3);
 
       if(this.message.size > 7){
         data.slice(7)
       }
 
-      console.log(this.message);
+      console.log(this.message,this.messageRef.messageCommands[this.message.index]);
       console.log(this.message.raw.toString());
 
       //

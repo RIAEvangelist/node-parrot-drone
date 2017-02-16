@@ -82,6 +82,8 @@ class MiniDroneWifi {
 
         const payload=this.message.build();
 
+        console.log(this.message);
+
         this.ipc.server.emit(
             {
                 address : this.config.droneIp,
