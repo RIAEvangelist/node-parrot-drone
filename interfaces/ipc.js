@@ -19,7 +19,7 @@ class IPCInterface{
     this.configKey=key;
 
     Object.assign(
-      this.ipc,
+      this.ipc.config,
       config[key]
     );
   }
@@ -39,7 +39,7 @@ config.defaultMiniDrone={
     id              : os.hostname(),
     networkHost     : '0.0.0.0', //will listen for external messages
     networkPort     : 7778,
-    encoding        : 'utf8',
+    encoding        : 'ascii',
     rawBuffer       : true,
     silent          : false,
     maxConnections  : 100,

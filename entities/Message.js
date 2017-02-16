@@ -1,6 +1,8 @@
 'use strict';
+
 class Message{
-  constructor(size){
+  constructor(size,constants){
+    this.constants=constants;
     //
     // ARNETWORKAL_Frame_t
     //
@@ -9,40 +11,46 @@ class Message{
     // uint8  seq   - sequence number of the frame
     // uint32 size  - size of the frame
     //
-    this.type=constants.ARNETWORKAL_FRAME_TYPE_DATA;
-    this.id=constants.BD_NET_CD_NONACK_ID;
-    this.data=new Buffer.allocUnsafe(size);
+    this.type=this.constants.ARNETWORKAL_FRAME_TYPE_DATA;
+    this.id=this.constants.BD_NET_CD_NONACK_ID;
 
+    this.data=new Buffer.allocUnsafe(size);
     this.messageIndex = [];
     this.headerLength = 7 // size of ARNETWORKAL_Frame_t header
-    this.header = new Buffer.alocUnsafe(headerLength);
+    this.header = new Buffer.allocUnsafe(this.headerLength);
+    this.payload=null;
   }
 
   get index(){
-      return messageIndex[this.id];
+      return this.messageIndex[this.id];
   }
 
-  send() {
-      if (!messageIndex[this.id]) {
-          messageIndex[this.id] = 0;
+  build() {
+      this.payload=null;
+      if (!this.messageIndex[this.id]) {
+          this.messageIndex[this.id] = 0;
       }
 
-      messageIndex[this.id]++;
+      this.messageIndex[this.id]++;
 
-      if (messageIndex[this.id] > 255) {
-          messageIndex[this.id] = 0;
+      if (this.messageIndex[this.id] > 255) {
+          this.messageIndex[this.id] = 0;
       }
 
-      header.writeUInt8(this.type, 0);
-      header.writeUInt8(this.id, 1);
-      header.writeUInt8(messageIndex[id], 2);
-      header.writeUInt32LE(this.data.length + headerLength, 3);
+      this.header.writeUInt8(this.type, 0);
+      this.header.writeUInt8(this.id, 1);
+      this.header.writeUInt8(this.messageIndex[this.id], 2);
+      this.header.writeUInt32LE(this.data.length + this.headerLength, 3);
 
-      var message=Buffer.concat(
-          [
-              header,
-              data
-          ]
-      );
+      this.payload=this.header;
+
+      // Buffer.concat(
+      //     [
+      //         this.header,
+      //         this.data
+      //     ]
+      // );
   };
 }
+
+module.exports=Message;

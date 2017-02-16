@@ -4,6 +4,7 @@ const constants=require('../lib/sharedARConstants.js');
 
 class MiniDroneConfig{
   constructor(){
+    this.constants=constants;
     this.droneName=undefined;
     this.droneIp=undefined;
     this.discoveryPort=44444;
@@ -28,13 +29,11 @@ class MiniDroneConfig{
 
     this.skycontroller_version=undefined;
     this.status=undefined;
-
-    this.constants=constants;
   }
 
   assign(data){
-      parser.Configure(data);
-
+      data=parser.configure(data);
+      console.log(data);
       Object.assign(
           this,
           data
