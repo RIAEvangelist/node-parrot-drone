@@ -1,4 +1,5 @@
 'use strict';
+const Events=require('event-pubsub');
 //https://github.com/RIAEvangelist/libARCommands/tree/ARSDK3_version_3_1_0/Xml
 
 //API Classes abstract
@@ -47,8 +48,9 @@ class ClassType{
 }
 
 //Drone Command
-class Command{
+class Command extends Events{
   constructor(){
+    super();
     this.lookup=[];
     this.id=null;
   }

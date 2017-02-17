@@ -7,8 +7,16 @@ class FrameTypes extends Collection{
     // ARNETWORKAL_Frame_t identifiers
     this.push(
       {
-        name:'undefinedID',
+        name:'internalBufferPing',
         id:0
+      },
+      {
+        name:'internalBufferPong',
+        id:1
+      },
+      {
+        name:'internalBufferMax',
+        id:3
       },
       {
         name:'cdNoNackID',
