@@ -32,6 +32,8 @@ class Message{
   build() {
       this.payload=null;
 
+      this.messageIndex++;
+
       if (this.messageIndex > 255) {
           this.messageIndex = 0;
       }
@@ -51,28 +53,52 @@ class Message{
         argSize+=size;
       }
 
-      this.arguments = new Buffer.allocUnsafe(argSize+3);
+      this.arguments = new Buffer.allocUnsafe(argSize+4);
       this.arguments.fill(0);
 
       this.arguments.writeUInt8(this.projectID);
       this.arguments.writeUInt8(this.classID);
-      this.arguments.writeUInt8(this.command.id);
+      this.arguments.writeUInt16LE(this.command.id);
 
       for(const i in argValues){
         const arg=command[arg];
         switch(arg.bytes){
           case 1 :
-            this.arguments.writeUInt8(
+            if(arg.type=='unsigned'){
+              this.arguments.writeUInt8(
+                Number(arg.value)
+              );
+              break;
+            }
+            this.arguments.writeInt8(
               Number(arg.value)
             );
           break;
           case 2 :
-            this.arguments.writeUInt16LE(
+            if(arg.type=='unsigned'){
+              this.arguments.writeUInt16LE(
+                Number(arg.value)
+              );
+              break;
+            }
+            this.arguments.writeInt16LE(
               Number(arg.value)
             );
           break;
           case 4 :
-            this.arguments.writeUInt32LE(
+            if(arg.type=='unsigned'){
+              this.arguments.writeUInt32LE(
+                Number(arg.value)
+              );
+              break;
+            }
+            if(arg.type=='float'){
+              this.arguments.writeFloatLE(
+                Number(arg.value)
+              );
+              break;
+            }
+            this.arguments.writeInt32LE(
               Number(arg.value)
             );
           break;
@@ -101,8 +127,6 @@ class Message{
           ],
           payloadSize
       );
-
-      this.messageIndex++;
 
       return this.payload;
   };

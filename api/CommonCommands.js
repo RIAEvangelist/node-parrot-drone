@@ -54,7 +54,7 @@ class CommonCommands extends CommonClasses{
         //Boolean : 0 : Manual / 1 : Auto
         name:'automatic',
         bytes:1,
-        type:'number'
+        type:'unsigned'
       }
     );
 
@@ -128,7 +128,7 @@ class CommonCommands extends CommonClasses{
       {
         //Boolean : 0 : Manual / 1 : Auto
         name:'automatic',
-        type:'number',
+        type:'unsigned',
         bytes:1
       }
     );
@@ -181,11 +181,11 @@ class CommonCommands extends CommonClasses{
       'wifiSignalChanged'
     );
 
-    this.commonState.massStorageStateListChanged.push(
+    this.commonState.batteryStateChanged.push(
       {
         //Battery percentage
         name:'percent',
-        type:'number',
+        type:'unsigned',
         bytes:1
       }
     );
@@ -194,7 +194,7 @@ class CommonCommands extends CommonClasses{
       {
         //Mass storage id (unique)
         name:'mass_storage_id',
-        type:'number',
+        type:'unsigned',
         bytes:1
       },
       {
@@ -204,42 +204,42 @@ class CommonCommands extends CommonClasses{
       }
     );
 
-    this.commonState.massStorageInfoRemainingListChanged.push(
+    this.commonState.massStorageInfoStateListChanged.push(
       {
         //Mass storage state id (unique)
         name:'mass_storage_id',
-        type:'number',
+        type:'unsigned',
         bytes:1
       },
       {
         //Mass storage size in MBytes
         name:'size',
-        type:'number',
+        type:'unsigned',
         bytes:4
       },
       {
         //used_size in MB
         name:'used_size',
-        type:'number',
+        type:'unsigned',
         bytes:4
       },
       {
         //Mass storage plugged (1 if mass storage is plugged, otherwise 0)
         name:'plugged',
-        type:'number',
+        type:'unsigned',
         bytes:1
       },
       {
         //Mass storage full information state (1 if mass storage full, 0 otherwise).
         name:'full',
-        type:'number',
+        type:'unsigned',
         bytes:1
       },
       {
         //Mass storage internal type state (1 if mass storage is internal, 0 otherwise)
         name:'internal',
-        type:'number',
-        bytes:4
+        type:'unsigned',
+        bytes:1
       }
     );
 
@@ -263,19 +263,19 @@ class CommonCommands extends CommonClasses{
       {
         //Mass storage free space in MBytes
         name:'free_space',
-        type:'number',
+        type:'unsigned',
         bytes:4
       },
       {
         //Mass storage record time reamining in minutes
         name:'rec_time',
-        type:'number',
+        type:'unsigned',
         bytes:2
       },
       {
         //Mass storage photo remaining
         name:'photo_remaining',
-        type:'number',
+        type:'unsigned',
         bytes:4
       }
     );
@@ -284,7 +284,7 @@ class CommonCommands extends CommonClasses{
       {
         //RSSI of the signal between controller and the product (in dbm)
         name:'rssi',
-        type:'number',
+        type:'signed',
         bytes:2
       }
     );
@@ -307,7 +307,7 @@ class CommonCommands extends CommonClasses{
       {
         //Type of overheat regulation : 0 for ventilation, 1 for switch off
         name:'regulationType',
-        type:'number',
+        type:'unsigned',
         bytes:1
       }
     );
@@ -322,7 +322,7 @@ class CommonCommands extends CommonClasses{
       {
         //0 when the application is not in the piloting HUD, 1 when it enters the HUD.
         name:'piloting',
-        type:'number',
+        type:'unsigned',
         bytes:1
       }
     );
@@ -337,7 +337,7 @@ class CommonCommands extends CommonClasses{
       {
         //1 if it should use outdoor wifi settings, 0 otherwise
         name:'outdoor',
-        type:'number',
+        type:'unsigned',
         bytes:1
       }
     );
@@ -353,7 +353,7 @@ class CommonCommands extends CommonClasses{
       {
         //1 if it should use outdoor wifi settings, 0 otherwise
         name:'outdoor',
-        type:'number',
+        type:'unsigned',
         bytes:1
       }
     );
@@ -453,7 +453,7 @@ class CommonCommands extends CommonClasses{
       {
         //1 if the calibration should be started, 0 if it should be aborted
         name:'calibrate',
-        type:'number',
+        type:'unsigned',
         bytes:1
       }
     );
@@ -474,25 +474,25 @@ class CommonCommands extends CommonClasses{
       {
         //State of the x axis (roll) calibration : 1 if calibration is done, 0 otherwise
         name:'xAxisCalibration',
-        type:'number',
+        type:'unsigned',
         bytes:1
       },
       {
         //State of the y axis (pitch) calibration : 1 if calibration is done, 0 otherwise
         name:'yAxisCalibration',
-        type:'number',
+        type:'unsigned',
         bytes:1
       },
       {
         //State of the z axis (yaw) calibration : 1 if calibration is done, 0 otherwise
         name:'zAxisCalibration',
-        type:'number',
+        type:'unsigned',
         bytes:1
       },
       {
         //1 if calibration has failed, 0 otherwise. If this arg is 1, consider all previous arg as 0
         name:'calibrationFailed',
-        type:'number',
+        type:'unsigned',
         bytes:1
       }
     );
@@ -501,7 +501,7 @@ class CommonCommands extends CommonClasses{
       {
         //1 if calibration is required, 0 if current calibration is still valid
         name:'required',
-        type:'number',
+        type:'unsigned',
         bytes:1
       }
     );
@@ -528,7 +528,7 @@ class CommonCommands extends CommonClasses{
       {
         //1 if calibration has started, 0 otherwise
         name:'started',
-        type:'number',
+        type:'unsigned',
         bytes:1
       }
     );
@@ -543,31 +543,31 @@ class CommonCommands extends CommonClasses{
       {
         //Value of the camera horizontal fov (in degree)
         name:'fov',
-        type:'number',
+        type:'float',
         bytes:4
       },
       {
         //Value of max pan (right pan) (in degree)
         name:'panMax',
-        type:'number',
+        type:'float',
         bytes:4
       },
       {
         //  Value of min pan (left pan) (in degree)
           name:'panMin',
-          type:'number',
+          type:'float',
           bytes:4
       },
       {
         //Value of max tilt (top tilt) (in degree)
         name:'tiltMax',
-        type:'number',
+        type:'float',
         bytes:4
       },
       {
         //Value of min tilt (bottom tilt) (in degree)
         name:'tiltMin',
-        type:'number',
+        type:'float',
         bytes:4
       }
     );

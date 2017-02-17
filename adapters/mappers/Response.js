@@ -47,38 +47,98 @@ class Response extends Events{
 
       this.message.projectID  = data.readUInt8(7);
       this.message.classID    = data.readUInt8(8);
-      this.message.commandID  = data.readUInt8(9);
+      this.message.commandID  = data.readUInt16LE(9);
 
-      this.message.command    = null;
-      this.message.class      = null;
+      this.message.arguments  = null;
+
+      if(this.message.size>10){
+        this.message.arguments=this.message.raw.slice(11);
+      }
+
+      this.message.commandName    = null;
+      this.message.className      = null;
       this.message.project    = this.messageRef.projects.lookup[
         this.message.projectID
       ];
 
+      this.message.command = null;
+
       if(this.message.project){
-        this.message.class    = this.messageRef.projects[
+        this.message.className    = this.messageRef.projects[
           this.message.project.name
         ].lookup[
           this.message.classID
         ];
       }
 
-      if(this.message.class){
-        console.log(this.message.class)
-        this.message.command    = this.messageRef.projects[
+      if(this.message.className){
+        const classRef=this.messageRef.projects[
           this.message.project.name
         ][
-          this.message.class
-        ].lookup[
+          this.message.className
+        ];
+
+        this.message.commandName=classRef.lookup[
           this.message.commandID
         ];
+
+        this.message.command    = classRef[
+          this.message.commandName
+        ];
+      }
+
+      if(this.message.command && this.message.command.lookup.length>0){
+        for(const argName of this.message.command.lookup){
+          const arg=this.message.command[argName];
+          console.log(argName,arg,this.message.arguments)
+          switch(arg.type){
+            case 'unsigned' :
+              switch(arg.bytes){
+                case 1 :
+                  arg.value=this.message.arguments.readUInt8(0);
+                break;
+                case 2 :
+                  arg.value=this.message.arguments.readUInt16LE(0);
+                break;
+                default :
+                  arg.value=this.message.arguments.readUInt32LE(0);
+              }
+            break;
+            case 'signed' :
+              switch(arg.bytes){
+                case 1 :
+                  arg.value=this.message.arguments.readInt8(0);
+                break;
+                case 2 :
+                  arg.value=this.message.arguments.readInt16LE(0);
+                break;
+                default :
+                  arg.value=this.message.arguments.readInt32LE(0);
+              }
+            break;
+            case 'float' :
+              arg.value=this.message.arguments.readFloatLE(0);
+            break;
+            case 'string' :
+              arg.bytes=this.message.arguments.indexOf('\0');
+              arg.value=this.message.arguments.slice(0,arg.bytes).toString();
+            break;
+          }
+
+          this.message.arguments=this.message.arguments.slice(arg.bytes);
+        }
       }
 
       this.messageRef.messageIndex=this.message.index+1;
 
-      console.log(this.message);
+      console.log(this.message.commandName,this.message.command);
 
-      if(this.message.frameType.id==this.messageRef.frameTypes.dataWithAckType){
+      //@
+      //Should be in the adpter so this Response class can work for BTLE too.
+      if(
+        this.message.frameType.id==this.messageRef.frameTypes.dataWithAckType
+        ||this.message.frameType.id==this.messageRef.frameTypes.undefinedID
+      ){
         this.ipcRef.server.emit(
             this.droneSocket,
             this.message.raw

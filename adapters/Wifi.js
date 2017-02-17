@@ -70,29 +70,38 @@ class MiniDroneWifi {
 
     importDataFromDrone(data){
         this.ipc.disconnect(this.config.droneName);
+        data=data.toString().replace(/\0/g,'');
+        console.log(
+          'data',
+          data
+        );
 
-        this.config.assign(data);
+        this.config.assign(
+          data
+        );
 
-        // const project=this.projects.common;
-        //
-        // this.message.projectID=project.id;
-        // this.message.classID=project.common.id;
-        // this.message.command=project.common.allStates;
-        //
-        // const payload=this.message.build();
+        const project=this.projects.common;
+
+        this.message.projectID=project.id;
+        this.message.classID=project.common.id;
+        this.message.command=project.common.allStates;
+
+        const payload=this.message.build();
 
         console.log({
             address : this.config.droneIp,
             port    : this.config.c2d_port
         });
 
-        // this.ipc.server.emit(
-        //     {
-        //         address : this.config.droneIp,
-        //         port    : this.config.c2d_port
-        //     },
-        //     payload
-        // );
+        this.ipc.config.encoding='binary';
+
+        this.ipc.server.emit(
+            {
+                address : this.config.droneIp,
+                port    : this.config.c2d_port
+            },
+            payload
+        );
     }
 
     init(){
