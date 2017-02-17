@@ -6,7 +6,10 @@ const CommonCommands=require('./CommonCommands.js');
 class Projects{
   constructor(){
     this.lookup=[
-      0
+      {
+        name:'common',
+        id:0
+      }
     ];
 
     this.common=new CommonCommands;
@@ -16,7 +19,6 @@ class Projects{
   push(...entries){
     for(const project of entries){
       this.lookup.push(project.id);
-      project.commands.id=project.id;
 
       this[
         project.name

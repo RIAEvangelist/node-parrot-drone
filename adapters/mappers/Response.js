@@ -2,10 +2,12 @@
 const Events=require('event-pubsub');
 
 class Response extends Events{
-    constructor(messageRef,data){
+    constructor(messageRef,ipcRef,droneSocket,data){
       super();
       this.message={};
       this.messageRef=messageRef;
+      this.ipcRef=ipcRef;
+      this.droneSocket=droneSocket;
       if(data){
         this.parse(data);
       }
@@ -37,23 +39,51 @@ class Response extends Events{
 
     parse(data){
       this.message.raw        = data;
+
       this.message.frameType  = this.messageRef.frameTypes.lookup[data.readUInt8(0)];
-      this.message.id         = this.messageRef.frameIDs.lookup[data.readUInt8(1)];
+      this.message.frameID    = this.messageRef.frameIDs.lookup[data.readUInt8(1)];
       this.message.index      = data.readUInt8(2);
       this.message.size       = data.readUInt32LE(3);
 
-      if(this.message.size > 7){
-        data.slice(7)
+      this.message.projectID  = data.readUInt8(7);
+      this.message.classID    = data.readUInt8(8);
+      this.message.commandID  = data.readUInt8(9);
+
+      this.message.command    = null;
+      this.message.class      = null;
+      this.message.project    = this.messageRef.projects.lookup[
+        this.message.projectID
+      ];
+
+      if(this.message.project){
+        this.message.class    = this.messageRef.projects[
+          this.message.project.name
+        ].lookup[
+          this.message.classID
+        ];
       }
 
-      if(!this.messageRef.messageCommands[this.message.index]){
-        this.messageRef.messageIndex=this.message.index+1;
+      if(this.message.class){
+        console.log(this.message.class)
+        this.message.command    = this.messageRef.projects[
+          this.message.project.name
+        ][
+          this.message.class
+        ].lookup[
+          this.message.commandID
+        ];
       }
-      
-      console.log(this.message,this.messageRef.messageCommands[this.message.index]);
-      console.log(this.message.raw.toString());
 
-      delete this.messageRef.messageCommands[this.message.index];
+      this.messageRef.messageIndex=this.message.index+1;
+
+      console.log(this.message);
+
+      if(this.message.frameType.id==this.messageRef.frameTypes.dataWithAckType){
+        this.ipcRef.server.emit(
+            this.droneSocket,
+            this.message.raw
+        );
+      }
 
       //
       // libARNetwork/Sources/ARNETWORK_Receiver.c#ARNETWORK_Receiver_ThreadRun

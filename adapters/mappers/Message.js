@@ -4,11 +4,11 @@ const FrameTypes=require('../../api/FrameTypeCollection.js');
 const FrameIDs=require('../../api/FrameIDCollection.js');
 
 class Message{
-  constructor(){
+  constructor(projects){
     this.frameTypes   = new FrameTypes;
     this.frameIDs     = new FrameIDs;
+    this.projects     = projects;
     this.messageIndex = 0;
-    this.messageCommands=[];
 
     this.reset();
   }
@@ -31,13 +31,10 @@ class Message{
 
   build() {
       this.payload=null;
-      this.messageIndex++;
 
       if (this.messageIndex > 255) {
           this.messageIndex = 0;
       }
-
-      this.messageCommands[this.messageIndex]=this.command;
 
       const argValues=[];
       let argSize=0;
@@ -104,6 +101,8 @@ class Message{
           ],
           payloadSize
       );
+
+      this.messageIndex++;
 
       return this.payload;
   };
