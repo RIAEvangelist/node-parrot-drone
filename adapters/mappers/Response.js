@@ -72,7 +72,10 @@ class Response extends Events{
         );
 
         if(next){
-          this.parse(next);
+          setTimeout(
+            this.parse.bind(this,next),
+            5
+          );
         }
 
         return;
@@ -160,7 +163,16 @@ class Response extends Events{
 
       console.log(this.message.commandName,this.message.command);
 
-      this.message.command.publish('change');
+      if(this.message.command){
+        this.message.command.publish('change');
+      }
+      this.messageRef.projects.publish(
+        'message',
+        Object.assign(
+          {},
+          this.message
+        )
+      );
 
       if(
         this.message.frameType.id==this.messageRef.frameTypes.dataWithAckType
@@ -174,7 +186,7 @@ class Response extends Events{
 
       if(next){
         setTimeout(
-          this.parse.bind(next),
+          this.parse.bind(this,next),
           5
         );
       }

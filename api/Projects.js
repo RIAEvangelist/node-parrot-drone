@@ -6,6 +6,7 @@ const CommonCommands=require('./CommonCommands.js');
 //All common drone command classes
 class Projects extends Events{
   constructor(){
+    super();
     this.lookup=[
       {
         name:'common',
