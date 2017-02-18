@@ -1,8 +1,8 @@
 {
-  "name": "parrot-mini-drone",
+  "name": "node-parrot-drone",
   "version": "0.0.1",
   "description": "extendable node module to allow control of any Parrot Mini Drone",
-  "main": "parrot-mini-drone.js",
+  "main": "node-parrot-drone.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RIAEvangelist/parrot-mini-drone.git"
@@ -10,6 +10,9 @@
   "keywords": [
     "parrot",
     "drone",
+    "AR",
+    "bebop",
+    "jumping",
     "mini",
     "SDK",
     "node",

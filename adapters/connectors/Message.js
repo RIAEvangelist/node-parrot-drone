@@ -4,10 +4,10 @@ const FrameTypes=require('../../api/FrameTypeCollection.js');
 const FrameIDs=require('../../api/FrameIDCollection.js');
 
 class Message{
-  constructor(projects){
+  constructor(drone){
     this.frameTypes   = new FrameTypes;
     this.frameIDs     = new FrameIDs;
-    this.projects     = projects;
+    this.drone        = drone;
     this.sequence     = {};
 
     this.reset();
@@ -17,20 +17,18 @@ class Message{
     this.frameType=this.frameTypes.dataType;
     this.frameID=this.frameIDs.cdNoNackID;
 
-    this.projectID=null;
-    this.classID=null;
-    this.command=null;
-
-    this.arguments=null;
-
-    this.header = new Buffer.allocUnsafe(7);
-    this.header.fill(0);
-
     this.payload=null;
   }
 
-  build() {
-      this.payload=null;
+  build(
+    projectID=null,
+    classID=null,
+    commandRef=null
+  ){
+      this.reset();
+
+      const header = new Buffer.allocUnsafe(7);
+      header.fill(0);
 
       if (!this.sequence[this.frameID]) {
         this.sequence[this.frameID] = 0;
@@ -45,8 +43,8 @@ class Message{
       const args=[];
       let argSize=0;
 
-      for(const argName of this.command.lookup){
-        const arg=this.command[argName];
+      for(const argName of commandRef.lookup){
+        const arg=commandRef[argName];
         let size=arg.bytes;
         if(arg.type=='string'){
           arg.value+='\0';
@@ -57,91 +55,106 @@ class Message{
         argSize+=size;
       }
 
-      this.arguments = new Buffer.allocUnsafe(argSize+4);
-      this.arguments.fill(0);
+      const commandArgs = new Buffer.allocUnsafe(argSize+4);
+      commandArgs.fill(0);
 
-      this.arguments.writeUInt8(this.projectID,0);
-      this.arguments.writeUInt8(this.classID,1);
-      this.arguments.writeUInt16LE(this.command.id,2);
+      commandArgs.writeUInt8(projectID,0);
+      commandArgs.writeUInt8(classID,1);
+      commandArgs.writeUInt16LE(commandRef.id,2);
 
       let currentArgByte=0;
       for(const arg of args){
         switch(arg.bytes){
           case 1 :
             if(arg.type=='unsigned'){
-              this.arguments.writeUInt8(
+              commandArgs.writeUInt8(
                 Number(arg.value),
                 currentArgByte
               );
               break;
             }
-            this.arguments.writeInt8(
+            commandArgs.writeInt8(
               Number(arg.value),
               currentArgByte
             );
           break;
           case 2 :
             if(arg.type=='unsigned'){
-              this.arguments.writeUInt16LE(
+              commandArgs.writeUInt16LE(
                 Number(arg.value),
                 currentArgByte
               );
               break;
             }
-            this.arguments.writeInt16LE(
+            commandArgs.writeInt16LE(
               Number(arg.value),
               currentArgByte
             );
           break;
           case 4 :
             if(arg.type=='unsigned'){
-              this.arguments.writeUInt32LE(
+              commandArgs.writeUInt32LE(
                 Number(arg.value),
                 currentArgByte
               );
               break;
             }
             if(arg.type=='float'){
-              this.arguments.writeFloatLE(
+              commandArgs.writeFloatLE(
                 Number(arg.value),
                 currentArgByte
               );
               break;
             }
-            this.arguments.writeInt32LE(
+            commandArgs.writeInt32LE(
               Number(arg.value),
               currentArgByte
             );
           break;
           default :
-            this.arguments.write(arg.value,currentArgByte);
+            commandArgs.write(arg.value,currentArgByte);
         }
         currentArgByte+=arg.size;
       }
 
-      const payloadSize=this.arguments.length + this.header.length;
+      const payloadSize=commandArgs.length + header.length;
 
-      this.header.writeUInt8(
+      header.writeUInt8(
         Number(this.frameType),
         0
       );
-      this.header.writeUInt8(
+      header.writeUInt8(
         Number(this.frameID),
         1
       );
-      this.header.writeUInt8(this.sequence[this.frameID], 2);
-      this.header.writeUInt32LE(payloadSize, 3);
+      header.writeUInt8(this.sequence[this.frameID], 2);
+      header.writeUInt32LE(payloadSize, 3);
 
       this.payload=Buffer.concat(
           [
-              this.header,
-              this.arguments
+              header,
+              commandArgs
           ],
           payloadSize
       );
 
       return this.payload;
   };
+
+  send(payload=this.payload){
+    this.drone.d2c.server.emit(
+        this.drone.droneSocket,
+        payload
+    );
+
+    this.drone.emit(
+        'messageSent',
+        {
+          socket:this.drone.droneSocket,
+          payload:payload
+        }
+    );
+  }
 }
 
 module.exports=Message;

@@ -1,6 +1,4 @@
-var miniDrone=require('../parrot-mini-drone.js');
+const parrot=require('../node-parrot-drone.js');
 
-var drone=new miniDrone.Wifi;
-drone.config.droneName='test-sumo';
-
+const drone=new parrot.Wifi;
 drone.connect();

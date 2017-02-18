@@ -8,7 +8,7 @@ class Collection{
   push(...entries){
     for(let id in entries){
       let entry=entries[id];
-      if(!entry.id){
+      if(entry.id==undefined||entry.id==null){
         entry={
           id:id,
           name:entry

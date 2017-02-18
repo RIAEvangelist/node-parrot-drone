@@ -2,12 +2,10 @@
 const Events=require('event-pubsub');
 
 class Response extends Events{
-    constructor(messageRef,ipcRef,droneSocket,data){
+    constructor(drone,data){
       super();
       this.message={};
-      this.messageRef=messageRef;
-      this.ipcRef=ipcRef;
-      this.droneSocket=droneSocket;
+      this.drone=drone;
       if(data){
         this.parse(data);
       }
@@ -45,14 +43,14 @@ class Response extends Events{
 
       this.message.raw        = data;
 
-      this.message.frameType  = this.messageRef.frameTypes.lookup[data.readUInt8(0)];
-      this.message.frameID    = this.messageRef.frameIDs.lookup[data.readUInt8(1)];
-      this.message.index      = data.readUInt8(2);
-      this.message.size       = data.readUInt32LE(3);
+      this.message.frameType  = this.drone.message.frameTypes.lookup[this.message.raw.readUInt8(0)];
+      this.message.frameID    = this.drone.message.frameIDs.lookup[this.message.raw.readUInt8(1)];
+      this.message.index      = this.message.raw.readUInt8(2);
+      this.message.size       = this.message.raw.readUInt32LE(3);
 
-      this.message.projectID  = data.readUInt8(7);
-      this.message.classID    = data.readUInt8(8);
-      this.message.commandID  = data.readUInt16LE(9);
+      this.message.projectID  = this.message.raw.readUInt8(7);
+      this.message.classID    = this.message.raw.readUInt8(8);
+      this.message.commandID  = this.message.raw.readUInt16LE(9);
 
       this.message.arguments  = null;
 
@@ -62,29 +60,59 @@ class Response extends Events{
         next=data.slice(this.message.size);
         this.message.raw=data.slice(0,this.message.size);
       }
-      if(this.message.size<data.length){
-        //corrupt buffer
+
+      if(
+        this.message.size>this.message.raw.length
+        ||this.message.size<8
+        ||!this.message.frameType
+        ||!this.message.frameID
+        ||!this.message.size
+      ){
+        this.drone.emit(
+          'corruptResponse',
+          Object.assign(
+            {},
+            this.message
+          )
+        )
         return;
       }
 
-      if(this.message.frameID === this.messageRef.frameIDs.internalBufferPing){
-        this.messageRef.runningTime = this.message.raw.readUInt32LE(7) + (this.message.raw.readUInt32LE(11) / 1e10)
-
-        this.message.raw.writeUInt8(
-          this.messageRef.frameIDs.internalBufferPong,
-          1
-        );
-
-        this.ipcRef.server.emit(
-            this.droneSocket,
-            this.message.raw
+      if(this.message.frameID.id == this.drone.message.frameIDs.internalBufferPong){
+        this.drone.emit(
+          'dronePong',
+          this.message.raw
         );
 
         if(next){
-          setTimeout(
-            this.parse.bind(this,next),
-            5
-          );
+          this.parse(next);
+        }
+
+        return;
+      }
+
+      if(this.message.frameID.id == this.drone.message.frameIDs.internalBufferPing){
+        this.drone.runningTime = this.message.raw.readUInt32LE(7) + (this.message.raw.readUInt32LE(11) / 1e10)
+
+        this.message.raw.writeUInt8(
+          this.drone.message.frameIDs.internalBufferPong,
+          1
+        );
+
+        this.drone.message.send(this.message.raw);
+
+        this.drone.emit(
+          'dronePing',
+          this.message
+        );
+
+        this.drone.emit(
+          'runTimeChanged',
+          this.drone.runningTime
+        );
+
+        if(next){
+          this.parse(next);
         }
 
         return;
@@ -96,14 +124,14 @@ class Response extends Events{
 
       this.message.commandName    = null;
       this.message.className      = null;
-      this.message.project    = this.messageRef.projects.lookup[
+      this.message.project    = this.drone.projects.lookup[
         this.message.projectID
       ];
 
       this.message.command = null;
 
       if(this.message.project){
-        this.message.className    = this.messageRef.projects[
+        this.message.className    = this.drone.projects[
           this.message.project.name
         ].lookup[
           this.message.classID
@@ -111,7 +139,7 @@ class Response extends Events{
       }
 
       if(this.message.className){
-        const classRef=this.messageRef.projects[
+        const classRef=this.drone.projects[
           this.message.project.name
         ][
           this.message.className
@@ -168,21 +196,53 @@ class Response extends Events{
         }
       }
 
-      this.messageRef.messageIndex=this.message.index+1;
+      this.drone.message.messageIndex=this.message.index+1;
 
       if(this.message.command){
-        this.message.command.publish('change');
+        this.drone.emit(
+          this.message.commandName,
+          this.message.command
+        );
 
-        console.log(this.message.commandName);
+        this.message.command.emit(
+          'change',
+          this.message.command
+        );
+
         for(const key in this.message.command){
           if(this.message.command.lookup.indexOf(key)<0){
             continue;
           }
-
-          console.log(`${key} : ${this.message.command[key].value}`);
         }
       }
-      this.messageRef.projects.publish(
+
+      console.log(this.message.frameType.id,this.drone.message.frameTypes.dataWithAckType)
+
+      if(this.message.frameType.id==this.drone.message.frameTypes.dataWithAckType){
+        const ack=new Buffer.allocUnsafe(8);
+        const frameID=this.drone.message.frameIDs.defaultManagerMaxID/2
+          +this.message.id;
+
+        if(!this.drone.message.sequence[frameID]){
+          this.drone.message.sequence[frameID]=0;
+        }
+
+        this.drone.message.sequence[frameID]++;
+
+        if(this.drone.message.sequence[frameID]>255){
+          this.drone.message.sequence[frameID]=0;
+        }
+
+        ack.writeUInt8(this.drone.message.frameTypes.ackType,0);
+        ack.writeUInt8(frameID,2);
+        ack.writeUInt8(this.drone.message.sequence[frameID],2);
+        ack.writeUInt32LE(8,3);
+        ack.writeUInt8(this.message.index,7);
+
+        this.drone.message.send(ack);
+      }
+
+      this.drone.emit(
         'message',
         Object.assign(
           {},
@@ -190,40 +250,8 @@ class Response extends Events{
         )
       );
 
-      if(
-        this.message.frameType.id==this.messageRef.frameTypes.dataWithAckType
-      ){
-        const ack=new Buffer.allocUnsafe(8);
-        const frameID=this.messageRef.frameIDs.defaultManagerMaxID/2
-          +this.message.id;
-
-        if(!this.messageRef.sequence[frameID]){
-          this.messageRef.sequence[frameID]=0;
-        }
-
-        this.messageRef.sequence[frameID]++;
-
-        if(this.messageRef.sequence[frameID]>255){
-          this.messageRef.sequence[frameID]=0;
-        }
-
-        ack.writeUInt8(this.messageRef.frameTypes.ackType,0);
-        ack.writeUInt8(frameID,2);
-        ack.writeUInt8(this.messageRef.sequence[frameID],2);
-        ack.writeUInt32LE(8,3);
-        ack.writeUInt8(this.message.index,7);
-
-        this.ipcRef.server.emit(
-            this.droneSocket,
-            ack
-        );
-      }
-
       if(next){
-        setTimeout(
-          this.parse.bind(this,next),
-          5
-        );
+        this.parse(next);
       }
     }
 }
