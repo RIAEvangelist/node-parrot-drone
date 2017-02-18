@@ -38,6 +38,11 @@ class Response extends Events{
     }
 
     parse(data){
+      //console.log(data)
+      if(data.length<1){
+        throw 'empty data';
+      }
+
       this.message.raw        = data;
 
       this.message.frameType  = this.messageRef.frameTypes.lookup[data.readUInt8(0)];
@@ -54,8 +59,12 @@ class Response extends Events{
       let next=null;
 
       if(this.message.raw.length>this.message.size){
-        next=data.slice(this.messsage.size);
-        this.raw=data.slice(0,this.messsage.size);
+        next=data.slice(this.message.size);
+        this.message.raw=data.slice(0,this.message.size);
+      }
+      if(this.message.size<data.length){
+        //corrupt buffer
+        return;
       }
 
       if(this.message.frameID === this.messageRef.frameIDs.internalBufferPing){
@@ -120,7 +129,7 @@ class Response extends Events{
       if(this.message.command && this.message.command.lookup.length>0){
         for(const argName of this.message.command.lookup){
           const arg=this.message.command[argName];
-          console.log(argName,arg,this.message.arguments)
+          //console.log(argName,arg,this.message.arguments)
           switch(arg.type){
             case 'unsigned' :
               switch(arg.bytes){
@@ -161,10 +170,17 @@ class Response extends Events{
 
       this.messageRef.messageIndex=this.message.index+1;
 
-      console.log(this.message.commandName,this.message.command);
-
       if(this.message.command){
         this.message.command.publish('change');
+
+        console.log(this.message.commandName);
+        for(const key in this.message.command){
+          if(this.message.command.lookup.indexOf(key)<0){
+            continue;
+          }
+
+          console.log(`${key} : ${this.message.command[key].value}`);
+        }
       }
       this.messageRef.projects.publish(
         'message',
@@ -176,11 +192,30 @@ class Response extends Events{
 
       if(
         this.message.frameType.id==this.messageRef.frameTypes.dataWithAckType
-        ||this.message.frameType.id==this.messageRef.frameTypes.undefinedID
       ){
+        const ack=new Buffer.allocUnsafe(8);
+        const frameID=this.messageRef.frameIDs.defaultManagerMaxID/2
+          +this.message.id;
+
+        if(!this.messageRef.sequence[frameID]){
+          this.messageRef.sequence[frameID]=0;
+        }
+
+        this.messageRef.sequence[frameID]++;
+
+        if(this.messageRef.sequence[frameID]>255){
+          this.messageRef.sequence[frameID]=0;
+        }
+
+        ack.writeUInt8(this.messageRef.frameTypes.ackType,0);
+        ack.writeUInt8(frameID,2);
+        ack.writeUInt8(this.messageRef.sequence[frameID],2);
+        ack.writeUInt32LE(8,3);
+        ack.writeUInt8(this.message.index,7);
+
         this.ipcRef.server.emit(
             this.droneSocket,
-            this.message.raw
+            ack
         );
       }
 

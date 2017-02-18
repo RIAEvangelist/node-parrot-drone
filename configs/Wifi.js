@@ -5,13 +5,9 @@ class MiniDroneConfig{
   constructor(){
     this.ipc=new IPCConfig;
     this.droneName=null;
-    this.droneIp='192.168.2.1';
-    this.discoveryPort=44444;
 
     //client sends message to drone port
     this.c2d_port=null;
-    //drone sends message to client port
-    this.d2c_port=7778;
 
     //client sends update to drone
     this.c2d_update_port=null;

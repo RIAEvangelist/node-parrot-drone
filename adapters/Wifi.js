@@ -8,11 +8,19 @@ const Projects=require('../api/Projects.js');
 class MiniDroneWifi {
     constructor(){
       this.config=new Config;
-      this.ipc=new ipc.IPC;
+      this.discovery=new ipc.IPC;
+      this.d2c=new ipc.IPC;
+
       Object.assign(
-        this.ipc.config,
-        this.config.ipc
+        this.discovery.config,
+        this.config.ipc.discovery
       );
+
+      Object.assign(
+        this.d2c.config,
+        this.config.ipc.d2c
+      );
+
       this.projects=new Projects;
       this.message=new Message(this.projects);
     }
@@ -22,35 +30,28 @@ class MiniDroneWifi {
       this.bound.connectedToDrone=this.connectedToDrone.bind(this);
       this.bound.importDataFromDrone=this.importDataFromDrone.bind(this);
       this.bound.init=this.init.bind(this);
-      this.bound.gotResponse=this.gotResponse.bind(this);
+      this.bound.d2cResponse=this.gotResponse.bind(this,this.d2c);
 
-      this.ipc.serveNet(
-          this.config.d2c_port,
+      this.d2c.serveNet(
           'udp4',
           this.bound.init
       );
 
-      this.ipc.server.on(
-          'data',
-          this.bound.gotResponse
-      );
+      this.d2c.server.start();
 
-      this.ipc.server.start();
+      this.discovery.connectToNet(
+        'drone',
+        function(){
+          this.discovery.of.drone.on(
+            'connect',
+            this.bound.connectedToDrone
+          );
 
-      this.ipc.connectToNet(
-        this.config.droneName,
-        this.config.droneIp,
-        this.config.discoveryPort
-      );
-
-      this.ipc.of[this.config.droneName].on(
-        'connect',
-        this.bound.connectedToDrone
-      );
-
-      this.ipc.of[this.config.droneName].on(
-          'data',
-          this.bound.importDataFromDrone
+          this.discovery.of.drone.on(
+              'data',
+              this.bound.importDataFromDrone
+          );
+        }.bind(this)
       );
     }
 
@@ -59,17 +60,18 @@ class MiniDroneWifi {
         const message={
           'controller_type': this.config.controller_type,
           'controller_name': this.config.controller_name,
-          'd2c_port': this.config.d2c_port
+          'd2c_port': this.d2c.config.networkPort
         }
 
-        this.ipc.of[this.config.droneName].emit(
+        this.discovery.of.drone.emit(
             JSON.stringify(message)
         );
     }
 
 
     importDataFromDrone(data){
-        this.ipc.disconnect(this.config.droneName);
+        this.discovery.config.stopRetrying=true;
+        this.discovery.disconnect('discovery');
         data=data.toString().replace(/\0/g,'');
         console.log(
           'data',
@@ -83,38 +85,66 @@ class MiniDroneWifi {
         const project=this.projects.common;
 
         this.message.projectID=project.id;
+        this.message.classID=project.settings.id;
+        this.message.command=project.settings.allSettings;
+
+        const getSettingsState=this.message.build();
+
         this.message.classID=project.common.id;
         this.message.command=project.common.allStates;
 
-        const payload=this.message.build();
+        const getCommonState=this.message.build();
 
-        console.log({
-            address : this.config.droneIp,
-            port    : this.config.c2d_port
-        });
+        this.message.classID=project.calibration.id;
+        this.message.command=project.calibration.magnetoCalibration;
+        this.message.command.calibrate.value=1;
 
-        this.ipc.config.encoding='binary';
+        const calibrate=this.message.build();
 
-        this.ipc.server.emit(
-            {
-                address : this.config.droneIp,
-                port    : this.config.c2d_port
-            },
-            payload
+        setTimeout(
+          function(){
+            this.d2c.server.emit(
+                {
+                    address : this.discovery.config.networkHost,
+                    port    : this.config.c2d_port
+                },
+                getSettingsState
+            );
+
+            this.d2c.server.emit(
+                {
+                    address : this.discovery.config.networkHost,
+                    port    : this.config.c2d_port
+                },
+                getCommonState
+            );
+
+            this.d2c.server.emit(
+                {
+                    address : this.discovery.config.networkHost,
+                    port    : this.config.c2d_port
+                },
+                calibrate
+            );
+          }.bind(this),
+          3000
         );
     }
 
     init(){
-      //console.log(this.ipc.server)
+      this.d2c.server.on(
+          'data',
+          this.bound.d2cResponse
+      );
     }
 
-    gotResponse(data){
+    gotResponse(ipc,data){
       console.log('<<<<<<<<<<<<>>>>>>>>>>>>>>>>');
         const response=new Response(
           this.message,
-          this.ipc,
+          this.d2c,
           {
-            address : this.config.droneIp,
+            address : this.discovery.config.networkHost,
             port    : this.config.c2d_port
           },
           data

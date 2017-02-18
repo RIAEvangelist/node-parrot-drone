@@ -45,6 +45,10 @@ class FrameTypes extends Collection{
       {
         name:'dcNavDataID',
         id:127
+      },
+      {
+        name:'defaultManagerMaxID',
+        id:256
       }
     );
   }
