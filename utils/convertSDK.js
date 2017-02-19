@@ -240,7 +240,8 @@ ${
             && command.comment.info.triggered
           ){
             markdown+=`
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the \` ${commandName} \` event from the drone :
 
 \`\`\`javascript
 
@@ -256,7 +257,7 @@ drone.on(
 `
           }else{
             markdown+=`
-Example sending the ${commandName} command to your parrot drone :
+Example sending the \` ${commandName} \` command to your parrot drone :
 
 \`\`\`javascript
 
