@@ -22,6 +22,23 @@ projects.skyctrl=skyctrl;
 const droneRefs={
   "deviceControllers": {
     "details": "list of all ARController_Device",
+    "ARDrone": {
+      "info": {
+        "tagType": "ARController_Device",
+        "name": "ARDrone",
+        "product": "ARDRONE",
+        "flags": "can_be_extension"
+      },
+      "details": "AR Drone project",
+      "common": common,
+      "ardrone3": ardrone3,
+      "generic": {
+        "info": {
+          "tagType": "feature",
+          "name": "generic"
+        }
+      }
+    },
     "BebopDrone": {
       "info": {
         "tagType": "ARController_Device",

@@ -5,6 +5,16 @@
 Each drone has a list of the command sets it uses. Please click the link to see the documentation for each set of commands. Some are quite extencive.
 
 
+# ARDrone
+Product : ARDRONE
+AR Drone project
+
+This drone uses the following command sets :
+
+* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+* [ardrone3](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/ardrone3.md)
+* [generic](../projects/generic.js) not yet documented. See the raw object for now.
+
 # BebopDrone
 Product : ARDRONE
 Bebop Drone project
