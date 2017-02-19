@@ -194,9 +194,9 @@ generated on : ${new Date().toLocaleString()}
 \\**************************************************/
 const projects=${
   JSON.stringify(
-    projects//,
-    // null,
-    // 2
+    projects,
+    null,
+    2
   )
 }
 
