@@ -48,7 +48,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[Disconnect](#projectscommonnetworkdisconnect)|0|0x0|Signals the remote that the host will disconnect|
-## projects.common.Network.Disconnect Command
+## projects.common.Network.Disconnect
 
 Signals the remote that the host will disconnect
 
@@ -85,7 +85,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[Disconnection](#projectscommonnetworkeventdisconnection)|0|0x0|Drone will disconnect|
-## projects.common.NetworkEvent.Disconnection Event
+## projects.common.NetworkEvent.Disconnection
 
 Drone will disconnect
 
@@ -124,7 +124,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[ProductName](#projectscommonsettingsproductname)|2|0x2|Set product name|
 |[Country](#projectscommonsettingscountry)|3|0x3|Set the country|
 |[AutoCountry](#projectscommonsettingsautocountry)|4|0x4|Enable auto_country|
-## projects.common.Settings.AllSettings Command
+## projects.common.Settings.AllSettings
 
 Ask for all settings
 
@@ -154,7 +154,7 @@ drone.message.send(AllSettingsMessage);
 ```
 
 
-## projects.common.Settings.Reset Command
+## projects.common.Settings.Reset
 
 Reset all settings
 
@@ -181,7 +181,7 @@ drone.message.send(ResetMessage);
 ```
 
 
-## projects.common.Settings.ProductName Command
+## projects.common.Settings.ProductName
 
 Set product name
 
@@ -209,7 +209,7 @@ drone.message.send(ProductNameMessage);
 ```
 
 
-## projects.common.Settings.Country Command
+## projects.common.Settings.Country
 
 Set the country
 
@@ -238,7 +238,7 @@ drone.message.send(CountryMessage);
 ```
 
 
-## projects.common.Settings.AutoCountry Command
+## projects.common.Settings.AutoCountry
 
 Enable auto_country
 
@@ -284,7 +284,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[ProductSerialLowChanged](#projectscommonsettingsstateproductseriallowchanged)|5|0x5|Product serial (2nd part)|
 |[CountryChanged](#projectscommonsettingsstatecountrychanged)|6|0x6|Country changed|
 |[AutoCountryChanged](#projectscommonsettingsstateautocountrychanged)|7|0x7|Auto_country changed|
-## projects.common.SettingsState.AllSettingsChanged Event
+## projects.common.SettingsState.AllSettingsChanged
 
 All settings have been sent
 
@@ -308,7 +308,7 @@ drone.on(
 ```
 
 
-## projects.common.SettingsState.ResetChanged Event
+## projects.common.SettingsState.ResetChanged
 
 All settings have been reset
 
@@ -330,7 +330,7 @@ drone.on(
 ```
 
 
-## projects.common.SettingsState.ProductNameChanged Event
+## projects.common.SettingsState.ProductNameChanged
 
 Product name changed
 
@@ -352,7 +352,7 @@ drone.on(
 ```
 
 
-## projects.common.SettingsState.ProductVersionChanged Event
+## projects.common.SettingsState.ProductVersionChanged
 
 Product version
 
@@ -374,7 +374,7 @@ drone.on(
 ```
 
 
-## projects.common.SettingsState.ProductSerialHighChanged Event
+## projects.common.SettingsState.ProductSerialHighChanged
 
 Product serial (1st part)
 
@@ -396,7 +396,7 @@ drone.on(
 ```
 
 
-## projects.common.SettingsState.ProductSerialLowChanged Event
+## projects.common.SettingsState.ProductSerialLowChanged
 
 Product serial (2nd part)
 
@@ -418,7 +418,7 @@ drone.on(
 ```
 
 
-## projects.common.SettingsState.CountryChanged Event
+## projects.common.SettingsState.CountryChanged
 
 Country changed
 
@@ -440,7 +440,7 @@ drone.on(
 ```
 
 
-## projects.common.SettingsState.AutoCountryChanged Event
+## projects.common.SettingsState.AutoCountryChanged
 
 Auto_country changed
 
@@ -475,7 +475,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[CurrentDate](#projectscommoncommoncurrentdate)|1|0x1|Set the date|
 |[CurrentTime](#projectscommoncommoncurrenttime)|2|0x2|Set the time|
 |[Reboot](#projectscommoncommonreboot)|3|0x3|Reboot|
-## projects.common.Common.AllStates Command
+## projects.common.Common.AllStates
 
 Ask for all states
 
@@ -505,7 +505,7 @@ drone.message.send(AllStatesMessage);
 ```
 
 
-## projects.common.Common.CurrentDate Command
+## projects.common.Common.CurrentDate
 
 Set the date
 
@@ -537,7 +537,7 @@ drone.message.send(CurrentDateMessage);
 ```
 
 
-## projects.common.Common.CurrentTime Command
+## projects.common.Common.CurrentTime
 
 Set the time
 
@@ -569,7 +569,7 @@ drone.message.send(CurrentTimeMessage);
 ```
 
 
-## projects.common.Common.Reboot Command
+## projects.common.Common.Reboot
 
 Reboot
 
@@ -620,7 +620,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[MassStorageContent](#projectscommoncommonstatemassstoragecontent)|12|0xc|Mass storage content|
 |[MassStorageContentForCurrentRun](#projectscommoncommonstatemassstoragecontentforcurrentrun)|13|0xd|Mass storage content for current run|
 |[VideoRecordingTimestamp](#projectscommoncommonstatevideorecordingtimestamp)|14|0xe|Video recording timestamp|
-## projects.common.CommonState.AllStatesChanged Event
+## projects.common.CommonState.AllStatesChanged
 
 All states have been sent
 
@@ -644,7 +644,7 @@ drone.on(
 ```
 
 
-## projects.common.CommonState.BatteryStateChanged Event
+## projects.common.CommonState.BatteryStateChanged
 
 Battery state
 
@@ -666,7 +666,7 @@ drone.on(
 ```
 
 
-## projects.common.CommonState.MassStorageStateListChanged Event
+## projects.common.CommonState.MassStorageStateListChanged
 
 Mass storage state list
 
@@ -688,7 +688,7 @@ drone.on(
 ```
 
 
-## projects.common.CommonState.MassStorageInfoStateListChanged Event
+## projects.common.CommonState.MassStorageInfoStateListChanged
 
 Mass storage info state list
 
@@ -710,7 +710,7 @@ drone.on(
 ```
 
 
-## projects.common.CommonState.CurrentDateChanged Event
+## projects.common.CommonState.CurrentDateChanged
 
 Date changed
 
@@ -735,7 +735,7 @@ drone.on(
 ```
 
 
-## projects.common.CommonState.CurrentTimeChanged Event
+## projects.common.CommonState.CurrentTimeChanged
 
 Time changed
 
@@ -760,7 +760,7 @@ drone.on(
 ```
 
 
-## projects.common.CommonState.MassStorageInfoRemainingListChanged Command
+## projects.common.CommonState.MassStorageInfoRemainingListChanged
 
 Mass storage remaining data list
 
@@ -782,7 +782,7 @@ drone.on(
 ```
 
 
-## projects.common.CommonState.WifiSignalChanged Event
+## projects.common.CommonState.WifiSignalChanged
 
 Rssi changed
 
@@ -804,7 +804,7 @@ drone.on(
 ```
 
 
-## projects.common.CommonState.SensorsStatesListChanged Event
+## projects.common.CommonState.SensorsStatesListChanged
 
 Sensors state list
 
@@ -826,7 +826,7 @@ drone.on(
 ```
 
 
-## projects.common.CommonState.ProductModel Event
+## projects.common.CommonState.ProductModel
 
 Product sub_model
 
@@ -849,7 +849,7 @@ drone.on(
 ```
 
 
-## projects.common.CommonState.CountryListKnown Command
+## projects.common.CommonState.CountryListKnown
 
 Country list
 
@@ -875,7 +875,7 @@ drone.message.send(CountryListKnownMessage);
 ```
 
 
-## projects.common.CommonState.DeprecatedMassStorageContentChanged Command
+## projects.common.CommonState.DeprecatedMassStorageContentChanged
 
 Mass storage content changed
 
@@ -897,7 +897,7 @@ drone.on(
 ```
 
 
-## projects.common.CommonState.MassStorageContent Event
+## projects.common.CommonState.MassStorageContent
 
 Mass storage content
 
@@ -919,7 +919,7 @@ drone.on(
 ```
 
 
-## projects.common.CommonState.MassStorageContentForCurrentRun Event
+## projects.common.CommonState.MassStorageContentForCurrentRun
 
 Mass storage content for current run
 
@@ -942,7 +942,7 @@ drone.on(
 ```
 
 
-## projects.common.CommonState.VideoRecordingTimestamp Event
+## projects.common.CommonState.VideoRecordingTimestamp
 
 Video recording timestamp
 
@@ -978,7 +978,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[SwitchOff](#projectscommonoverheatswitchoff)|0|0x0|Switch off after an overheat|
 |[Ventilate](#projectscommonoverheatventilate)|1|0x1|Ventilate after an overheat|
-## projects.common.OverHeat.SwitchOff Command
+## projects.common.OverHeat.SwitchOff
 
 Switch off after an overheat
 
@@ -1004,7 +1004,7 @@ drone.message.send(SwitchOffMessage);
 ```
 
 
-## projects.common.OverHeat.Ventilate Command
+## projects.common.OverHeat.Ventilate
 
 Ventilate after an overheat
 
@@ -1041,7 +1041,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[OverHeatChanged](#projectscommonoverheatstateoverheatchanged)|0|0x0|Overheat|
 |[OverHeatRegulationChanged](#projectscommonoverheatstateoverheatregulationchanged)|1|0x1|Overheat regulation type|
-## projects.common.OverHeatState.OverHeatChanged Command
+## projects.common.OverHeatState.OverHeatChanged
 
 Overheat
 
@@ -1063,7 +1063,7 @@ drone.on(
 ```
 
 
-## projects.common.OverHeatState.OverHeatRegulationChanged Command
+## projects.common.OverHeatState.OverHeatRegulationChanged
 
 Overheat regulation type
 
@@ -1095,7 +1095,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[isPiloting](#projectscommoncontrollerispiloting)|0|0x0|Inform about hud entering|
-## projects.common.Controller.isPiloting Command
+## projects.common.Controller.isPiloting
 
 Inform about hud entering
 
@@ -1134,7 +1134,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[OutdoorSetting](#projectscommonwifisettingsoutdoorsetting)|0|0x0|Set wifi outdoor mode|
-## projects.common.WifiSettings.OutdoorSetting Command
+## projects.common.WifiSettings.OutdoorSetting
 
 Set wifi outdoor mode
 
@@ -1172,7 +1172,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[outdoorSettingsChanged](#projectscommonwifisettingsstateoutdoorsettingschanged)|0|0x0|Wifi outdoor mode|
-## projects.common.WifiSettingsState.outdoorSettingsChanged Event
+## projects.common.WifiSettingsState.outdoorSettingsChanged
 
 Wifi outdoor mode
 
@@ -1206,7 +1206,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[Start](#projectscommonmavlinkstart)|0|0x0|Start a FlightPlan|
 |[Pause](#projectscommonmavlinkpause)|1|0x1|Pause a FlightPlan|
 |[Stop](#projectscommonmavlinkstop)|2|0x2|Stop a FlightPlan|
-## projects.common.Mavlink.Start Command
+## projects.common.Mavlink.Start
 
 Start a FlightPlan
 
@@ -1239,7 +1239,7 @@ drone.message.send(StartMessage);
 ```
 
 
-## projects.common.Mavlink.Pause Command
+## projects.common.Mavlink.Pause
 
 Pause a FlightPlan
 
@@ -1267,7 +1267,7 @@ drone.message.send(PauseMessage);
 ```
 
 
-## projects.common.Mavlink.Stop Command
+## projects.common.Mavlink.Stop
 
 Stop a FlightPlan
 
@@ -1306,7 +1306,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[MavlinkFilePlayingStateChanged](#projectscommonmavlinkstatemavlinkfileplayingstatechanged)|0|0x0|Playing state of a FlightPlan|
 |[MavlinkPlayErrorStateChanged](#projectscommonmavlinkstatemavlinkplayerrorstatechanged)|1|0x1|FlightPlan error|
 |[MissonItemExecuted](#projectscommonmavlinkstatemissonitemexecuted)|2|0x2|Mission item executed|
-## projects.common.MavlinkState.MavlinkFilePlayingStateChanged Event
+## projects.common.MavlinkState.MavlinkFilePlayingStateChanged
 
 Playing state of a FlightPlan
 
@@ -1328,7 +1328,7 @@ drone.on(
 ```
 
 
-## projects.common.MavlinkState.MavlinkPlayErrorStateChanged Event
+## projects.common.MavlinkState.MavlinkPlayErrorStateChanged
 
 FlightPlan error
 
@@ -1350,7 +1350,7 @@ drone.on(
 ```
 
 
-## projects.common.MavlinkState.MissonItemExecuted Event
+## projects.common.MavlinkState.MissonItemExecuted
 
 Mission item executed
 
@@ -1383,7 +1383,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[MagnetoCalibration](#projectscommoncalibrationmagnetocalibration)|0|0x0|Start/Abort magnetometer calibration|
 |[PitotCalibration](#projectscommoncalibrationpitotcalibration)|1|0x1|Sent when a calibration of the pitot is asked or is aborted|
-## projects.common.Calibration.MagnetoCalibration Command
+## projects.common.Calibration.MagnetoCalibration
 
 Start/Abort magnetometer calibration
 
@@ -1411,7 +1411,7 @@ drone.message.send(MagnetoCalibrationMessage);
 ```
 
 
-## projects.common.Calibration.PitotCalibration 
+## projects.common.Calibration.PitotCalibration
 
 Sent when a calibration of the pitot is asked or is aborted
 
@@ -1451,7 +1451,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[MagnetoCalibrationAxisToCalibrateChanged](#projectscommoncalibrationstatemagnetocalibrationaxistocalibratechanged)|2|0x2|Axis to calibrate during calibration process|
 |[MagnetoCalibrationStartedChanged](#projectscommoncalibrationstatemagnetocalibrationstartedchanged)|3|0x3|Calibration process state|
 |[PitotCalibrationStateChanged](#projectscommoncalibrationstatepitotcalibrationstatechanged)|4|0x4|Sent when the state of the pitot calibration has changed|
-## projects.common.CalibrationState.MagnetoCalibrationStateChanged Event
+## projects.common.CalibrationState.MagnetoCalibrationStateChanged
 
 Magneto calib process axis state
 
@@ -1473,7 +1473,7 @@ drone.on(
 ```
 
 
-## projects.common.CalibrationState.MagnetoCalibrationRequiredState Event
+## projects.common.CalibrationState.MagnetoCalibrationRequiredState
 
 Calibration required
 
@@ -1495,7 +1495,7 @@ drone.on(
 ```
 
 
-## projects.common.CalibrationState.MagnetoCalibrationAxisToCalibrateChanged Event
+## projects.common.CalibrationState.MagnetoCalibrationAxisToCalibrateChanged
 
 Axis to calibrate during calibration process
 
@@ -1517,7 +1517,7 @@ drone.on(
 ```
 
 
-## projects.common.CalibrationState.MagnetoCalibrationStartedChanged Event
+## projects.common.CalibrationState.MagnetoCalibrationStartedChanged
 
 Calibration process state
 
@@ -1539,7 +1539,7 @@ drone.on(
 ```
 
 
-## projects.common.CalibrationState.PitotCalibrationStateChanged 
+## projects.common.CalibrationState.PitotCalibrationStateChanged
 
 Sent when the state of the pitot calibration has changed
 
@@ -1571,7 +1571,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[CameraSettingsChanged](#projectscommoncamerasettingsstatecamerasettingschanged)|0|0x0|Camera info|
-## projects.common.CameraSettingsState.CameraSettingsChanged Event
+## projects.common.CameraSettingsState.CameraSettingsChanged
 
 Camera info
 
@@ -1603,7 +1603,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[ControllerPositionForRun](#projectscommongpscontrollerpositionforrun)|0|0x0|Set the position of a run|
-## projects.common.GPS.ControllerPositionForRun Command
+## projects.common.GPS.ControllerPositionForRun
 
 Set the position of a run
 
@@ -1644,7 +1644,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[AvailabilityStateChanged](#projectscommonflightplanstateavailabilitystatechanged)|0|0x0|FlightPlan availability|
 |[ComponentStateListChanged](#projectscommonflightplanstatecomponentstatelistchanged)|1|0x1|FlightPlan components state list|
 |[LockStateChanged](#projectscommonflightplanstatelockstatechanged)|2|0x2|FlightPlan lock state|
-## projects.common.FlightPlanState.AvailabilityStateChanged Event
+## projects.common.FlightPlanState.AvailabilityStateChanged
 
 FlightPlan availability
 
@@ -1667,7 +1667,7 @@ drone.on(
 ```
 
 
-## projects.common.FlightPlanState.ComponentStateListChanged Event
+## projects.common.FlightPlanState.ComponentStateListChanged
 
 FlightPlan components state list
 
@@ -1689,7 +1689,7 @@ drone.on(
 ```
 
 
-## projects.common.FlightPlanState.LockStateChanged Event
+## projects.common.FlightPlanState.LockStateChanged
 
 FlightPlan lock state
 
@@ -1724,7 +1724,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[ControllerLibARCommandsVersion](#projectscommonarlibsversionsstatecontrollerlibarcommandsversion)|0|0x0|Controller libARCommands version|
 |[SkyControllerLibARCommandsVersion](#projectscommonarlibsversionsstateskycontrollerlibarcommandsversion)|1|0x1|SkyController libARCommands version|
 |[DeviceLibARCommandsVersion](#projectscommonarlibsversionsstatedevicelibarcommandsversion)|2|0x2|Device libARCommands version|
-## projects.common.ARLibsVersionsState.ControllerLibARCommandsVersion 
+## projects.common.ARLibsVersionsState.ControllerLibARCommandsVersion
 
 Controller libARCommands version
 
@@ -1750,7 +1750,7 @@ drone.message.send(ControllerLibARCommandsVersionMessage);
 ```
 
 
-## projects.common.ARLibsVersionsState.SkyControllerLibARCommandsVersion 
+## projects.common.ARLibsVersionsState.SkyControllerLibARCommandsVersion
 
 SkyController libARCommands version
 
@@ -1776,7 +1776,7 @@ drone.message.send(SkyControllerLibARCommandsVersionMessage);
 ```
 
 
-## projects.common.ARLibsVersionsState.DeviceLibARCommandsVersion 
+## projects.common.ARLibsVersionsState.DeviceLibARCommandsVersion
 
 Device libARCommands version
 
@@ -1813,7 +1813,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[StartingErrorEvent](#projectscommonflightplaneventstartingerrorevent)|0|0x0|FlightPlan start error|
 |[SpeedBridleEvent](#projectscommonflightplaneventspeedbridleevent)|1|0x1|FlightPlan speed clamping|
-## projects.common.FlightPlanEvent.StartingErrorEvent Event
+## projects.common.FlightPlanEvent.StartingErrorEvent
 
 FlightPlan start error
 
@@ -1837,7 +1837,7 @@ drone.on(
 ```
 
 
-## projects.common.FlightPlanEvent.SpeedBridleEvent Event
+## projects.common.FlightPlanEvent.SpeedBridleEvent
 
 FlightPlan speed clamping
 
@@ -1872,7 +1872,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[ControllerReadyForStreaming](#projectscommonaudiocontrollerreadyforstreaming)|0|0x0|Set audio stream direction|
-## projects.common.Audio.ControllerReadyForStreaming Command
+## projects.common.Audio.ControllerReadyForStreaming
 
 Set audio stream direction
 
@@ -1909,7 +1909,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[AudioStreamingRunning](#projectscommonaudiostateaudiostreamingrunning)|0|0x0|Audio stream direction|
-## projects.common.AudioState.AudioStreamingRunning Event
+## projects.common.AudioState.AudioStreamingRunning
 
 Audio stream direction
 
@@ -1941,7 +1941,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[intensity](#projectscommonheadlightsintensity)|0|0x0|Set LEDs intensity|
-## projects.common.Headlights.intensity Command
+## projects.common.Headlights.intensity
 
 Set LEDs intensity
 
@@ -1978,7 +1978,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[intensityChanged](#projectscommonheadlightsstateintensitychanged)|0|0x0|LEDs intensity|
-## projects.common.HeadlightsState.intensityChanged Event
+## projects.common.HeadlightsState.intensityChanged
 
 LEDs intensity
 
@@ -2012,7 +2012,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[StartAnimation](#projectscommonanimationsstartanimation)|0|0x0|Start an animation|
 |[StopAnimation](#projectscommonanimationsstopanimation)|1|0x1|Stop an animation|
 |[StopAllAnimations](#projectscommonanimationsstopallanimations)|2|0x2|Stop all animations|
-## projects.common.Animations.StartAnimation Command
+## projects.common.Animations.StartAnimation
 
 Start an animation
 
@@ -2039,7 +2039,7 @@ drone.message.send(StartAnimationMessage);
 ```
 
 
-## projects.common.Animations.StopAnimation Command
+## projects.common.Animations.StopAnimation
 
 Stop an animation
 
@@ -2067,7 +2067,7 @@ drone.message.send(StopAnimationMessage);
 ```
 
 
-## projects.common.Animations.StopAllAnimations Command
+## projects.common.Animations.StopAllAnimations
 
 Stop all animations
 
@@ -2105,7 +2105,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[List](#projectscommonanimationsstatelist)|0|0x0|Animation state list|
-## projects.common.AnimationsState.List Event
+## projects.common.AnimationsState.List
 
 Animation state list
 
@@ -2137,7 +2137,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[Config](#projectscommonaccessoryconfig)|0|0x0|Declare an accessory|
-## projects.common.Accessory.Config Command
+## projects.common.Accessory.Config
 
 Declare an accessory
 
@@ -2181,7 +2181,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[SupportedAccessoriesListChanged](#projectscommonaccessorystatesupportedaccessorieslistchanged)|0|0x0|Supported accessories list|
 |[AccessoryConfigChanged](#projectscommonaccessorystateaccessoryconfigchanged)|1|0x1|Accessory config|
 |[AccessoryConfigModificationEnabled](#projectscommonaccessorystateaccessoryconfigmodificationenabled)|2|0x2|Accessory declaration availability|
-## projects.common.AccessoryState.SupportedAccessoriesListChanged Event
+## projects.common.AccessoryState.SupportedAccessoriesListChanged
 
 Supported accessories list
 
@@ -2203,7 +2203,7 @@ drone.on(
 ```
 
 
-## projects.common.AccessoryState.AccessoryConfigChanged Event
+## projects.common.AccessoryState.AccessoryConfigChanged
 
 Accessory config
 
@@ -2225,7 +2225,7 @@ drone.on(
 ```
 
 
-## projects.common.AccessoryState.AccessoryConfigModificationEnabled Event
+## projects.common.AccessoryState.AccessoryConfigModificationEnabled
 
 Accessory declaration availability
 
@@ -2257,7 +2257,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[SetMaxChargeRate](#projectscommonchargersetmaxchargerate)|0|0x0|Set max charge rate|
-## projects.common.Charger.SetMaxChargeRate Command
+## projects.common.Charger.SetMaxChargeRate
 
 Set max charge rate
 
@@ -2296,7 +2296,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[CurrentChargeStateChanged](#projectscommonchargerstatecurrentchargestatechanged)|1|0x1|Current charge state|
 |[LastChargeRateChanged](#projectscommonchargerstatelastchargeratechanged)|2|0x2|Last charge rate|
 |[ChargingInfo](#projectscommonchargerstatecharginginfo)|3|0x3|Charging information|
-## projects.common.ChargerState.MaxChargeRateChanged Command
+## projects.common.ChargerState.MaxChargeRateChanged
 
 Max charge rate
 
@@ -2318,7 +2318,7 @@ drone.on(
 ```
 
 
-## projects.common.ChargerState.CurrentChargeStateChanged Command
+## projects.common.ChargerState.CurrentChargeStateChanged
 
 Current charge state
 
@@ -2340,7 +2340,7 @@ drone.on(
 ```
 
 
-## projects.common.ChargerState.LastChargeRateChanged Command
+## projects.common.ChargerState.LastChargeRateChanged
 
 Last charge rate
 
@@ -2362,7 +2362,7 @@ drone.on(
 ```
 
 
-## projects.common.ChargerState.ChargingInfo Event
+## projects.common.ChargerState.ChargingInfo
 
 Charging information
 
@@ -2394,7 +2394,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[RunIdChanged](#projectscommonrunstaterunidchanged)|0|0x0|Current run id|
-## projects.common.RunState.RunIdChanged Event
+## projects.common.RunState.RunIdChanged
 
 Current run id
 

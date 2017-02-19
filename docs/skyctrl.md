@@ -47,7 +47,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[WifiAuthChannelListChanged](#projectsskyctrlwifistatewifiauthchannellistchanged)|2|0x2|Authorized channel list|
 |[AllWifiAuthChannelChanged](#projectsskyctrlwifistateallwifiauthchannelchanged)|3|0x3|Authorized channel list complete|
 |[WifiSignalChanged](#projectsskyctrlwifistatewifisignalchanged)|4|0x4|Strength of the wifi signal|
-## projects.skyctrl.WifiState.WifiList Event
+## projects.skyctrl.WifiState.WifiList
 
 Visible wifi networks
 
@@ -70,7 +70,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.WifiState.ConnexionChanged Event
+## projects.skyctrl.WifiState.ConnexionChanged
 
 Wifi connection status
 
@@ -93,7 +93,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.WifiState.WifiAuthChannelListChanged Event
+## projects.skyctrl.WifiState.WifiAuthChannelListChanged
 
 Authorized channel list
 
@@ -117,7 +117,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.WifiState.AllWifiAuthChannelChanged Event
+## projects.skyctrl.WifiState.AllWifiAuthChannelChanged
 
 Authorized channel list complete
 
@@ -139,7 +139,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.WifiState.WifiSignalChanged Event
+## projects.skyctrl.WifiState.WifiSignalChanged
 
 Strength of the wifi signal
 
@@ -176,7 +176,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[ConnectToWifi](#projectsskyctrlwificonnecttowifi)|2|0x2|Connect the SkyController to a wifi network|
 |[ForgetWifi](#projectsskyctrlwififorgetwifi)|3|0x3|Forget a wifi network|
 |[WifiAuthChannel](#projectsskyctrlwifiwifiauthchannel)|4|0x4|Request the list of authorized channels|
-## projects.skyctrl.Wifi.RequestWifiList Command
+## projects.skyctrl.Wifi.RequestWifiList
 
 Request visible wifi list
 
@@ -204,7 +204,7 @@ drone.message.send(RequestWifiListMessage);
 ```
 
 
-## projects.skyctrl.Wifi.RequestCurrentWifi Command
+## projects.skyctrl.Wifi.RequestCurrentWifi
 
 Request current wifi informations
 
@@ -230,7 +230,7 @@ drone.message.send(RequestCurrentWifiMessage);
 ```
 
 
-## projects.skyctrl.Wifi.ConnectToWifi Command
+## projects.skyctrl.Wifi.ConnectToWifi
 
 Connect the SkyController to a wifi network
 
@@ -258,7 +258,7 @@ drone.message.send(ConnectToWifiMessage);
 ```
 
 
-## projects.skyctrl.Wifi.ForgetWifi Command
+## projects.skyctrl.Wifi.ForgetWifi
 
 Forget a wifi network
 
@@ -286,7 +286,7 @@ drone.message.send(ForgetWifiMessage);
 ```
 
 
-## projects.skyctrl.Wifi.WifiAuthChannel Command
+## projects.skyctrl.Wifi.WifiAuthChannel
 
 Request the list of authorized channels
 
@@ -325,7 +325,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[RequestDeviceList](#projectsskyctrldevicerequestdevicelist)|0|0x0|Request the list of visible devices|
 |[RequestCurrentDevice](#projectsskyctrldevicerequestcurrentdevice)|1|0x1|Request current device informations|
 |[ConnectToDevice](#projectsskyctrldeviceconnecttodevice)|2|0x2|Connect the SkyController to a given device|
-## projects.skyctrl.Device.RequestDeviceList Command
+## projects.skyctrl.Device.RequestDeviceList
 
 Request the list of visible devices
 
@@ -351,7 +351,7 @@ drone.message.send(RequestDeviceListMessage);
 ```
 
 
-## projects.skyctrl.Device.RequestCurrentDevice Command
+## projects.skyctrl.Device.RequestCurrentDevice
 
 Request current device informations
 
@@ -377,7 +377,7 @@ drone.message.send(RequestCurrentDeviceMessage);
 ```
 
 
-## projects.skyctrl.Device.ConnectToDevice Command
+## projects.skyctrl.Device.ConnectToDevice
 
 Connect the SkyController to a given device
 
@@ -415,7 +415,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[DeviceList](#projectsskyctrldevicestatedevicelist)|0|0x0|Visible device|
 |[ConnexionChanged](#projectsskyctrldevicestateconnexionchanged)|1|0x1|Connection status|
-## projects.skyctrl.DeviceState.DeviceList Command
+## projects.skyctrl.DeviceState.DeviceList
 
 Visible device
 
@@ -442,7 +442,7 @@ drone.message.send(DeviceListMessage);
 ```
 
 
-## projects.skyctrl.DeviceState.ConnexionChanged Event
+## projects.skyctrl.DeviceState.ConnexionChanged
 
 Connection status
 
@@ -475,7 +475,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[AllSettings](#projectsskyctrlsettingsallsettings)|0|0x0|Ask for all controller's settings|
 |[Reset](#projectsskyctrlsettingsreset)|1|0x1|Reset all settings|
-## projects.skyctrl.Settings.AllSettings Command
+## projects.skyctrl.Settings.AllSettings
 
 Ask for all controller's settings
 
@@ -501,7 +501,7 @@ drone.message.send(AllSettingsMessage);
 ```
 
 
-## projects.skyctrl.Settings.Reset Command
+## projects.skyctrl.Settings.Reset
 
 Reset all settings
 
@@ -541,7 +541,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[ProductSerialChanged](#projectsskyctrlsettingsstateproductserialchanged)|2|0x2|Product serial|
 |[ProductVariantChanged](#projectsskyctrlsettingsstateproductvariantchanged)|3|0x3|Variant of the SkyController|
 |[ProductVersionChanged](#projectsskyctrlsettingsstateproductversionchanged)|4|0x4|Product versions|
-## projects.skyctrl.SettingsState.AllSettingsChanged Event
+## projects.skyctrl.SettingsState.AllSettingsChanged
 
 AllSettings changed
 
@@ -563,7 +563,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.SettingsState.ResetChanged Event
+## projects.skyctrl.SettingsState.ResetChanged
 
 Settings were reset
 
@@ -585,7 +585,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.SettingsState.ProductSerialChanged Event
+## projects.skyctrl.SettingsState.ProductSerialChanged
 
 Product serial
 
@@ -607,7 +607,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.SettingsState.ProductVariantChanged Event
+## projects.skyctrl.SettingsState.ProductVariantChanged
 
 Variant of the SkyController
 
@@ -629,7 +629,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.SettingsState.ProductVersionChanged Event
+## projects.skyctrl.SettingsState.ProductVersionChanged
 
 Product versions
 
@@ -661,7 +661,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[AllStates](#projectsskyctrlcommonallstates)|0|0x0|Ask for all controller's states.|
-## projects.skyctrl.Common.AllStates Command
+## projects.skyctrl.Common.AllStates
 
 Ask for all controller's states.
 
@@ -697,7 +697,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[AllStatesChanged](#projectsskyctrlcommonstateallstateschanged)|0|0x0|AllStates changed|
-## projects.skyctrl.CommonState.AllStatesChanged Event
+## projects.skyctrl.CommonState.AllStatesChanged
 
 AllStates changed
 
@@ -733,7 +733,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[GpsPositionChanged](#projectsskyctrlskycontrollerstategpspositionchanged)|2|0x2|SkyController position/heading changed|
 |[BatteryState](#projectsskyctrlskycontrollerstatebatterystate)|3|0x3|Battery state|
 |[AttitudeChanged](#projectsskyctrlskycontrollerstateattitudechanged)|4|0x4|Attitude|
-## projects.skyctrl.SkyControllerState.BatteryChanged Event
+## projects.skyctrl.SkyControllerState.BatteryChanged
 
 Battery state changed
 
@@ -755,7 +755,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.SkyControllerState.GpsFixChanged Event
+## projects.skyctrl.SkyControllerState.GpsFixChanged
 
 GPS Fix gained/lost
 
@@ -777,7 +777,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.SkyControllerState.GpsPositionChanged Event
+## projects.skyctrl.SkyControllerState.GpsPositionChanged
 
 SkyController position/heading changed
 
@@ -800,7 +800,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.SkyControllerState.BatteryState Event
+## projects.skyctrl.SkyControllerState.BatteryState
 
 Battery state
 
@@ -822,7 +822,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.SkyControllerState.AttitudeChanged Event
+## projects.skyctrl.SkyControllerState.AttitudeChanged
 
 Attitude
 
@@ -857,7 +857,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[AccessPointSSID](#projectsskyctrlaccesspointsettingsaccesspointssid)|0|0x0|Set access point SSID|
 |[AccessPointChannel](#projectsskyctrlaccesspointsettingsaccesspointchannel)|1|0x1|Set access point channel|
 |[WifiSelection](#projectsskyctrlaccesspointsettingswifiselection)|2|0x2|Set access point band/channel|
-## projects.skyctrl.AccessPointSettings.AccessPointSSID Command
+## projects.skyctrl.AccessPointSettings.AccessPointSSID
 
 Set access point SSID
 
@@ -884,7 +884,7 @@ drone.message.send(AccessPointSSIDMessage);
 ```
 
 
-## projects.skyctrl.AccessPointSettings.AccessPointChannel Command
+## projects.skyctrl.AccessPointSettings.AccessPointChannel
 
 Set access point channel
 
@@ -913,7 +913,7 @@ drone.message.send(AccessPointChannelMessage);
 ```
 
 
-## projects.skyctrl.AccessPointSettings.WifiSelection Command
+## projects.skyctrl.AccessPointSettings.WifiSelection
 
 Set access point band/channel
 
@@ -954,7 +954,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[AccessPointSSIDChanged](#projectsskyctrlaccesspointsettingsstateaccesspointssidchanged)|0|0x0|The access point SSID was changed|
 |[AccessPointChannelChanged](#projectsskyctrlaccesspointsettingsstateaccesspointchannelchanged)|1|0x1|The access point channel was changed|
 |[WifiSelectionChanged](#projectsskyctrlaccesspointsettingsstatewifiselectionchanged)|2|0x2|The access point channel/band was changed|
-## projects.skyctrl.AccessPointSettingsState.AccessPointSSIDChanged Event
+## projects.skyctrl.AccessPointSettingsState.AccessPointSSIDChanged
 
 The access point SSID was changed
 
@@ -976,7 +976,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.AccessPointSettingsState.AccessPointChannelChanged Event
+## projects.skyctrl.AccessPointSettingsState.AccessPointChannelChanged
 
 The access point channel was changed
 
@@ -998,7 +998,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.AccessPointSettingsState.WifiSelectionChanged Event
+## projects.skyctrl.AccessPointSettingsState.WifiSelectionChanged
 
 The access point channel/band was changed
 
@@ -1030,7 +1030,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[ResetOrientation](#projectsskyctrlcameraresetorientation)|0|0x0|Reset the camera orientation|
-## projects.skyctrl.Camera.ResetOrientation Command
+## projects.skyctrl.Camera.ResetOrientation
 
 Reset the camera orientation
 
@@ -1069,7 +1069,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[getAvailableButtonMappings](#projectsskyctrlbuttonmappingsgetavailablebuttonmappings)|1|0x1|Get the available button mappings|
 |[setButtonMapping](#projectsskyctrlbuttonmappingssetbuttonmapping)|2|0x2|Set a mapping for a button|
 |[defaultButtonMapping](#projectsskyctrlbuttonmappingsdefaultbuttonmapping)|3|0x3|Reset the button mappings to the default value|
-## projects.skyctrl.ButtonMappings.getCurrentButtonMappings Command
+## projects.skyctrl.ButtonMappings.getCurrentButtonMappings
 
 Get the current button mappings
 
@@ -1095,7 +1095,7 @@ drone.message.send(getCurrentButtonMappingsMessage);
 ```
 
 
-## projects.skyctrl.ButtonMappings.getAvailableButtonMappings Command
+## projects.skyctrl.ButtonMappings.getAvailableButtonMappings
 
 Get the available button mappings
 
@@ -1122,7 +1122,7 @@ drone.message.send(getAvailableButtonMappingsMessage);
 ```
 
 
-## projects.skyctrl.ButtonMappings.setButtonMapping Command
+## projects.skyctrl.ButtonMappings.setButtonMapping
 
 Set a mapping for a button
 
@@ -1150,7 +1150,7 @@ drone.message.send(setButtonMappingMessage);
 ```
 
 
-## projects.skyctrl.ButtonMappings.defaultButtonMapping Command
+## projects.skyctrl.ButtonMappings.defaultButtonMapping
 
 Reset the button mappings to the default value
 
@@ -1190,7 +1190,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[allCurrentButtonMappingsSent](#projectsskyctrlbuttonmappingsstateallcurrentbuttonmappingssent)|1|0x1|End of the button mapping list|
 |[availableButtonMappings](#projectsskyctrlbuttonmappingsstateavailablebuttonmappings)|2|0x2|Action mappable on a button|
 |[allAvailableButtonsMappingsSent](#projectsskyctrlbuttonmappingsstateallavailablebuttonsmappingssent)|3|0x3|End of the available button actions list|
-## projects.skyctrl.ButtonMappingsState.currentButtonMappings Event
+## projects.skyctrl.ButtonMappingsState.currentButtonMappings
 
 Button to Action mapping
 
@@ -1213,7 +1213,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.ButtonMappingsState.allCurrentButtonMappingsSent Event
+## projects.skyctrl.ButtonMappingsState.allCurrentButtonMappingsSent
 
 End of the button mapping list
 
@@ -1236,7 +1236,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.ButtonMappingsState.availableButtonMappings Event
+## projects.skyctrl.ButtonMappingsState.availableButtonMappings
 
 Action mappable on a button
 
@@ -1261,7 +1261,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.ButtonMappingsState.allAvailableButtonsMappingsSent Event
+## projects.skyctrl.ButtonMappingsState.allAvailableButtonsMappingsSent
 
 End of the available button actions list
 
@@ -1296,7 +1296,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[getAvailableAxisMappings](#projectsskyctrlaxismappingsgetavailableaxismappings)|1|0x1|Get the available axis mappings|
 |[setAxisMapping](#projectsskyctrlaxismappingssetaxismapping)|2|0x2|Set a mapping for a axis|
 |[defaultAxisMapping](#projectsskyctrlaxismappingsdefaultaxismapping)|3|0x3|Reset the axis mappings to the default value|
-## projects.skyctrl.AxisMappings.getCurrentAxisMappings Command
+## projects.skyctrl.AxisMappings.getCurrentAxisMappings
 
 Get the current axis mappings
 
@@ -1322,7 +1322,7 @@ drone.message.send(getCurrentAxisMappingsMessage);
 ```
 
 
-## projects.skyctrl.AxisMappings.getAvailableAxisMappings Command
+## projects.skyctrl.AxisMappings.getAvailableAxisMappings
 
 Get the available axis mappings
 
@@ -1349,7 +1349,7 @@ drone.message.send(getAvailableAxisMappingsMessage);
 ```
 
 
-## projects.skyctrl.AxisMappings.setAxisMapping Command
+## projects.skyctrl.AxisMappings.setAxisMapping
 
 Set a mapping for a axis
 
@@ -1377,7 +1377,7 @@ drone.message.send(setAxisMappingMessage);
 ```
 
 
-## projects.skyctrl.AxisMappings.defaultAxisMapping Command
+## projects.skyctrl.AxisMappings.defaultAxisMapping
 
 Reset the axis mappings to the default value
 
@@ -1416,7 +1416,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[allCurrentAxisMappingsSent](#projectsskyctrlaxismappingsstateallcurrentaxismappingssent)|1|0x1|End of the axis mapping list|
 |[availableAxisMappings](#projectsskyctrlaxismappingsstateavailableaxismappings)|2|0x2|Action mappable on an axis|
 |[allAvailableAxisMappingsSent](#projectsskyctrlaxismappingsstateallavailableaxismappingssent)|3|0x3|End of the available axis actions list|
-## projects.skyctrl.AxisMappingsState.currentAxisMappings Event
+## projects.skyctrl.AxisMappingsState.currentAxisMappings
 
 Axis to Action mapping
 
@@ -1439,7 +1439,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.AxisMappingsState.allCurrentAxisMappingsSent Event
+## projects.skyctrl.AxisMappingsState.allCurrentAxisMappingsSent
 
 End of the axis mapping list
 
@@ -1462,7 +1462,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.AxisMappingsState.availableAxisMappings Event
+## projects.skyctrl.AxisMappingsState.availableAxisMappings
 
 Action mappable on an axis
 
@@ -1487,7 +1487,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.AxisMappingsState.allAvailableAxisMappingsSent Event
+## projects.skyctrl.AxisMappingsState.allAvailableAxisMappingsSent
 
 End of the available axis actions list
 
@@ -1522,7 +1522,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[getPresetAxisFilters](#projectsskyctrlaxisfiltersgetpresetaxisfilters)|1|0x1|Get the available preset axis filters|
 |[setAxisFilter](#projectsskyctrlaxisfilterssetaxisfilter)|2|0x2|Set a filter for an axis|
 |[defaultAxisFilters](#projectsskyctrlaxisfiltersdefaultaxisfilters)|3|0x3|Reset the axis filters to the default value|
-## projects.skyctrl.AxisFilters.getCurrentAxisFilters Command
+## projects.skyctrl.AxisFilters.getCurrentAxisFilters
 
 Get the current axis filters
 
@@ -1548,7 +1548,7 @@ drone.message.send(getCurrentAxisFiltersMessage);
 ```
 
 
-## projects.skyctrl.AxisFilters.getPresetAxisFilters Command
+## projects.skyctrl.AxisFilters.getPresetAxisFilters
 
 Get the available preset axis filters
 
@@ -1574,7 +1574,7 @@ drone.message.send(getPresetAxisFiltersMessage);
 ```
 
 
-## projects.skyctrl.AxisFilters.setAxisFilter Command
+## projects.skyctrl.AxisFilters.setAxisFilter
 
 Set a filter for an axis
 
@@ -1613,7 +1613,7 @@ drone.message.send(setAxisFilterMessage);
 ```
 
 
-## projects.skyctrl.AxisFilters.defaultAxisFilters Command
+## projects.skyctrl.AxisFilters.defaultAxisFilters
 
 Reset the axis filters to the default value
 
@@ -1652,7 +1652,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[allCurrentFiltersSent](#projectsskyctrlaxisfiltersstateallcurrentfilterssent)|1|0x1|End of the axis filters list|
 |[presetAxisFilters](#projectsskyctrlaxisfiltersstatepresetaxisfilters)|2|0x2|Predefined axis filters|
 |[allPresetFiltersSent](#projectsskyctrlaxisfiltersstateallpresetfilterssent)|3|0x3|End of the preset axis filters list|
-## projects.skyctrl.AxisFiltersState.currentAxisFilters Event
+## projects.skyctrl.AxisFiltersState.currentAxisFilters
 
 A filter set on an axis
 
@@ -1674,7 +1674,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.AxisFiltersState.allCurrentFiltersSent Event
+## projects.skyctrl.AxisFiltersState.allCurrentFiltersSent
 
 End of the axis filters list
 
@@ -1697,7 +1697,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.AxisFiltersState.presetAxisFilters Command
+## projects.skyctrl.AxisFiltersState.presetAxisFilters
 
 Predefined axis filters
 
@@ -1723,7 +1723,7 @@ drone.message.send(presetAxisFiltersMessage);
 ```
 
 
-## projects.skyctrl.AxisFiltersState.allPresetFiltersSent Event
+## projects.skyctrl.AxisFiltersState.allPresetFiltersSent
 
 End of the preset axis filters list
 
@@ -1755,7 +1755,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[getGamepadControls](#projectsskyctrlgamepadinfosgetgamepadcontrols)|0|0x0|Get the SkyController buttons and axis list|
-## projects.skyctrl.GamepadInfos.getGamepadControls Command
+## projects.skyctrl.GamepadInfos.getGamepadControls
 
 Get the SkyController buttons and axis list
 
@@ -1792,7 +1792,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[gamepadControl](#projectsskyctrlgamepadinfosstategamepadcontrol)|0|0x0|Gamepad control description|
 |[allGamepadControlsSent](#projectsskyctrlgamepadinfosstateallgamepadcontrolssent)|1|0x1|End of the GamepadControl list|
-## projects.skyctrl.GamepadInfosState.gamepadControl Event
+## projects.skyctrl.GamepadInfosState.gamepadControl
 
 Gamepad control description
 
@@ -1815,7 +1815,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.GamepadInfosState.allGamepadControlsSent Event
+## projects.skyctrl.GamepadInfosState.allGamepadControlsSent
 
 End of the GamepadControl list
 
@@ -1847,7 +1847,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[setPilotingSource](#projectsskyctrlcopilotingsetpilotingsource)|0|0x0|Set piloting source|
-## projects.skyctrl.CoPiloting.setPilotingSource Command
+## projects.skyctrl.CoPiloting.setPilotingSource
 
 Set piloting source
 
@@ -1885,7 +1885,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[pilotingSource](#projectsskyctrlcopilotingstatepilotingsource)|0|0x0|Piloting source|
-## projects.skyctrl.CoPilotingState.pilotingSource Event
+## projects.skyctrl.CoPilotingState.pilotingSource
 
 Piloting source
 
@@ -1918,7 +1918,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[enableMagnetoCalibrationQualityUpdates](#projectsskyctrlcalibrationenablemagnetocalibrationqualityupdates)|0|0x0|Enable Magneto calibration quality updates|
-## projects.skyctrl.Calibration.enableMagnetoCalibrationQualityUpdates Command
+## projects.skyctrl.Calibration.enableMagnetoCalibrationQualityUpdates
 
 Enable Magneto calibration quality updates
 
@@ -1956,7 +1956,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[MagnetoCalibrationState](#projectsskyctrlcalibrationstatemagnetocalibrationstate)|0|0x0|Magneto calibration state|
 |[MagnetoCalibrationQualityUpdatesState](#projectsskyctrlcalibrationstatemagnetocalibrationqualityupdatesstate)|1|0x1|Magnetometer Calibration Quality Update State|
-## projects.skyctrl.CalibrationState.MagnetoCalibrationState Event
+## projects.skyctrl.CalibrationState.MagnetoCalibrationState
 
 Magneto calibration state
 
@@ -1979,7 +1979,7 @@ drone.on(
 ```
 
 
-## projects.skyctrl.CalibrationState.MagnetoCalibrationQualityUpdatesState Event
+## projects.skyctrl.CalibrationState.MagnetoCalibrationQualityUpdatesState
 
 Magnetometer Calibration Quality Update State
 
@@ -2012,7 +2012,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[Settings](#projectsskyctrlbuttoneventssettings)|0|0x0|Settings button pressed|
-## projects.skyctrl.ButtonEvents.Settings Event
+## projects.skyctrl.ButtonEvents.Settings
 
 Settings button pressed
 
@@ -2045,7 +2045,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[Reset](#projectsskyctrlfactoryreset)|0|0x0|Reset the SkyController 2 to its factory settings|
-## projects.skyctrl.Factory.Reset Command
+## projects.skyctrl.Factory.Reset
 
 Reset the SkyController 2 to its factory settings
 

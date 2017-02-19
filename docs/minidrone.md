@@ -43,7 +43,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[AutoTakeOffMode](#projectsminidronepilotingautotakeoffmode)|5|0x5|Set MiniDrone automatic take off mode|
 |[FlyingMode](#projectsminidronepilotingflyingmode)|6|0x6|Set drone FlyingMode. Only supported by WingX|
 |[PlaneGearBox](#projectsminidronepilotingplanegearbox)|7|0x7|Set Plane Gear Box. Only supported by WingX|
-## projects.minidrone.Piloting.FlatTrim 
+## projects.minidrone.Piloting.FlatTrim
 
 Do a flat trim
 
@@ -69,7 +69,7 @@ drone.message.send(FlatTrimMessage);
 ```
 
 
-## projects.minidrone.Piloting.TakeOff 
+## projects.minidrone.Piloting.TakeOff
 
 Ask the drone to take off
 
@@ -95,7 +95,7 @@ drone.message.send(TakeOffMessage);
 ```
 
 
-## projects.minidrone.Piloting.PCMD 
+## projects.minidrone.Piloting.PCMD
 
 Ask the drone to move around.
 
@@ -121,7 +121,7 @@ drone.message.send(PCMDMessage);
 ```
 
 
-## projects.minidrone.Piloting.Landing 
+## projects.minidrone.Piloting.Landing
 
 Ask the MiniDrone to land
 
@@ -147,7 +147,7 @@ drone.message.send(LandingMessage);
 ```
 
 
-## projects.minidrone.Piloting.Emergency 
+## projects.minidrone.Piloting.Emergency
 
 Put drone in emergency state
 
@@ -173,7 +173,7 @@ drone.message.send(EmergencyMessage);
 ```
 
 
-## projects.minidrone.Piloting.AutoTakeOffMode 
+## projects.minidrone.Piloting.AutoTakeOffMode
 
 Set MiniDrone automatic take off mode
 
@@ -199,7 +199,7 @@ drone.message.send(AutoTakeOffModeMessage);
 ```
 
 
-## projects.minidrone.Piloting.FlyingMode 
+## projects.minidrone.Piloting.FlyingMode
 
 Set drone FlyingMode. Only supported by WingX
 
@@ -225,7 +225,7 @@ drone.message.send(FlyingModeMessage);
 ```
 
 
-## projects.minidrone.Piloting.PlaneGearBox 
+## projects.minidrone.Piloting.PlaneGearBox
 
 Set Plane Gear Box. Only supported by WingX
 
@@ -265,7 +265,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[Wheels](#projectsminidronespeedsettingswheels)|2|0x2|Presence of wheels|
 |[MaxHorizontalSpeed](#projectsminidronespeedsettingsmaxhorizontalspeed)|3|0x3|Set Max Horizontal speed (only used in case where PilotingSettings_MaxTilt is not used like in hydrofoil mode)|
 |[MaxPlaneModeRotationSpeed](#projectsminidronespeedsettingsmaxplanemoderotationspeed)|4|0x4|Set max plane mode rotation speed (only available for wing x)|
-## projects.minidrone.SpeedSettings.MaxVerticalSpeed 
+## projects.minidrone.SpeedSettings.MaxVerticalSpeed
 
 Set Max Vertical speed
 
@@ -291,7 +291,7 @@ drone.message.send(MaxVerticalSpeedMessage);
 ```
 
 
-## projects.minidrone.SpeedSettings.MaxRotationSpeed 
+## projects.minidrone.SpeedSettings.MaxRotationSpeed
 
 Set Max Rotation speed
 
@@ -317,7 +317,7 @@ drone.message.send(MaxRotationSpeedMessage);
 ```
 
 
-## projects.minidrone.SpeedSettings.Wheels 
+## projects.minidrone.SpeedSettings.Wheels
 
 Presence of wheels
 
@@ -343,7 +343,7 @@ drone.message.send(WheelsMessage);
 ```
 
 
-## projects.minidrone.SpeedSettings.MaxHorizontalSpeed 
+## projects.minidrone.SpeedSettings.MaxHorizontalSpeed
 
 Set Max Horizontal speed (only used in case where PilotingSettings_MaxTilt is not used like in hydrofoil mode)
 
@@ -369,7 +369,7 @@ drone.message.send(MaxHorizontalSpeedMessage);
 ```
 
 
-## projects.minidrone.SpeedSettings.MaxPlaneModeRotationSpeed 
+## projects.minidrone.SpeedSettings.MaxPlaneModeRotationSpeed
 
 Set max plane mode rotation speed (only available for wing x)
 
@@ -405,7 +405,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[PictureEventChanged](#projectsminidronemediarecordeventpictureeventchanged)|0|0x0|Event of picture recording|
-## projects.minidrone.MediaRecordEvent.PictureEventChanged 
+## projects.minidrone.MediaRecordEvent.PictureEventChanged
 
 Event of picture recording
 
@@ -442,7 +442,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[AutoTakeOffModeChanged](#projectsminidronepilotingstateautotakeoffmodechanged)|3|0x3|Set MiniDrone automatic take off mode|
 |[FlyingModeChanged](#projectsminidronepilotingstateflyingmodechanged)|4|0x4|FlyingMode changed. Only supported by WingX|
 |[PlaneGearBoxChanged](#projectsminidronepilotingstateplanegearboxchanged)|5|0x5|Plane Gear Box changed. Only supported by WingX|
-## projects.minidrone.PilotingState.FlatTrimChanged 
+## projects.minidrone.PilotingState.FlatTrimChanged
 
 MiniDrone send flat trim was correctly processed
 
@@ -464,7 +464,7 @@ drone.on(
 ```
 
 
-## projects.minidrone.PilotingState.FlyingStateChanged 
+## projects.minidrone.PilotingState.FlyingStateChanged
 
 Drone flying state changed
 
@@ -486,7 +486,7 @@ drone.on(
 ```
 
 
-## projects.minidrone.PilotingState.AlertStateChanged 
+## projects.minidrone.PilotingState.AlertStateChanged
 
 Drone alert state changed
 
@@ -508,7 +508,7 @@ drone.on(
 ```
 
 
-## projects.minidrone.PilotingState.AutoTakeOffModeChanged 
+## projects.minidrone.PilotingState.AutoTakeOffModeChanged
 
 Set MiniDrone automatic take off mode
 
@@ -530,7 +530,7 @@ drone.on(
 ```
 
 
-## projects.minidrone.PilotingState.FlyingModeChanged 
+## projects.minidrone.PilotingState.FlyingModeChanged
 
 FlyingMode changed. Only supported by WingX
 
@@ -552,7 +552,7 @@ drone.on(
 ```
 
 
-## projects.minidrone.PilotingState.PlaneGearBoxChanged 
+## projects.minidrone.PilotingState.PlaneGearBoxChanged
 
 Plane Gear Box changed. Only supported by WingX
 
@@ -585,7 +585,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[Flip](#projectsminidroneanimationsflip)|0|0x0|Make a flip|
 |[Cap](#projectsminidroneanimationscap)|1|0x1|Change the product cap|
-## projects.minidrone.Animations.Flip 
+## projects.minidrone.Animations.Flip
 
 Make a flip
 
@@ -611,7 +611,7 @@ drone.message.send(FlipMessage);
 ```
 
 
-## projects.minidrone.Animations.Cap 
+## projects.minidrone.Animations.Cap
 
 Change the product cap
 
@@ -651,7 +651,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[WheelsChanged](#projectsminidronespeedsettingsstatewheelschanged)|2|0x2|Presence of wheels sent by product|
 |[MaxHorizontalSpeedChanged](#projectsminidronespeedsettingsstatemaxhorizontalspeedchanged)|3|0x3|Max horizontal speed sent by product (only used in case where PilotingSettings_MaxTilt is not used like in hydrofoil mode)|
 |[MaxPlaneModeRotationSpeedChanged](#projectsminidronespeedsettingsstatemaxplanemoderotationspeedchanged)|4|0x4|Max plane rotation speed sent by product (only available for wing x)|
-## projects.minidrone.SpeedSettingsState.MaxVerticalSpeedChanged 
+## projects.minidrone.SpeedSettingsState.MaxVerticalSpeedChanged
 
 Max vertical speed sent by product
 
@@ -673,7 +673,7 @@ drone.on(
 ```
 
 
-## projects.minidrone.SpeedSettingsState.MaxRotationSpeedChanged 
+## projects.minidrone.SpeedSettingsState.MaxRotationSpeedChanged
 
 Max rotation speed sent by product
 
@@ -695,7 +695,7 @@ drone.on(
 ```
 
 
-## projects.minidrone.SpeedSettingsState.WheelsChanged 
+## projects.minidrone.SpeedSettingsState.WheelsChanged
 
 Presence of wheels sent by product
 
@@ -717,7 +717,7 @@ drone.on(
 ```
 
 
-## projects.minidrone.SpeedSettingsState.MaxHorizontalSpeedChanged 
+## projects.minidrone.SpeedSettingsState.MaxHorizontalSpeedChanged
 
 Max horizontal speed sent by product (only used in case where PilotingSettings_MaxTilt is not used like in hydrofoil mode)
 
@@ -739,7 +739,7 @@ drone.on(
 ```
 
 
-## projects.minidrone.SpeedSettingsState.MaxPlaneModeRotationSpeedChanged 
+## projects.minidrone.SpeedSettingsState.MaxPlaneModeRotationSpeedChanged
 
 Max plane rotation speed sent by product (only available for wing x)
 
@@ -772,7 +772,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[Picture](#projectsminidronemediarecordpicture)|0|0x0|@deprecated Take picture|
 |[PictureV2](#projectsminidronemediarecordpicturev2)|1|0x1|Take picture|
-## projects.minidrone.MediaRecord.Picture 
+## projects.minidrone.MediaRecord.Picture
 
 @deprecated Take picture
 
@@ -798,7 +798,7 @@ drone.message.send(PictureMessage);
 ```
 
 
-## projects.minidrone.MediaRecord.PictureV2 
+## projects.minidrone.MediaRecord.PictureV2
 
 Take picture
 
@@ -835,7 +835,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[PictureStateChanged](#projectsminidronemediarecordstatepicturestatechanged)|0|0x0|@deprecated State of picture recording|
 |[PictureStateChangedV2](#projectsminidronemediarecordstatepicturestatechangedv2)|1|0x1|State of device picture recording changed|
-## projects.minidrone.MediaRecordState.PictureStateChanged 
+## projects.minidrone.MediaRecordState.PictureStateChanged
 
 @deprecated State of picture recording
 
@@ -857,7 +857,7 @@ drone.on(
 ```
 
 
-## projects.minidrone.MediaRecordState.PictureStateChangedV2 
+## projects.minidrone.MediaRecordState.PictureStateChangedV2
 
 State of device picture recording changed
 
@@ -891,7 +891,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[MaxAltitude](#projectsminidronepilotingsettingsmaxaltitude)|0|0x0|Set Max Altitude|
 |[MaxTilt](#projectsminidronepilotingsettingsmaxtilt)|1|0x1|Set Max Tilt|
 |[BankedTurn](#projectsminidronepilotingsettingsbankedturn)|2|0x2|Set banked turn mode|
-## projects.minidrone.PilotingSettings.MaxAltitude 
+## projects.minidrone.PilotingSettings.MaxAltitude
 
 Set Max Altitude
 
@@ -917,7 +917,7 @@ drone.message.send(MaxAltitudeMessage);
 ```
 
 
-## projects.minidrone.PilotingSettings.MaxTilt 
+## projects.minidrone.PilotingSettings.MaxTilt
 
 Set Max Tilt
 
@@ -943,7 +943,7 @@ drone.message.send(MaxTiltMessage);
 ```
 
 
-## projects.minidrone.PilotingSettings.BankedTurn Command
+## projects.minidrone.PilotingSettings.BankedTurn
 
 Set banked turn mode
 
@@ -983,7 +983,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[MaxAltitudeChanged](#projectsminidronepilotingsettingsstatemaxaltitudechanged)|0|0x0|Max Altitude sent by product|
 |[MaxTiltChanged](#projectsminidronepilotingsettingsstatemaxtiltchanged)|1|0x1|Max tilt sent by product|
 |[BankedTurnChanged](#projectsminidronepilotingsettingsstatebankedturnchanged)|2|0x2|Banked Turn mode|
-## projects.minidrone.PilotingSettingsState.MaxAltitudeChanged 
+## projects.minidrone.PilotingSettingsState.MaxAltitudeChanged
 
 Max Altitude sent by product
 
@@ -1005,7 +1005,7 @@ drone.on(
 ```
 
 
-## projects.minidrone.PilotingSettingsState.MaxTiltChanged 
+## projects.minidrone.PilotingSettingsState.MaxTiltChanged
 
 Max tilt sent by product
 
@@ -1027,7 +1027,7 @@ drone.on(
 ```
 
 
-## projects.minidrone.PilotingSettingsState.BankedTurnChanged Event
+## projects.minidrone.PilotingSettingsState.BankedTurnChanged
 
 Banked Turn mode
 
@@ -1060,7 +1060,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[CutOutMode](#projectsminidronesettingscutoutmode)|0|0x0|Set MiniDrone cut out mode|
-## projects.minidrone.Settings.CutOutMode 
+## projects.minidrone.Settings.CutOutMode
 
 Set MiniDrone cut out mode
 
@@ -1098,7 +1098,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[ProductMotorsVersionChanged](#projectsminidronesettingsstateproductmotorsversionchanged)|0|0x0|@deprecated Product Motors versions|
 |[ProductInertialVersionChanged](#projectsminidronesettingsstateproductinertialversionchanged)|1|0x1|@deprecated Product Inertial versions|
 |[CutOutModeChanged](#projectsminidronesettingsstatecutoutmodechanged)|2|0x2|MiniDrone cut out mode|
-## projects.minidrone.SettingsState.ProductMotorsVersionChanged 
+## projects.minidrone.SettingsState.ProductMotorsVersionChanged
 
 @deprecated Product Motors versions
 
@@ -1120,7 +1120,7 @@ drone.on(
 ```
 
 
-## projects.minidrone.SettingsState.ProductInertialVersionChanged 
+## projects.minidrone.SettingsState.ProductInertialVersionChanged
 
 @deprecated Product Inertial versions
 
@@ -1142,7 +1142,7 @@ drone.on(
 ```
 
 
-## projects.minidrone.SettingsState.CutOutModeChanged 
+## projects.minidrone.SettingsState.CutOutModeChanged
 
 MiniDrone cut out mode
 
@@ -1174,7 +1174,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[FloodControlChanged](#projectsminidronefloodcontrolstatefloodcontrolchanged)|0|0x0|@deprecated Flood control regulation|
-## projects.minidrone.FloodControlState.FloodControlChanged 
+## projects.minidrone.FloodControlState.FloodControlChanged
 
 @deprecated Flood control regulation
 
@@ -1207,7 +1207,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[ControllerLatitudeForRun](#projectsminidronegpscontrollerlatitudeforrun)|0|0x0|Set the controller latitude for a run.|
 |[ControllerLongitudeForRun](#projectsminidronegpscontrollerlongitudeforrun)|1|0x1|Set the controller longitude for a run.|
-## projects.minidrone.GPS.ControllerLatitudeForRun 
+## projects.minidrone.GPS.ControllerLatitudeForRun
 
 Set the controller latitude for a run.
 
@@ -1233,7 +1233,7 @@ drone.message.send(ControllerLatitudeForRunMessage);
 ```
 
 
-## projects.minidrone.GPS.ControllerLongitudeForRun 
+## projects.minidrone.GPS.ControllerLongitudeForRun
 
 Set the controller longitude for a run.
 
@@ -1270,7 +1270,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[ControllerType](#projectsminidroneconfigurationcontrollertype)|0|0x0|Set the controller type.|
 |[ControllerName](#projectsminidroneconfigurationcontrollername)|1|0x1|Set the controller name.|
-## projects.minidrone.Configuration.ControllerType 
+## projects.minidrone.Configuration.ControllerType
 
 Set the controller type.
 
@@ -1296,7 +1296,7 @@ drone.message.send(ControllerTypeMessage);
 ```
 
 
-## projects.minidrone.Configuration.ControllerName 
+## projects.minidrone.Configuration.ControllerName
 
 Set the controller name.
 
@@ -1334,7 +1334,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[LightState](#projectsminidroneusbaccessorystatelightstate)|0|0x0|USB Light accessory state cmd.|
 |[ClawState](#projectsminidroneusbaccessorystateclawstate)|1|0x1|USB Claw accessory state cmd.|
 |[GunState](#projectsminidroneusbaccessorystategunstate)|2|0x2|USB Gun accessory state cmd.|
-## projects.minidrone.UsbAccessoryState.LightState 
+## projects.minidrone.UsbAccessoryState.LightState
 
 USB Light accessory state cmd.
 
@@ -1360,7 +1360,7 @@ drone.message.send(LightStateMessage);
 ```
 
 
-## projects.minidrone.UsbAccessoryState.ClawState 
+## projects.minidrone.UsbAccessoryState.ClawState
 
 USB Claw accessory state cmd.
 
@@ -1386,7 +1386,7 @@ drone.message.send(ClawStateMessage);
 ```
 
 
-## projects.minidrone.UsbAccessoryState.GunState 
+## projects.minidrone.UsbAccessoryState.GunState
 
 USB Gun accessory state cmd.
 
@@ -1424,7 +1424,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[LightControl](#projectsminidroneusbaccessorylightcontrol)|0|0x0|USB Light control cmd.|
 |[ClawControl](#projectsminidroneusbaccessoryclawcontrol)|1|0x1|USB Claw control cmd.|
 |[GunControl](#projectsminidroneusbaccessoryguncontrol)|2|0x2|USB Gun control cmd.|
-## projects.minidrone.UsbAccessory.LightControl 
+## projects.minidrone.UsbAccessory.LightControl
 
 USB Light control cmd.
 
@@ -1450,7 +1450,7 @@ drone.message.send(LightControlMessage);
 ```
 
 
-## projects.minidrone.UsbAccessory.ClawControl 
+## projects.minidrone.UsbAccessory.ClawControl
 
 USB Claw control cmd.
 
@@ -1476,7 +1476,7 @@ drone.message.send(ClawControlMessage);
 ```
 
 
-## projects.minidrone.UsbAccessory.GunControl 
+## projects.minidrone.UsbAccessory.GunControl
 
 USB Gun control cmd.
 
@@ -1512,7 +1512,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[SetPairedRemote](#projectsminidroneremotecontrollersetpairedremote)|0|0x0|Send the address of the remote controller on which the drone should be paired This is used to pair a Tinos controller Where mac address: MSB_MID_LSB.|
-## projects.minidrone.RemoteController.SetPairedRemote 
+## projects.minidrone.RemoteController.SetPairedRemote
 
 Send the address of the remote controller on which the drone should be paired This is used to pair a Tinos controller Where mac address: MSB_MID_LSB.
 
@@ -1548,7 +1548,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[DronePosition](#projectsminidronenavigationdatastatedroneposition)|0|0x0|Get the drone position from takeoff point (0, 0, 0, 0). The orthonormal basis is fixed at this point. The axis are oriented the following way : * X : From the rear of the drone to its front. * Y : From the right of the drone to its left. * Z : Orthogonal to X and Y and oriented upward. * Psi : From 180 to _180 in the clockwise direction,|
-## projects.minidrone.NavigationDataState.DronePosition 
+## projects.minidrone.NavigationDataState.DronePosition
 
 Get the drone position from takeoff point (0, 0, 0, 0). The orthonormal basis is fixed at this point. The axis are oriented the following way : * X : From the rear of the drone to its front. * Y : From the right of the drone to its left. * Z : Orthogonal to X and Y and oriented upward. * Psi : From 180 to _180 in the clockwise direction,
 

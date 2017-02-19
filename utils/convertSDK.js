@@ -265,14 +265,7 @@ All hex IDs are included as well incase you need them for debugging or extending
                       const commandName=entry.lookup[key];
                       const command=entry[commandName];
                       markdown+=`
-## projects.${projectName}.${className}.${commandName} ${
-  ((command.comment)?
-      ((command.comment.info.triggered)?
-        `Event`
-        : `Command`
-      ) : ''
-  )
-}
+## projects.${projectName}.${className}.${commandName}
 
 ${
   (command.comment)? command.comment.info.title : command.details

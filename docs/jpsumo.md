@@ -41,7 +41,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[PCMD](#projectsjpsumopilotingpcmd)|0|0x0|Ask the JS speed and turn ratio.|
 |[Posture](#projectsjpsumopilotingposture)|1|0x1|Request a posture|
 |[addCapOffset](#projectsjpsumopilotingaddcapoffset)|2|0x2|Add the specified offset to the current cap.|
-## projects.jpsumo.Piloting.PCMD 
+## projects.jpsumo.Piloting.PCMD
 
 Ask the JS speed and turn ratio.
 
@@ -67,7 +67,7 @@ drone.message.send(PCMDMessage);
 ```
 
 
-## projects.jpsumo.Piloting.Posture 
+## projects.jpsumo.Piloting.Posture
 
 Request a posture
 
@@ -93,7 +93,7 @@ drone.message.send(PostureMessage);
 ```
 
 
-## projects.jpsumo.Piloting.addCapOffset 
+## projects.jpsumo.Piloting.addCapOffset
 
 Add the specified offset to the current cap.
 
@@ -131,7 +131,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[PostureChanged](#projectsjpsumopilotingstateposturechanged)|0|0x0|State of posture changed.|
 |[AlertStateChanged](#projectsjpsumopilotingstatealertstatechanged)|1|0x1|JS alert state changed|
 |[SpeedChanged](#projectsjpsumopilotingstatespeedchanged)|2|0x2|Notification sent when JS speed changes.|
-## projects.jpsumo.PilotingState.PostureChanged 
+## projects.jpsumo.PilotingState.PostureChanged
 
 State of posture changed.
 
@@ -153,7 +153,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.PilotingState.AlertStateChanged 
+## projects.jpsumo.PilotingState.AlertStateChanged
 
 JS alert state changed
 
@@ -175,7 +175,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.PilotingState.SpeedChanged 
+## projects.jpsumo.PilotingState.SpeedChanged
 
 Notification sent when JS speed changes.
 
@@ -211,7 +211,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[JumpLoad](#projectsjpsumoanimationsjumpload)|2|0x2|Request jump loading|
 |[Jump](#projectsjpsumoanimationsjump)|3|0x3|Request a jump|
 |[SimpleAnimation](#projectsjpsumoanimationssimpleanimation)|4|0x4|Play a parameterless animation.|
-## projects.jpsumo.Animations.JumpStop 
+## projects.jpsumo.Animations.JumpStop
 
 Stop jump, emergency jump stop, stop jump motor and stay there.
 
@@ -237,7 +237,7 @@ drone.message.send(JumpStopMessage);
 ```
 
 
-## projects.jpsumo.Animations.JumpCancel 
+## projects.jpsumo.Animations.JumpCancel
 
 Cancel jump and come back to previous state (if possible).
 
@@ -263,7 +263,7 @@ drone.message.send(JumpCancelMessage);
 ```
 
 
-## projects.jpsumo.Animations.JumpLoad 
+## projects.jpsumo.Animations.JumpLoad
 
 Request jump loading
 
@@ -289,7 +289,7 @@ drone.message.send(JumpLoadMessage);
 ```
 
 
-## projects.jpsumo.Animations.Jump 
+## projects.jpsumo.Animations.Jump
 
 Request a jump
 
@@ -315,7 +315,7 @@ drone.message.send(JumpMessage);
 ```
 
 
-## projects.jpsumo.Animations.SimpleAnimation 
+## projects.jpsumo.Animations.SimpleAnimation
 
 Play a parameterless animation.
 
@@ -353,7 +353,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[JumpLoadChanged](#projectsjpsumoanimationsstatejumploadchanged)|0|0x0|State of jump load changed|
 |[JumpTypeChanged](#projectsjpsumoanimationsstatejumptypechanged)|1|0x1|State of jump type changed.|
 |[JumpMotorProblemChanged](#projectsjpsumoanimationsstatejumpmotorproblemchanged)|2|0x2|State about the jump motor problem|
-## projects.jpsumo.AnimationsState.JumpLoadChanged 
+## projects.jpsumo.AnimationsState.JumpLoadChanged
 
 State of jump load changed
 
@@ -375,7 +375,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.AnimationsState.JumpTypeChanged 
+## projects.jpsumo.AnimationsState.JumpTypeChanged
 
 State of jump type changed.
 
@@ -397,7 +397,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.AnimationsState.JumpMotorProblemChanged 
+## projects.jpsumo.AnimationsState.JumpMotorProblemChanged
 
 State about the jump motor problem
 
@@ -429,7 +429,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[ProductGPSVersionChanged](#projectsjpsumosettingsstateproductgpsversionchanged)|0|0x0|@deprecated Product GPS versions|
-## projects.jpsumo.SettingsState.ProductGPSVersionChanged 
+## projects.jpsumo.SettingsState.ProductGPSVersionChanged
 
 @deprecated Product GPS versions
 
@@ -464,7 +464,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[Video](#projectsjpsumomediarecordvideo)|1|0x1|@deprecated Video record|
 |[PictureV2](#projectsjpsumomediarecordpicturev2)|2|0x2|Take picture|
 |[VideoV2](#projectsjpsumomediarecordvideov2)|3|0x3|Video record|
-## projects.jpsumo.MediaRecord.Picture 
+## projects.jpsumo.MediaRecord.Picture
 
 @deprecated Take picture
 
@@ -490,7 +490,7 @@ drone.message.send(PictureMessage);
 ```
 
 
-## projects.jpsumo.MediaRecord.Video 
+## projects.jpsumo.MediaRecord.Video
 
 @deprecated Video record
 
@@ -516,7 +516,7 @@ drone.message.send(VideoMessage);
 ```
 
 
-## projects.jpsumo.MediaRecord.PictureV2 
+## projects.jpsumo.MediaRecord.PictureV2
 
 Take picture
 
@@ -542,7 +542,7 @@ drone.message.send(PictureV2Message);
 ```
 
 
-## projects.jpsumo.MediaRecord.VideoV2 
+## projects.jpsumo.MediaRecord.VideoV2
 
 Video record
 
@@ -581,7 +581,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[VideoStateChanged](#projectsjpsumomediarecordstatevideostatechanged)|1|0x1|@deprecated State of video recording|
 |[PictureStateChangedV2](#projectsjpsumomediarecordstatepicturestatechangedv2)|2|0x2|State of device picture recording changed|
 |[VideoStateChangedV2](#projectsjpsumomediarecordstatevideostatechangedv2)|3|0x3|State of device video recording changed|
-## projects.jpsumo.MediaRecordState.PictureStateChanged 
+## projects.jpsumo.MediaRecordState.PictureStateChanged
 
 @deprecated State of picture recording
 
@@ -603,7 +603,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.MediaRecordState.VideoStateChanged 
+## projects.jpsumo.MediaRecordState.VideoStateChanged
 
 @deprecated State of video recording
 
@@ -625,7 +625,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.MediaRecordState.PictureStateChangedV2 
+## projects.jpsumo.MediaRecordState.PictureStateChangedV2
 
 State of device picture recording changed
 
@@ -647,7 +647,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.MediaRecordState.VideoStateChangedV2 
+## projects.jpsumo.MediaRecordState.VideoStateChangedV2
 
 State of device video recording changed
 
@@ -679,7 +679,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[WifiSelection](#projectsjpsumonetworksettingswifiselection)|0|0x0|Auto_select channel of choosen band|
-## projects.jpsumo.NetworkSettings.WifiSelection 
+## projects.jpsumo.NetworkSettings.WifiSelection
 
 Auto_select channel of choosen band
 
@@ -715,7 +715,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[WifiSelectionChanged](#projectsjpsumonetworksettingsstatewifiselectionchanged)|0|0x0|Wifi selection from product|
-## projects.jpsumo.NetworkSettingsState.WifiSelectionChanged 
+## projects.jpsumo.NetworkSettingsState.WifiSelectionChanged
 
 Wifi selection from product
 
@@ -748,7 +748,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[WifiScan](#projectsjpsumonetworkwifiscan)|0|0x0|Launches wifi network scan|
 |[WifiAuthChannel](#projectsjpsumonetworkwifiauthchannel)|1|0x1|Controller inquire the list of authorized wifi channels.|
-## projects.jpsumo.Network.WifiScan 
+## projects.jpsumo.Network.WifiScan
 
 Launches wifi network scan
 
@@ -774,7 +774,7 @@ drone.message.send(WifiScanMessage);
 ```
 
 
-## projects.jpsumo.Network.WifiAuthChannel 
+## projects.jpsumo.Network.WifiAuthChannel
 
 Controller inquire the list of authorized wifi channels.
 
@@ -814,7 +814,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[WifiAuthChannelListChanged](#projectsjpsumonetworkstatewifiauthchannellistchanged)|2|0x2|Notify of an Authorized Channel.|
 |[AllWifiAuthChannelChanged](#projectsjpsumonetworkstateallwifiauthchannelchanged)|3|0x3|Notify the end of the list of Authorized wifi Channel.|
 |[LinkQualityChanged](#projectsjpsumonetworkstatelinkqualitychanged)|4|0x4|Notification sent by the firmware to give an indication of the WiFi link quality.|
-## projects.jpsumo.NetworkState.WifiScanListChanged 
+## projects.jpsumo.NetworkState.WifiScanListChanged
 
 One scanning result found
 
@@ -836,7 +836,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.NetworkState.AllWifiScanChanged 
+## projects.jpsumo.NetworkState.AllWifiScanChanged
 
 State sent when all scanning result sent
 
@@ -858,7 +858,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.NetworkState.WifiAuthChannelListChanged 
+## projects.jpsumo.NetworkState.WifiAuthChannelListChanged
 
 Notify of an Authorized Channel.
 
@@ -880,7 +880,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.NetworkState.AllWifiAuthChannelChanged 
+## projects.jpsumo.NetworkState.AllWifiAuthChannelChanged
 
 Notify the end of the list of Authorized wifi Channel.
 
@@ -902,7 +902,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.NetworkState.LinkQualityChanged 
+## projects.jpsumo.NetworkState.LinkQualityChanged
 
 Notification sent by the firmware to give an indication of the WiFi link quality.
 
@@ -935,7 +935,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[MasterVolume](#projectsjpsumoaudiosettingsmastervolume)|0|0x0|Master volume control.|
 |[Theme](#projectsjpsumoaudiosettingstheme)|1|0x1|Audio Theme.|
-## projects.jpsumo.AudioSettings.MasterVolume 
+## projects.jpsumo.AudioSettings.MasterVolume
 
 Master volume control.
 
@@ -961,7 +961,7 @@ drone.message.send(MasterVolumeMessage);
 ```
 
 
-## projects.jpsumo.AudioSettings.Theme 
+## projects.jpsumo.AudioSettings.Theme
 
 Audio Theme.
 
@@ -998,7 +998,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[MasterVolumeChanged](#projectsjpsumoaudiosettingsstatemastervolumechanged)|0|0x0|Master volume control.|
 |[ThemeChanged](#projectsjpsumoaudiosettingsstatethemechanged)|1|0x1|Command to notify controller of new Audio Theme.|
-## projects.jpsumo.AudioSettingsState.MasterVolumeChanged 
+## projects.jpsumo.AudioSettingsState.MasterVolumeChanged
 
 Master volume control.
 
@@ -1020,7 +1020,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.AudioSettingsState.ThemeChanged 
+## projects.jpsumo.AudioSettingsState.ThemeChanged
 
 Command to notify controller of new Audio Theme.
 
@@ -1055,7 +1055,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[ScriptUploaded](#projectsjpsumoroadplanscriptuploaded)|1|0x1|Notify device that a new file has been uploaded.|
 |[ScriptDelete](#projectsjpsumoroadplanscriptdelete)|2|0x2|Ask the device to delete a script.|
 |[PlayScript](#projectsjpsumoroadplanplayscript)|3|0x3|Ask the device to play a script.|
-## projects.jpsumo.RoadPlan.AllScriptsMetadata 
+## projects.jpsumo.RoadPlan.AllScriptsMetadata
 
 Command to ask device all metadata scripts.
 
@@ -1081,7 +1081,7 @@ drone.message.send(AllScriptsMetadataMessage);
 ```
 
 
-## projects.jpsumo.RoadPlan.ScriptUploaded 
+## projects.jpsumo.RoadPlan.ScriptUploaded
 
 Notify device that a new file has been uploaded.
 
@@ -1107,7 +1107,7 @@ drone.message.send(ScriptUploadedMessage);
 ```
 
 
-## projects.jpsumo.RoadPlan.ScriptDelete 
+## projects.jpsumo.RoadPlan.ScriptDelete
 
 Ask the device to delete a script.
 
@@ -1133,7 +1133,7 @@ drone.message.send(ScriptDeleteMessage);
 ```
 
 
-## projects.jpsumo.RoadPlan.PlayScript 
+## projects.jpsumo.RoadPlan.PlayScript
 
 Ask the device to play a script.
 
@@ -1173,7 +1173,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[ScriptUploadChanged](#projectsjpsumoroadplanstatescriptuploadchanged)|2|0x2|Device response to ScriptUploaded command.|
 |[ScriptDeleteChanged](#projectsjpsumoroadplanstatescriptdeletechanged)|3|0x3|Device response to ScriptDelete command.|
 |[PlayScriptChanged](#projectsjpsumoroadplanstateplayscriptchanged)|4|0x4|Device response to PlayScript command.|
-## projects.jpsumo.RoadPlanState.ScriptMetadataListChanged 
+## projects.jpsumo.RoadPlanState.ScriptMetadataListChanged
 
 Update the controller with metadata.
 
@@ -1195,7 +1195,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.RoadPlanState.AllScriptsMetadataChanged 
+## projects.jpsumo.RoadPlanState.AllScriptsMetadataChanged
 
 Notify controller that all script metadatas are updated.
 
@@ -1217,7 +1217,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.RoadPlanState.ScriptUploadChanged 
+## projects.jpsumo.RoadPlanState.ScriptUploadChanged
 
 Device response to ScriptUploaded command.
 
@@ -1239,7 +1239,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.RoadPlanState.ScriptDeleteChanged 
+## projects.jpsumo.RoadPlanState.ScriptDeleteChanged
 
 Device response to ScriptDelete command.
 
@@ -1261,7 +1261,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.RoadPlanState.PlayScriptChanged 
+## projects.jpsumo.RoadPlanState.PlayScriptChanged
 
 Device response to PlayScript command.
 
@@ -1293,7 +1293,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[Outdoor](#projectsjpsumospeedsettingsoutdoor)|0|0x0|@deprecated Outdoor property|
-## projects.jpsumo.SpeedSettings.Outdoor 
+## projects.jpsumo.SpeedSettings.Outdoor
 
 @deprecated Outdoor property
 
@@ -1329,7 +1329,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[OutdoorChanged](#projectsjpsumospeedsettingsstateoutdoorchanged)|0|0x0|@deprecated Outdoor property sent by product|
-## projects.jpsumo.SpeedSettingsState.OutdoorChanged 
+## projects.jpsumo.SpeedSettingsState.OutdoorChanged
 
 @deprecated Outdoor property sent by product
 
@@ -1361,7 +1361,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[VideoEnable](#projectsjpsumomediastreamingvideoenable)|0|0x0|Enable/disable video streaming.|
-## projects.jpsumo.MediaStreaming.VideoEnable 
+## projects.jpsumo.MediaStreaming.VideoEnable
 
 Enable/disable video streaming.
 
@@ -1397,7 +1397,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[VideoEnableChanged](#projectsjpsumomediastreamingstatevideoenablechanged)|0|0x0|Return video streaming status.|
-## projects.jpsumo.MediaStreamingState.VideoEnableChanged 
+## projects.jpsumo.MediaStreamingState.VideoEnableChanged
 
 Return video streaming status.
 
@@ -1430,7 +1430,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[PictureEventChanged](#projectsjpsumomediarecordeventpictureeventchanged)|0|0x0|Event of picture recording|
 |[VideoEventChanged](#projectsjpsumomediarecordeventvideoeventchanged)|1|0x1|Event of video recording|
-## projects.jpsumo.MediaRecordEvent.PictureEventChanged 
+## projects.jpsumo.MediaRecordEvent.PictureEventChanged
 
 Event of picture recording
 
@@ -1452,7 +1452,7 @@ drone.on(
 ```
 
 
-## projects.jpsumo.MediaRecordEvent.VideoEventChanged 
+## projects.jpsumo.MediaRecordEvent.VideoEventChanged
 
 Event of video recording
 
@@ -1484,7 +1484,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[Autorecord](#projectsjpsumovideosettingsautorecord)|0|0x0|Set video automatic recording state.|
-## projects.jpsumo.VideoSettings.Autorecord 
+## projects.jpsumo.VideoSettings.Autorecord
 
 Set video automatic recording state.
 
@@ -1520,7 +1520,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[AutorecordChanged](#projectsjpsumovideosettingsstateautorecordchanged)|0|0x0|Get video automatic recording status.|
-## projects.jpsumo.VideoSettingsState.AutorecordChanged 
+## projects.jpsumo.VideoSettingsState.AutorecordChanged
 
 Get video automatic recording status.
 

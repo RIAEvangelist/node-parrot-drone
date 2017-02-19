@@ -36,7 +36,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[PCMD](#projectspoweruppilotingpcmd)|0|0x0|Ask the Power Up speed and turn ratio.|
 |[UserTakeOff](#projectspoweruppilotingusertakeoff)|1|0x1|Set drone in user take off state|
 |[MotorMode](#projectspoweruppilotingmotormode)|2|0x2|Motor mode|
-## projects.powerup.Piloting.PCMD 
+## projects.powerup.Piloting.PCMD
 
 Ask the Power Up speed and turn ratio.
 
@@ -62,7 +62,7 @@ drone.message.send(PCMDMessage);
 ```
 
 
-## projects.powerup.Piloting.UserTakeOff 
+## projects.powerup.Piloting.UserTakeOff
 
 Set drone in user take off state
 
@@ -88,7 +88,7 @@ drone.message.send(UserTakeOffMessage);
 ```
 
 
-## projects.powerup.Piloting.MotorMode 
+## projects.powerup.Piloting.MotorMode
 
 Motor mode
 
@@ -128,7 +128,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[MotorModeChanged](#projectspoweruppilotingstatemotormodechanged)|2|0x2|Motor mode changed|
 |[AttitudeChanged](#projectspoweruppilotingstateattitudechanged)|3|0x3|Drone attitude changed|
 |[AltitudeChanged](#projectspoweruppilotingstatealtitudechanged)|4|0x4|Drone altitude changed|
-## projects.powerup.PilotingState.AlertStateChanged 
+## projects.powerup.PilotingState.AlertStateChanged
 
 JS alert state changed
 
@@ -150,7 +150,7 @@ drone.on(
 ```
 
 
-## projects.powerup.PilotingState.FlyingStateChanged 
+## projects.powerup.PilotingState.FlyingStateChanged
 
 Drone flying state changed
 
@@ -172,7 +172,7 @@ drone.on(
 ```
 
 
-## projects.powerup.PilotingState.MotorModeChanged 
+## projects.powerup.PilotingState.MotorModeChanged
 
 Motor mode changed
 
@@ -194,7 +194,7 @@ drone.on(
 ```
 
 
-## projects.powerup.PilotingState.AttitudeChanged 
+## projects.powerup.PilotingState.AttitudeChanged
 
 Drone attitude changed
 
@@ -216,7 +216,7 @@ drone.on(
 ```
 
 
-## projects.powerup.PilotingState.AltitudeChanged 
+## projects.powerup.PilotingState.AltitudeChanged
 
 Drone altitude changed
 
@@ -248,7 +248,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[set](#projectspoweruppilotingsettingsset)|0|0x0|Set the given setting|
-## projects.powerup.PilotingSettings.set 
+## projects.powerup.PilotingSettings.set
 
 Set the given setting
 
@@ -284,7 +284,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[settingChanged](#projectspoweruppilotingsettingsstatesettingchanged)|0|0x0|Fired when a setting has changed|
-## projects.powerup.PilotingSettingsState.settingChanged 
+## projects.powerup.PilotingSettingsState.settingChanged
 
 Fired when a setting has changed
 
@@ -317,7 +317,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[PictureV2](#projectspowerupmediarecordpicturev2)|0|0x0|Take picture|
 |[VideoV2](#projectspowerupmediarecordvideov2)|1|0x1|Video record|
-## projects.powerup.MediaRecord.PictureV2 
+## projects.powerup.MediaRecord.PictureV2
 
 Take picture
 
@@ -343,7 +343,7 @@ drone.message.send(PictureV2Message);
 ```
 
 
-## projects.powerup.MediaRecord.VideoV2 
+## projects.powerup.MediaRecord.VideoV2
 
 Video record
 
@@ -380,7 +380,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[PictureStateChangedV2](#projectspowerupmediarecordstatepicturestatechangedv2)|0|0x0|State of device picture recording changed|
 |[VideoStateChangedV2](#projectspowerupmediarecordstatevideostatechangedv2)|1|0x1|State of device video recording changed|
-## projects.powerup.MediaRecordState.PictureStateChangedV2 
+## projects.powerup.MediaRecordState.PictureStateChangedV2
 
 State of device picture recording changed
 
@@ -402,7 +402,7 @@ drone.on(
 ```
 
 
-## projects.powerup.MediaRecordState.VideoStateChangedV2 
+## projects.powerup.MediaRecordState.VideoStateChangedV2
 
 State of device video recording changed
 
@@ -435,7 +435,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[PictureEventChanged](#projectspowerupmediarecordeventpictureeventchanged)|0|0x0|Event of picture recording|
 |[VideoEventChanged](#projectspowerupmediarecordeventvideoeventchanged)|1|0x1|Event of video recording|
-## projects.powerup.MediaRecordEvent.PictureEventChanged 
+## projects.powerup.MediaRecordEvent.PictureEventChanged
 
 Event of picture recording
 
@@ -457,7 +457,7 @@ drone.on(
 ```
 
 
-## projects.powerup.MediaRecordEvent.VideoEventChanged 
+## projects.powerup.MediaRecordEvent.VideoEventChanged
 
 Event of video recording
 
@@ -489,7 +489,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[WifiSelection](#projectspowerupnetworksettingswifiselection)|0|0x0|Auto_select channel of choosen band|
-## projects.powerup.NetworkSettings.WifiSelection 
+## projects.powerup.NetworkSettings.WifiSelection
 
 Auto_select channel of choosen band
 
@@ -525,7 +525,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[WifiSelectionChanged](#projectspowerupnetworksettingsstatewifiselectionchanged)|0|0x0|Wifi selection from product|
-## projects.powerup.NetworkSettingsState.WifiSelectionChanged 
+## projects.powerup.NetworkSettingsState.WifiSelectionChanged
 
 Wifi selection from product
 
@@ -558,7 +558,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[WifiScan](#projectspowerupnetworkwifiscan)|0|0x0|Launches wifi network scan|
 |[WifiAuthChannel](#projectspowerupnetworkwifiauthchannel)|1|0x1|Controller inquire the list of authorized wifi channels.|
-## projects.powerup.Network.WifiScan 
+## projects.powerup.Network.WifiScan
 
 Launches wifi network scan
 
@@ -584,7 +584,7 @@ drone.message.send(WifiScanMessage);
 ```
 
 
-## projects.powerup.Network.WifiAuthChannel 
+## projects.powerup.Network.WifiAuthChannel
 
 Controller inquire the list of authorized wifi channels.
 
@@ -624,7 +624,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[WifiAuthChannelListChanged](#projectspowerupnetworkstatewifiauthchannellistchanged)|2|0x2|Notify of an Authorized Channel.|
 |[AllWifiAuthChannelChanged](#projectspowerupnetworkstateallwifiauthchannelchanged)|3|0x3|Notify the end of the list of Authorized wifi Channel.|
 |[LinkQualityChanged](#projectspowerupnetworkstatelinkqualitychanged)|4|0x4|Notification sent by the firmware to give an indication of the WiFi link quality.|
-## projects.powerup.NetworkState.WifiScanListChanged 
+## projects.powerup.NetworkState.WifiScanListChanged
 
 One scanning result found
 
@@ -646,7 +646,7 @@ drone.on(
 ```
 
 
-## projects.powerup.NetworkState.AllWifiScanChanged 
+## projects.powerup.NetworkState.AllWifiScanChanged
 
 State sent when all scanning result sent
 
@@ -668,7 +668,7 @@ drone.on(
 ```
 
 
-## projects.powerup.NetworkState.WifiAuthChannelListChanged 
+## projects.powerup.NetworkState.WifiAuthChannelListChanged
 
 Notify of an Authorized Channel.
 
@@ -690,7 +690,7 @@ drone.on(
 ```
 
 
-## projects.powerup.NetworkState.AllWifiAuthChannelChanged 
+## projects.powerup.NetworkState.AllWifiAuthChannelChanged
 
 Notify the end of the list of Authorized wifi Channel.
 
@@ -712,7 +712,7 @@ drone.on(
 ```
 
 
-## projects.powerup.NetworkState.LinkQualityChanged 
+## projects.powerup.NetworkState.LinkQualityChanged
 
 Notification sent by the firmware to give an indication of the WiFi link quality.
 
@@ -744,7 +744,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[VideoEnable](#projectspowerupmediastreamingvideoenable)|0|0x0|Enable/disable video streaming.|
-## projects.powerup.MediaStreaming.VideoEnable 
+## projects.powerup.MediaStreaming.VideoEnable
 
 Enable/disable video streaming.
 
@@ -780,7 +780,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[VideoEnableChanged](#projectspowerupmediastreamingstatevideoenablechanged)|0|0x0|Return video streaming status.|
-## projects.powerup.MediaStreamingState.VideoEnableChanged 
+## projects.powerup.MediaStreamingState.VideoEnableChanged
 
 Return video streaming status.
 
@@ -813,7 +813,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[Autorecord](#projectspowerupvideosettingsautorecord)|0|0x0|Set video automatic recording state.|
 |[VideoMode](#projectspowerupvideosettingsvideomode)|1|0x1|Set video mode|
-## projects.powerup.VideoSettings.Autorecord 
+## projects.powerup.VideoSettings.Autorecord
 
 Set video automatic recording state.
 
@@ -839,7 +839,7 @@ drone.message.send(AutorecordMessage);
 ```
 
 
-## projects.powerup.VideoSettings.VideoMode 
+## projects.powerup.VideoSettings.VideoMode
 
 Set video mode
 
@@ -876,7 +876,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[AutorecordChanged](#projectspowerupvideosettingsstateautorecordchanged)|0|0x0|Get video automatic recording status.|
 |[VideoModeChanged](#projectspowerupvideosettingsstatevideomodechanged)|1|0x1|Video mode|
-## projects.powerup.VideoSettingsState.AutorecordChanged 
+## projects.powerup.VideoSettingsState.AutorecordChanged
 
 Get video automatic recording status.
 
@@ -898,7 +898,7 @@ drone.on(
 ```
 
 
-## projects.powerup.VideoSettingsState.VideoModeChanged 
+## projects.powerup.VideoSettingsState.VideoModeChanged
 
 Video mode
 
@@ -930,7 +930,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[buzz](#projectspowerupsoundsbuzz)|0|0x0|Enable/disable the buzzer sound|
-## projects.powerup.Sounds.buzz 
+## projects.powerup.Sounds.buzz
 
 Enable/disable the buzzer sound
 
@@ -966,7 +966,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[buzzChanged](#projectspowerupsoundsstatebuzzchanged)|0|0x0|State of the buzzer|
-## projects.powerup.SoundsState.buzzChanged 
+## projects.powerup.SoundsState.buzzChanged
 
 State of the buzzer
 

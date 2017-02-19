@@ -54,7 +54,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[moveBy](#projectsardrone3pilotingmoveby)|7|0x7|Move the drone to a relative position|
 |[UserTakeOff](#projectsardrone3pilotingusertakeoff)|8|0x8|Prepare the drone to take off|
 |[Circle](#projectsardrone3pilotingcircle)|9|0x9|Circle|
-## projects.ardrone3.Piloting.FlatTrim Command
+## projects.ardrone3.Piloting.FlatTrim
 
 Do a flat trim
 
@@ -81,7 +81,7 @@ drone.message.send(FlatTrimMessage);
 ```
 
 
-## projects.ardrone3.Piloting.TakeOff Command
+## projects.ardrone3.Piloting.TakeOff
 
 Take off
 
@@ -109,7 +109,7 @@ drone.message.send(TakeOffMessage);
 ```
 
 
-## projects.ardrone3.Piloting.PCMD Command
+## projects.ardrone3.Piloting.PCMD
 
 Move the drone
 
@@ -139,7 +139,7 @@ drone.message.send(PCMDMessage);
 ```
 
 
-## projects.ardrone3.Piloting.Landing Command
+## projects.ardrone3.Piloting.Landing
 
 Land
 
@@ -167,7 +167,7 @@ drone.message.send(LandingMessage);
 ```
 
 
-## projects.ardrone3.Piloting.Emergency Command
+## projects.ardrone3.Piloting.Emergency
 
 Cut out the motors
 
@@ -196,7 +196,7 @@ drone.message.send(EmergencyMessage);
 ```
 
 
-## projects.ardrone3.Piloting.NavigateHome Command
+## projects.ardrone3.Piloting.NavigateHome
 
 Return home
 
@@ -226,7 +226,7 @@ drone.message.send(NavigateHomeMessage);
 ```
 
 
-## projects.ardrone3.Piloting.AutoTakeOffMode Command
+## projects.ardrone3.Piloting.AutoTakeOffMode
 
 Auto take off mode
 
@@ -252,7 +252,7 @@ drone.message.send(AutoTakeOffModeMessage);
 ```
 
 
-## projects.ardrone3.Piloting.moveBy Command
+## projects.ardrone3.Piloting.moveBy
 
 Move the drone to a relative position
 
@@ -281,7 +281,7 @@ drone.message.send(moveByMessage);
 ```
 
 
-## projects.ardrone3.Piloting.UserTakeOff Command
+## projects.ardrone3.Piloting.UserTakeOff
 
 Prepare the drone to take off
 
@@ -310,7 +310,7 @@ drone.message.send(UserTakeOffMessage);
 ```
 
 
-## projects.ardrone3.Piloting.Circle Command
+## projects.ardrone3.Piloting.Circle
 
 Circle
 
@@ -350,7 +350,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[Orientation](#projectsardrone3cameraorientation)|0|0x0|Move the camera|
 |[OrientationV2](#projectsardrone3cameraorientationv2)|1|0x1|Move the camera|
 |[Velocity](#projectsardrone3cameravelocity)|2|0x2|Move the camera using velocity|
-## projects.ardrone3.Camera.Orientation Command
+## projects.ardrone3.Camera.Orientation
 
 Move the camera
 
@@ -378,7 +378,7 @@ drone.message.send(OrientationMessage);
 ```
 
 
-## projects.ardrone3.Camera.OrientationV2 Command
+## projects.ardrone3.Camera.OrientationV2
 
 Move the camera
 
@@ -406,7 +406,7 @@ drone.message.send(OrientationV2Message);
 ```
 
 
-## projects.ardrone3.Camera.Velocity Command
+## projects.ardrone3.Camera.Velocity
 
 Move the camera using velocity
 
@@ -459,7 +459,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[CirclingRadius](#projectsardrone3pilotingsettingscirclingradius)|13|0xd|Set circling radius|
 |[CirclingAltitude](#projectsardrone3pilotingsettingscirclingaltitude)|14|0xe|Set min circling altitude|
 |[PitchMode](#projectsardrone3pilotingsettingspitchmode)|15|0xf|Set pitch mode|
-## projects.ardrone3.PilotingSettings.MaxAltitude Command
+## projects.ardrone3.PilotingSettings.MaxAltitude
 
 Set max altitude
 
@@ -489,7 +489,7 @@ drone.message.send(MaxAltitudeMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.MaxTilt Command
+## projects.ardrone3.PilotingSettings.MaxTilt
 
 Set max pitch/roll
 
@@ -518,7 +518,7 @@ drone.message.send(MaxTiltMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.AbsolutControl Command
+## projects.ardrone3.PilotingSettings.AbsolutControl
 
 Set absolut control
 
@@ -544,7 +544,7 @@ drone.message.send(AbsolutControlMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.MaxDistance Command
+## projects.ardrone3.PilotingSettings.MaxDistance
 
 Set max distance
 
@@ -574,7 +574,7 @@ drone.message.send(MaxDistanceMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.NoFlyOverMaxDistance Command
+## projects.ardrone3.PilotingSettings.NoFlyOverMaxDistance
 
 Enable geofence
 
@@ -605,7 +605,7 @@ drone.message.send(NoFlyOverMaxDistanceMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.setAutonomousFlightMaxHorizontalSpeed Command
+## projects.ardrone3.PilotingSettings.setAutonomousFlightMaxHorizontalSpeed
 
 Set autonomous flight max horizontal speed
 
@@ -633,7 +633,7 @@ drone.message.send(setAutonomousFlightMaxHorizontalSpeedMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.setAutonomousFlightMaxVerticalSpeed Command
+## projects.ardrone3.PilotingSettings.setAutonomousFlightMaxVerticalSpeed
 
 Set autonomous flight max vertical speed
 
@@ -661,7 +661,7 @@ drone.message.send(setAutonomousFlightMaxVerticalSpeedMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.setAutonomousFlightMaxHorizontalAcceleration Command
+## projects.ardrone3.PilotingSettings.setAutonomousFlightMaxHorizontalAcceleration
 
 Set autonomous flight max horizontal acceleration
 
@@ -689,7 +689,7 @@ drone.message.send(setAutonomousFlightMaxHorizontalAccelerationMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.setAutonomousFlightMaxVerticalAcceleration Command
+## projects.ardrone3.PilotingSettings.setAutonomousFlightMaxVerticalAcceleration
 
 Set autonomous flight max vertical acceleration
 
@@ -717,7 +717,7 @@ drone.message.send(setAutonomousFlightMaxVerticalAccelerationMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.setAutonomousFlightMaxRotationSpeed Command
+## projects.ardrone3.PilotingSettings.setAutonomousFlightMaxRotationSpeed
 
 Set autonomous flight max rotation speed
 
@@ -745,7 +745,7 @@ drone.message.send(setAutonomousFlightMaxRotationSpeedMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.BankedTurn Command
+## projects.ardrone3.PilotingSettings.BankedTurn
 
 Set banked turn mode
 
@@ -773,7 +773,7 @@ drone.message.send(BankedTurnMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.MinAltitude Command
+## projects.ardrone3.PilotingSettings.MinAltitude
 
 Set minimum altitude
 
@@ -801,7 +801,7 @@ drone.message.send(MinAltitudeMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.CirclingDirection Command
+## projects.ardrone3.PilotingSettings.CirclingDirection
 
 Set default circling direction
 
@@ -829,7 +829,7 @@ drone.message.send(CirclingDirectionMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.CirclingRadius Command
+## projects.ardrone3.PilotingSettings.CirclingRadius
 
 Set circling radius
 
@@ -857,7 +857,7 @@ drone.message.send(CirclingRadiusMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.CirclingAltitude Command
+## projects.ardrone3.PilotingSettings.CirclingAltitude
 
 Set min circling altitude
 
@@ -885,7 +885,7 @@ drone.message.send(CirclingAltitudeMessage);
 ```
 
 
-## projects.ardrone3.PilotingSettings.PitchMode Command
+## projects.ardrone3.PilotingSettings.PitchMode
 
 Set pitch mode
 
@@ -924,7 +924,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[PictureEventChanged](#projectsardrone3mediarecordeventpictureeventchanged)|0|0x0|Picture taken|
 |[VideoEventChanged](#projectsardrone3mediarecordeventvideoeventchanged)|1|0x1|Video record notification|
-## projects.ardrone3.MediaRecordEvent.PictureEventChanged Event
+## projects.ardrone3.MediaRecordEvent.PictureEventChanged
 
 Picture taken
 
@@ -948,7 +948,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.MediaRecordEvent.VideoEventChanged Event
+## projects.ardrone3.MediaRecordEvent.VideoEventChanged
 
 Video record notification
 
@@ -993,7 +993,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[GpsLocationChanged](#projectsardrone3pilotingstategpslocationchanged)|9|0x9|Drone's location changed|
 |[LandingStateChanged](#projectsardrone3pilotingstatelandingstatechanged)|10|0xa|Landing state|
 |[AirSpeedChanged](#projectsardrone3pilotingstateairspeedchanged)|11|0xb|Drone's air speed changed|
-## projects.ardrone3.PilotingState.FlatTrimChanged Event
+## projects.ardrone3.PilotingState.FlatTrimChanged
 
 Flat trim changed
 
@@ -1015,7 +1015,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingState.FlyingStateChanged Event
+## projects.ardrone3.PilotingState.FlyingStateChanged
 
 Flying state
 
@@ -1037,7 +1037,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingState.AlertStateChanged Event
+## projects.ardrone3.PilotingState.AlertStateChanged
 
 Alert state
 
@@ -1059,7 +1059,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingState.NavigateHomeStateChanged Event
+## projects.ardrone3.PilotingState.NavigateHomeStateChanged
 
 Return home state
 
@@ -1082,7 +1082,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingState.PositionChanged Event
+## projects.ardrone3.PilotingState.PositionChanged
 
 Drone's position changed
 
@@ -1104,7 +1104,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingState.SpeedChanged Event
+## projects.ardrone3.PilotingState.SpeedChanged
 
 Drone's speed changed
 
@@ -1127,7 +1127,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingState.AttitudeChanged Event
+## projects.ardrone3.PilotingState.AttitudeChanged
 
 Drone's attitude changed
 
@@ -1149,7 +1149,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingState.AutoTakeOffModeChanged Command
+## projects.ardrone3.PilotingState.AutoTakeOffModeChanged
 
 Auto takeoff mode
 
@@ -1171,7 +1171,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingState.AltitudeChanged Event
+## projects.ardrone3.PilotingState.AltitudeChanged
 
 Drone's altitude changed
 
@@ -1195,7 +1195,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingState.GpsLocationChanged Event
+## projects.ardrone3.PilotingState.GpsLocationChanged
 
 Drone's location changed
 
@@ -1218,7 +1218,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingState.LandingStateChanged Event
+## projects.ardrone3.PilotingState.LandingStateChanged
 
 Landing state
 
@@ -1241,7 +1241,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingState.AirSpeedChanged Event
+## projects.ardrone3.PilotingState.AirSpeedChanged
 
 Drone's air speed changed
 
@@ -1274,7 +1274,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[Flip](#projectsardrone3animationsflip)|0|0x0|Make a flip|
-## projects.ardrone3.Animations.Flip Command
+## projects.ardrone3.Animations.Flip
 
 Make a flip
 
@@ -1325,7 +1325,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[CirclingRadiusChanged](#projectsardrone3pilotingsettingsstatecirclingradiuschanged)|13|0xd|Circling radius|
 |[CirclingAltitudeChanged](#projectsardrone3pilotingsettingsstatecirclingaltitudechanged)|14|0xe|Circling altitude|
 |[PitchModeChanged](#projectsardrone3pilotingsettingsstatepitchmodechanged)|15|0xf|Pitch mode|
-## projects.ardrone3.PilotingSettingsState.MaxAltitudeChanged Event
+## projects.ardrone3.PilotingSettingsState.MaxAltitudeChanged
 
 Max altitude
 
@@ -1348,7 +1348,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.MaxTiltChanged Event
+## projects.ardrone3.PilotingSettingsState.MaxTiltChanged
 
 Max pitch/roll
 
@@ -1371,7 +1371,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.AbsolutControlChanged Command
+## projects.ardrone3.PilotingSettingsState.AbsolutControlChanged
 
 Absolut control
 
@@ -1393,7 +1393,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.MaxDistanceChanged Event
+## projects.ardrone3.PilotingSettingsState.MaxDistanceChanged
 
 Max distance
 
@@ -1415,7 +1415,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.NoFlyOverMaxDistanceChanged Event
+## projects.ardrone3.PilotingSettingsState.NoFlyOverMaxDistanceChanged
 
 Geofencing
 
@@ -1438,7 +1438,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.AutonomousFlightMaxHorizontalSpeed Event
+## projects.ardrone3.PilotingSettingsState.AutonomousFlightMaxHorizontalSpeed
 
 Autonomous flight max horizontal speed
 
@@ -1460,7 +1460,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.AutonomousFlightMaxVerticalSpeed Event
+## projects.ardrone3.PilotingSettingsState.AutonomousFlightMaxVerticalSpeed
 
 Autonomous flight max vertical speed
 
@@ -1482,7 +1482,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.AutonomousFlightMaxHorizontalAcceleration Event
+## projects.ardrone3.PilotingSettingsState.AutonomousFlightMaxHorizontalAcceleration
 
 Autonomous flight max horizontal acceleration
 
@@ -1504,7 +1504,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.AutonomousFlightMaxVerticalAcceleration Event
+## projects.ardrone3.PilotingSettingsState.AutonomousFlightMaxVerticalAcceleration
 
 Autonomous flight max vertical acceleration
 
@@ -1526,7 +1526,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.AutonomousFlightMaxRotationSpeed Event
+## projects.ardrone3.PilotingSettingsState.AutonomousFlightMaxRotationSpeed
 
 Autonomous flight max rotation speed
 
@@ -1548,7 +1548,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.BankedTurnChanged Event
+## projects.ardrone3.PilotingSettingsState.BankedTurnChanged
 
 Banked Turn mode
 
@@ -1571,7 +1571,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.MinAltitudeChanged Event
+## projects.ardrone3.PilotingSettingsState.MinAltitudeChanged
 
 Min altitude
 
@@ -1594,7 +1594,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.CirclingDirectionChanged Event
+## projects.ardrone3.PilotingSettingsState.CirclingDirectionChanged
 
 Circling direction
 
@@ -1617,7 +1617,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.CirclingRadiusChanged Event
+## projects.ardrone3.PilotingSettingsState.CirclingRadiusChanged
 
 Circling radius
 
@@ -1640,7 +1640,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.CirclingAltitudeChanged Event
+## projects.ardrone3.PilotingSettingsState.CirclingAltitudeChanged
 
 Circling altitude
 
@@ -1664,7 +1664,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PilotingSettingsState.PitchModeChanged Event
+## projects.ardrone3.PilotingSettingsState.PitchModeChanged
 
 Pitch mode
 
@@ -1699,7 +1699,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[Video](#projectsardrone3mediarecordvideo)|1|0x1|Record a video|
 |[PictureV2](#projectsardrone3mediarecordpicturev2)|2|0x2|Take a picture|
 |[VideoV2](#projectsardrone3mediarecordvideov2)|3|0x3|Record a video|
-## projects.ardrone3.MediaRecord.Picture Command
+## projects.ardrone3.MediaRecord.Picture
 
 Take a picture
 
@@ -1725,7 +1725,7 @@ drone.message.send(PictureMessage);
 ```
 
 
-## projects.ardrone3.MediaRecord.Video Command
+## projects.ardrone3.MediaRecord.Video
 
 Record a video
 
@@ -1751,7 +1751,7 @@ drone.message.send(VideoMessage);
 ```
 
 
-## projects.ardrone3.MediaRecord.PictureV2 Command
+## projects.ardrone3.MediaRecord.PictureV2
 
 Take a picture
 
@@ -1784,7 +1784,7 @@ drone.message.send(PictureV2Message);
 ```
 
 
-## projects.ardrone3.MediaRecord.VideoV2 Command
+## projects.ardrone3.MediaRecord.VideoV2
 
 Record a video
 
@@ -1828,7 +1828,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[PictureStateChangedV2](#projectsardrone3mediarecordstatepicturestatechangedv2)|2|0x2|Picture state|
 |[VideoStateChangedV2](#projectsardrone3mediarecordstatevideostatechangedv2)|3|0x3|Video record state|
 |[VideoResolutionState](#projectsardrone3mediarecordstatevideoresolutionstate)|4|0x4|Video resolution|
-## projects.ardrone3.MediaRecordState.PictureStateChanged Command
+## projects.ardrone3.MediaRecordState.PictureStateChanged
 
 Picture state
 
@@ -1850,7 +1850,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.MediaRecordState.VideoStateChanged Command
+## projects.ardrone3.MediaRecordState.VideoStateChanged
 
 Video record state
 
@@ -1872,7 +1872,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.MediaRecordState.PictureStateChangedV2 Event
+## projects.ardrone3.MediaRecordState.PictureStateChangedV2
 
 Picture state
 
@@ -1894,7 +1894,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.MediaRecordState.VideoStateChangedV2 Event
+## projects.ardrone3.MediaRecordState.VideoStateChangedV2
 
 Video record state
 
@@ -1916,7 +1916,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.MediaRecordState.VideoResolutionState Event
+## projects.ardrone3.MediaRecordState.VideoResolutionState
 
 Video resolution
 
@@ -1951,7 +1951,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[WifiSelection](#projectsardrone3networksettingswifiselection)|0|0x0|Select Wifi|
 |[wifiSecurity](#projectsardrone3networksettingswifisecurity)|1|0x1|Set wifi security type|
-## projects.ardrone3.NetworkSettings.WifiSelection Command
+## projects.ardrone3.NetworkSettings.WifiSelection
 
 Select Wifi
 
@@ -1978,7 +1978,7 @@ drone.message.send(WifiSelectionMessage);
 ```
 
 
-## projects.ardrone3.NetworkSettings.wifiSecurity Command
+## projects.ardrone3.NetworkSettings.wifiSecurity
 
 Set wifi security type
 
@@ -2018,7 +2018,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[WifiSelectionChanged](#projectsardrone3networksettingsstatewifiselectionchanged)|0|0x0|Wifi selection|
 |[wifiSecurityChanged](#projectsardrone3networksettingsstatewifisecuritychanged)|1|0x1|Wifi security type|
 |[wifiSecurity](#projectsardrone3networksettingsstatewifisecurity)|2|0x2|Wifi security type|
-## projects.ardrone3.NetworkSettingsState.WifiSelectionChanged Event
+## projects.ardrone3.NetworkSettingsState.WifiSelectionChanged
 
 Wifi selection
 
@@ -2040,7 +2040,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.NetworkSettingsState.wifiSecurityChanged Command
+## projects.ardrone3.NetworkSettingsState.wifiSecurityChanged
 
 Wifi security type
 
@@ -2062,7 +2062,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.NetworkSettingsState.wifiSecurity Event
+## projects.ardrone3.NetworkSettingsState.wifiSecurity
 
 Wifi security type
 
@@ -2098,7 +2098,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[HullProtection](#projectsardrone3speedsettingshullprotection)|2|0x2|Set the presence of hull protection|
 |[Outdoor](#projectsardrone3speedsettingsoutdoor)|3|0x3|Set outdoor mode|
 |[MaxPitchRollRotationSpeed](#projectsardrone3speedsettingsmaxpitchrollrotationspeed)|4|0x4|Set max pitch/roll rotation speed|
-## projects.ardrone3.SpeedSettings.MaxVerticalSpeed Command
+## projects.ardrone3.SpeedSettings.MaxVerticalSpeed
 
 Set max vertical speed
 
@@ -2125,7 +2125,7 @@ drone.message.send(MaxVerticalSpeedMessage);
 ```
 
 
-## projects.ardrone3.SpeedSettings.MaxRotationSpeed Command
+## projects.ardrone3.SpeedSettings.MaxRotationSpeed
 
 Set max rotation speed
 
@@ -2152,7 +2152,7 @@ drone.message.send(MaxRotationSpeedMessage);
 ```
 
 
-## projects.ardrone3.SpeedSettings.HullProtection Command
+## projects.ardrone3.SpeedSettings.HullProtection
 
 Set the presence of hull protection
 
@@ -2179,7 +2179,7 @@ drone.message.send(HullProtectionMessage);
 ```
 
 
-## projects.ardrone3.SpeedSettings.Outdoor Command
+## projects.ardrone3.SpeedSettings.Outdoor
 
 Set outdoor mode
 
@@ -2205,7 +2205,7 @@ drone.message.send(OutdoorMessage);
 ```
 
 
-## projects.ardrone3.SpeedSettings.MaxPitchRollRotationSpeed Command
+## projects.ardrone3.SpeedSettings.MaxPitchRollRotationSpeed
 
 Set max pitch/roll rotation speed
 
@@ -2246,7 +2246,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[HullProtectionChanged](#projectsardrone3speedsettingsstatehullprotectionchanged)|2|0x2|Presence of hull protection|
 |[OutdoorChanged](#projectsardrone3speedsettingsstateoutdoorchanged)|3|0x3|Outdoor mode|
 |[MaxPitchRollRotationSpeedChanged](#projectsardrone3speedsettingsstatemaxpitchrollrotationspeedchanged)|4|0x4|Max pitch/roll rotation speed|
-## projects.ardrone3.SpeedSettingsState.MaxVerticalSpeedChanged Event
+## projects.ardrone3.SpeedSettingsState.MaxVerticalSpeedChanged
 
 Max vertical speed
 
@@ -2268,7 +2268,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.SpeedSettingsState.MaxRotationSpeedChanged Event
+## projects.ardrone3.SpeedSettingsState.MaxRotationSpeedChanged
 
 Max rotation speed
 
@@ -2290,7 +2290,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.SpeedSettingsState.HullProtectionChanged Event
+## projects.ardrone3.SpeedSettingsState.HullProtectionChanged
 
 Presence of hull protection
 
@@ -2312,7 +2312,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.SpeedSettingsState.OutdoorChanged Command
+## projects.ardrone3.SpeedSettingsState.OutdoorChanged
 
 Outdoor mode
 
@@ -2334,7 +2334,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.SpeedSettingsState.MaxPitchRollRotationSpeedChanged Event
+## projects.ardrone3.SpeedSettingsState.MaxPitchRollRotationSpeedChanged
 
 Max pitch/roll rotation speed
 
@@ -2367,7 +2367,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[WifiScan](#projectsardrone3networkwifiscan)|0|0x0|Scan wifi network|
 |[WifiAuthChannel](#projectsardrone3networkwifiauthchannel)|1|0x1|Ask for available wifi channels|
-## projects.ardrone3.Network.WifiScan Command
+## projects.ardrone3.Network.WifiScan
 
 Scan wifi network
 
@@ -2394,7 +2394,7 @@ drone.message.send(WifiScanMessage);
 ```
 
 
-## projects.ardrone3.Network.WifiAuthChannel Command
+## projects.ardrone3.Network.WifiAuthChannel
 
 Ask for available wifi channels
 
@@ -2434,7 +2434,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[AllWifiScanChanged](#projectsardrone3networkstateallwifiscanchanged)|1|0x1|Wifi scan ended|
 |[WifiAuthChannelListChanged](#projectsardrone3networkstatewifiauthchannellistchanged)|2|0x2|Available wifi channels|
 |[AllWifiAuthChannelChanged](#projectsardrone3networkstateallwifiauthchannelchanged)|3|0x3|Available wifi channels completed|
-## projects.ardrone3.NetworkState.WifiScanListChanged Event
+## projects.ardrone3.NetworkState.WifiScanListChanged
 
 Wifi scan results
 
@@ -2457,7 +2457,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.NetworkState.AllWifiScanChanged Event
+## projects.ardrone3.NetworkState.AllWifiScanChanged
 
 Wifi scan ended
 
@@ -2480,7 +2480,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.NetworkState.WifiAuthChannelListChanged Event
+## projects.ardrone3.NetworkState.WifiAuthChannelListChanged
 
 Available wifi channels
 
@@ -2503,7 +2503,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.NetworkState.AllWifiAuthChannelChanged Event
+## projects.ardrone3.NetworkState.AllWifiAuthChannelChanged
 
 Available wifi channels completed
 
@@ -2543,7 +2543,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[MotorErrorLastErrorChanged](#projectsardrone3settingsstatemotorerrorlasterrorchanged)|5|0x5|Last motor error|
 |[P7ID](#projectsardrone3settingsstatep7id)|6|0x6|P7ID|
 |[CPUID](#projectsardrone3settingsstatecpuid)|7|0x7|Product main cpu id|
-## projects.ardrone3.SettingsState.ProductMotorVersionListChanged Command
+## projects.ardrone3.SettingsState.ProductMotorVersionListChanged
 
 Motor version
 
@@ -2565,7 +2565,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.SettingsState.ProductGPSVersionChanged Event
+## projects.ardrone3.SettingsState.ProductGPSVersionChanged
 
 GPS version
 
@@ -2587,7 +2587,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.SettingsState.MotorErrorStateChanged Event
+## projects.ardrone3.SettingsState.MotorErrorStateChanged
 
 Motor error
 
@@ -2610,7 +2610,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.SettingsState.MotorSoftwareVersionChanged Command
+## projects.ardrone3.SettingsState.MotorSoftwareVersionChanged
 
 Motor version
 
@@ -2632,7 +2632,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.SettingsState.MotorFlightsStatusChanged Event
+## projects.ardrone3.SettingsState.MotorFlightsStatusChanged
 
 Motor flight status
 
@@ -2654,7 +2654,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.SettingsState.MotorErrorLastErrorChanged Event
+## projects.ardrone3.SettingsState.MotorErrorLastErrorChanged
 
 Last motor error
 
@@ -2677,7 +2677,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.SettingsState.P7ID Command
+## projects.ardrone3.SettingsState.P7ID
 
 P7ID
 
@@ -2703,7 +2703,7 @@ drone.message.send(P7IDMessage);
 ```
 
 
-## projects.ardrone3.SettingsState.CPUID 
+## projects.ardrone3.SettingsState.CPUID
 
 Product main cpu id
 
@@ -2748,7 +2748,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[VideoRecordingMode](#projectsardrone3picturesettingsvideorecordingmode)|7|0x7|Set video recording mode|
 |[VideoFramerate](#projectsardrone3picturesettingsvideoframerate)|8|0x8|Set video framerate|
 |[VideoResolutions](#projectsardrone3picturesettingsvideoresolutions)|9|0x9|Set video resolutions|
-## projects.ardrone3.PictureSettings.PictureFormatSelection Command
+## projects.ardrone3.PictureSettings.PictureFormatSelection
 
 Set picture format
 
@@ -2777,7 +2777,7 @@ drone.message.send(PictureFormatSelectionMessage);
 ```
 
 
-## projects.ardrone3.PictureSettings.AutoWhiteBalanceSelection Command
+## projects.ardrone3.PictureSettings.AutoWhiteBalanceSelection
 
 Set White Balance mode
 
@@ -2804,7 +2804,7 @@ drone.message.send(AutoWhiteBalanceSelectionMessage);
 ```
 
 
-## projects.ardrone3.PictureSettings.ExpositionSelection Command
+## projects.ardrone3.PictureSettings.ExpositionSelection
 
 Set image exposure
 
@@ -2831,7 +2831,7 @@ drone.message.send(ExpositionSelectionMessage);
 ```
 
 
-## projects.ardrone3.PictureSettings.SaturationSelection Command
+## projects.ardrone3.PictureSettings.SaturationSelection
 
 Set image saturation
 
@@ -2858,7 +2858,7 @@ drone.message.send(SaturationSelectionMessage);
 ```
 
 
-## projects.ardrone3.PictureSettings.TimelapseSelection Command
+## projects.ardrone3.PictureSettings.TimelapseSelection
 
 Set timelapse mode
 
@@ -2887,7 +2887,7 @@ drone.message.send(TimelapseSelectionMessage);
 ```
 
 
-## projects.ardrone3.PictureSettings.VideoAutorecordSelection Command
+## projects.ardrone3.PictureSettings.VideoAutorecordSelection
 
 Set video autorecord mode
 
@@ -2915,7 +2915,7 @@ drone.message.send(VideoAutorecordSelectionMessage);
 ```
 
 
-## projects.ardrone3.PictureSettings.VideoStabilizationMode Command
+## projects.ardrone3.PictureSettings.VideoStabilizationMode
 
 Set video stabilization mode
 
@@ -2942,7 +2942,7 @@ drone.message.send(VideoStabilizationModeMessage);
 ```
 
 
-## projects.ardrone3.PictureSettings.VideoRecordingMode Command
+## projects.ardrone3.PictureSettings.VideoRecordingMode
 
 Set video recording mode
 
@@ -2969,7 +2969,7 @@ drone.message.send(VideoRecordingModeMessage);
 ```
 
 
-## projects.ardrone3.PictureSettings.VideoFramerate Command
+## projects.ardrone3.PictureSettings.VideoFramerate
 
 Set video framerate
 
@@ -2996,7 +2996,7 @@ drone.message.send(VideoFramerateMessage);
 ```
 
 
-## projects.ardrone3.PictureSettings.VideoResolutions Command
+## projects.ardrone3.PictureSettings.VideoResolutions
 
 Set video resolutions
 
@@ -3042,7 +3042,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[VideoRecordingModeChanged](#projectsardrone3picturesettingsstatevideorecordingmodechanged)|7|0x7|Video recording mode|
 |[VideoFramerateChanged](#projectsardrone3picturesettingsstatevideoframeratechanged)|8|0x8|Video framerate|
 |[VideoResolutionsChanged](#projectsardrone3picturesettingsstatevideoresolutionschanged)|9|0x9|Video resolutions|
-## projects.ardrone3.PictureSettingsState.PictureFormatChanged Event
+## projects.ardrone3.PictureSettingsState.PictureFormatChanged
 
 Picture format
 
@@ -3064,7 +3064,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PictureSettingsState.AutoWhiteBalanceChanged Event
+## projects.ardrone3.PictureSettingsState.AutoWhiteBalanceChanged
 
 White balance mode
 
@@ -3086,7 +3086,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PictureSettingsState.ExpositionChanged Event
+## projects.ardrone3.PictureSettingsState.ExpositionChanged
 
 Image exposure
 
@@ -3108,7 +3108,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PictureSettingsState.SaturationChanged Event
+## projects.ardrone3.PictureSettingsState.SaturationChanged
 
 Image saturation
 
@@ -3130,7 +3130,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PictureSettingsState.TimelapseChanged Event
+## projects.ardrone3.PictureSettingsState.TimelapseChanged
 
 Timelapse mode
 
@@ -3152,7 +3152,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PictureSettingsState.VideoAutorecordChanged Event
+## projects.ardrone3.PictureSettingsState.VideoAutorecordChanged
 
 Video Autorecord mode
 
@@ -3174,7 +3174,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PictureSettingsState.VideoStabilizationModeChanged Event
+## projects.ardrone3.PictureSettingsState.VideoStabilizationModeChanged
 
 Video stabilization mode
 
@@ -3196,7 +3196,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PictureSettingsState.VideoRecordingModeChanged Event
+## projects.ardrone3.PictureSettingsState.VideoRecordingModeChanged
 
 Video recording mode
 
@@ -3218,7 +3218,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PictureSettingsState.VideoFramerateChanged Event
+## projects.ardrone3.PictureSettingsState.VideoFramerateChanged
 
 Video framerate
 
@@ -3240,7 +3240,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.PictureSettingsState.VideoResolutionsChanged Event
+## projects.ardrone3.PictureSettingsState.VideoResolutionsChanged
 
 Video resolutions
 
@@ -3274,7 +3274,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[VideoEnable](#projectsardrone3mediastreamingvideoenable)|0|0x0|Enable/disable video streaming|
 |[VideoStreamMode](#projectsardrone3mediastreamingvideostreammode)|1|0x1|Video stream mode|
-## projects.ardrone3.MediaStreaming.VideoEnable Command
+## projects.ardrone3.MediaStreaming.VideoEnable
 
 Enable/disable video streaming
 
@@ -3301,7 +3301,7 @@ drone.message.send(VideoEnableMessage);
 ```
 
 
-## projects.ardrone3.MediaStreaming.VideoStreamMode 
+## projects.ardrone3.MediaStreaming.VideoStreamMode
 
 Video stream mode
 
@@ -3338,7 +3338,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[VideoEnableChanged](#projectsardrone3mediastreamingstatevideoenablechanged)|0|0x0|Video stream state|
 |[VideoStreamModeChanged](#projectsardrone3mediastreamingstatevideostreammodechanged)|1|0x1|Video stream mode state|
-## projects.ardrone3.MediaStreamingState.VideoEnableChanged Event
+## projects.ardrone3.MediaStreamingState.VideoEnableChanged
 
 Video stream state
 
@@ -3360,7 +3360,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.MediaStreamingState.VideoStreamModeChanged 
+## projects.ardrone3.MediaStreamingState.VideoStreamModeChanged
 
 Video stream mode state
 
@@ -3396,7 +3396,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[SendControllerGPS](#projectsardrone3gpssettingssendcontrollergps)|2|0x2|Set controller gps location|
 |[HomeType](#projectsardrone3gpssettingshometype)|3|0x3|Set the preferred home type|
 |[ReturnHomeDelay](#projectsardrone3gpssettingsreturnhomedelay)|4|0x4|Set the return home delay|
-## projects.ardrone3.GPSSettings.SetHome Command
+## projects.ardrone3.GPSSettings.SetHome
 
 Set home position
 
@@ -3422,7 +3422,7 @@ drone.message.send(SetHomeMessage);
 ```
 
 
-## projects.ardrone3.GPSSettings.ResetHome Command
+## projects.ardrone3.GPSSettings.ResetHome
 
 Reset home position
 
@@ -3449,7 +3449,7 @@ drone.message.send(ResetHomeMessage);
 ```
 
 
-## projects.ardrone3.GPSSettings.SendControllerGPS Command
+## projects.ardrone3.GPSSettings.SendControllerGPS
 
 Set controller gps location
 
@@ -3477,7 +3477,7 @@ drone.message.send(SendControllerGPSMessage);
 ```
 
 
-## projects.ardrone3.GPSSettings.HomeType Command
+## projects.ardrone3.GPSSettings.HomeType
 
 Set the preferred home type
 
@@ -3506,7 +3506,7 @@ drone.message.send(HomeTypeMessage);
 ```
 
 
-## projects.ardrone3.GPSSettings.ReturnHomeDelay Command
+## projects.ardrone3.GPSSettings.ReturnHomeDelay
 
 Set the return home delay
 
@@ -3548,7 +3548,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[GPSUpdateStateChanged](#projectsardrone3gpssettingsstategpsupdatestatechanged)|3|0x3|Gps update state|
 |[HomeTypeChanged](#projectsardrone3gpssettingsstatehometypechanged)|4|0x4|Preferred home type|
 |[ReturnHomeDelayChanged](#projectsardrone3gpssettingsstatereturnhomedelaychanged)|5|0x5|Return home delay|
-## projects.ardrone3.GPSSettingsState.HomeChanged Event
+## projects.ardrone3.GPSSettingsState.HomeChanged
 
 Home location
 
@@ -3570,7 +3570,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.GPSSettingsState.ResetHomeChanged Event
+## projects.ardrone3.GPSSettingsState.ResetHomeChanged
 
 Home location has been reset
 
@@ -3592,7 +3592,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.GPSSettingsState.GPSFixStateChanged Event
+## projects.ardrone3.GPSSettingsState.GPSFixStateChanged
 
 Gps fix info
 
@@ -3614,7 +3614,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.GPSSettingsState.GPSUpdateStateChanged Event
+## projects.ardrone3.GPSSettingsState.GPSUpdateStateChanged
 
 Gps update state
 
@@ -3636,7 +3636,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.GPSSettingsState.HomeTypeChanged Event
+## projects.ardrone3.GPSSettingsState.HomeTypeChanged
 
 Preferred home type
 
@@ -3659,7 +3659,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.GPSSettingsState.ReturnHomeDelayChanged Event
+## projects.ardrone3.GPSSettingsState.ReturnHomeDelayChanged
 
 Return home delay
 
@@ -3695,7 +3695,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[OrientationV2](#projectsardrone3camerastateorientationv2)|2|0x2|Camera orientation|
 |[defaultCameraOrientationV2](#projectsardrone3camerastatedefaultcameraorientationv2)|3|0x3|Orientation of the camera center|
 |[VelocityRange](#projectsardrone3camerastatevelocityrange)|4|0x4|Camera velocity range|
-## projects.ardrone3.CameraState.Orientation Event
+## projects.ardrone3.CameraState.Orientation
 
 Camera orientation
 
@@ -3717,7 +3717,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.CameraState.defaultCameraOrientation Event
+## projects.ardrone3.CameraState.defaultCameraOrientation
 
 Orientation of the camera center
 
@@ -3740,7 +3740,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.CameraState.OrientationV2 Event
+## projects.ardrone3.CameraState.OrientationV2
 
 Camera orientation
 
@@ -3762,7 +3762,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.CameraState.defaultCameraOrientationV2 Event
+## projects.ardrone3.CameraState.defaultCameraOrientationV2
 
 Orientation of the camera center
 
@@ -3785,7 +3785,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.CameraState.VelocityRange Event
+## projects.ardrone3.CameraState.VelocityRange
 
 Camera velocity range
 
@@ -3818,7 +3818,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[electricFrequency](#projectsardrone3antiflickeringelectricfrequency)|0|0x0|Set the electric frequency|
 |[setMode](#projectsardrone3antiflickeringsetmode)|1|0x1|Set the antiflickering mode|
-## projects.ardrone3.Antiflickering.electricFrequency Command
+## projects.ardrone3.Antiflickering.electricFrequency
 
 Set the electric frequency
 
@@ -3846,7 +3846,7 @@ drone.message.send(electricFrequencyMessage);
 ```
 
 
-## projects.ardrone3.Antiflickering.setMode Command
+## projects.ardrone3.Antiflickering.setMode
 
 Set the antiflickering mode
 
@@ -3887,7 +3887,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |--------------|----|--------|-------------|
 |[electricFrequencyChanged](#projectsardrone3antiflickeringstateelectricfrequencychanged)|0|0x0|Electric frequency|
 |[modeChanged](#projectsardrone3antiflickeringstatemodechanged)|1|0x1|Antiflickering mode|
-## projects.ardrone3.AntiflickeringState.electricFrequencyChanged Event
+## projects.ardrone3.AntiflickeringState.electricFrequencyChanged
 
 Electric frequency
 
@@ -3910,7 +3910,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.AntiflickeringState.modeChanged Event
+## projects.ardrone3.AntiflickeringState.modeChanged
 
 Antiflickering mode
 
@@ -3944,7 +3944,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 |[NumberOfSatelliteChanged](#projectsardrone3gpsstatenumberofsatellitechanged)|0|0x0|Number of GPS satellites|
 |[HomeTypeAvailabilityChanged](#projectsardrone3gpsstatehometypeavailabilitychanged)|1|0x1|Home type availability|
 |[HomeTypeChosenChanged](#projectsardrone3gpsstatehometypechosenchanged)|2|0x2|Home type|
-## projects.ardrone3.GPSState.NumberOfSatelliteChanged Event
+## projects.ardrone3.GPSState.NumberOfSatelliteChanged
 
 Number of GPS satellites
 
@@ -3966,7 +3966,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.GPSState.HomeTypeAvailabilityChanged Event
+## projects.ardrone3.GPSState.HomeTypeAvailabilityChanged
 
 Home type availability
 
@@ -3989,7 +3989,7 @@ drone.on(
 ```
 
 
-## projects.ardrone3.GPSState.HomeTypeChosenChanged Event
+## projects.ardrone3.GPSState.HomeTypeChosenChanged
 
 Home type
 
@@ -4024,7 +4024,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[Features](#projectsardrone3prostatefeatures)|0|0x0|Pro features|
-## projects.ardrone3.PROState.Features Command
+## projects.ardrone3.PROState.Features
 
 Pro features
 
@@ -4060,7 +4060,7 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|
 |[moveByEnd](#projectsardrone3pilotingeventmovebyend)|0|0x0|Relative move ended|
-## projects.ardrone3.PilotingEvent.moveByEnd Event
+## projects.ardrone3.PilotingEvent.moveByEnd
 
 Relative move ended
 
