@@ -207,24 +207,76 @@ All hex IDs are included as well incase you need them for debugging or extending
               const commandName=entry.lookup[key];
               const command=entry[commandName];
               markdown+=`
-## projects.${projectName}.${className}.${commandName}
+## projects.${projectName}.${className}.${commandName} ${
+  ((command.comment)?
+      ((command.comment.info.triggered)?
+        `Event`
+        : `Command`
+      ) : ''
+  )
+}
 
 ${
   (command.comment)? command.comment.info.title : command.details
 }
 
 ${
-  (command.comment)? command.comment.info.desc : ''
+  (command.comment)? command.comment.info.desc.replace(/\\n/g,`
+`) : ''
 }
 
 ${
-  (command.comment)? `Triggered : ${command.comment.info.triggered}`
-                      || `Result : ${command.comment.info.result}` 
-                      : ''
-}
+  ((command.comment)?
+      ((command.comment.info.triggered)?
+        `Triggered : ${command.comment.info.triggered}`
+        : `Result : ${command.comment.info.result}`
+      ) : ''
+  ).replace(/\\n/,`
+`)
+}`;
 
-`;
+          if(
+            command.comment
+            && command.comment.info.triggered
+          ){
+            markdown+=`
+Example binding to listen for this event from the drone :
+
+\`\`\`javascript
+
+drone.on(
+  '${commandName}',
+  function(data){
+    console.log(data);
+  }
+)
+
+\`\`\`
+
+`
+          }else{
+            markdown+=`
+Example sending the ${commandName} command to your parrot drone :
+
+\`\`\`javascript
+
+const project=drone.projects.${projectName};
+const commandClass=project.${className};
+
+//build a message requesting all settings
+const ${commandName}Message=drone.message.build(
+  project.id,
+  commandClass.id,
+  commandClass.${commandName}
+);
+
+drone.message.send(${commandName}Message);
+
+\`\`\`
+
+`
           }
+        }
       }
 
       fs.writeFile(
