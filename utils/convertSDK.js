@@ -169,22 +169,22 @@ All hex IDs are included as well incase you need them for debugging or extending
           const className=project.lookup[key];
           const entry=project[className];
           markdown+=`
-|[${className}](#projects.${projectName}.${className})|${entry.info.id}|0x${Number(entry.info.id).toString(16)}|${entry.details}|`;
+|[${className}](#user-content-projects${projectName}${className})|${entry.info.id}|0x${Number(entry.info.id).toString(16)}|${entry.details}|`;
       }
 
       for(const key in project.lookup){
           const className=project.lookup[key];
           const entry=project[className];
           markdown+=`
-  # projects.${projectName}.${className}
-  -----
-  ### ${entry.details}
+# projects.${projectName}.${className}
+-----
+### ${entry.details}
 
-  The ${className} Class contains the following commands.
-  All hex IDs are included as well incase you need them for debugging or extending the module.
+The ${className} Class contains the following commands.
+All hex IDs are included as well incase you need them for debugging or extending the module.
 
-  | Command Name | ID | Hex ID | Description |
-  |--------------|----|--------|-------------|`;
+| Command Name | ID | Hex ID | Description |
+|--------------|----|--------|-------------|`;
 
       }
 
