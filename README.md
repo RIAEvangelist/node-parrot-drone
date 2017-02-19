@@ -7,6 +7,8 @@ This module contains the core code for such extensions with all shared informati
 
 # This module is Beta as of February 2017
 
+*Broken while upgrading to latest SDK 3_11*
+
 ## Connecting to a drone
 
     const parrot=require('node-parrot-drone');
