@@ -169,7 +169,7 @@ All hex IDs are included as well incase you need them for debugging or extending
           const className=project.lookup[key];
           const entry=project[className];
           markdown+=`
-|[${className}](#user-content-projects${projectName}${className})|${entry.info.id}|0x${Number(entry.info.id).toString(16)}|${entry.details}|`;
+|[${className}](#projects${projectName}${className})|${entry.info.id}|0x${Number(entry.info.id).toString(16)}|${entry.details}|`;
       }
 
       for(const key in project.lookup){
