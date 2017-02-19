@@ -6,7 +6,7 @@ const SDKDir    = `${__dirname}/../arsdk-xml/xml/`;
 const SDKDevices= `${__dirname}/../libARController/Xml/deviceControllers.xml`;
 const outDir    = `${__dirname}/../projects/`;
 const docsDir    = `${__dirname}/../docs/`;
-const docLink    = `https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs`;
+const docLink    = `https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/`;
 
 function isXML(name){
   if(name.indexOf('.xml')<0){
