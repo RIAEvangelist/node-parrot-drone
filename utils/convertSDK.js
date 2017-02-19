@@ -202,6 +202,29 @@ All hex IDs are included as well incase you need them for debugging or extending
   (command.comment)? command.comment.info.title : command.details
 }|`;
           }
+
+          for(const key in entry.lookup){
+              const commandName=entry.lookup[key];
+              const command=entry[commandName];
+              markdown+=`
+## projects.${projectName}.${className}.${commandName}
+
+${
+  (command.comment)? command.comment.info.title : command.details
+}
+
+${
+  (command.comment)? command.comment.info.desc : ''
+}
+
+${
+  (command.comment)? `Triggered : ${command.comment.info.triggered}`
+                      || `Result : ${command.comment.info.result}` 
+                      : ''
+}
+
+`;
+          }
       }
 
       fs.writeFile(
