@@ -466,7 +466,11 @@ ${device.details}
 This drone uses the following command sets :
 
   `;
+        const exclude=['info','details','comment','_comment'];
         for(const command in device){
+          if(exclude.includes(command)){
+            continue;
+          }
           if(result.pass.includes(command)){
             markdown+=`* [${command}](${docLink}${command}.md)
 `;

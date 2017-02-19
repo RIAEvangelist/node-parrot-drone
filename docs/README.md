@@ -11,9 +11,7 @@ Bebop Drone project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [ardrone3](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/ardrone3.md)
 * [generic](../projects/generic.js) not yet documented. See the raw object for now.
 
@@ -23,9 +21,7 @@ Jumping Sumo project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [jpsumo](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/jpsumo.md)
 
 # JumpingSumoEvoLight
@@ -34,9 +30,7 @@ Jumping Sumo Evo light project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [jpsumo](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/jpsumo.md)
 
 # JumpingSumoEvoRace
@@ -45,9 +39,7 @@ Jumping Sumo Evo race project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [jpsumo](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/jpsumo.md)
 
 # RollingSpider
@@ -56,9 +48,7 @@ Rolling Spider project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [minidrone](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/minidrone.md)
 
 # AirborneNight
@@ -67,9 +57,7 @@ Airborne night project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [minidrone](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/minidrone.md)
 
 # AirborneCargo
@@ -78,9 +66,7 @@ Airborne brick project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [minidrone](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/minidrone.md)
 
 # Swing
@@ -89,9 +75,7 @@ WingX project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [minidrone](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/minidrone.md)
 
 # Mambo
@@ -100,9 +84,7 @@ Delos3 project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [minidrone](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/minidrone.md)
 
 # Hydrofoil
@@ -111,9 +93,7 @@ Hydrofoil project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [minidrone](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/minidrone.md)
 
 # SkyController
@@ -122,9 +102,7 @@ Sky Controller project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [skyctrl](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/skyctrl.md)
 
 # SkyController2
@@ -133,9 +111,7 @@ Sky Controller 2 project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [skyctrl](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/skyctrl.md)
 * [mapper](../projects/mapper.js) not yet documented. See the raw object for now.
 * [drone_manager](../projects/drone_manager.js) not yet documented. See the raw object for now.
@@ -146,9 +122,7 @@ Power Up project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [powerup](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/powerup.md)
 
 # Bebop2
@@ -157,9 +131,7 @@ Bebop 2 project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [ardrone3](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/ardrone3.md)
 * [generic](../projects/generic.js) not yet documented. See the raw object for now.
 * [follow_me](../projects/follow_me.js) not yet documented. See the raw object for now.
@@ -171,8 +143,6 @@ Disco project
 
 This drone uses the following command sets :
 
-  * [info](../projects/info.js) not yet documented. See the raw object for now.
-* [details](../projects/details.js) not yet documented. See the raw object for now.
-* [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
+  * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [ardrone3](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/ardrone3.md)
 * [rc](../projects/rc.js) not yet documented. See the raw object for now.
