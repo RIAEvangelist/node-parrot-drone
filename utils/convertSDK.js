@@ -22,11 +22,36 @@ function isXML(name){
 }
 
 function logErr(err,file){
-  if(err){
-    //console.log(err);
-    console.log(`${file} FAILED!`);
-    result.fail.push(file);
+  console.log(err);
+  console.log(`ERR ${file}`);
+  result.fail.push(file);
+}
+
+function assignLookup(parent,child){
+  //console.log('CHILD : ', child.info);
+  child.info.id=Number(child.info.id);
+
+  parent.lookup[
+    child.info.id
+  ]=child.info.name;
+}
+
+function isCommandRelated(child){
+  //console.trace(child)
+  if(!child.info){
+    return false;
   }
+  if(
+    !child.info.tagType
+  ){
+    return false;
+  }
+
+  if(!child.lookup){
+    child.lookup={};
+  }
+
+  return true;
 }
 
 function cleanData(data){
@@ -64,18 +89,23 @@ function cleanData(data){
 fs.readdir(
   SDKDir,
   function(err, files){
+    if(err){
+      logErr(err,SDKDir);
+    }
     files.forEach(
       function(SDKXML){
         if(!isXML(SDKXML)){
           return;
         }
-        logErr(err,SDKXML);
         const SDKFile=SDKXML.replace('.xml','');
         fs.readFile(
           `${SDKDir}${SDKXML}`,
           function(err, data) {
-            console.log(SDKXML);
-            logErr(err,SDKXML);
+            if(err){
+              log(err,'LOADING '+SDKXML);
+              return;
+            }
+            console.log('... PARSING : ',SDKXML);
             data=cleanData(data);
 
             // console.log(
@@ -99,41 +129,38 @@ fs.readdir(
                 }
               );
             }catch(err){
-              console.warn(
-                `Failed to parse ${SDKXML}`
-              );
               logErr(err,SDKXML);
               return;
             }
 
+            //done this way to ensure refrence use
+            // dont know how to use features yet
+            if(projects.feature){
+              logErr('FEATURES NOT YET HANDLED',SDKFile+'.md');
+            //   if(!projects.feature.info.tagType){
+            //     projects.feature.info.tagType='project';
+            //   }
+            //   if(
+            //     !projects[
+            //       projects.feature.info.name
+            //     ]
+            //   ){
+            //     projects[
+            //       projects.feature.info.name
+            //     ]={};
+            //   }
+            //
+            //   Object.assign(
+            //     projects[
+            //       projects.feature.info.name
+            //     ],
+            //     projects.feature
+            //   );
+            //
+            //   delete projects.feature;
+            }
+
             projects.lookup={};
-
-            function assignLookup(parent,child){
-              //console.log('CHILD : ', child.info);
-              child.info.id=Number(child.info.id);
-
-              parent.lookup[
-                child.info.id
-              ]=child.info.name;
-            }
-
-            function isCommandRelated(child){
-              //console.trace(child)
-              if(!child.info){
-                return false;
-              }
-              if(
-                !child.info.tagType
-              ){
-                return false;
-              }
-
-              if(!child.lookup){
-                child.lookup={};
-              }
-
-              return true;
-            }
 
             for(const key in projects){
               const project=projects[key];
@@ -213,11 +240,19 @@ const projects=${
 module.exports=projects;
               `,
               function(err, data) {
-                logErr(err,SDKXML+'.js');
+                if(err){
+                  logErr(err,SDKFile+'.js');
+                  return;
+                }
+                console.log('WROTE : ',SDKFile+'.js');
               }
             );
 
             let markdown='';
+
+            let type='Project commands';
+
+
 
             for(const key in projects.lookup){
               const projectName=projects.lookup[key];
@@ -348,7 +383,11 @@ drone.message.send(${commandName}Message);
                 `${docsDir}${SDKFile}.md`,
                 markdown,
                 function(err, data) {
-                  logErr(err,SDKXML+'.md');
+                  if(err){
+                    logErr(err,SDKFile+'.md');
+                    return;
+                  }
+                  console.log('WROTE : ',SDKFile+'.md');
                 }
               );
 
@@ -369,7 +408,10 @@ function buildDrones(){
     `${SDKDevices}`,
     function(err, data) {
       SDKDeviceFile=SDKDevices.split('/').pop().replace('.xml','');
-      logErr(err);
+      if(err){
+        logErr(err,SDKDeviceFile);
+        return;
+      }
       data=cleanData(data);
 
       //console.log(data);
@@ -391,7 +433,7 @@ function buildDrones(){
         console.warn(
           `Failed to parse ${SDKDeviceFile}.xml`
         );
-        console.log(err,data.slice(3900,4060));
+        //console.log(err,data.slice(3900,4060));
         logErr(err,SDKDeviceFile);
         return;
       }
@@ -432,17 +474,9 @@ module.exports={
 `;
 
 
-      fs.writeFile(
-        `${outDir}${SDKDeviceFile}.js`,
-        dronesJS,
-        function(err, data) {
-          logErr(err,SDKDeviceFile+'.js');
-        }
-      );
-
-      console.log(
-        util.inspect(devices, { depth: null, colors:true })
-      );
+      // console.log(
+      //   util.inspect(devices, { depth: null, colors:true })
+      // );
 
       let markdown=`# Drone list
 -------
@@ -486,21 +520,37 @@ This drone uses the following command sets :
         `${docsDir}README.md`,
         markdown,
         function(err, data) {
-          logErr(err,SDKDeviceFile+'.md as README.md');
+          if(err){
+            logErr(err,SDKDeviceFile+'.md as README.md');
+          }
+        }
+      );
+
+      fs.writeFile(
+        `${outDir}${SDKDeviceFile}.js`,
+        dronesJS,
+        function(err, data) {
+          if(err){
+            logErr(err,SDKDeviceFile+'.js');
+          }
+          setTimeout(
+            function(){
+              console.log(
+                util.inspect(
+                  result,
+                  {
+                    colors:true
+                  }
+                )
+              );
+            },
+            500
+          );
         }
       );
 
       console.log(`PARSED ${SDKDeviceFile} OK!`);
       result.pass.push(SDKDeviceFile);
-
-      console.log(
-        util.inspect(
-          result,
-          {
-            colors:true
-          }
-        )
-      );
     }
   );
 }
