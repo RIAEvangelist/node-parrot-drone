@@ -8,6 +8,11 @@ const outDir    = `${__dirname}/../projects/`;
 const docsDir    = `${__dirname}/../docs/`;
 const docLink    = `https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/`;
 
+const result={
+  pass:[],
+  fail:[]
+}
+
 function isXML(name){
   if(name.indexOf('.xml')<0){
     return false;
@@ -20,17 +25,40 @@ function logErr(err,file){
   if(err){
     //console.log(err);
     console.log(`${file} FAILED!`);
+    result.fail.push(file);
   }
 }
 
 function cleanData(data){
-  return data.toString().replace(/[\t\n\r]/g,' ')
+  data=data.toString().replace(/[\t\n\r]/g,' ')
     .replace(/<!--[\s\S\w]*?-->/ig,'')
     .replace(/<\?[\s\S\w]*?\?>/ig,'')
-    .replace(/\s+/g,' ')
     .replace(/[\-]/g,'_')
     .replace(/<(\w+) name="([\w]+)"/g,'<$2 originalTag="$1" name="$2"')
-    .replace(/(\S)\:(\S)/g,'$1_$2');
+    .replace(/(\S)\:(\S)/g,'$1_$2')
+    .replace(/<(\w+)([^>]+)?\/>/g,'<$1 $2></$1>')
+    .replace(/\s+/g,' ');
+
+    while(data.indexOf('originalTag=')>-1){
+      const regEx = /<(\w+) originalTag="(\w+)"/;
+      const match = data.match(regEx);
+
+      let key=match[1];
+      const tag=match[2];
+
+      const tagRegex=new RegExp(`</${tag}`);
+      data=data.replace(tagRegex,`</${key}`);
+
+      if(Number(key[0])){
+        const keyRegex=new RegExp(`${key}`,'g');
+        const cleanKey=`_${key}`;
+        data=data.replace(keyRegex,`${cleanKey}`);
+      }
+
+      data=data.replace('originalTag="','tagType="');
+    }
+
+    return data;
 }
 
 fs.readdir(
@@ -49,24 +77,6 @@ fs.readdir(
             console.log(SDKXML);
             logErr(err,SDKXML);
             data=cleanData(data);
-
-            while(data.indexOf('originalTag=')>-1){
-              const regEx = /<(\w+) originalTag="(\w+)"/;
-              const match = data.match(regEx);
-              let key=match[1];
-              const tag=match[2];
-
-              const tagRegex=new RegExp(`</${tag}`);
-              data=data.replace(tagRegex,`</${key}`);
-
-              if(Number(key[0])){
-                const keyRegex=new RegExp(`${key}`,'g');
-                const cleanKey=`_${key}`;
-                data=data.replace(keyRegex,`${cleanKey}`);
-              }
-
-              data=data.replace('originalTag="','tagType="');
-            }
 
             // console.log(
             //   data.slice(
@@ -343,97 +353,143 @@ drone.message.send(${commandName}Message);
               );
 
               console.log(`PARSED ${SDKFile} OK!`);
+              result.pass.push(SDKFile);
             }
           }
         );
       }
     );
+
+    buildDrones();
   }
 );
 
-fs.readFile(
-  `${SDKDevices}`,
-  function(err, data) {
-    SDKDeviceFile=SDKDevices.split('/').pop().replace('.xml','');
-    logErr(err);
-    data=data.toString();
-    let devices={};
+function buildDrones(){
+  fs.readFile(
+    `${SDKDevices}`,
+    function(err, data) {
+      SDKDeviceFile=SDKDevices.split('/').pop().replace('.xml','');
+      logErr(err);
+      data=cleanData(data);
 
-    try{
-      devices=convert.xml2js(
-        data,
-        {
-          compact       : true,
-          trim          : true,
-          nativeType    : true,
-          attributesKey : 'info',
-          textKey       : 'details'
+      //console.log(data);
+
+      let devices={};
+
+      try{
+        devices=convert.xml2js(
+          data,
+          {
+            compact       : true,
+            trim          : true,
+            nativeType    : true,
+            attributesKey : 'info',
+            textKey       : 'details'
+          }
+        );
+      }catch(err){
+        console.warn(
+          `Failed to parse ${SDKDeviceFile}.xml`
+        );
+        console.log(err,data.slice(3900,4060));
+        logErr(err,SDKDeviceFile);
+        return;
+      }
+
+      let droneRequires='';
+      for(const req of result.pass){
+        droneRequires+=`const ${req}=require('./${req}.js');
+`;
+
+        for(deviceName in devices.deviceControllers){
+          const device=devices.deviceControllers[deviceName];
+          if(device[req]){
+            device[req]=`\${${req}}`
+          }
         }
-      );
-    }catch(err){
-      console.warn(
-        `Failed to parse ${SDKDeviceFile}.xml`
-      );
-      logErr(err,SDKDeviceFile);
-      return;
-    }
+      }
 
-    const droneRequires=``;
-    const droneRefs=JSON.stringify(
-      devices,
-      null,
-      2
-    )
-    const dronesJS=`'use strict';
+      let droneRefs=JSON.stringify(
+        devices,
+        null,
+        2
+      ).replace(
+        /"\$\{(\w+)\}"/g,
+        '$1'
+      );
+
+      const dronesJS=`'use strict';
 ${droneRequires}
 
 const droneRefs=${droneRefs}
+
+module.exports=droneRefs;
 `;
 
 
-    fs.writeFile(
-      `${outDir}${SDKDeviceFile}.js`,
-      dronesJS,
-      function(err, data) {
-        logErr(err,SDKDeviceFile+'.js');
+      fs.writeFile(
+        `${outDir}${SDKDeviceFile}.js`,
+        dronesJS,
+        function(err, data) {
+          logErr(err,SDKDeviceFile+'.js');
+        }
+      );
+
+      console.log(
+        util.inspect(devices, { depth: null, colors:true })
+      );
+
+      let markdown=`# Drone list
+  -------
+  **Please note while all the data to support all drones is available, currently only wifi is implemented** Bluetooth Drones need a seperate adapter in \` /adapters/ \`
+
+  Each drone has a list of the command sets it uses. Please click the link to see the documentation for each set of commands. Some are quite extencive.
+
+  `;
+
+      for(deviceName in devices.deviceControllers){
+        const device=devices.deviceControllers[deviceName];
+        if(!device.info){
+          continue;
+        }
+
+        markdown+=`
+  # ${device.info.name}
+  Product : ${device.info.product}
+  ${device.details}
+
+  This drone uses the following command sets :
+
+  `;
+        for(const command in device){
+          const commandSet=device[command];
+          if(!commandSet.info){
+            continue;
+          }
+          markdown+=`* [${commandSet.info.name}](${docLink}${commandSet.info.name}.md)
+  `;
+        }
       }
-    );
 
-    console.log(
-      util.inspect(devices, { depth: null, colors:true })
-    );
+      fs.writeFile(
+        `${docsDir}README.md`,
+        markdown,
+        function(err, data) {
+          logErr(err,SDKDeviceFile+'.md as README.md');
+        }
+      );
 
-    let markdown=`# Drone list
--------
-**Please note while all the data to support all drones is available, currently only wifi is implemented** Bluetooth Drones need a seperate adapter in \` /adapters/ \`
+      console.log(`PARSED ${SDKDeviceFile} OK!`);
+      result.pass.push(SDKDeviceFile);
 
-Each drone has a list of the command sets it uses. Please click the link to see the documentation for each set of commands. Some are quite extencive.
-
-`;
-
-    for(device of devices.deviceControllers.ARController_Device){
-      markdown+=`
-# ${device.info.name}
-Product : ${device.info.product}
-${device.details}
-
-This drone uses the following command sets :
-
-`;
-      for(const commandSet of device.feature){
-        markdown+=`* [${commandSet.info.name}](${docLink}${commandSet.info.name}.md)
-`;
-      }
+      console.log(
+        util.inspect(
+          result,
+          {
+            colors:true
+          }
+        )
+      );
     }
-
-    fs.writeFile(
-      `${docsDir}README.md`,
-      markdown,
-      function(err, data) {
-        logErr(err,SDKDeviceFile+'.md as README.md');
-      }
-    );
-
-    console.log(`PARSED ${SDKDeviceFile} OK!`);
-  }
-);
+  );
+}
