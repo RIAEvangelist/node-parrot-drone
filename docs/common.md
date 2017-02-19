@@ -767,21 +767,17 @@ Mass storage remaining data list
 Mass storage remaining data list.
 
 Result : undefined
-Example sending the ` MassStorageInfoRemainingListChanged ` command to your parrot drone :
+
+Example binding to listen for the ` MassStorageInfoRemainingListChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.common;
-const commandClass=project.CommonState;
-
-//build a message requesting all settings
-const MassStorageInfoRemainingListChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.MassStorageInfoRemainingListChanged
-);
-
-drone.message.send(MassStorageInfoRemainingListChangedMessage);
+drone.on(
+  'MassStorageInfoRemainingListChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -886,21 +882,17 @@ Mass storage content changed
 Mass storage content changed.
 
 Result : undefined
-Example sending the ` DeprecatedMassStorageContentChanged ` command to your parrot drone :
+
+Example binding to listen for the ` DeprecatedMassStorageContentChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.common;
-const commandClass=project.CommonState;
-
-//build a message requesting all settings
-const DeprecatedMassStorageContentChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.DeprecatedMassStorageContentChanged
-);
-
-drone.message.send(DeprecatedMassStorageContentChangedMessage);
+drone.on(
+  'DeprecatedMassStorageContentChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1056,21 +1048,17 @@ Overheat
 Overheat temperature reached.
 
 Result : undefined
-Example sending the ` OverHeatChanged ` command to your parrot drone :
+
+Example binding to listen for the ` OverHeatChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.common;
-const commandClass=project.OverHeatState;
-
-//build a message requesting all settings
-const OverHeatChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.OverHeatChanged
-);
-
-drone.message.send(OverHeatChangedMessage);
+drone.on(
+  'OverHeatChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1082,21 +1070,17 @@ Overheat regulation type
 Overheat regulation type.
 
 Result : undefined
-Example sending the ` OverHeatRegulationChanged ` command to your parrot drone :
+
+Example binding to listen for the ` OverHeatRegulationChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.common;
-const commandClass=project.OverHeatState;
-
-//build a message requesting all settings
-const OverHeatRegulationChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.OverHeatRegulationChanged
-);
-
-drone.message.send(OverHeatRegulationChangedMessage);
+drone.on(
+  'OverHeatRegulationChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1562,21 +1546,17 @@ Sent when the state of the pitot calibration has changed
 
 
 
-Example sending the ` PitotCalibrationStateChanged ` command to your parrot drone :
+
+Example binding to listen for the ` PitotCalibrationStateChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.common;
-const commandClass=project.CalibrationState;
-
-//build a message requesting all settings
-const PitotCalibrationStateChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.PitotCalibrationStateChanged
-);
-
-drone.message.send(PitotCalibrationStateChangedMessage);
+drone.on(
+  'PitotCalibrationStateChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -2323,21 +2303,17 @@ Max charge rate
 Max charge rate.
 
 Result : undefined
-Example sending the ` MaxChargeRateChanged ` command to your parrot drone :
+
+Example binding to listen for the ` MaxChargeRateChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.common;
-const commandClass=project.ChargerState;
-
-//build a message requesting all settings
-const MaxChargeRateChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.MaxChargeRateChanged
-);
-
-drone.message.send(MaxChargeRateChangedMessage);
+drone.on(
+  'MaxChargeRateChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -2349,21 +2325,17 @@ Current charge state
 Current charge state.
 
 Result : undefined
-Example sending the ` CurrentChargeStateChanged ` command to your parrot drone :
+
+Example binding to listen for the ` CurrentChargeStateChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.common;
-const commandClass=project.ChargerState;
-
-//build a message requesting all settings
-const CurrentChargeStateChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.CurrentChargeStateChanged
-);
-
-drone.message.send(CurrentChargeStateChangedMessage);
+drone.on(
+  'CurrentChargeStateChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -2375,21 +2347,17 @@ Last charge rate
 Last charge rate.
 
 Result : undefined
-Example sending the ` LastChargeRateChanged ` command to your parrot drone :
+
+Example binding to listen for the ` LastChargeRateChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.common;
-const commandClass=project.ChargerState;
-
-//build a message requesting all settings
-const LastChargeRateChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.LastChargeRateChanged
-);
-
-drone.message.send(LastChargeRateChangedMessage);
+drone.on(
+  'LastChargeRateChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 

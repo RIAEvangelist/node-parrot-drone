@@ -294,8 +294,11 @@ ${
 }`;
 
                   if(
-                    command.comment
-                    && command.comment.info.triggered
+                    (
+                      command.comment
+                      && command.comment.info.triggered
+                    )
+                    || command.info.name.indexOf('Changed')>-1
                   ){
                     markdown+=`
 
@@ -418,7 +421,7 @@ Each drone has a list of the command sets it uses. Please click the link to see 
     for(device of devices.deviceControllers.ARController_Device){
       markdown+=`
 # ${device.info.name}
-Product : ${device.info.product}  
+Product : ${device.info.product}
 ${device.details}
 
 This drone uses the following command sets :

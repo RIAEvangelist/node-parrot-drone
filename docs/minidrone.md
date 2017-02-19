@@ -412,21 +412,17 @@ Event of picture recording
 
 
 
-Example sending the ` PictureEventChanged ` command to your parrot drone :
+
+Example binding to listen for the ` PictureEventChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.MediaRecordEvent;
-
-//build a message requesting all settings
-const PictureEventChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.PictureEventChanged
-);
-
-drone.message.send(PictureEventChangedMessage);
+drone.on(
+  'PictureEventChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -453,21 +449,17 @@ MiniDrone send flat trim was correctly processed
 
 
 
-Example sending the ` FlatTrimChanged ` command to your parrot drone :
+
+Example binding to listen for the ` FlatTrimChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const FlatTrimChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.FlatTrimChanged
-);
-
-drone.message.send(FlatTrimChangedMessage);
+drone.on(
+  'FlatTrimChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -479,21 +471,17 @@ Drone flying state changed
 
 
 
-Example sending the ` FlyingStateChanged ` command to your parrot drone :
+
+Example binding to listen for the ` FlyingStateChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const FlyingStateChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.FlyingStateChanged
-);
-
-drone.message.send(FlyingStateChangedMessage);
+drone.on(
+  'FlyingStateChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -505,21 +493,17 @@ Drone alert state changed
 
 
 
-Example sending the ` AlertStateChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AlertStateChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const AlertStateChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AlertStateChanged
-);
-
-drone.message.send(AlertStateChangedMessage);
+drone.on(
+  'AlertStateChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -531,21 +515,17 @@ Set MiniDrone automatic take off mode
 
 
 
-Example sending the ` AutoTakeOffModeChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AutoTakeOffModeChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const AutoTakeOffModeChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AutoTakeOffModeChanged
-);
-
-drone.message.send(AutoTakeOffModeChangedMessage);
+drone.on(
+  'AutoTakeOffModeChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -557,21 +537,17 @@ FlyingMode changed. Only supported by WingX
 
 
 
-Example sending the ` FlyingModeChanged ` command to your parrot drone :
+
+Example binding to listen for the ` FlyingModeChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const FlyingModeChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.FlyingModeChanged
-);
-
-drone.message.send(FlyingModeChangedMessage);
+drone.on(
+  'FlyingModeChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -583,21 +559,17 @@ Plane Gear Box changed. Only supported by WingX
 
 
 
-Example sending the ` PlaneGearBoxChanged ` command to your parrot drone :
+
+Example binding to listen for the ` PlaneGearBoxChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const PlaneGearBoxChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.PlaneGearBoxChanged
-);
-
-drone.message.send(PlaneGearBoxChangedMessage);
+drone.on(
+  'PlaneGearBoxChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -686,21 +658,17 @@ Max vertical speed sent by product
 
 
 
-Example sending the ` MaxVerticalSpeedChanged ` command to your parrot drone :
+
+Example binding to listen for the ` MaxVerticalSpeedChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.SpeedSettingsState;
-
-//build a message requesting all settings
-const MaxVerticalSpeedChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.MaxVerticalSpeedChanged
-);
-
-drone.message.send(MaxVerticalSpeedChangedMessage);
+drone.on(
+  'MaxVerticalSpeedChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -712,21 +680,17 @@ Max rotation speed sent by product
 
 
 
-Example sending the ` MaxRotationSpeedChanged ` command to your parrot drone :
+
+Example binding to listen for the ` MaxRotationSpeedChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.SpeedSettingsState;
-
-//build a message requesting all settings
-const MaxRotationSpeedChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.MaxRotationSpeedChanged
-);
-
-drone.message.send(MaxRotationSpeedChangedMessage);
+drone.on(
+  'MaxRotationSpeedChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -738,21 +702,17 @@ Presence of wheels sent by product
 
 
 
-Example sending the ` WheelsChanged ` command to your parrot drone :
+
+Example binding to listen for the ` WheelsChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.SpeedSettingsState;
-
-//build a message requesting all settings
-const WheelsChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.WheelsChanged
-);
-
-drone.message.send(WheelsChangedMessage);
+drone.on(
+  'WheelsChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -764,21 +724,17 @@ Max horizontal speed sent by product (only used in case where PilotingSettings_M
 
 
 
-Example sending the ` MaxHorizontalSpeedChanged ` command to your parrot drone :
+
+Example binding to listen for the ` MaxHorizontalSpeedChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.SpeedSettingsState;
-
-//build a message requesting all settings
-const MaxHorizontalSpeedChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.MaxHorizontalSpeedChanged
-);
-
-drone.message.send(MaxHorizontalSpeedChangedMessage);
+drone.on(
+  'MaxHorizontalSpeedChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -790,21 +746,17 @@ Max plane rotation speed sent by product (only available for wing x)
 
 
 
-Example sending the ` MaxPlaneModeRotationSpeedChanged ` command to your parrot drone :
+
+Example binding to listen for the ` MaxPlaneModeRotationSpeedChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.SpeedSettingsState;
-
-//build a message requesting all settings
-const MaxPlaneModeRotationSpeedChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.MaxPlaneModeRotationSpeedChanged
-);
-
-drone.message.send(MaxPlaneModeRotationSpeedChangedMessage);
+drone.on(
+  'MaxPlaneModeRotationSpeedChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -890,21 +842,17 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 
-Example sending the ` PictureStateChanged ` command to your parrot drone :
+
+Example binding to listen for the ` PictureStateChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.MediaRecordState;
-
-//build a message requesting all settings
-const PictureStateChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.PictureStateChanged
-);
-
-drone.message.send(PictureStateChangedMessage);
+drone.on(
+  'PictureStateChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -916,21 +864,17 @@ State of device picture recording changed
 
 
 
-Example sending the ` PictureStateChangedV2 ` command to your parrot drone :
+
+Example binding to listen for the ` PictureStateChangedV2 ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.MediaRecordState;
-
-//build a message requesting all settings
-const PictureStateChangedV2Message=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.PictureStateChangedV2
-);
-
-drone.message.send(PictureStateChangedV2Message);
+drone.on(
+  'PictureStateChangedV2',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1046,21 +990,17 @@ Max Altitude sent by product
 
 
 
-Example sending the ` MaxAltitudeChanged ` command to your parrot drone :
+
+Example binding to listen for the ` MaxAltitudeChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.PilotingSettingsState;
-
-//build a message requesting all settings
-const MaxAltitudeChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.MaxAltitudeChanged
-);
-
-drone.message.send(MaxAltitudeChangedMessage);
+drone.on(
+  'MaxAltitudeChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1072,21 +1012,17 @@ Max tilt sent by product
 
 
 
-Example sending the ` MaxTiltChanged ` command to your parrot drone :
+
+Example binding to listen for the ` MaxTiltChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.PilotingSettingsState;
-
-//build a message requesting all settings
-const MaxTiltChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.MaxTiltChanged
-);
-
-drone.message.send(MaxTiltChangedMessage);
+drone.on(
+  'MaxTiltChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1169,21 +1105,17 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 
-Example sending the ` ProductMotorsVersionChanged ` command to your parrot drone :
+
+Example binding to listen for the ` ProductMotorsVersionChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.SettingsState;
-
-//build a message requesting all settings
-const ProductMotorsVersionChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.ProductMotorsVersionChanged
-);
-
-drone.message.send(ProductMotorsVersionChangedMessage);
+drone.on(
+  'ProductMotorsVersionChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1195,21 +1127,17 @@ drone.message.send(ProductMotorsVersionChangedMessage);
 
 
 
-Example sending the ` ProductInertialVersionChanged ` command to your parrot drone :
+
+Example binding to listen for the ` ProductInertialVersionChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.SettingsState;
-
-//build a message requesting all settings
-const ProductInertialVersionChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.ProductInertialVersionChanged
-);
-
-drone.message.send(ProductInertialVersionChangedMessage);
+drone.on(
+  'ProductInertialVersionChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1221,21 +1149,17 @@ MiniDrone cut out mode
 
 
 
-Example sending the ` CutOutModeChanged ` command to your parrot drone :
+
+Example binding to listen for the ` CutOutModeChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.SettingsState;
-
-//build a message requesting all settings
-const CutOutModeChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.CutOutModeChanged
-);
-
-drone.message.send(CutOutModeChangedMessage);
+drone.on(
+  'CutOutModeChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1257,21 +1181,17 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 
-Example sending the ` FloodControlChanged ` command to your parrot drone :
+
+Example binding to listen for the ` FloodControlChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.minidrone;
-const commandClass=project.FloodControlState;
-
-//build a message requesting all settings
-const FloodControlChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.FloodControlChanged
-);
-
-drone.message.send(FloodControlChangedMessage);
+drone.on(
+  'FloodControlChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 

@@ -135,21 +135,17 @@ JS alert state changed
 
 
 
-Example sending the ` AlertStateChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AlertStateChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const AlertStateChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AlertStateChanged
-);
-
-drone.message.send(AlertStateChangedMessage);
+drone.on(
+  'AlertStateChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -161,21 +157,17 @@ Drone flying state changed
 
 
 
-Example sending the ` FlyingStateChanged ` command to your parrot drone :
+
+Example binding to listen for the ` FlyingStateChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const FlyingStateChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.FlyingStateChanged
-);
-
-drone.message.send(FlyingStateChangedMessage);
+drone.on(
+  'FlyingStateChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -187,21 +179,17 @@ Motor mode changed
 
 
 
-Example sending the ` MotorModeChanged ` command to your parrot drone :
+
+Example binding to listen for the ` MotorModeChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const MotorModeChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.MotorModeChanged
-);
-
-drone.message.send(MotorModeChangedMessage);
+drone.on(
+  'MotorModeChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -213,21 +201,17 @@ Drone attitude changed
 
 
 
-Example sending the ` AttitudeChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AttitudeChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const AttitudeChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AttitudeChanged
-);
-
-drone.message.send(AttitudeChangedMessage);
+drone.on(
+  'AttitudeChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -239,21 +223,17 @@ Drone altitude changed
 
 
 
-Example sending the ` AltitudeChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AltitudeChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const AltitudeChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AltitudeChanged
-);
-
-drone.message.send(AltitudeChangedMessage);
+drone.on(
+  'AltitudeChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -311,21 +291,17 @@ Fired when a setting has changed
 
 
 
-Example sending the ` settingChanged ` command to your parrot drone :
+
+Example binding to listen for the ` settingChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.PilotingSettingsState;
-
-//build a message requesting all settings
-const settingChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.settingChanged
-);
-
-drone.message.send(settingChangedMessage);
+drone.on(
+  'settingChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -411,21 +387,17 @@ State of device picture recording changed
 
 
 
-Example sending the ` PictureStateChangedV2 ` command to your parrot drone :
+
+Example binding to listen for the ` PictureStateChangedV2 ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.MediaRecordState;
-
-//build a message requesting all settings
-const PictureStateChangedV2Message=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.PictureStateChangedV2
-);
-
-drone.message.send(PictureStateChangedV2Message);
+drone.on(
+  'PictureStateChangedV2',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -437,21 +409,17 @@ State of device video recording changed
 
 
 
-Example sending the ` VideoStateChangedV2 ` command to your parrot drone :
+
+Example binding to listen for the ` VideoStateChangedV2 ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.MediaRecordState;
-
-//build a message requesting all settings
-const VideoStateChangedV2Message=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.VideoStateChangedV2
-);
-
-drone.message.send(VideoStateChangedV2Message);
+drone.on(
+  'VideoStateChangedV2',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -474,21 +442,17 @@ Event of picture recording
 
 
 
-Example sending the ` PictureEventChanged ` command to your parrot drone :
+
+Example binding to listen for the ` PictureEventChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.MediaRecordEvent;
-
-//build a message requesting all settings
-const PictureEventChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.PictureEventChanged
-);
-
-drone.message.send(PictureEventChangedMessage);
+drone.on(
+  'PictureEventChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -500,21 +464,17 @@ Event of video recording
 
 
 
-Example sending the ` VideoEventChanged ` command to your parrot drone :
+
+Example binding to listen for the ` VideoEventChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.MediaRecordEvent;
-
-//build a message requesting all settings
-const VideoEventChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.VideoEventChanged
-);
-
-drone.message.send(VideoEventChangedMessage);
+drone.on(
+  'VideoEventChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -572,21 +532,17 @@ Wifi selection from product
 
 
 
-Example sending the ` WifiSelectionChanged ` command to your parrot drone :
+
+Example binding to listen for the ` WifiSelectionChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.NetworkSettingsState;
-
-//build a message requesting all settings
-const WifiSelectionChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.WifiSelectionChanged
-);
-
-drone.message.send(WifiSelectionChangedMessage);
+drone.on(
+  'WifiSelectionChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -675,21 +631,17 @@ One scanning result found
 
 
 
-Example sending the ` WifiScanListChanged ` command to your parrot drone :
+
+Example binding to listen for the ` WifiScanListChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.NetworkState;
-
-//build a message requesting all settings
-const WifiScanListChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.WifiScanListChanged
-);
-
-drone.message.send(WifiScanListChangedMessage);
+drone.on(
+  'WifiScanListChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -701,21 +653,17 @@ State sent when all scanning result sent
 
 
 
-Example sending the ` AllWifiScanChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AllWifiScanChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.NetworkState;
-
-//build a message requesting all settings
-const AllWifiScanChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AllWifiScanChanged
-);
-
-drone.message.send(AllWifiScanChangedMessage);
+drone.on(
+  'AllWifiScanChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -727,21 +675,17 @@ Notify of an Authorized Channel.
 
 
 
-Example sending the ` WifiAuthChannelListChanged ` command to your parrot drone :
+
+Example binding to listen for the ` WifiAuthChannelListChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.NetworkState;
-
-//build a message requesting all settings
-const WifiAuthChannelListChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.WifiAuthChannelListChanged
-);
-
-drone.message.send(WifiAuthChannelListChangedMessage);
+drone.on(
+  'WifiAuthChannelListChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -753,21 +697,17 @@ Notify the end of the list of Authorized wifi Channel.
 
 
 
-Example sending the ` AllWifiAuthChannelChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AllWifiAuthChannelChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.NetworkState;
-
-//build a message requesting all settings
-const AllWifiAuthChannelChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AllWifiAuthChannelChanged
-);
-
-drone.message.send(AllWifiAuthChannelChangedMessage);
+drone.on(
+  'AllWifiAuthChannelChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -779,21 +719,17 @@ Notification sent by the firmware to give an indication of the WiFi link quality
 
 
 
-Example sending the ` LinkQualityChanged ` command to your parrot drone :
+
+Example binding to listen for the ` LinkQualityChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.NetworkState;
-
-//build a message requesting all settings
-const LinkQualityChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.LinkQualityChanged
-);
-
-drone.message.send(LinkQualityChangedMessage);
+drone.on(
+  'LinkQualityChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -851,21 +787,17 @@ Return video streaming status.
 
 
 
-Example sending the ` VideoEnableChanged ` command to your parrot drone :
+
+Example binding to listen for the ` VideoEnableChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.MediaStreamingState;
-
-//build a message requesting all settings
-const VideoEnableChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.VideoEnableChanged
-);
-
-drone.message.send(VideoEnableChangedMessage);
+drone.on(
+  'VideoEnableChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -951,21 +883,17 @@ Get video automatic recording status.
 
 
 
-Example sending the ` AutorecordChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AutorecordChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.VideoSettingsState;
-
-//build a message requesting all settings
-const AutorecordChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AutorecordChanged
-);
-
-drone.message.send(AutorecordChangedMessage);
+drone.on(
+  'AutorecordChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -977,21 +905,17 @@ Video mode
 
 
 
-Example sending the ` VideoModeChanged ` command to your parrot drone :
+
+Example binding to listen for the ` VideoModeChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.VideoSettingsState;
-
-//build a message requesting all settings
-const VideoModeChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.VideoModeChanged
-);
-
-drone.message.send(VideoModeChangedMessage);
+drone.on(
+  'VideoModeChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1049,21 +973,17 @@ State of the buzzer
 
 
 
-Example sending the ` buzzChanged ` command to your parrot drone :
+
+Example binding to listen for the ` buzzChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.powerup;
-const commandClass=project.SoundsState;
-
-//build a message requesting all settings
-const buzzChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.buzzChanged
-);
-
-drone.message.send(buzzChangedMessage);
+drone.on(
+  'buzzChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 

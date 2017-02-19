@@ -6,7 +6,7 @@ Each drone has a list of the command sets it uses. Please click the link to see 
 
 
 # BebopDrone
-Product : ARDRONE  
+Product : ARDRONE
 Bebop Drone project
 
 This drone uses the following command sets :
@@ -16,7 +16,7 @@ This drone uses the following command sets :
 * [generic](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/generic.md)
 
 # JumpingSumo
-Product : JS  
+Product : JS
 Jumping Sumo project
 
 This drone uses the following command sets :
@@ -25,7 +25,7 @@ This drone uses the following command sets :
 * [jpsumo](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/jpsumo.md)
 
 # JumpingSumoEvoLight
-Product : JS_EVO_LIGHT  
+Product : JS_EVO_LIGHT
 Jumping Sumo Evo light project
 
 This drone uses the following command sets :
@@ -34,7 +34,7 @@ This drone uses the following command sets :
 * [jpsumo](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/jpsumo.md)
 
 # JumpingSumoEvoRace
-Product : JS_EVO_RACE  
+Product : JS_EVO_RACE
 Jumping Sumo Evo race project
 
 This drone uses the following command sets :
@@ -43,7 +43,7 @@ This drone uses the following command sets :
 * [jpsumo](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/jpsumo.md)
 
 # RollingSpider
-Product : MINIDRONE  
+Product : MINIDRONE
 Rolling Spider project
 
 This drone uses the following command sets :
@@ -52,7 +52,7 @@ This drone uses the following command sets :
 * [minidrone](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/minidrone.md)
 
 # AirborneNight
-Product : MINIDRONE_EVO_LIGHT  
+Product : MINIDRONE_EVO_LIGHT
 Airborne night project
 
 This drone uses the following command sets :
@@ -61,7 +61,7 @@ This drone uses the following command sets :
 * [minidrone](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/minidrone.md)
 
 # AirborneCargo
-Product : MINIDRONE_EVO_BRICK  
+Product : MINIDRONE_EVO_BRICK
 Airborne brick project
 
 This drone uses the following command sets :
@@ -70,7 +70,7 @@ This drone uses the following command sets :
 * [minidrone](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/minidrone.md)
 
 # Swing
-Product : MINIDRONE_WINGX  
+Product : MINIDRONE_WINGX
 WingX project
 
 This drone uses the following command sets :
@@ -79,7 +79,7 @@ This drone uses the following command sets :
 * [minidrone](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/minidrone.md)
 
 # Mambo
-Product : MINIDRONE_DELOS3  
+Product : MINIDRONE_DELOS3
 Delos3 project
 
 This drone uses the following command sets :
@@ -88,7 +88,7 @@ This drone uses the following command sets :
 * [minidrone](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/minidrone.md)
 
 # Hydrofoil
-Product : MINIDRONE_EVO_HYDROFOIL  
+Product : MINIDRONE_EVO_HYDROFOIL
 Hydrofoil project
 
 This drone uses the following command sets :
@@ -97,7 +97,7 @@ This drone uses the following command sets :
 * [minidrone](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/minidrone.md)
 
 # SkyController
-Product : SKYCONTROLLER  
+Product : SKYCONTROLLER
 Sky Controller project
 
 This drone uses the following command sets :
@@ -106,7 +106,7 @@ This drone uses the following command sets :
 * [skyctrl](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/skyctrl.md)
 
 # SkyController2
-Product : SKYCONTROLLER_2  
+Product : SKYCONTROLLER_2
 Sky Controller 2 project
 
 This drone uses the following command sets :
@@ -117,7 +117,7 @@ This drone uses the following command sets :
 * [drone_manager](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/drone_manager.md)
 
 # PowerUP
-Product : POWER_UP  
+Product : POWER_UP
 Power Up project
 
 This drone uses the following command sets :
@@ -126,7 +126,7 @@ This drone uses the following command sets :
 * [powerup](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/powerup.md)
 
 # Bebop2
-Product : BEBOP_2  
+Product : BEBOP_2
 Bebop 2 project
 
 This drone uses the following command sets :
@@ -138,7 +138,7 @@ This drone uses the following command sets :
 * [controller_info](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/controller_info.md)
 
 # Disco
-Product : EVINRUDE  
+Product : EVINRUDE
 Disco project
 
 This drone uses the following command sets :

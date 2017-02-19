@@ -1156,21 +1156,17 @@ Auto takeoff mode
 Auto takeoff mode
 
 Result : undefined
-Example sending the ` AutoTakeOffModeChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AutoTakeOffModeChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.ardrone3;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const AutoTakeOffModeChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AutoTakeOffModeChanged
-);
-
-drone.message.send(AutoTakeOffModeChangedMessage);
+drone.on(
+  'AutoTakeOffModeChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1382,21 +1378,17 @@ Absolut control
 Absolut control.
 
 Result : undefined
-Example sending the ` AbsolutControlChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AbsolutControlChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.ardrone3;
-const commandClass=project.PilotingSettingsState;
-
-//build a message requesting all settings
-const AbsolutControlChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AbsolutControlChanged
-);
-
-drone.message.send(AbsolutControlChangedMessage);
+drone.on(
+  'AbsolutControlChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1843,21 +1835,17 @@ Picture state
 Picture state.
 
 Result : undefined
-Example sending the ` PictureStateChanged ` command to your parrot drone :
+
+Example binding to listen for the ` PictureStateChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.ardrone3;
-const commandClass=project.MediaRecordState;
-
-//build a message requesting all settings
-const PictureStateChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.PictureStateChanged
-);
-
-drone.message.send(PictureStateChangedMessage);
+drone.on(
+  'PictureStateChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1869,21 +1857,17 @@ Video record state
 Picture record state.
 
 Result : undefined
-Example sending the ` VideoStateChanged ` command to your parrot drone :
+
+Example binding to listen for the ` VideoStateChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.ardrone3;
-const commandClass=project.MediaRecordState;
-
-//build a message requesting all settings
-const VideoStateChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.VideoStateChanged
-);
-
-drone.message.send(VideoStateChangedMessage);
+drone.on(
+  'VideoStateChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -2063,21 +2047,17 @@ Wifi security type
 Wifi security type.
 
 Result : undefined
-Example sending the ` wifiSecurityChanged ` command to your parrot drone :
+
+Example binding to listen for the ` wifiSecurityChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.ardrone3;
-const commandClass=project.NetworkSettingsState;
-
-//build a message requesting all settings
-const wifiSecurityChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.wifiSecurityChanged
-);
-
-drone.message.send(wifiSecurityChangedMessage);
+drone.on(
+  'wifiSecurityChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -2339,21 +2319,17 @@ Outdoor mode
 Outdoor mode.
 
 Result : undefined
-Example sending the ` OutdoorChanged ` command to your parrot drone :
+
+Example binding to listen for the ` OutdoorChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.ardrone3;
-const commandClass=project.SpeedSettingsState;
-
-//build a message requesting all settings
-const OutdoorChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.OutdoorChanged
-);
-
-drone.message.send(OutdoorChangedMessage);
+drone.on(
+  'OutdoorChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -2574,21 +2550,17 @@ Motor version
 Motor version.
 
 Result : undefined
-Example sending the ` ProductMotorVersionListChanged ` command to your parrot drone :
+
+Example binding to listen for the ` ProductMotorVersionListChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.ardrone3;
-const commandClass=project.SettingsState;
-
-//build a message requesting all settings
-const ProductMotorVersionListChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.ProductMotorVersionListChanged
-);
-
-drone.message.send(ProductMotorVersionListChangedMessage);
+drone.on(
+  'ProductMotorVersionListChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -2645,21 +2617,17 @@ Motor version
 Motor version.
 
 Result : undefined
-Example sending the ` MotorSoftwareVersionChanged ` command to your parrot drone :
+
+Example binding to listen for the ` MotorSoftwareVersionChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.ardrone3;
-const commandClass=project.SettingsState;
-
-//build a message requesting all settings
-const MotorSoftwareVersionChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.MotorSoftwareVersionChanged
-);
-
-drone.message.send(MotorSoftwareVersionChangedMessage);
+drone.on(
+  'MotorSoftwareVersionChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -3399,21 +3367,17 @@ Video stream mode state
 
 
 
-Example sending the ` VideoStreamModeChanged ` command to your parrot drone :
+
+Example binding to listen for the ` VideoStreamModeChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.ardrone3;
-const commandClass=project.MediaStreamingState;
-
-//build a message requesting all settings
-const VideoStreamModeChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.VideoStreamModeChanged
-);
-
-drone.message.send(VideoStreamModeChangedMessage);
+drone.on(
+  'VideoStreamModeChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 

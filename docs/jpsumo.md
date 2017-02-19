@@ -138,21 +138,17 @@ State of posture changed.
 
 
 
-Example sending the ` PostureChanged ` command to your parrot drone :
+
+Example binding to listen for the ` PostureChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const PostureChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.PostureChanged
-);
-
-drone.message.send(PostureChangedMessage);
+drone.on(
+  'PostureChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -164,21 +160,17 @@ JS alert state changed
 
 
 
-Example sending the ` AlertStateChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AlertStateChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const AlertStateChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AlertStateChanged
-);
-
-drone.message.send(AlertStateChangedMessage);
+drone.on(
+  'AlertStateChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -190,21 +182,17 @@ Notification sent when JS speed changes.
 
 
 
-Example sending the ` SpeedChanged ` command to your parrot drone :
+
+Example binding to listen for the ` SpeedChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.PilotingState;
-
-//build a message requesting all settings
-const SpeedChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.SpeedChanged
-);
-
-drone.message.send(SpeedChangedMessage);
+drone.on(
+  'SpeedChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -372,21 +360,17 @@ State of jump load changed
 
 
 
-Example sending the ` JumpLoadChanged ` command to your parrot drone :
+
+Example binding to listen for the ` JumpLoadChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.AnimationsState;
-
-//build a message requesting all settings
-const JumpLoadChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.JumpLoadChanged
-);
-
-drone.message.send(JumpLoadChangedMessage);
+drone.on(
+  'JumpLoadChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -398,21 +382,17 @@ State of jump type changed.
 
 
 
-Example sending the ` JumpTypeChanged ` command to your parrot drone :
+
+Example binding to listen for the ` JumpTypeChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.AnimationsState;
-
-//build a message requesting all settings
-const JumpTypeChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.JumpTypeChanged
-);
-
-drone.message.send(JumpTypeChangedMessage);
+drone.on(
+  'JumpTypeChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -424,21 +404,17 @@ State about the jump motor problem
 
 
 
-Example sending the ` JumpMotorProblemChanged ` command to your parrot drone :
+
+Example binding to listen for the ` JumpMotorProblemChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.AnimationsState;
-
-//build a message requesting all settings
-const JumpMotorProblemChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.JumpMotorProblemChanged
-);
-
-drone.message.send(JumpMotorProblemChangedMessage);
+drone.on(
+  'JumpMotorProblemChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -460,21 +436,17 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 
-Example sending the ` ProductGPSVersionChanged ` command to your parrot drone :
+
+Example binding to listen for the ` ProductGPSVersionChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.SettingsState;
-
-//build a message requesting all settings
-const ProductGPSVersionChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.ProductGPSVersionChanged
-);
-
-drone.message.send(ProductGPSVersionChangedMessage);
+drone.on(
+  'ProductGPSVersionChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -616,21 +588,17 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 
-Example sending the ` PictureStateChanged ` command to your parrot drone :
+
+Example binding to listen for the ` PictureStateChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.MediaRecordState;
-
-//build a message requesting all settings
-const PictureStateChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.PictureStateChanged
-);
-
-drone.message.send(PictureStateChangedMessage);
+drone.on(
+  'PictureStateChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -642,21 +610,17 @@ drone.message.send(PictureStateChangedMessage);
 
 
 
-Example sending the ` VideoStateChanged ` command to your parrot drone :
+
+Example binding to listen for the ` VideoStateChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.MediaRecordState;
-
-//build a message requesting all settings
-const VideoStateChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.VideoStateChanged
-);
-
-drone.message.send(VideoStateChangedMessage);
+drone.on(
+  'VideoStateChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -668,21 +632,17 @@ State of device picture recording changed
 
 
 
-Example sending the ` PictureStateChangedV2 ` command to your parrot drone :
+
+Example binding to listen for the ` PictureStateChangedV2 ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.MediaRecordState;
-
-//build a message requesting all settings
-const PictureStateChangedV2Message=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.PictureStateChangedV2
-);
-
-drone.message.send(PictureStateChangedV2Message);
+drone.on(
+  'PictureStateChangedV2',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -694,21 +654,17 @@ State of device video recording changed
 
 
 
-Example sending the ` VideoStateChangedV2 ` command to your parrot drone :
+
+Example binding to listen for the ` VideoStateChangedV2 ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.MediaRecordState;
-
-//build a message requesting all settings
-const VideoStateChangedV2Message=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.VideoStateChangedV2
-);
-
-drone.message.send(VideoStateChangedV2Message);
+drone.on(
+  'VideoStateChangedV2',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -766,21 +722,17 @@ Wifi selection from product
 
 
 
-Example sending the ` WifiSelectionChanged ` command to your parrot drone :
+
+Example binding to listen for the ` WifiSelectionChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.NetworkSettingsState;
-
-//build a message requesting all settings
-const WifiSelectionChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.WifiSelectionChanged
-);
-
-drone.message.send(WifiSelectionChangedMessage);
+drone.on(
+  'WifiSelectionChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -869,21 +821,17 @@ One scanning result found
 
 
 
-Example sending the ` WifiScanListChanged ` command to your parrot drone :
+
+Example binding to listen for the ` WifiScanListChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.NetworkState;
-
-//build a message requesting all settings
-const WifiScanListChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.WifiScanListChanged
-);
-
-drone.message.send(WifiScanListChangedMessage);
+drone.on(
+  'WifiScanListChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -895,21 +843,17 @@ State sent when all scanning result sent
 
 
 
-Example sending the ` AllWifiScanChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AllWifiScanChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.NetworkState;
-
-//build a message requesting all settings
-const AllWifiScanChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AllWifiScanChanged
-);
-
-drone.message.send(AllWifiScanChangedMessage);
+drone.on(
+  'AllWifiScanChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -921,21 +865,17 @@ Notify of an Authorized Channel.
 
 
 
-Example sending the ` WifiAuthChannelListChanged ` command to your parrot drone :
+
+Example binding to listen for the ` WifiAuthChannelListChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.NetworkState;
-
-//build a message requesting all settings
-const WifiAuthChannelListChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.WifiAuthChannelListChanged
-);
-
-drone.message.send(WifiAuthChannelListChangedMessage);
+drone.on(
+  'WifiAuthChannelListChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -947,21 +887,17 @@ Notify the end of the list of Authorized wifi Channel.
 
 
 
-Example sending the ` AllWifiAuthChannelChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AllWifiAuthChannelChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.NetworkState;
-
-//build a message requesting all settings
-const AllWifiAuthChannelChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AllWifiAuthChannelChanged
-);
-
-drone.message.send(AllWifiAuthChannelChangedMessage);
+drone.on(
+  'AllWifiAuthChannelChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -973,21 +909,17 @@ Notification sent by the firmware to give an indication of the WiFi link quality
 
 
 
-Example sending the ` LinkQualityChanged ` command to your parrot drone :
+
+Example binding to listen for the ` LinkQualityChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.NetworkState;
-
-//build a message requesting all settings
-const LinkQualityChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.LinkQualityChanged
-);
-
-drone.message.send(LinkQualityChangedMessage);
+drone.on(
+  'LinkQualityChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1073,21 +1005,17 @@ Master volume control.
 
 
 
-Example sending the ` MasterVolumeChanged ` command to your parrot drone :
+
+Example binding to listen for the ` MasterVolumeChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.AudioSettingsState;
-
-//build a message requesting all settings
-const MasterVolumeChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.MasterVolumeChanged
-);
-
-drone.message.send(MasterVolumeChangedMessage);
+drone.on(
+  'MasterVolumeChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1099,21 +1027,17 @@ Command to notify controller of new Audio Theme.
 
 
 
-Example sending the ` ThemeChanged ` command to your parrot drone :
+
+Example binding to listen for the ` ThemeChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.AudioSettingsState;
-
-//build a message requesting all settings
-const ThemeChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.ThemeChanged
-);
-
-drone.message.send(ThemeChangedMessage);
+drone.on(
+  'ThemeChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1256,21 +1180,17 @@ Update the controller with metadata.
 
 
 
-Example sending the ` ScriptMetadataListChanged ` command to your parrot drone :
+
+Example binding to listen for the ` ScriptMetadataListChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.RoadPlanState;
-
-//build a message requesting all settings
-const ScriptMetadataListChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.ScriptMetadataListChanged
-);
-
-drone.message.send(ScriptMetadataListChangedMessage);
+drone.on(
+  'ScriptMetadataListChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1282,21 +1202,17 @@ Notify controller that all script metadatas are updated.
 
 
 
-Example sending the ` AllScriptsMetadataChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AllScriptsMetadataChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.RoadPlanState;
-
-//build a message requesting all settings
-const AllScriptsMetadataChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AllScriptsMetadataChanged
-);
-
-drone.message.send(AllScriptsMetadataChangedMessage);
+drone.on(
+  'AllScriptsMetadataChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1308,21 +1224,17 @@ Device response to ScriptUploaded command.
 
 
 
-Example sending the ` ScriptUploadChanged ` command to your parrot drone :
+
+Example binding to listen for the ` ScriptUploadChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.RoadPlanState;
-
-//build a message requesting all settings
-const ScriptUploadChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.ScriptUploadChanged
-);
-
-drone.message.send(ScriptUploadChangedMessage);
+drone.on(
+  'ScriptUploadChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1334,21 +1246,17 @@ Device response to ScriptDelete command.
 
 
 
-Example sending the ` ScriptDeleteChanged ` command to your parrot drone :
+
+Example binding to listen for the ` ScriptDeleteChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.RoadPlanState;
-
-//build a message requesting all settings
-const ScriptDeleteChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.ScriptDeleteChanged
-);
-
-drone.message.send(ScriptDeleteChangedMessage);
+drone.on(
+  'ScriptDeleteChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1360,21 +1268,17 @@ Device response to PlayScript command.
 
 
 
-Example sending the ` PlayScriptChanged ` command to your parrot drone :
+
+Example binding to listen for the ` PlayScriptChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.RoadPlanState;
-
-//build a message requesting all settings
-const PlayScriptChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.PlayScriptChanged
-);
-
-drone.message.send(PlayScriptChangedMessage);
+drone.on(
+  'PlayScriptChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1432,21 +1336,17 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 
-Example sending the ` OutdoorChanged ` command to your parrot drone :
+
+Example binding to listen for the ` OutdoorChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.SpeedSettingsState;
-
-//build a message requesting all settings
-const OutdoorChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.OutdoorChanged
-);
-
-drone.message.send(OutdoorChangedMessage);
+drone.on(
+  'OutdoorChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1504,21 +1404,17 @@ Return video streaming status.
 
 
 
-Example sending the ` VideoEnableChanged ` command to your parrot drone :
+
+Example binding to listen for the ` VideoEnableChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.MediaStreamingState;
-
-//build a message requesting all settings
-const VideoEnableChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.VideoEnableChanged
-);
-
-drone.message.send(VideoEnableChangedMessage);
+drone.on(
+  'VideoEnableChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1541,21 +1437,17 @@ Event of picture recording
 
 
 
-Example sending the ` PictureEventChanged ` command to your parrot drone :
+
+Example binding to listen for the ` PictureEventChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.MediaRecordEvent;
-
-//build a message requesting all settings
-const PictureEventChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.PictureEventChanged
-);
-
-drone.message.send(PictureEventChangedMessage);
+drone.on(
+  'PictureEventChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1567,21 +1459,17 @@ Event of video recording
 
 
 
-Example sending the ` VideoEventChanged ` command to your parrot drone :
+
+Example binding to listen for the ` VideoEventChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.MediaRecordEvent;
-
-//build a message requesting all settings
-const VideoEventChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.VideoEventChanged
-);
-
-drone.message.send(VideoEventChangedMessage);
+drone.on(
+  'VideoEventChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
@@ -1639,21 +1527,17 @@ Get video automatic recording status.
 
 
 
-Example sending the ` AutorecordChanged ` command to your parrot drone :
+
+Example binding to listen for the ` AutorecordChanged ` event from the drone :
 
 ```javascript
 
-const project=drone.projects.jpsumo;
-const commandClass=project.VideoSettingsState;
-
-//build a message requesting all settings
-const AutorecordChangedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
-  commandClass.AutorecordChanged
-);
-
-drone.message.send(AutorecordChangedMessage);
+drone.on(
+  'AutorecordChanged',
+  function(data){
+    console.log(data);
+  }
+)
 
 ```
 
