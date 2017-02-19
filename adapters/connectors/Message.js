@@ -142,6 +142,13 @@ class Message{
   };
 
   send(payload=this.payload){
+    if(!this.drone.droneSocket){
+      setTimeout(
+        this.send.bind(this,payload),
+        10
+      );
+      return;
+    }
     this.drone.d2c.server.emit(
         this.drone.droneSocket,
         payload

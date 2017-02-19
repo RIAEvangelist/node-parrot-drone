@@ -6,7 +6,7 @@ const Message=require('./connectors/Message.js');
 const ipc=require('node-ipc');
 const Projects=require('../api/Projects.js');
 
-class MiniDroneWifi extends Events{
+class DroneWifi extends Events{
     constructor(){
       super();
       this.config=new Config;
@@ -31,7 +31,7 @@ class MiniDroneWifi extends Events{
       this.bound={};
       this.bound.connectedToDrone=this.connectedToDrone.bind(this);
       this.bound.init=this.init.bind(this);
-      this.bound.d2cResponse=this.gotResponse.bind(this,this.d2c);
+      this.bound.d2cResponse=this.gotResponse.bind(this);
 
       this.d2c.serveNet(
           'udp4',
@@ -108,17 +108,16 @@ class MiniDroneWifi extends Events{
           project.common.allStates
         );
 
-        this.message.command=project.calibration.magnetoCalibration;
-
-        const calibrate=this.message.build(
+        const getBatteryState=this.message.build(
           project.id,
-          project.calibration.id,
-          project.calibration.magnetoCalibration
+          project.common.id,
+          project.commonState.batteryStateChanged
         );
 
-        this.message.send(getSettingsState);
-        this.message.send(getCommonState);
-        this.message.send(calibrate);
+        //this.message.send(getSettingsState);
+        //this.message.send(getCommonState);
+
+        this.message.send(getBatteryState);
 
         this.emit(
           'connected',
@@ -135,7 +134,7 @@ class MiniDroneWifi extends Events{
       );
     }
 
-    gotResponse(ipc,data){
+    gotResponse(data){
         const response=new Response(
           this,
           data
@@ -143,4 +142,4 @@ class MiniDroneWifi extends Events{
     }
 }
 
-module.exports=MiniDroneWifi;
+module.exports=DroneWifi;

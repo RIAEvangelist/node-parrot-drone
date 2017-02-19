@@ -1,6 +1,6 @@
 'use strict';
 const CommonCommands=require('./CommonCommands.js');
-//https://github.com/RIAEvangelist/libARCommands/blob/ARSDK3_version_3_1_0/Xml/common_commands.xml
+//https://github.com/RIAEvangelist/libARController/blob/master/Xml/deviceControllers.xml
 
 //All common drone command classes
 class Projects{

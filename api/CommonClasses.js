@@ -1,6 +1,6 @@
 'use strict';
 const BaseClasses=require('./BaseClasses.js');
-//https://github.com/RIAEvangelist/libARCommands/blob/ARSDK3_version_3_1_0/Xml/common_commands.xml
+//https://github.com/RIAEvangelist/arsdk-xml/blob/master/xml/common.xml
 
 //All common drone command classes
 class CommonClasses extends BaseClasses{
@@ -10,7 +10,7 @@ class CommonClasses extends BaseClasses{
       //Network related commands
       'network',
       //events from drone
-      'event',
+      'networkEvent',
       //Settings commands
       'settings',
       //Settings state from drone

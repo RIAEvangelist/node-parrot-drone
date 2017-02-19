@@ -1,6 +1,6 @@
 'use strict';
 const CommonClasses=require('./CommonClasses.js');
-//https://github.com/RIAEvangelist/libARCommands/blob/ARSDK3_version_3_1_0/Xml/common_commands.xml
+//https://github.com/RIAEvangelist/arsdk-xml/blob/master/xml/common.xml
 
 //All common drone commands
 class CommonCommands extends CommonClasses{
@@ -15,9 +15,24 @@ class CommonCommands extends CommonClasses{
     );
 
     //event commands
-    this.event.push(
-        //none
+    this.networkEvent.push(
+        'disconnection'
     );
+
+    this.networkEvent.disconnection.push(
+      {
+        //type of the played mavlink file
+        name:'cause',
+        type:'string',
+        enum:[
+          //  Mavlink file for FlightPlan
+          'off_button',
+          //Mavlink file for MapMyHouse
+          'unknown'
+        ]
+      }
+    )
+
 
     //settings commands
     this.settings.push(
@@ -30,7 +45,7 @@ class CommonCommands extends CommonClasses{
         //Set current Country of controller
         'country',
         //Set Auto Country Settings
-        'AutoCountry'
+        'autoCountry'
     );
 
     this.settings.productName.push(
@@ -49,7 +64,7 @@ class CommonCommands extends CommonClasses{
       }
     );
 
-    this.settings.AutoCountry.push(
+    this.settings.autoCountry.push(
       {
         //Boolean : 0 : Manual / 1 : Auto
         name:'automatic',
@@ -179,6 +194,8 @@ class CommonCommands extends CommonClasses{
       'massStorageInfoRemainingListChanged',
       //Wifi Signal between controller and product state
       'wifiSignalChanged'
+
+
     );
 
     this.commonState.batteryStateChanged.push(

@@ -1,9 +1,9 @@
 'use strict';
 const Events=require('event-pubsub');
-//https://github.com/RIAEvangelist/libARCommands/tree/ARSDK3_version_3_1_0/Xml
+//https://github.com/RIAEvangelist/arsdk-xml/tree/master/xml
 
 //API Classes abstract
-class AbstractClasses{
+class BaseClasses{
   constructor(){
     this.lookup=[];
   }
@@ -89,4 +89,4 @@ class CommandArgument{
   }
 }
 
-module.exports=AbstractClasses;
+module.exports=BaseClasses;

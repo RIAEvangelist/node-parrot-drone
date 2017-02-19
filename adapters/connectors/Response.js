@@ -216,7 +216,7 @@ class Response extends Events{
         }
       }
 
-      console.log(this.message.frameType.id,this.drone.message.frameTypes.dataWithAckType)
+      //console.log(this.message.frameType.id,this.drone.message.frameTypes.dataWithAckType)
 
       if(this.message.frameType.id==this.drone.message.frameTypes.dataWithAckType){
         const ack=new Buffer.allocUnsafe(8);
