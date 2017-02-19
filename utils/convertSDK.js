@@ -169,7 +169,11 @@ All hex IDs are included as well incase you need them for debugging or extending
           const className=project.lookup[key];
           const entry=project[className];
           markdown+=`
-|[${className}](#projects${(projectName+className).toLowerCase()})|${entry.info.id}|0x${Number(entry.info.id).toString(16)}|${entry.details}|`;
+|[${className}](#projects${
+  (projectName+className).toLowerCase()
+})|${entry.info.id}|0x${
+  Number(entry.info.id).toString(16)
+}|${entry.details}|`;
       }
 
       for(const key in project.lookup){
@@ -186,6 +190,18 @@ All hex IDs are included as well incase you need them for debugging or extending
 | Command Name | ID | Hex ID | Description |
 |--------------|----|--------|-------------|`;
 
+          for(const key in entry.lookup){
+              const commandName=entry.lookup[key];
+              const command=entry[commandName];
+              markdown+=`
+|[${commandName}](#projects${
+  (projectName+className+commandName).toLowerCase()
+})|${command.info.id}|0x${
+  Number(command.info.id).toString(16)
+}|${
+  (command.comment)? command.comment.info.title : command.details
+}|`;
+          }
       }
 
       fs.writeFile(
