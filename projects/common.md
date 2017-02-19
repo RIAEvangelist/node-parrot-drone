@@ -56,7 +56,7 @@ Signals the remote that the host will disconnect.
 
 
 Result : None
-Example sending the Disconnect command to your parrot drone :
+Example sending the ` Disconnect ` command to your parrot drone :
 
 ```javascript
 
@@ -95,7 +95,8 @@ Drone will disconnect.
  **This event is a notification, you can't retrieve it in the cache of the device controller.**
 
 Triggered : mainly when the user presses the power button of the drone.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` Disconnection ` event from the drone :
 
 ```javascript
 
@@ -134,7 +135,7 @@ Ask for all settings.
 
 Result : The product will trigger all settings events (such as [CameraSettings](#0_15_0), or product specific settings as the [MaxAltitude](#1_6_0) for the Bebop).
  Then, it will trigger [AllSettingsEnd](#0_3_0).
-Example sending the AllSettings command to your parrot drone :
+Example sending the ` AllSettings ` command to your parrot drone :
 
 ```javascript
 
@@ -161,7 +162,7 @@ Reset all settings.
 
 Result : It will trigger [ResetChanged](#0_3_1).
  Then, the product will trigger all settings events (such as [CameraSettings](#0_15_0), or product specific settings as the [MaxAltitude](#1_6_0) for the Bebop) with factory values.
-Example sending the Reset command to your parrot drone :
+Example sending the ` Reset ` command to your parrot drone :
 
 ```javascript
 
@@ -189,7 +190,7 @@ Set the product name.
 
 Result : Name is changed.
  Then, it will trigger [NameChanged](#0_3_2).
-Example sending the ProductName command to your parrot drone :
+Example sending the ` ProductName ` command to your parrot drone :
 
 ```javascript
 
@@ -218,7 +219,7 @@ Set the country for Wifi products.
 
 Result : The country is set.
  Then, it will trigger [CountryChanged](#0_3_6).
-Example sending the Country command to your parrot drone :
+Example sending the ` Country ` command to your parrot drone :
 
 ```javascript
 
@@ -247,7 +248,7 @@ Enable auto_country.
 
 Result : The auto_country of the product is changed.
  Then, it will trigger [AutoCountryChanged](#0_3_7) and [CountryChanged](#0_3_6).
-Example sending the AutoCountry command to your parrot drone :
+Example sending the ` AutoCountry ` command to your parrot drone :
 
 ```javascript
 
@@ -292,7 +293,8 @@ All settings have been sent.
  **Please note that you should not care about this event if you are using the libARController API as this library is handling the connection process for you.**
 
 Triggered : when all settings values have been sent.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` AllSettingsChanged ` event from the drone :
 
 ```javascript
 
@@ -313,7 +315,8 @@ All settings have been reset
 All settings have been reset.
 
 Triggered : by [ResetSettings](#0_2_1).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` ResetChanged ` event from the drone :
 
 ```javascript
 
@@ -334,7 +337,8 @@ Product name changed
 Product name changed.
 
 Triggered : by [SetProductName](#0_2_2).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` ProductNameChanged ` event from the drone :
 
 ```javascript
 
@@ -355,7 +359,8 @@ Product version
 Product version.
 
 Triggered : during the connection process.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` ProductVersionChanged ` event from the drone :
 
 ```javascript
 
@@ -376,7 +381,8 @@ Product serial (1st part)
 Product serial (1st part).
 
 Triggered : during the connection process.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` ProductSerialHighChanged ` event from the drone :
 
 ```javascript
 
@@ -397,7 +403,8 @@ Product serial (2nd part)
 Product serial (2nd part).
 
 Triggered : during the connection process.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` ProductSerialLowChanged ` event from the drone :
 
 ```javascript
 
@@ -418,7 +425,8 @@ Country changed
 Country changed.
 
 Triggered : by [SetCountry](#0_2_3).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` CountryChanged ` event from the drone :
 
 ```javascript
 
@@ -439,7 +447,8 @@ Auto_country changed
 Auto_country changed.
 
 Triggered : by [SetAutoCountry](#0_2_4).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` AutoCountryChanged ` event from the drone :
 
 ```javascript
 
@@ -477,7 +486,7 @@ Ask for all states.
 
 Result : The product will trigger all states events (such as [FlyingState](#1_4_1) for the Bebop).
  Then, it will trigger [AllStatesEnd](#0_5_0).
-Example sending the AllStates command to your parrot drone :
+Example sending the ` AllStates ` command to your parrot drone :
 
 ```javascript
 
@@ -509,7 +518,7 @@ Set the date.
 
 Result : The date of the product is set.
  Then, it will trigger [DateChanged](#0_5_4).
-Example sending the CurrentDate command to your parrot drone :
+Example sending the ` CurrentDate ` command to your parrot drone :
 
 ```javascript
 
@@ -541,7 +550,7 @@ Set the time.
 
 Result : The time of the product is set.
  Then, it will trigger [TimeChanged](#0_5_5).
-Example sending the CurrentTime command to your parrot drone :
+Example sending the ` CurrentTime ` command to your parrot drone :
 
 ```javascript
 
@@ -568,7 +577,7 @@ Reboot the product.
  The product will accept this command only if is not flying.
 
 Result : The product will reboot if it can.
-Example sending the Reboot command to your parrot drone :
+Example sending the ` Reboot ` command to your parrot drone :
 
 ```javascript
 
@@ -620,7 +629,8 @@ All states have been sent.
  **Please note that you should not care about this event if you are using the libARController API as this library is handling the connection process for you.**
 
 Triggered : when all states values have been sent.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` AllStatesChanged ` event from the drone :
 
 ```javascript
 
@@ -641,7 +651,8 @@ Battery state
 Battery state.
 
 Triggered : when the battery level changes.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` BatteryStateChanged ` event from the drone :
 
 ```javascript
 
@@ -662,7 +673,8 @@ Mass storage state list
 Mass storage state list.
 
 Triggered : when a mass storage is inserted or ejected.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` MassStorageStateListChanged ` event from the drone :
 
 ```javascript
 
@@ -683,7 +695,8 @@ Mass storage info state list
 Mass storage info state list.
 
 Triggered : when a mass storage info changes.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` MassStorageInfoStateListChanged ` event from the drone :
 
 ```javascript
 
@@ -707,7 +720,8 @@ Date changed.
  **Please note that you should not care about this event if you are using the libARController API as this library is handling the connection process for you.**
 
 Triggered : by [SetDate](#0_4_1).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` CurrentDateChanged ` event from the drone :
 
 ```javascript
 
@@ -731,7 +745,8 @@ Time changed.
  **Please note that you should not care about this event if you are using the libARController API as this library is handling the connection process for you.**
 
 Triggered : by [SetTime](#0_4_2).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` CurrentTimeChanged ` event from the drone :
 
 ```javascript
 
@@ -752,7 +767,7 @@ Mass storage remaining data list
 Mass storage remaining data list.
 
 Result : undefined
-Example sending the MassStorageInfoRemainingListChanged command to your parrot drone :
+Example sending the ` MassStorageInfoRemainingListChanged ` command to your parrot drone :
 
 ```javascript
 
@@ -778,7 +793,8 @@ Rssi changed
 Rssi (Wifi Signal between controller and product) changed.
 
 Triggered : regularly.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` WifiSignalChanged ` event from the drone :
 
 ```javascript
 
@@ -799,7 +815,8 @@ Sensors state list
 Sensors state list.
 
 Triggered : at connection and when a sensor state changes.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` SensorsStatesListChanged ` event from the drone :
 
 ```javascript
 
@@ -821,7 +838,8 @@ Product sub_model.
  This can be used to customize the UI depending on the product.
 
 Triggered : at connection.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` ProductModel ` event from the drone :
 
 ```javascript
 
@@ -842,7 +860,7 @@ Country list
 List of countries known by the drone.
 
 Result : undefined
-Example sending the CountryListKnown command to your parrot drone :
+Example sending the ` CountryListKnown ` command to your parrot drone :
 
 ```javascript
 
@@ -868,7 +886,7 @@ Mass storage content changed
 Mass storage content changed.
 
 Result : undefined
-Example sending the DeprecatedMassStorageContentChanged command to your parrot drone :
+Example sending the ` DeprecatedMassStorageContentChanged ` command to your parrot drone :
 
 ```javascript
 
@@ -894,7 +912,8 @@ Mass storage content
 Mass storage content.
 
 Triggered : when the content of the mass storage changes.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` MassStorageContent ` event from the drone :
 
 ```javascript
 
@@ -916,7 +935,8 @@ Mass storage content for current run.
  Only counts the files related to the current run (see [RunId](#0_30_0))
 
 Triggered : when the content of the mass storage changes and this content is related to the current run.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` MassStorageContentForCurrentRun ` event from the drone :
 
 ```javascript
 
@@ -940,7 +960,8 @@ Current or last video recording timestamp.
 
 Triggered : on video recording start and video recording stop or 
  after that the date/time of the drone changed.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` VideoRecordingTimestamp ` event from the drone :
 
 ```javascript
 
@@ -972,7 +993,7 @@ Switch off after an overheat
 Switch off after an overheat.
 
 Result : None
-Example sending the SwitchOff command to your parrot drone :
+Example sending the ` SwitchOff ` command to your parrot drone :
 
 ```javascript
 
@@ -998,7 +1019,7 @@ Ventilate after an overheat
 Ventilate after an overheat.
 
 Result : None
-Example sending the Ventilate command to your parrot drone :
+Example sending the ` Ventilate ` command to your parrot drone :
 
 ```javascript
 
@@ -1035,7 +1056,7 @@ Overheat
 Overheat temperature reached.
 
 Result : undefined
-Example sending the OverHeatChanged command to your parrot drone :
+Example sending the ` OverHeatChanged ` command to your parrot drone :
 
 ```javascript
 
@@ -1061,7 +1082,7 @@ Overheat regulation type
 Overheat regulation type.
 
 Result : undefined
-Example sending the OverHeatRegulationChanged command to your parrot drone :
+Example sending the ` OverHeatRegulationChanged ` command to your parrot drone :
 
 ```javascript
 
@@ -1100,7 +1121,7 @@ Inform about hud entering.
 
 Result : If yes, the product will begin a new session (so it should send a new [runId](#0_30_0)).
  Also, on the JumpingSumos, if the video is in autorecord mode, it will start recording.
-Example sending the isPiloting command to your parrot drone :
+Example sending the ` isPiloting ` command to your parrot drone :
 
 ```javascript
 
@@ -1138,7 +1159,7 @@ Set wifi indoor/outdoor mode.
 
 Result : The product change its indoor/outdoor wifi settings.
  Then, it will trigger [WifiOutdoorMode](#0_10_0).
-Example sending the OutdoorSetting command to your parrot drone :
+Example sending the ` OutdoorSetting ` command to your parrot drone :
 
 ```javascript
 
@@ -1174,7 +1195,8 @@ Wifi outdoor mode
 Wifi outdoor mode.
 
 Triggered : by [SetWifiOutdoorMode](#0_9_0).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` outdoorSettingsChanged ` event from the drone :
 
 ```javascript
 
@@ -1214,7 +1236,7 @@ Start a FlightPlan based on a mavlink file existing on the drone.
 
 Result : If the FlightPlan has been started, event [FlightPlanPlayingStateChanged](#0_12_0) is triggered with param state set to *playing*.
  Otherwise, event [FlightPlanPlayingStateChanged](#0_12_0) is triggered with param state set to stopped and event [MavlinkPlayErrorStateChanged](#0_12_1) is triggered with an explanation of the error.
-Example sending the Start command to your parrot drone :
+Example sending the ` Start ` command to your parrot drone :
 
 ```javascript
 
@@ -1242,7 +1264,7 @@ Pause a FlightPlan that was playing.
 
 
 Result : The currently playing FlightPlan will be paused. Then, event [FlightPlanPlayingStateChanged](#0_12_0) is triggered with param state set to the current state of the FlightPlan (should be *paused* if everything went well).
-Example sending the Pause command to your parrot drone :
+Example sending the ` Pause ` command to your parrot drone :
 
 ```javascript
 
@@ -1269,7 +1291,7 @@ Stop a FlightPlan that was playing.
 
 
 Result : The currently playing FlightPlan will be stopped. Then, event [FlightPlanPlayingStateChanged](#0_12_0) is triggered with param state set to the current state of the FlightPlan (should be *stopped* if everything went well).
-Example sending the Stop command to your parrot drone :
+Example sending the ` Stop ` command to your parrot drone :
 
 ```javascript
 
@@ -1307,7 +1329,8 @@ Playing state of a FlightPlan
 Playing state of a FlightPlan.
 
 Triggered : by [StartFlightPlan](#0_11_0), [PauseFlightPlan](#0_11_1) or [StopFlightPlan](#0_11_2).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` MavlinkFilePlayingStateChanged ` event from the drone :
 
 ```javascript
 
@@ -1328,7 +1351,8 @@ FlightPlan error
 FlightPlan error.
 
 Triggered : by [StartFlightPlan](#0_11_0) if an error occurs.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` MavlinkPlayErrorStateChanged ` event from the drone :
 
 ```javascript
 
@@ -1349,7 +1373,8 @@ Mission item executed
 Mission item has been executed.
 
 Triggered : when a mission item has been executed during a flight plan.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` MissonItemExecuted ` event from the drone :
 
 ```javascript
 
@@ -1383,7 +1408,7 @@ Start or abort magnetometer calibration process.
 
 Result : The magnetometer calibration process is started or aborted. Then, event [MagnetoCalibrationStartedChanged](#0_14_3) is triggered.
  If started, event [MagnetoCalibrationStateChanged](#0_14_3) is triggered with the current calibration state: a list of all axis and their calibration states.\n It will also trigger [MagnetoCalibrationAxisToCalibrateChanged](#0_14_2), that will inform the controller about the current axis to calibrate.
-Example sending the MagnetoCalibration command to your parrot drone :
+Example sending the ` MagnetoCalibration ` command to your parrot drone :
 
 ```javascript
 
@@ -1409,7 +1434,7 @@ Sent when a calibration of the pitot is asked or is aborted
 
 
 
-Example sending the PitotCalibration command to your parrot drone :
+Example sending the ` PitotCalibration ` command to your parrot drone :
 
 ```javascript
 
@@ -1449,7 +1474,8 @@ Magneto calib process axis state
 Magneto calib process axis state.
 
 Triggered : when the calibration process is started with [StartOrAbortMagnetoCalib](#0_13_0) and each time an axis calibration state changes.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` MagnetoCalibrationStateChanged ` event from the drone :
 
 ```javascript
 
@@ -1470,7 +1496,8 @@ Calibration required
 Calibration required.
 
 Triggered : when the calibration requirement changes.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` MagnetoCalibrationRequiredState ` event from the drone :
 
 ```javascript
 
@@ -1491,7 +1518,8 @@ Axis to calibrate during calibration process
 Axis to calibrate during calibration process.
 
 Triggered : during the calibration process when the axis to calibrate changes.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` MagnetoCalibrationAxisToCalibrateChanged ` event from the drone :
 
 ```javascript
 
@@ -1512,7 +1540,8 @@ Calibration process state
 Calibration process state.
 
 Triggered : by [StartOrAbortMagnetoCalib](#0_13_0) or when the process ends because it succeeded.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` MagnetoCalibrationStartedChanged ` event from the drone :
 
 ```javascript
 
@@ -1533,7 +1562,7 @@ Sent when the state of the pitot calibration has changed
 
 
 
-Example sending the PitotCalibrationStateChanged command to your parrot drone :
+Example sending the ` PitotCalibrationStateChanged ` command to your parrot drone :
 
 ```javascript
 
@@ -1569,7 +1598,8 @@ Camera info
 Camera info.
 
 Triggered : at connection.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` CameraSettingsChanged ` event from the drone :
 
 ```javascript
 
@@ -1603,7 +1633,7 @@ Set the position of a run.
  Watch out, this command is not used by BLE products.
 
 Result : The position is set.
-Example sending the ControllerPositionForRun command to your parrot drone :
+Example sending the ` ControllerPositionForRun ` command to your parrot drone :
 
 ```javascript
 
@@ -1642,7 +1672,8 @@ FlightPlan availability.
  Availability is linked to GPS fix, magnetometer calibration, sensor states...
 
 Triggered : on change.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` AvailabilityStateChanged ` event from the drone :
 
 ```javascript
 
@@ -1663,7 +1694,8 @@ FlightPlan components state list
 FlightPlan components state list.
 
 Triggered : when the state of required components changes.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` ComponentStateListChanged ` event from the drone :
 
 ```javascript
 
@@ -1685,7 +1717,8 @@ FlightPlan lock state.
  Represents the fact that the controller is able or not to stop or pause a playing FlightPlan
 
 Triggered : when the lock changes.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` LockStateChanged ` event from the drone :
 
 ```javascript
 
@@ -1718,7 +1751,7 @@ Controller libARCommands version
 
 
 
-Example sending the ControllerLibARCommandsVersion command to your parrot drone :
+Example sending the ` ControllerLibARCommandsVersion ` command to your parrot drone :
 
 ```javascript
 
@@ -1744,7 +1777,7 @@ SkyController libARCommands version
 
 
 
-Example sending the SkyControllerLibARCommandsVersion command to your parrot drone :
+Example sending the ` SkyControllerLibARCommandsVersion ` command to your parrot drone :
 
 ```javascript
 
@@ -1770,7 +1803,7 @@ Device libARCommands version
 
 
 
-Example sending the DeviceLibARCommandsVersion command to your parrot drone :
+Example sending the ` DeviceLibARCommandsVersion ` command to your parrot drone :
 
 ```javascript
 
@@ -1809,7 +1842,8 @@ FlightPlan start error.
  **This event is a notification, you can't retrieve it in the cache of the device controller.**
 
 Triggered : on an error after a [StartFlightPlan](#0_11_0).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` StartingErrorEvent ` event from the drone :
 
 ```javascript
 
@@ -1833,7 +1867,8 @@ FlightPlan speed clamping.
  **This event is a notification, you can't retrieve it in the cache of the device controller.**
 
 Triggered : on an speed related clamping after a [StartFlightPlan](#0_11_0).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` SpeedBridleEvent ` event from the drone :
 
 ```javascript
 
@@ -1865,7 +1900,7 @@ Set audio stream direction.
 
 Result : The audio stream direction is set.
  Then, event [AudioStreamDirection](#0_21_0) is triggered.
-Example sending the ControllerReadyForStreaming command to your parrot drone :
+Example sending the ` ControllerReadyForStreaming ` command to your parrot drone :
 
 ```javascript
 
@@ -1901,7 +1936,8 @@ Audio stream direction
 Audio stream direction.
 
 Triggered : by [SetAudioStreamDirection](#0_20_0).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` AudioStreamingRunning ` event from the drone :
 
 ```javascript
 
@@ -1933,7 +1969,7 @@ Set lighting LEDs intensity.
 
 Result : The intensity of the LEDs is changed.
  Then, event [LedIntensity](#0_23_0) is triggered.
-Example sending the intensity command to your parrot drone :
+Example sending the ` intensity ` command to your parrot drone :
 
 ```javascript
 
@@ -1969,7 +2005,8 @@ LEDs intensity
 Lighting LEDs intensity.
 
 Triggered : by [SetLedsIntensity](#0_22_0).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` intensityChanged ` event from the drone :
 
 ```javascript
 
@@ -2003,7 +2040,7 @@ Start a paramaterless animation.
  List of available animations can be retrieved from [AnimationsStateList](#0_25_0).
 
 Result : If possible, the product starts the requested animation. Then, event [AnimationsStateList](#0_25_0) is triggered.
-Example sending the StartAnimation command to your parrot drone :
+Example sending the ` StartAnimation ` command to your parrot drone :
 
 ```javascript
 
@@ -2031,7 +2068,7 @@ Stop a paramaterless animation.
 
 Result : If the requested animation was running, it will be stopped.
  Then, event [AnimationsStateList](#0_25_0) is triggered.
-Example sending the StopAnimation command to your parrot drone :
+Example sending the ` StopAnimation ` command to your parrot drone :
 
 ```javascript
 
@@ -2059,7 +2096,7 @@ Stop all running paramaterless animations.
 
 Result : All running animations are stopped.
  Then, event [AnimationsStateList](#0_25_0) is triggered.
-Example sending the StopAllAnimations command to your parrot drone :
+Example sending the ` StopAllAnimations ` command to your parrot drone :
 
 ```javascript
 
@@ -2095,7 +2132,8 @@ Animation state list
 Paramaterless animations state list.
 
 Triggered : when the list of available animations changes and also when an animation state changes (can be triggered by [StartAnim](#0_24_0), [StopAnim](#0_24_1) or [StopAllAnims](#0_24_2).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` List ` event from the drone :
 
 ```javascript
 
@@ -2132,7 +2170,7 @@ Declare an accessory.
 
 Result : The product knows which accessory it is wearing.
  Then, event [AccessoryConfigChanged](#0_27_1) is triggered.
-Example sending the Config command to your parrot drone :
+Example sending the ` Config ` command to your parrot drone :
 
 ```javascript
 
@@ -2170,7 +2208,8 @@ Supported accessories list
 Supported accessories list.
 
 Triggered : at connection.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` SupportedAccessoriesListChanged ` event from the drone :
 
 ```javascript
 
@@ -2191,7 +2230,8 @@ Accessory config
 Accessory config.
 
 Triggered : by [DeclareAccessory](#0_26_0).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` AccessoryConfigChanged ` event from the drone :
 
 ```javascript
 
@@ -2212,7 +2252,8 @@ Accessory declaration availability
 Availability to declare or not an accessory.
 
 Triggered : when the availability changes.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` AccessoryConfigModificationEnabled ` event from the drone :
 
 ```javascript
 
@@ -2243,7 +2284,7 @@ Set max charge rate
 The product will inform itself the controller about its charging type (see [ChargingInfoChanged](#0_29_3)).
 
 Result : None.
-Example sending the SetMaxChargeRate command to your parrot drone :
+Example sending the ` SetMaxChargeRate ` command to your parrot drone :
 
 ```javascript
 
@@ -2282,7 +2323,7 @@ Max charge rate
 Max charge rate.
 
 Result : undefined
-Example sending the MaxChargeRateChanged command to your parrot drone :
+Example sending the ` MaxChargeRateChanged ` command to your parrot drone :
 
 ```javascript
 
@@ -2308,7 +2349,7 @@ Current charge state
 Current charge state.
 
 Result : undefined
-Example sending the CurrentChargeStateChanged command to your parrot drone :
+Example sending the ` CurrentChargeStateChanged ` command to your parrot drone :
 
 ```javascript
 
@@ -2334,7 +2375,7 @@ Last charge rate
 Last charge rate.
 
 Result : undefined
-Example sending the LastChargeRateChanged command to your parrot drone :
+Example sending the ` LastChargeRateChanged ` command to your parrot drone :
 
 ```javascript
 
@@ -2360,7 +2401,8 @@ Charging information
 Charging information.
 
 Triggered : when the product is charging or when the charging state changes.
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` ChargingInfo ` event from the drone :
 
 ```javascript
 
@@ -2394,7 +2436,8 @@ Current run id.
  Also, each medias taken during a run has a filename containing the run id.
 
 Triggered : when the drone generates a new run id (generally right after a take off).
-Example binding to listen for this event from the drone :
+
+Example binding to listen for the ` RunIdChanged ` event from the drone :
 
 ```javascript
 
