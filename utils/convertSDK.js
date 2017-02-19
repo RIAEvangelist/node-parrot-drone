@@ -396,9 +396,11 @@ function buildDrones(){
         return;
       }
 
-      let droneRequires='';
+      let droneRequires='const projects={};';
       for(const req of result.pass){
-        droneRequires+=`const ${req}=require('./${req}.js');
+        droneRequires+=`
+const ${req}=require('./${req}.js');
+projects.${req}=${req};
 `;
 
         for(deviceName in devices.deviceControllers){
@@ -423,7 +425,10 @@ ${droneRequires}
 
 const droneRefs=${droneRefs}
 
-module.exports=droneRefs;
+module.exports={
+  drones:droneRefs,
+  projects:projects
+};
 `;
 
 
@@ -440,10 +445,10 @@ module.exports=droneRefs;
       );
 
       let markdown=`# Drone list
-  -------
-  **Please note while all the data to support all drones is available, currently only wifi is implemented** Bluetooth Drones need a seperate adapter in \` /adapters/ \`
+-------
+**Please note while all the data to support all drones is available, currently only wifi is implemented** Bluetooth Drones need a seperate adapter in \` /adapters/ \`
 
-  Each drone has a list of the command sets it uses. Please click the link to see the documentation for each set of commands. Some are quite extencive.
+Each drone has a list of the command sets it uses. Please click the link to see the documentation for each set of commands. Some are quite extencive.
 
   `;
 
@@ -454,20 +459,22 @@ module.exports=droneRefs;
         }
 
         markdown+=`
-  # ${device.info.name}
-  Product : ${device.info.product}
-  ${device.details}
+# ${device.info.name}
+Product : ${device.info.product}
+${device.details}
 
-  This drone uses the following command sets :
+This drone uses the following command sets :
 
   `;
         for(const command in device){
-          const commandSet=device[command];
-          if(!commandSet.info){
+          if(result.pass.includes(command)){
+            markdown+=`* [${command}](${docLink}${command}.md)
+`;
             continue;
           }
-          markdown+=`* [${commandSet.info.name}](${docLink}${commandSet.info.name}.md)
-  `;
+
+          markdown+=`* [${command}](../projects/${command}.js) not yet documented. See the raw object for now.
+`;
         }
       }
 

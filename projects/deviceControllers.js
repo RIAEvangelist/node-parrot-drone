@@ -1,10 +1,22 @@
 'use strict';
+const projects={};
 const ardrone3=require('./ardrone3.js');
+projects.ardrone3=ardrone3;
+
 const common=require('./common.js');
+projects.common=common;
+
 const jpsumo=require('./jpsumo.js');
+projects.jpsumo=jpsumo;
+
 const minidrone=require('./minidrone.js');
+projects.minidrone=minidrone;
+
 const powerup=require('./powerup.js');
+projects.powerup=powerup;
+
 const skyctrl=require('./skyctrl.js');
+projects.skyctrl=skyctrl;
 
 
 const droneRefs={
@@ -210,4 +222,7 @@ const droneRefs={
   }
 }
 
-module.exports=droneRefs;
+module.exports={
+  drones:droneRefs,
+  projects:projects
+};
