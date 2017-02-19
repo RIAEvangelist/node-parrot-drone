@@ -2,132 +2,166 @@ const fs = require('fs');
 const util = require('util');
 const convert = require('xml-js');
 
-fs.readFile(
-  `${__dirname}/../arsdk-xml/xml/common.xml`,
-  function(err, data) {
-    console.log(err);
-    data=data.toString().replace(/[\t\n\r]/g,' ')
-      .replace(/<!--[\s\S]*?-->/ig,'')
-      .replace(/<\?[\s\S]*?\?>/ig,'')
-      .replace(/\s+/g,' ')
-      .replace(/[\-]/g,'_')
-      .replace(/<(\w+) name="([\w]+)"/g,'<$2 originalTag="$1" name="$2"');
-
-    while(data.indexOf('originalTag=')>-1){
-      const regEx = /<(\w+) originalTag="(\w+)"/;
-      const match = data.match(regEx);
-      let key=match[1];
-      const tag=match[2];
-
-      const tagRegex=new RegExp(`</${tag}`);
-      data=data.replace(tagRegex,`</${key}`);
-
-
-      data=data.replace('originalTag="','tagType="');
-    }
-
-    const projects=convert.xml2js(
-      data,
-      {
-        compact       : true,
-        trim          : true,
-        nativeType    : true,
-        attributesKey : 'info',
-        textKey       : 'details'
-      }
-    );
-
-    projects.lookup={};
-
-    function assignLookup(parent,child){
-      //console.log('CHILD : ', child.info);
-      child.info.id=Number(child.info.id);
-
-      parent.lookup[
-        child.info.id
-      ]=child.info.name;
-    }
-
-    function isCommandRelated(child){
-      //console.trace(child)
-      if(!child.info){
-        return false;
-      }
-      if(
-        !child.info.tagType
-      ){
-        return false;
-      }
-
-      if(!child.lookup){
-        child.lookup={};
-      }
-
-      return true;
-    }
-
-    for(const key in projects){
-      const project=projects[key];
-
-      //console.log(entry,key);
-      if(!isCommandRelated(project)){
-        continue;
-      }
-
-      assignLookup(projects,project);
-
-      for(const key in project){
-        const entry=project[key];
-
-        if(!isCommandRelated(entry)){
-          continue;
+const SDKDir = `${__dirname}/../arsdk-xml/xml/`;
+fs.readdir(
+  SDKDir,
+  function(err, files){
+    files.forEach(
+      function(SDKXML){
+        if(SDKXML.indexOf('.xml')<0){
+          return;
         }
+        const SDKFile=SDKXML.replace('.xml','');
+        fs.readFile(
+          `${SDKDir}${SDKXML}`,
+          function(err, data) {
+            console.log(SDKXML);
+            console.log(err);
+            data=data.toString().replace(/[\t\n\r]/g,' ')
+              .replace(/<!--[\s\S\w]*?-->/ig,'')
+              .replace(/<\?[\s\S\w]*?\?>/ig,'')
+              .replace(/\s+/g,' ')
+              .replace(/[\-]/g,'_')
+              .replace(/<(\w+) name="([\w]+)"/g,'<$2 originalTag="$1" name="$2"')
+              .replace(/(\S)\:(\S)/g,'$1_$2');
 
-        assignLookup(project,entry);
+            while(data.indexOf('originalTag=')>-1){
+              const regEx = /<(\w+) originalTag="(\w+)"/;
+              const match = data.match(regEx);
+              let key=match[1];
+              const tag=match[2];
 
-        for(const key in entry){
-          const command=entry[key];
-          if(!isCommandRelated(command)){
-            continue;
-          }
+              const tagRegex=new RegExp(`</${tag}`);
+              data=data.replace(tagRegex,`</${key}`);
 
-          let argCount=0;
-          assignLookup(entry,command);
+              if(Number(key[0])){
+                const keyRegex=new RegExp(`${key}`,'g');
+                const cleanKey=`_${key}`;
+                data=data.replace(keyRegex,`${cleanKey}`);
+              }
 
-          for(const key in command){
-            const arg=command[key];
-            if(!isCommandRelated(arg)){
-              continue;
+              data=data.replace('originalTag="','tagType="');
             }
 
-            arg.info.id=argCount;
-            argCount++;
+            // console.log(
+            //   data.slice(
+            //     741,
+            //     761
+            //   )
+            // );
 
-            switch(arg.info.type){
-              case 'u16' :
-              case 'i16' :
-                arg.info.bytes=2;
-                break;
-              case 'u32'  :
-              case 'i32'  :
-              case 'float':
-                arg.info.bytes=4;
-                break;
-              default :
-                arg.info.bytes=1;
+            let projects={};
+
+            try{
+              projects=convert.xml2js(
+                data,
+                {
+                  compact       : true,
+                  trim          : true,
+                  nativeType    : true,
+                  attributesKey : 'info',
+                  textKey       : 'details'
+                }
+              );
+            }catch(err){
+              console.warn(
+                `Failed to parse ${SDKXML}`
+              );
+              console.log(err);
+              return;
             }
 
-            arg.value=null;
+            projects.lookup={};
 
-            assignLookup(command,arg);
-          }
-        }
-      }
-    }
+            function assignLookup(parent,child){
+              //console.log('CHILD : ', child.info);
+              child.info.id=Number(child.info.id);
 
-    fs.writeFile(
-      `${__dirname}/../projects/common.js`,
-      `'use strict';
+              parent.lookup[
+                child.info.id
+              ]=child.info.name;
+            }
+
+            function isCommandRelated(child){
+              //console.trace(child)
+              if(!child.info){
+                return false;
+              }
+              if(
+                !child.info.tagType
+              ){
+                return false;
+              }
+
+              if(!child.lookup){
+                child.lookup={};
+              }
+
+              return true;
+            }
+
+            for(const key in projects){
+              const project=projects[key];
+
+              //console.log(entry,key);
+              if(!isCommandRelated(project)){
+                continue;
+              }
+
+              assignLookup(projects,project);
+
+              for(const key in project){
+                const entry=project[key];
+
+                if(!isCommandRelated(entry)){
+                  continue;
+                }
+
+                assignLookup(project,entry);
+
+                for(const key in entry){
+                  const command=entry[key];
+                  if(!isCommandRelated(command)){
+                    continue;
+                  }
+
+                  let argCount=0;
+                  assignLookup(entry,command);
+
+                  for(const key in command){
+                    const arg=command[key];
+                    if(!isCommandRelated(arg)){
+                      continue;
+                    }
+
+                    arg.info.id=argCount;
+                    argCount++;
+
+                    switch(arg.info.type){
+                      case 'u16' :
+                      case 'i16' :
+                        arg.info.bytes=2;
+                        break;
+                      case 'u32'  :
+                      case 'i32'  :
+                      case 'float':
+                        arg.info.bytes=4;
+                        break;
+                      default :
+                        arg.info.bytes=1;
+                    }
+
+                    arg.value=null;
+
+                    assignLookup(command,arg);
+                  }
+                }
+              }
+            }
+
+            fs.writeFile(
+              `${__dirname}/../projects/${SDKFile}.js`,
+              `'use strict';
 /*************************************************\\
 generated from arsdk-xml/xml/*.xml
 generated by utils/convertSDK.js
@@ -141,21 +175,20 @@ const projects=${
   )
 }
 
-
 module.exports=projects;
-      `,
-      function(err, data) {
-        console.log(err);
-      }
-    );
+              `,
+              function(err, data) {
+                console.log(err);
+              }
+            );
 
-    let markdown='';
+            let markdown='';
 
-    for(const key in projects.lookup){
-      const projectName=projects.lookup[key];
-      const project=projects[projectName];
+            for(const key in projects.lookup){
+              const projectName=projects.lookup[key];
+              const project=projects[projectName];
 
-      markdown+=`# projects.${projectName}
+              markdown+=`# projects.${projectName}
 -----
 ### ${project.details}
 
@@ -174,12 +207,12 @@ All hex IDs are included as well incase you need them for debugging or extending
 })|${entry.info.id}|0x${
   Number(entry.info.id).toString(16)
 }|${entry.details}|`;
-      }
+              }
 
-      for(const key in project.lookup){
-          const className=project.lookup[key];
-          const entry=project[className];
-          markdown+=`
+              for(const key in project.lookup){
+                  const className=project.lookup[key];
+                  const entry=project[className];
+                  markdown+=`
 # projects.${projectName}.${className}
 -----
 ### ${entry.details}
@@ -201,12 +234,12 @@ All hex IDs are included as well incase you need them for debugging or extending
 }|${
   (command.comment)? command.comment.info.title : command.details
 }|`;
-          }
+                  }
 
-          for(const key in entry.lookup){
-              const commandName=entry.lookup[key];
-              const command=entry[commandName];
-              markdown+=`
+                  for(const key in entry.lookup){
+                      const commandName=entry.lookup[key];
+                      const command=entry[commandName];
+                      markdown+=`
 ## projects.${projectName}.${className}.${commandName} ${
   ((command.comment)?
       ((command.comment.info.triggered)?
@@ -235,11 +268,11 @@ ${
 `)
 }`;
 
-          if(
-            command.comment
-            && command.comment.info.triggered
-          ){
-            markdown+=`
+                  if(
+                    command.comment
+                    && command.comment.info.triggered
+                  ){
+                    markdown+=`
 
 Example binding to listen for the \` ${commandName} \` event from the drone :
 
@@ -255,8 +288,8 @@ drone.on(
 \`\`\`
 
 `
-          }else{
-            markdown+=`
+                  }else{
+                    markdown+=`
 Example sending the \` ${commandName} \` command to your parrot drone :
 
 \`\`\`javascript
@@ -276,17 +309,21 @@ drone.message.send(${commandName}Message);
 \`\`\`
 
 `
-          }
-        }
-      }
+                  }
+                }
+              }
 
-      fs.writeFile(
-        `${__dirname}/../projects/common.md`,
-        markdown,
-        function(err, data) {
-          console.log(err);
-        }
-      );
-    }
+              fs.writeFile(
+                `${__dirname}/../docs/${SDKFile}.md`,
+                markdown,
+                function(err, data) {
+                  console.log(err);
+                }
+              );
+            }
+          }
+        );
+      }
+    );
   }
 );
