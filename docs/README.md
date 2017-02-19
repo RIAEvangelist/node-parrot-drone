@@ -13,7 +13,7 @@ This drone uses the following command sets :
 
   * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [ardrone3](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/ardrone3.md)
-* [generic](../projects/generic.js) not yet documented. See the raw object for now.
+* [generic](../projects/generic.js) not yet documented. See the raw object for now.  
 
 # JumpingSumo
 Product : JS
@@ -113,8 +113,8 @@ This drone uses the following command sets :
 
   * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [skyctrl](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/skyctrl.md)
-* [mapper](../projects/mapper.js) not yet documented. See the raw object for now.
-* [drone_manager](../projects/drone_manager.js) not yet documented. See the raw object for now.
+* [mapper](../projects/mapper.js) not yet documented. See the raw object for now.  
+* [drone_manager](../projects/drone_manager.js) not yet documented. See the raw object for now.  
 
 # PowerUP
 Product : POWER_UP
@@ -133,9 +133,9 @@ This drone uses the following command sets :
 
   * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [ardrone3](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/ardrone3.md)
-* [generic](../projects/generic.js) not yet documented. See the raw object for now.
-* [follow_me](../projects/follow_me.js) not yet documented. See the raw object for now.
-* [controller_info](../projects/controller_info.js) not yet documented. See the raw object for now.
+* [generic](../projects/generic.js) not yet documented. See the raw object for now.  
+* [follow_me](../projects/follow_me.js) not yet documented. See the raw object for now.  
+* [controller_info](../projects/controller_info.js) not yet documented. See the raw object for now.  
 
 # Disco
 Product : EVINRUDE
@@ -145,4 +145,4 @@ This drone uses the following command sets :
 
   * [common](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/common.md)
 * [ardrone3](https://github.com/RIAEvangelist/node-parrot-drone/tree/master/docs/ardrone3.md)
-* [rc](../projects/rc.js) not yet documented. See the raw object for now.
+* [rc](../projects/rc.js) not yet documented. See the raw object for now.  

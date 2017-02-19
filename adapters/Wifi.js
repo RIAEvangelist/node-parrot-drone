@@ -4,7 +4,7 @@ const Config =require('../configs/Wifi.js');
 const Response=require('./connectors/Response.js');
 const Message=require('./connectors/Message.js');
 const ipc=require('node-ipc');
-const Projects=require('../api/Projects.js');
+const Projects=require('../api/deviceControllers.js');
 
 class DroneWifi extends Events{
     constructor(){

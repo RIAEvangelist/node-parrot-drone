@@ -450,7 +450,7 @@ module.exports={
 
 Each drone has a list of the command sets it uses. Please click the link to see the documentation for each set of commands. Some are quite extencive.
 
-  `;
+`;
 
       for(deviceName in devices.deviceControllers){
         const device=devices.deviceControllers[deviceName];
@@ -465,7 +465,7 @@ ${device.details}
 
 This drone uses the following command sets :
 
-  `;
+`;
         const exclude=['info','details','comment','_comment'];
         for(const command in device){
           if(exclude.includes(command)){
