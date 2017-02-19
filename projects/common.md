@@ -7,37 +7,37 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 | Class Name | ID | Hex ID | Description |
 |------------|----|--------|-------------|
-|[Network](#projectscommonNetwork)|0|0x0|Network related commands|
-|[NetworkEvent](#projectscommonNetworkEvent)|1|0x1|Network Event from product|
-|[Settings](#projectscommonSettings)|2|0x2|Settings commands|
-|[SettingsState](#projectscommonSettingsState)|3|0x3|Settings state from product|
-|[Common](#projectscommonCommon)|4|0x4|Common commands|
-|[CommonState](#projectscommonCommonState)|5|0x5|Common state from product|
-|[OverHeat](#projectscommonOverHeat)|6|0x6|Over heat commands|
-|[OverHeatState](#projectscommonOverHeatState)|7|0x7|Overheat state from product|
-|[Controller](#projectscommonController)|8|0x8|Notify the device about the state of the controller application.|
-|[WifiSettings](#projectscommonWifiSettings)|9|0x9|Wifi settings commands|
-|[WifiSettingsState](#projectscommonWifiSettingsState)|10|0xa|Wifi settings state from product|
-|[Mavlink](#projectscommonMavlink)|11|0xb|Mavlink flight plans commands|
-|[MavlinkState](#projectscommonMavlinkState)|12|0xc|Mavlink flight plans states commands|
-|[Calibration](#projectscommonCalibration)|13|0xd|Calibration commands|
-|[CalibrationState](#projectscommonCalibrationState)|14|0xe|Status of the calibration|
-|[CameraSettingsState](#projectscommonCameraSettingsState)|15|0xf|Status of the camera settings|
-|[GPS](#projectscommonGPS)|16|0x10|GPS related commands|
-|[FlightPlanState](#projectscommonFlightPlanState)|17|0x11|FlightPlan state commands|
-|[ARLibsVersionsState](#projectscommonARLibsVersionsState)|18|0x12|ARlibs Versions Commands|
-|[FlightPlanEvent](#projectscommonFlightPlanEvent)|19|0x13|FlightPlan Event commands|
-|[Audio](#projectscommonAudio)|20|0x14|Audio_related commands.|
-|[AudioState](#projectscommonAudioState)|21|0x15|Audio_related state updates.|
-|[Headlights](#projectscommonHeadlights)|22|0x16|Controls the headlight LEDs of the Evo variants.|
-|[HeadlightsState](#projectscommonHeadlightsState)|23|0x17|Get information about the state of the Evo variants' LEDs.|
-|[Animations](#projectscommonAnimations)|24|0x18|Animations_related commands.|
-|[AnimationsState](#projectscommonAnimationsState)|25|0x19|Animations_related notification/feedback commands.|
-|[Accessory](#projectscommonAccessory)|26|0x1a|Accessories_related commands.|
-|[AccessoryState](#projectscommonAccessoryState)|27|0x1b|Accessories_related commands.|
-|[Charger](#projectscommonCharger)|28|0x1c|Commands sent by the controller to set charger parameters.|
-|[ChargerState](#projectscommonChargerState)|29|0x1d|Commands sent by the firmware to advertise the charger status.|
-|[RunState](#projectscommonRunState)|30|0x1e|Commands sent by the drone to inform about the run or flight state|
+|[Network](#projectscommonnetwork)|0|0x0|Network related commands|
+|[NetworkEvent](#projectscommonnetworkevent)|1|0x1|Network Event from product|
+|[Settings](#projectscommonsettings)|2|0x2|Settings commands|
+|[SettingsState](#projectscommonsettingsstate)|3|0x3|Settings state from product|
+|[Common](#projectscommoncommon)|4|0x4|Common commands|
+|[CommonState](#projectscommoncommonstate)|5|0x5|Common state from product|
+|[OverHeat](#projectscommonoverheat)|6|0x6|Over heat commands|
+|[OverHeatState](#projectscommonoverheatstate)|7|0x7|Overheat state from product|
+|[Controller](#projectscommoncontroller)|8|0x8|Notify the device about the state of the controller application.|
+|[WifiSettings](#projectscommonwifisettings)|9|0x9|Wifi settings commands|
+|[WifiSettingsState](#projectscommonwifisettingsstate)|10|0xa|Wifi settings state from product|
+|[Mavlink](#projectscommonmavlink)|11|0xb|Mavlink flight plans commands|
+|[MavlinkState](#projectscommonmavlinkstate)|12|0xc|Mavlink flight plans states commands|
+|[Calibration](#projectscommoncalibration)|13|0xd|Calibration commands|
+|[CalibrationState](#projectscommoncalibrationstate)|14|0xe|Status of the calibration|
+|[CameraSettingsState](#projectscommoncamerasettingsstate)|15|0xf|Status of the camera settings|
+|[GPS](#projectscommongps)|16|0x10|GPS related commands|
+|[FlightPlanState](#projectscommonflightplanstate)|17|0x11|FlightPlan state commands|
+|[ARLibsVersionsState](#projectscommonarlibsversionsstate)|18|0x12|ARlibs Versions Commands|
+|[FlightPlanEvent](#projectscommonflightplanevent)|19|0x13|FlightPlan Event commands|
+|[Audio](#projectscommonaudio)|20|0x14|Audio_related commands.|
+|[AudioState](#projectscommonaudiostate)|21|0x15|Audio_related state updates.|
+|[Headlights](#projectscommonheadlights)|22|0x16|Controls the headlight LEDs of the Evo variants.|
+|[HeadlightsState](#projectscommonheadlightsstate)|23|0x17|Get information about the state of the Evo variants' LEDs.|
+|[Animations](#projectscommonanimations)|24|0x18|Animations_related commands.|
+|[AnimationsState](#projectscommonanimationsstate)|25|0x19|Animations_related notification/feedback commands.|
+|[Accessory](#projectscommonaccessory)|26|0x1a|Accessories_related commands.|
+|[AccessoryState](#projectscommonaccessorystate)|27|0x1b|Accessories_related commands.|
+|[Charger](#projectscommoncharger)|28|0x1c|Commands sent by the controller to set charger parameters.|
+|[ChargerState](#projectscommonchargerstate)|29|0x1d|Commands sent by the firmware to advertise the charger status.|
+|[RunState](#projectscommonrunstate)|30|0x1e|Commands sent by the drone to inform about the run or flight state|
 # projects.common.Network
 -----
 ### Network related commands
