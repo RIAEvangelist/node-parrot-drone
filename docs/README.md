@@ -7,7 +7,7 @@ Each drone has a list of the command sets it uses. Please click the link to see 
 
 # BebopDrone
 Product : ARDRONE
-undefined
+Bebop Drone project
 
 This drone uses the following command sets :
 
@@ -17,7 +17,7 @@ This drone uses the following command sets :
 
 # JumpingSumo
 Product : JS
-undefined
+Jumping Sumo project
 
 This drone uses the following command sets :
 
@@ -26,7 +26,7 @@ This drone uses the following command sets :
 
 # JumpingSumoEvoLight
 Product : JS_EVO_LIGHT
-undefined
+Jumping Sumo Evo light project
 
 This drone uses the following command sets :
 
@@ -35,7 +35,7 @@ This drone uses the following command sets :
 
 # JumpingSumoEvoRace
 Product : JS_EVO_RACE
-undefined
+Jumping Sumo Evo race project
 
 This drone uses the following command sets :
 
@@ -44,7 +44,7 @@ This drone uses the following command sets :
 
 # RollingSpider
 Product : MINIDRONE
-undefined
+Rolling Spider project
 
 This drone uses the following command sets :
 
@@ -53,7 +53,7 @@ This drone uses the following command sets :
 
 # AirborneNight
 Product : MINIDRONE_EVO_LIGHT
-undefined
+Airborne night project
 
 This drone uses the following command sets :
 
@@ -62,7 +62,7 @@ This drone uses the following command sets :
 
 # AirborneCargo
 Product : MINIDRONE_EVO_BRICK
-undefined
+Airborne brick project
 
 This drone uses the following command sets :
 
@@ -71,7 +71,7 @@ This drone uses the following command sets :
 
 # Swing
 Product : MINIDRONE_WINGX
-undefined
+WingX project
 
 This drone uses the following command sets :
 
@@ -80,7 +80,7 @@ This drone uses the following command sets :
 
 # Mambo
 Product : MINIDRONE_DELOS3
-undefined
+Delos3 project
 
 This drone uses the following command sets :
 
@@ -89,7 +89,7 @@ This drone uses the following command sets :
 
 # Hydrofoil
 Product : MINIDRONE_EVO_HYDROFOIL
-undefined
+Hydrofoil project
 
 This drone uses the following command sets :
 
@@ -98,7 +98,7 @@ This drone uses the following command sets :
 
 # SkyController
 Product : SKYCONTROLLER
-undefined
+Sky Controller project
 
 This drone uses the following command sets :
 
@@ -107,7 +107,7 @@ This drone uses the following command sets :
 
 # SkyController2
 Product : SKYCONTROLLER_2
-undefined
+Sky Controller 2 project
 
 This drone uses the following command sets :
 
@@ -118,7 +118,7 @@ This drone uses the following command sets :
 
 # PowerUP
 Product : POWER_UP
-undefined
+Power Up project
 
 This drone uses the following command sets :
 
@@ -127,7 +127,7 @@ This drone uses the following command sets :
 
 # Bebop2
 Product : BEBOP_2
-undefined
+Bebop 2 project
 
 This drone uses the following command sets :
 
@@ -139,7 +139,7 @@ This drone uses the following command sets :
 
 # Disco
 Product : EVINRUDE
-undefined
+Disco project
 
 This drone uses the following command sets :
 
