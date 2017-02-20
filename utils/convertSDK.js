@@ -411,6 +411,9 @@ Example sending the \` ${commandName} \` command to your parrot drone :
 const project=drone.projects.${projectName};
 const commandClass=project.${className};
 
+//change the value of the args you want to change if applicable
+project.${className}.${commandName}.\${argName}.value=1;
+
 //build a message requesting all settings
 const ${commandName}Message=drone.message.build(
   project.id,

@@ -241,6 +241,9 @@ Example sending the ` RequestWifiList ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.Wifi;
 
+//change the value of the args you want to change if applicable
+project.Wifi.RequestWifiList.${argName}.value=1;
+
 //build a message requesting all settings
 const RequestWifiListMessage=drone.message.build(
   project.id,
@@ -270,6 +273,9 @@ Example sending the ` RequestCurrentWifi ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.Wifi;
+
+//change the value of the args you want to change if applicable
+project.Wifi.RequestCurrentWifi.${argName}.value=1;
 
 //build a message requesting all settings
 const RequestCurrentWifiMessage=drone.message.build(
@@ -306,6 +312,9 @@ Example sending the ` ConnectToWifi ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.Wifi;
 
+//change the value of the args you want to change if applicable
+project.Wifi.ConnectToWifi.${argName}.value=1;
+
 //build a message requesting all settings
 const ConnectToWifiMessage=drone.message.build(
   project.id,
@@ -339,6 +348,9 @@ Example sending the ` ForgetWifi ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.Wifi;
 
+//change the value of the args you want to change if applicable
+project.Wifi.ForgetWifi.${argName}.value=1;
+
 //build a message requesting all settings
 const ForgetWifiMessage=drone.message.build(
   project.id,
@@ -369,6 +381,9 @@ Example sending the ` WifiAuthChannel ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.Wifi;
+
+//change the value of the args you want to change if applicable
+project.Wifi.WifiAuthChannel.${argName}.value=1;
 
 //build a message requesting all settings
 const WifiAuthChannelMessage=drone.message.build(
@@ -412,6 +427,9 @@ Example sending the ` RequestDeviceList ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.Device;
 
+//change the value of the args you want to change if applicable
+project.Device.RequestDeviceList.${argName}.value=1;
+
 //build a message requesting all settings
 const RequestDeviceListMessage=drone.message.build(
   project.id,
@@ -441,6 +459,9 @@ Example sending the ` RequestCurrentDevice ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.Device;
+
+//change the value of the args you want to change if applicable
+project.Device.RequestCurrentDevice.${argName}.value=1;
 
 //build a message requesting all settings
 const RequestCurrentDeviceMessage=drone.message.build(
@@ -473,6 +494,9 @@ Example sending the ` ConnectToDevice ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.Device;
+
+//change the value of the args you want to change if applicable
+project.Device.ConnectToDevice.${argName}.value=1;
 
 //build a message requesting all settings
 const ConnectToDeviceMessage=drone.message.build(
@@ -516,6 +540,9 @@ Example sending the ` DeviceList ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.DeviceState;
+
+//change the value of the args you want to change if applicable
+project.DeviceState.DeviceList.${argName}.value=1;
 
 //build a message requesting all settings
 const DeviceListMessage=drone.message.build(
@@ -595,6 +622,9 @@ Example sending the ` AllSettings ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.Settings;
 
+//change the value of the args you want to change if applicable
+project.Settings.AllSettings.${argName}.value=1;
+
 //build a message requesting all settings
 const AllSettingsMessage=drone.message.build(
   project.id,
@@ -624,6 +654,9 @@ Example sending the ` Reset ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.Settings;
+
+//change the value of the args you want to change if applicable
+project.Settings.Reset.${argName}.value=1;
 
 //build a message requesting all settings
 const ResetMessage=drone.message.build(
@@ -818,6 +851,9 @@ Example sending the ` AllStates ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.Common;
+
+//change the value of the args you want to change if applicable
+project.Common.AllStates.${argName}.value=1;
 
 //build a message requesting all settings
 const AllStatesMessage=drone.message.build(
@@ -1065,6 +1101,9 @@ Example sending the ` AccessPointSSID ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.AccessPointSettings;
 
+//change the value of the args you want to change if applicable
+project.AccessPointSettings.AccessPointSSID.${argName}.value=1;
+
 //build a message requesting all settings
 const AccessPointSSIDMessage=drone.message.build(
   project.id,
@@ -1098,6 +1137,9 @@ Example sending the ` AccessPointChannel ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.AccessPointSettings;
+
+//change the value of the args you want to change if applicable
+project.AccessPointSettings.AccessPointChannel.${argName}.value=1;
 
 //build a message requesting all settings
 const AccessPointChannelMessage=drone.message.build(
@@ -1145,6 +1187,9 @@ Example sending the ` WifiSelection ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.AccessPointSettings;
+
+//change the value of the args you want to change if applicable
+project.AccessPointSettings.WifiSelection.${argName}.value=1;
 
 //build a message requesting all settings
 const WifiSelectionMessage=drone.message.build(
@@ -1292,6 +1337,9 @@ Example sending the ` ResetOrientation ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.Camera;
 
+//change the value of the args you want to change if applicable
+project.Camera.ResetOrientation.${argName}.value=1;
+
 //build a message requesting all settings
 const ResetOrientationMessage=drone.message.build(
   project.id,
@@ -1335,6 +1383,9 @@ Example sending the ` getCurrentButtonMappings ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.ButtonMappings;
 
+//change the value of the args you want to change if applicable
+project.ButtonMappings.getCurrentButtonMappings.${argName}.value=1;
+
 //build a message requesting all settings
 const getCurrentButtonMappingsMessage=drone.message.build(
   project.id,
@@ -1365,6 +1416,9 @@ Example sending the ` getAvailableButtonMappings ` command to your parrot drone 
 
 const project=drone.projects.skyctrl;
 const commandClass=project.ButtonMappings;
+
+//change the value of the args you want to change if applicable
+project.ButtonMappings.getAvailableButtonMappings.${argName}.value=1;
 
 //build a message requesting all settings
 const getAvailableButtonMappingsMessage=drone.message.build(
@@ -1400,6 +1454,9 @@ Example sending the ` setButtonMapping ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.ButtonMappings;
 
+//change the value of the args you want to change if applicable
+project.ButtonMappings.setButtonMapping.${argName}.value=1;
+
 //build a message requesting all settings
 const setButtonMappingMessage=drone.message.build(
   project.id,
@@ -1430,6 +1487,9 @@ Example sending the ` defaultButtonMapping ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.ButtonMappings;
+
+//change the value of the args you want to change if applicable
+project.ButtonMappings.defaultButtonMapping.${argName}.value=1;
 
 //build a message requesting all settings
 const defaultButtonMappingMessage=drone.message.build(
@@ -1600,6 +1660,9 @@ Example sending the ` getCurrentAxisMappings ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.AxisMappings;
 
+//change the value of the args you want to change if applicable
+project.AxisMappings.getCurrentAxisMappings.${argName}.value=1;
+
 //build a message requesting all settings
 const getCurrentAxisMappingsMessage=drone.message.build(
   project.id,
@@ -1630,6 +1693,9 @@ Example sending the ` getAvailableAxisMappings ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.AxisMappings;
+
+//change the value of the args you want to change if applicable
+project.AxisMappings.getAvailableAxisMappings.${argName}.value=1;
 
 //build a message requesting all settings
 const getAvailableAxisMappingsMessage=drone.message.build(
@@ -1665,6 +1731,9 @@ Example sending the ` setAxisMapping ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.AxisMappings;
 
+//change the value of the args you want to change if applicable
+project.AxisMappings.setAxisMapping.${argName}.value=1;
+
 //build a message requesting all settings
 const setAxisMappingMessage=drone.message.build(
   project.id,
@@ -1694,6 +1763,9 @@ Example sending the ` defaultAxisMapping ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.AxisMappings;
+
+//change the value of the args you want to change if applicable
+project.AxisMappings.defaultAxisMapping.${argName}.value=1;
 
 //build a message requesting all settings
 const defaultAxisMappingMessage=drone.message.build(
@@ -1864,6 +1936,9 @@ Example sending the ` getCurrentAxisFilters ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.AxisFilters;
 
+//change the value of the args you want to change if applicable
+project.AxisFilters.getCurrentAxisFilters.${argName}.value=1;
+
 //build a message requesting all settings
 const getCurrentAxisFiltersMessage=drone.message.build(
   project.id,
@@ -1893,6 +1968,9 @@ Example sending the ` getPresetAxisFilters ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.AxisFilters;
+
+//change the value of the args you want to change if applicable
+project.AxisFilters.getPresetAxisFilters.${argName}.value=1;
 
 //build a message requesting all settings
 const getPresetAxisFiltersMessage=drone.message.build(
@@ -1939,6 +2017,9 @@ Example sending the ` setAxisFilter ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.AxisFilters;
 
+//change the value of the args you want to change if applicable
+project.AxisFilters.setAxisFilter.${argName}.value=1;
+
 //build a message requesting all settings
 const setAxisFilterMessage=drone.message.build(
   project.id,
@@ -1968,6 +2049,9 @@ Example sending the ` defaultAxisFilters ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.AxisFilters;
+
+//change the value of the args you want to change if applicable
+project.AxisFilters.defaultAxisFilters.${argName}.value=1;
 
 //build a message requesting all settings
 const defaultAxisFiltersMessage=drone.message.build(
@@ -2069,6 +2153,9 @@ Example sending the ` presetAxisFilters ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.AxisFiltersState;
 
+//change the value of the args you want to change if applicable
+project.AxisFiltersState.presetAxisFilters.${argName}.value=1;
+
 //build a message requesting all settings
 const presetAxisFiltersMessage=drone.message.build(
   project.id,
@@ -2134,6 +2221,9 @@ Example sending the ` getGamepadControls ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.GamepadInfos;
+
+//change the value of the args you want to change if applicable
+project.GamepadInfos.getGamepadControls.${argName}.value=1;
 
 //build a message requesting all settings
 const getGamepadControlsMessage=drone.message.build(
@@ -2257,6 +2347,9 @@ Example sending the ` setPilotingSource ` command to your parrot drone :
 const project=drone.projects.skyctrl;
 const commandClass=project.CoPiloting;
 
+//change the value of the args you want to change if applicable
+project.CoPiloting.setPilotingSource.${argName}.value=1;
+
 //build a message requesting all settings
 const setPilotingSourceMessage=drone.message.build(
   project.id,
@@ -2342,6 +2435,9 @@ Example sending the ` enableMagnetoCalibrationQualityUpdates ` command to your p
 
 const project=drone.projects.skyctrl;
 const commandClass=project.Calibration;
+
+//change the value of the args you want to change if applicable
+project.Calibration.enableMagnetoCalibrationQualityUpdates.${argName}.value=1;
 
 //build a message requesting all settings
 const enableMagnetoCalibrationQualityUpdatesMessage=drone.message.build(
@@ -2496,6 +2592,9 @@ Example sending the ` Reset ` command to your parrot drone :
 
 const project=drone.projects.skyctrl;
 const commandClass=project.Factory;
+
+//change the value of the args you want to change if applicable
+project.Factory.Reset.${argName}.value=1;
 
 //build a message requesting all settings
 const ResetMessage=drone.message.build(

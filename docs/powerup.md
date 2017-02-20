@@ -57,6 +57,9 @@ Example sending the ` PCMD ` command to your parrot drone :
 const project=drone.projects.powerup;
 const commandClass=project.Piloting;
 
+//change the value of the args you want to change if applicable
+project.Piloting.PCMD.${argName}.value=1;
+
 //build a message requesting all settings
 const PCMDMessage=drone.message.build(
   project.id,
@@ -87,6 +90,9 @@ Example sending the ` UserTakeOff ` command to your parrot drone :
 
 const project=drone.projects.powerup;
 const commandClass=project.Piloting;
+
+//change the value of the args you want to change if applicable
+project.Piloting.UserTakeOff.${argName}.value=1;
 
 //build a message requesting all settings
 const UserTakeOffMessage=drone.message.build(
@@ -124,6 +130,9 @@ Example sending the ` MotorMode ` command to your parrot drone :
 
 const project=drone.projects.powerup;
 const commandClass=project.Piloting;
+
+//change the value of the args you want to change if applicable
+project.Piloting.MotorMode.${argName}.value=1;
 
 //build a message requesting all settings
 const MotorModeMessage=drone.message.build(
@@ -363,6 +372,9 @@ Example sending the ` set ` command to your parrot drone :
 const project=drone.projects.powerup;
 const commandClass=project.PilotingSettings;
 
+//change the value of the args you want to change if applicable
+project.PilotingSettings.set.${argName}.value=1;
+
 //build a message requesting all settings
 const setMessage=drone.message.build(
   project.id,
@@ -466,6 +478,9 @@ Example sending the ` PictureV2 ` command to your parrot drone :
 const project=drone.projects.powerup;
 const commandClass=project.MediaRecord;
 
+//change the value of the args you want to change if applicable
+project.MediaRecord.PictureV2.${argName}.value=1;
+
 //build a message requesting all settings
 const PictureV2Message=drone.message.build(
   project.id,
@@ -502,6 +517,9 @@ Example sending the ` VideoV2 ` command to your parrot drone :
 
 const project=drone.projects.powerup;
 const commandClass=project.MediaRecord;
+
+//change the value of the args you want to change if applicable
+project.MediaRecord.VideoV2.${argName}.value=1;
 
 //build a message requesting all settings
 const VideoV2Message=drone.message.build(
@@ -759,6 +777,9 @@ Example sending the ` WifiSelection ` command to your parrot drone :
 const project=drone.projects.powerup;
 const commandClass=project.NetworkSettings;
 
+//change the value of the args you want to change if applicable
+project.NetworkSettings.WifiSelection.${argName}.value=1;
+
 //build a message requesting all settings
 const WifiSelectionMessage=drone.message.build(
   project.id,
@@ -862,6 +883,9 @@ Example sending the ` WifiScan ` command to your parrot drone :
 const project=drone.projects.powerup;
 const commandClass=project.Network;
 
+//change the value of the args you want to change if applicable
+project.Network.WifiScan.${argName}.value=1;
+
 //build a message requesting all settings
 const WifiScanMessage=drone.message.build(
   project.id,
@@ -891,6 +915,9 @@ Example sending the ` WifiAuthChannel ` command to your parrot drone :
 
 const project=drone.projects.powerup;
 const commandClass=project.Network;
+
+//change the value of the args you want to change if applicable
+project.Network.WifiAuthChannel.${argName}.value=1;
 
 //build a message requesting all settings
 const WifiAuthChannelMessage=drone.message.build(
@@ -1097,6 +1124,9 @@ Example sending the ` VideoEnable ` command to your parrot drone :
 const project=drone.projects.powerup;
 const commandClass=project.MediaStreaming;
 
+//change the value of the args you want to change if applicable
+project.MediaStreaming.VideoEnable.${argName}.value=1;
+
 //build a message requesting all settings
 const VideoEnableMessage=drone.message.build(
   project.id,
@@ -1183,6 +1213,9 @@ Example sending the ` Autorecord ` command to your parrot drone :
 const project=drone.projects.powerup;
 const commandClass=project.VideoSettings;
 
+//change the value of the args you want to change if applicable
+project.VideoSettings.Autorecord.${argName}.value=1;
+
 //build a message requesting all settings
 const AutorecordMessage=drone.message.build(
   project.id,
@@ -1219,6 +1252,9 @@ Example sending the ` VideoMode ` command to your parrot drone :
 
 const project=drone.projects.powerup;
 const commandClass=project.VideoSettings;
+
+//change the value of the args you want to change if applicable
+project.VideoSettings.VideoMode.${argName}.value=1;
 
 //build a message requesting all settings
 const VideoModeMessage=drone.message.build(
@@ -1331,6 +1367,9 @@ Example sending the ` buzz ` command to your parrot drone :
 
 const project=drone.projects.powerup;
 const commandClass=project.Sounds;
+
+//change the value of the args you want to change if applicable
+project.Sounds.buzz.${argName}.value=1;
 
 //build a message requesting all settings
 const buzzMessage=drone.message.build(

@@ -62,6 +62,9 @@ Example sending the ` PCMD ` command to your parrot drone :
 const project=drone.projects.jpsumo;
 const commandClass=project.Piloting;
 
+//change the value of the args you want to change if applicable
+project.Piloting.PCMD.${argName}.value=1;
+
 //build a message requesting all settings
 const PCMDMessage=drone.message.build(
   project.id,
@@ -100,6 +103,9 @@ Example sending the ` Posture ` command to your parrot drone :
 const project=drone.projects.jpsumo;
 const commandClass=project.Piloting;
 
+//change the value of the args you want to change if applicable
+project.Piloting.Posture.${argName}.value=1;
+
 //build a message requesting all settings
 const PostureMessage=drone.message.build(
   project.id,
@@ -130,6 +136,9 @@ Example sending the ` addCapOffset ` command to your parrot drone :
 
 const project=drone.projects.jpsumo;
 const commandClass=project.Piloting;
+
+//change the value of the args you want to change if applicable
+project.Piloting.addCapOffset.${argName}.value=1;
 
 //build a message requesting all settings
 const addCapOffsetMessage=drone.message.build(
@@ -285,6 +294,9 @@ Example sending the ` JumpStop ` command to your parrot drone :
 const project=drone.projects.jpsumo;
 const commandClass=project.Animations;
 
+//change the value of the args you want to change if applicable
+project.Animations.JumpStop.${argName}.value=1;
+
 //build a message requesting all settings
 const JumpStopMessage=drone.message.build(
   project.id,
@@ -315,6 +327,9 @@ Example sending the ` JumpCancel ` command to your parrot drone :
 const project=drone.projects.jpsumo;
 const commandClass=project.Animations;
 
+//change the value of the args you want to change if applicable
+project.Animations.JumpCancel.${argName}.value=1;
+
 //build a message requesting all settings
 const JumpCancelMessage=drone.message.build(
   project.id,
@@ -344,6 +359,9 @@ Example sending the ` JumpLoad ` command to your parrot drone :
 
 const project=drone.projects.jpsumo;
 const commandClass=project.Animations;
+
+//change the value of the args you want to change if applicable
+project.Animations.JumpLoad.${argName}.value=1;
 
 //build a message requesting all settings
 const JumpLoadMessage=drone.message.build(
@@ -381,6 +399,9 @@ Example sending the ` Jump ` command to your parrot drone :
 
 const project=drone.projects.jpsumo;
 const commandClass=project.Animations;
+
+//change the value of the args you want to change if applicable
+project.Animations.Jump.${argName}.value=1;
 
 //build a message requesting all settings
 const JumpMessage=drone.message.build(
@@ -426,6 +447,9 @@ Example sending the ` SimpleAnimation ` command to your parrot drone :
 
 const project=drone.projects.jpsumo;
 const commandClass=project.Animations;
+
+//change the value of the args you want to change if applicable
+project.Animations.SimpleAnimation.${argName}.value=1;
 
 //build a message requesting all settings
 const SimpleAnimationMessage=drone.message.build(
@@ -626,6 +650,9 @@ Example sending the ` Picture ` command to your parrot drone :
 const project=drone.projects.jpsumo;
 const commandClass=project.MediaRecord;
 
+//change the value of the args you want to change if applicable
+project.MediaRecord.Picture.${argName}.value=1;
+
 //build a message requesting all settings
 const PictureMessage=drone.message.build(
   project.id,
@@ -664,6 +691,9 @@ Example sending the ` Video ` command to your parrot drone :
 const project=drone.projects.jpsumo;
 const commandClass=project.MediaRecord;
 
+//change the value of the args you want to change if applicable
+project.MediaRecord.Video.${argName}.value=1;
+
 //build a message requesting all settings
 const VideoMessage=drone.message.build(
   project.id,
@@ -693,6 +723,9 @@ Example sending the ` PictureV2 ` command to your parrot drone :
 
 const project=drone.projects.jpsumo;
 const commandClass=project.MediaRecord;
+
+//change the value of the args you want to change if applicable
+project.MediaRecord.PictureV2.${argName}.value=1;
 
 //build a message requesting all settings
 const PictureV2Message=drone.message.build(
@@ -730,6 +763,9 @@ Example sending the ` VideoV2 ` command to your parrot drone :
 
 const project=drone.projects.jpsumo;
 const commandClass=project.MediaRecord;
+
+//change the value of the args you want to change if applicable
+project.MediaRecord.VideoV2.${argName}.value=1;
 
 //build a message requesting all settings
 const VideoV2Message=drone.message.build(
@@ -951,6 +987,9 @@ Example sending the ` WifiSelection ` command to your parrot drone :
 const project=drone.projects.jpsumo;
 const commandClass=project.NetworkSettings;
 
+//change the value of the args you want to change if applicable
+project.NetworkSettings.WifiSelection.${argName}.value=1;
+
 //build a message requesting all settings
 const WifiSelectionMessage=drone.message.build(
   project.id,
@@ -1054,6 +1093,9 @@ Example sending the ` WifiScan ` command to your parrot drone :
 const project=drone.projects.jpsumo;
 const commandClass=project.Network;
 
+//change the value of the args you want to change if applicable
+project.Network.WifiScan.${argName}.value=1;
+
 //build a message requesting all settings
 const WifiScanMessage=drone.message.build(
   project.id,
@@ -1083,6 +1125,9 @@ Example sending the ` WifiAuthChannel ` command to your parrot drone :
 
 const project=drone.projects.jpsumo;
 const commandClass=project.Network;
+
+//change the value of the args you want to change if applicable
+project.Network.WifiAuthChannel.${argName}.value=1;
 
 //build a message requesting all settings
 const WifiAuthChannelMessage=drone.message.build(
@@ -1290,6 +1335,9 @@ Example sending the ` MasterVolume ` command to your parrot drone :
 const project=drone.projects.jpsumo;
 const commandClass=project.AudioSettings;
 
+//change the value of the args you want to change if applicable
+project.AudioSettings.MasterVolume.${argName}.value=1;
+
 //build a message requesting all settings
 const MasterVolumeMessage=drone.message.build(
   project.id,
@@ -1328,6 +1376,9 @@ Example sending the ` Theme ` command to your parrot drone :
 
 const project=drone.projects.jpsumo;
 const commandClass=project.AudioSettings;
+
+//change the value of the args you want to change if applicable
+project.AudioSettings.Theme.${argName}.value=1;
 
 //build a message requesting all settings
 const ThemeMessage=drone.message.build(
@@ -1445,6 +1496,9 @@ Example sending the ` AllScriptsMetadata ` command to your parrot drone :
 const project=drone.projects.jpsumo;
 const commandClass=project.RoadPlan;
 
+//change the value of the args you want to change if applicable
+project.RoadPlan.AllScriptsMetadata.${argName}.value=1;
+
 //build a message requesting all settings
 const AllScriptsMetadataMessage=drone.message.build(
   project.id,
@@ -1477,6 +1531,9 @@ Example sending the ` ScriptUploaded ` command to your parrot drone :
 const project=drone.projects.jpsumo;
 const commandClass=project.RoadPlan;
 
+//change the value of the args you want to change if applicable
+project.RoadPlan.ScriptUploaded.${argName}.value=1;
+
 //build a message requesting all settings
 const ScriptUploadedMessage=drone.message.build(
   project.id,
@@ -1508,6 +1565,9 @@ Example sending the ` ScriptDelete ` command to your parrot drone :
 const project=drone.projects.jpsumo;
 const commandClass=project.RoadPlan;
 
+//change the value of the args you want to change if applicable
+project.RoadPlan.ScriptDelete.${argName}.value=1;
+
 //build a message requesting all settings
 const ScriptDeleteMessage=drone.message.build(
   project.id,
@@ -1538,6 +1598,9 @@ Example sending the ` PlayScript ` command to your parrot drone :
 
 const project=drone.projects.jpsumo;
 const commandClass=project.RoadPlan;
+
+//change the value of the args you want to change if applicable
+project.RoadPlan.PlayScript.${argName}.value=1;
 
 //build a message requesting all settings
 const PlayScriptMessage=drone.message.build(
@@ -1756,6 +1819,9 @@ Example sending the ` Outdoor ` command to your parrot drone :
 const project=drone.projects.jpsumo;
 const commandClass=project.SpeedSettings;
 
+//change the value of the args you want to change if applicable
+project.SpeedSettings.Outdoor.${argName}.value=1;
+
 //build a message requesting all settings
 const OutdoorMessage=drone.message.build(
   project.id,
@@ -1833,6 +1899,9 @@ Example sending the ` VideoEnable ` command to your parrot drone :
 
 const project=drone.projects.jpsumo;
 const commandClass=project.MediaStreaming;
+
+//change the value of the args you want to change if applicable
+project.MediaStreaming.VideoEnable.${argName}.value=1;
 
 //build a message requesting all settings
 const VideoEnableMessage=drone.message.build(
@@ -2019,6 +2088,9 @@ Example sending the ` Autorecord ` command to your parrot drone :
 
 const project=drone.projects.jpsumo;
 const commandClass=project.VideoSettings;
+
+//change the value of the args you want to change if applicable
+project.VideoSettings.Autorecord.${argName}.value=1;
 
 //build a message requesting all settings
 const AutorecordMessage=drone.message.build(
