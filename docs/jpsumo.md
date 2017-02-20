@@ -50,9 +50,10 @@ Ask the JS speed and turn ratio.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||flag|false|u8|Boolean for "touch screen".|
-|speed|false|i8|Speed value [_100_100].|
-|turn|false|i8|Turn value. [_100_100]|
+|--------|----|------------|-----------|
+|flag|u8|false|Boolean for "touch screen".|
+|speed|i8|false|Speed value [_100_100].|
+|turn|i8|false|Turn value. [_100_100]|
 
 Example sending the ` PCMD ` command to your parrot drone :
 
@@ -82,7 +83,8 @@ Request a posture
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||type|true|enum|Type of Posture|
+|--------|----|------------|-----------|
+|type|enum|true|Type of Posture|
 Enums/Symbols (fancy way of saying possible values) for type :
 
 |value|name|description|
@@ -119,7 +121,8 @@ Add the specified offset to the current cap.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||offset|false|float|Offset value in radians.|
+|--------|----|------------|-----------|
+|offset|float|false|Offset value in radians.|
 
 Example sending the ` addCapOffset ` command to your parrot drone :
 
@@ -161,7 +164,8 @@ State of posture changed.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||state|true|enum|State of posture|
+|--------|----|------------|-----------|
+|state|enum|true|State of posture|
 Enums/Symbols (fancy way of saying possible values) for state :
 
 |value|name|description|
@@ -196,7 +200,8 @@ JS alert state changed
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||state|true|enum|JS alert state|
+|--------|----|------------|-----------|
+|state|enum|true|JS alert state|
 Enums/Symbols (fancy way of saying possible values) for state :
 
 |value|name|description|
@@ -229,8 +234,9 @@ Notification sent when JS speed changes.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||speed|false|i8|Speed command applied to motors in range [_100;100].|
-|realSpeed|false|i16|Actual real_world speed in cm/s. Value _32768 returned if not available.|
+|--------|----|------------|-----------|
+|speed|i8|false|Speed command applied to motors in range [_100;100].|
+|realSpeed|i16|false|Actual real_world speed in cm/s. Value _32768 returned if not available.|
 
 
 Example binding to listen for the ` SpeedChanged ` event from the drone :
@@ -271,6 +277,7 @@ Stop jump, emergency jump stop, stop jump motor and stay there.
 
 |argument|type|enum/Symbol|description|
 |--------|----|------------|-----------|
+
 Example sending the ` JumpStop ` command to your parrot drone :
 
 ```javascript
@@ -300,6 +307,7 @@ Cancel jump and come back to previous state (if possible).
 
 |argument|type|enum/Symbol|description|
 |--------|----|------------|-----------|
+
 Example sending the ` JumpCancel ` command to your parrot drone :
 
 ```javascript
@@ -329,6 +337,7 @@ Request jump loading
 
 |argument|type|enum/Symbol|description|
 |--------|----|------------|-----------|
+
 Example sending the ` JumpLoad ` command to your parrot drone :
 
 ```javascript
@@ -357,7 +366,8 @@ Request a jump
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||type|true|enum|Type of jump|
+|--------|----|------------|-----------|
+|type|enum|true|Type of jump|
 Enums/Symbols (fancy way of saying possible values) for type :
 
 |value|name|description|
@@ -393,7 +403,8 @@ Play a parameterless animation.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||id|true|enum|Animation ID.|
+|--------|----|------------|-----------|
+|id|enum|true|Animation ID.|
 Enums/Symbols (fancy way of saying possible values) for id :
 
 |value|name|description|
@@ -449,7 +460,8 @@ State of jump load changed
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||state|true|enum|State of jump load|
+|--------|----|------------|-----------|
+|state|enum|true|State of jump load|
 Enums/Symbols (fancy way of saying possible values) for state :
 
 |value|name|description|
@@ -485,7 +497,8 @@ State of jump type changed.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||state|true|enum|State of jump type.|
+|--------|----|------------|-----------|
+|state|enum|true|State of jump type.|
 Enums/Symbols (fancy way of saying possible values) for state :
 
 |value|name|description|
@@ -518,7 +531,8 @@ State about the jump motor problem
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||error|true|enum|Enum describing the problem of the motor|
+|--------|----|------------|-----------|
+|error|enum|true|Enum describing the problem of the motor|
 Enums/Symbols (fancy way of saying possible values) for error :
 
 |value|name|description|
@@ -561,8 +575,9 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||software|false|string|Product GPS software version|
-|hardware|false|string|Product GPS hardware version|
+|--------|----|------------|-----------|
+|software|string|false|Product GPS software version|
+|hardware|string|false|Product GPS hardware version|
 
 
 Example binding to listen for the ` ProductGPSVersionChanged ` event from the drone :
@@ -601,7 +616,8 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||mass_storage_id|false|u8|Mass storage id to take picture|
+|--------|----|------------|-----------|
+|mass_storage_id|u8|false|Mass storage id to take picture|
 
 Example sending the ` Picture ` command to your parrot drone :
 
@@ -631,8 +647,9 @@ drone.message.send(PictureMessage);
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||record|true|enum|Command to record video|
-|mass_storage_id|false|u8|Mass storage id to record|
+|--------|----|------------|-----------|
+|record|enum|true|Command to record video|
+|mass_storage_id|u8|false|Mass storage id to record|
 Enums/Symbols (fancy way of saying possible values) for record :
 
 |value|name|description|
@@ -669,6 +686,7 @@ Take picture
 
 |argument|type|enum/Symbol|description|
 |--------|----|------------|-----------|
+
 Example sending the ` PictureV2 ` command to your parrot drone :
 
 ```javascript
@@ -697,7 +715,8 @@ Video record
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||record|true|enum|Command to record video|
+|--------|----|------------|-----------|
+|record|enum|true|Command to record video|
 Enums/Symbols (fancy way of saying possible values) for record :
 
 |value|name|description|
@@ -746,8 +765,9 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||state|false|u8|1 if picture has been taken, 0 otherwise|
-|mass_storage_id|false|u8|Mass storage id where the picture was recorded|
+|--------|----|------------|-----------|
+|state|u8|false|1 if picture has been taken, 0 otherwise|
+|mass_storage_id|u8|false|Mass storage id where the picture was recorded|
 
 
 Example binding to listen for the ` PictureStateChanged ` event from the drone :
@@ -773,8 +793,9 @@ drone.on(
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||state|true|enum|State of video|
-|mass_storage_id|false|u8|Mass storage id where the video was recorded|
+|--------|----|------------|-----------|
+|state|enum|true|State of video|
+|mass_storage_id|u8|false|Mass storage id where the video was recorded|
 Enums/Symbols (fancy way of saying possible values) for state :
 
 |value|name|description|
@@ -807,8 +828,9 @@ State of device picture recording changed
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||state|true|enum|State of device picture recording|
-|error|true|enum|Error to explain the state|
+|--------|----|------------|-----------|
+|state|enum|true|State of device picture recording|
+|error|enum|true|Error to explain the state|
 Enums/Symbols (fancy way of saying possible values) for state :
 
 |value|name|description|
@@ -850,8 +872,9 @@ State of device video recording changed
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||state|true|enum|State of device video recording|
-|error|true|enum|Error to explain the state|
+|--------|----|------------|-----------|
+|state|enum|true|State of device video recording|
+|error|enum|true|Error to explain the state|
 Enums/Symbols (fancy way of saying possible values) for state :
 
 |value|name|description|
@@ -903,9 +926,10 @@ Auto_select channel of choosen band
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||type|true|enum|The type of wifi selection (auto, manual)|
-|band|true|enum|The allowed band(s) : 2.4 Ghz, 5 Ghz, or all|
-|channel|false|u8|The channel (not used in auto mode)|
+|--------|----|------------|-----------|
+|type|enum|true|The type of wifi selection (auto, manual)|
+|band|enum|true|The allowed band(s) : 2.4 Ghz, 5 Ghz, or all|
+|channel|u8|false|The channel (not used in auto mode)|
 Enums/Symbols (fancy way of saying possible values) for type :
 
 |value|name|description|
@@ -958,9 +982,10 @@ Wifi selection from product
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||type|true|enum|The type of wifi selection settings|
-|band|true|enum|The actual wifi band state|
-|channel|false|u8|The channel (depends of the band)|
+|--------|----|------------|-----------|
+|type|enum|true|The type of wifi selection settings|
+|band|enum|true|The actual wifi band state|
+|channel|u8|false|The channel (depends of the band)|
 Enums/Symbols (fancy way of saying possible values) for type :
 
 |value|name|description|
@@ -1012,7 +1037,8 @@ Launches wifi network scan
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||band|true|enum|The band(s) : 2.4 Ghz, 5 Ghz, or both|
+|--------|----|------------|-----------|
+|band|enum|true|The band(s) : 2.4 Ghz, 5 Ghz, or both|
 Enums/Symbols (fancy way of saying possible values) for band :
 
 |value|name|description|
@@ -1050,6 +1076,7 @@ Controller inquire the list of authorized wifi channels.
 
 |argument|type|enum/Symbol|description|
 |--------|----|------------|-----------|
+
 Example sending the ` WifiAuthChannel ` command to your parrot drone :
 
 ```javascript
@@ -1092,10 +1119,11 @@ One scanning result found
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||ssid|false|string|SSID of the AP|
-|rssi|false|i16|RSSI of the AP in dbm (negative value)|
-|band|true|enum|The band : 2.4 GHz or 5 GHz|
-|channel|false|u8|Channel of the AP|
+|--------|----|------------|-----------|
+|ssid|string|false|SSID of the AP|
+|rssi|i16|false|RSSI of the AP in dbm (negative value)|
+|band|enum|true|The band : 2.4 GHz or 5 GHz|
+|channel|u8|false|Channel of the AP|
 Enums/Symbols (fancy way of saying possible values) for band :
 
 |value|name|description|
@@ -1129,6 +1157,7 @@ State sent when all scanning result sent
 |argument|type|enum/Symbol|description|
 |--------|----|------------|-----------|
 
+
 Example binding to listen for the ` AllWifiScanChanged ` event from the drone :
 
 ```javascript
@@ -1152,9 +1181,10 @@ Notify of an Authorized Channel.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||band|true|enum|The band of this channel : 2.4 GHz or 5 GHz|
-|channel|false|u8|The authorized channel.|
-|in_or_out|false|u8|Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)|
+|--------|----|------------|-----------|
+|band|enum|true|The band of this channel : 2.4 GHz or 5 GHz|
+|channel|u8|false|The authorized channel.|
+|in_or_out|u8|false|Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)|
 Enums/Symbols (fancy way of saying possible values) for band :
 
 |value|name|description|
@@ -1188,6 +1218,7 @@ Notify the end of the list of Authorized wifi Channel.
 |argument|type|enum/Symbol|description|
 |--------|----|------------|-----------|
 
+
 Example binding to listen for the ` AllWifiAuthChannelChanged ` event from the drone :
 
 ```javascript
@@ -1211,7 +1242,8 @@ Notification sent by the firmware to give an indication of the WiFi link quality
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||quality|false|u8|The WiFi link quality in range 0_6, the higher the value, the higher the link quality.|
+|--------|----|------------|-----------|
+|quality|u8|false|The WiFi link quality in range 0_6, the higher the value, the higher the link quality.|
 
 
 Example binding to listen for the ` LinkQualityChanged ` event from the drone :
@@ -1248,7 +1280,8 @@ Master volume control.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||volume|false|u8|Master audio volume [0_100].|
+|--------|----|------------|-----------|
+|volume|u8|false|Master audio volume [0_100].|
 
 Example sending the ` MasterVolume ` command to your parrot drone :
 
@@ -1278,7 +1311,8 @@ Audio Theme.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||theme|true|enum|The audio theme to set.|
+|--------|----|------------|-----------|
+|theme|enum|true|The audio theme to set.|
 Enums/Symbols (fancy way of saying possible values) for theme :
 
 |value|name|description|
@@ -1327,7 +1361,8 @@ Master volume control.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||volume|false|u8|Master audio volume [0_100].|
+|--------|----|------------|-----------|
+|volume|u8|false|Master audio volume [0_100].|
 
 
 Example binding to listen for the ` MasterVolumeChanged ` event from the drone :
@@ -1353,7 +1388,8 @@ Command to notify controller of new Audio Theme.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||theme|true|enum|The audio theme to set.|
+|--------|----|------------|-----------|
+|theme|enum|true|The audio theme to set.|
 Enums/Symbols (fancy way of saying possible values) for theme :
 
 |value|name|description|
@@ -1401,6 +1437,7 @@ Command to ask device all metadata scripts.
 
 |argument|type|enum/Symbol|description|
 |--------|----|------------|-----------|
+
 Example sending the ` AllScriptsMetadata ` command to your parrot drone :
 
 ```javascript
@@ -1429,8 +1466,9 @@ Notify device that a new file has been uploaded.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||uuid|false|string|UUID of uploaded file.|
-|md5Hash|false|string|MD5 hash code computed over file.|
+|--------|----|------------|-----------|
+|uuid|string|false|UUID of uploaded file.|
+|md5Hash|string|false|MD5 hash code computed over file.|
 
 Example sending the ` ScriptUploaded ` command to your parrot drone :
 
@@ -1460,7 +1498,8 @@ Ask the device to delete a script.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||uuid|false|string|UUID of the file to delete.|
+|--------|----|------------|-----------|
+|uuid|string|false|UUID of the file to delete.|
 
 Example sending the ` ScriptDelete ` command to your parrot drone :
 
@@ -1490,7 +1529,8 @@ Ask the device to play a script.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||uuid|false|string|UUID of the file to play.|
+|--------|----|------------|-----------|
+|uuid|string|false|UUID of the file to play.|
 
 Example sending the ` PlayScript ` command to your parrot drone :
 
@@ -1534,11 +1574,12 @@ Update the controller with metadata.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||uuid|false|string|Script uuid for which metadata changed.|
-|version|false|u8|Version number for this script.|
-|product|false|string|Product targeted by script.|
-|name|false|string|Display name of the script.|
-|lastModified|false|u64|Timestamp relative to the UNIX epoch of the last time the file was modified.|
+|--------|----|------------|-----------|
+|uuid|string|false|Script uuid for which metadata changed.|
+|version|u8|false|Version number for this script.|
+|product|string|false|Product targeted by script.|
+|name|string|false|Display name of the script.|
+|lastModified|u64|false|Timestamp relative to the UNIX epoch of the last time the file was modified.|
 
 
 Example binding to listen for the ` ScriptMetadataListChanged ` event from the drone :
@@ -1566,6 +1607,7 @@ Notify controller that all script metadatas are updated.
 |argument|type|enum/Symbol|description|
 |--------|----|------------|-----------|
 
+
 Example binding to listen for the ` AllScriptsMetadataChanged ` event from the drone :
 
 ```javascript
@@ -1589,7 +1631,8 @@ Device response to ScriptUploaded command.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||resultCode|true|enum|Error code.|
+|--------|----|------------|-----------|
+|resultCode|enum|true|Error code.|
 Enums/Symbols (fancy way of saying possible values) for resultCode :
 
 |value|name|description|
@@ -1624,7 +1667,8 @@ Device response to ScriptDelete command.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||resultCode|true|enum|Error code.|
+|--------|----|------------|-----------|
+|resultCode|enum|true|Error code.|
 Enums/Symbols (fancy way of saying possible values) for resultCode :
 
 |value|name|description|
@@ -1657,7 +1701,8 @@ Device response to PlayScript command.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||resultCode|true|enum|Error code.|
+|--------|----|------------|-----------|
+|resultCode|enum|true|Error code.|
 Enums/Symbols (fancy way of saying possible values) for resultCode :
 
 |value|name|description|
@@ -1701,7 +1746,8 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||outdoor|false|u8|1 if outdoor, 0 if indoor|
+|--------|----|------------|-----------|
+|outdoor|u8|false|1 if outdoor, 0 if indoor|
 
 Example sending the ` Outdoor ` command to your parrot drone :
 
@@ -1741,7 +1787,8 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||outdoor|false|u8|1 if outdoor, 0 if indoor|
+|--------|----|------------|-----------|
+|outdoor|u8|false|1 if outdoor, 0 if indoor|
 
 
 Example binding to listen for the ` OutdoorChanged ` event from the drone :
@@ -1777,7 +1824,8 @@ Enable/disable video streaming.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||enable|false|u8|1 to enable, 0 to disable.|
+|--------|----|------------|-----------|
+|enable|u8|false|1 to enable, 0 to disable.|
 
 Example sending the ` VideoEnable ` command to your parrot drone :
 
@@ -1817,7 +1865,8 @@ Return video streaming status.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||enabled|true|enum|Current video streaming status.|
+|--------|----|------------|-----------|
+|enabled|enum|true|Current video streaming status.|
 Enums/Symbols (fancy way of saying possible values) for enabled :
 
 |value|name|description|
@@ -1861,8 +1910,9 @@ Event of picture recording
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||event|true|enum|Last event of picture recording|
-|error|true|enum|Error to explain the event|
+|--------|----|------------|-----------|
+|event|enum|true|Last event of picture recording|
+|error|enum|true|Error to explain the event|
 Enums/Symbols (fancy way of saying possible values) for event :
 
 |value|name|description|
@@ -1904,8 +1954,9 @@ Event of video recording
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||event|true|enum|Event of video recording|
-|error|true|enum|Error to explain the event|
+|--------|----|------------|-----------|
+|event|enum|true|Event of video recording|
+|error|enum|true|Error to explain the event|
 Enums/Symbols (fancy way of saying possible values) for event :
 
 |value|name|description|
@@ -1959,7 +2010,8 @@ Set video automatic recording state.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||enabled|false|u8|0: Disabled 1: Enabled.|
+|--------|----|------------|-----------|
+|enabled|u8|false|0: Disabled 1: Enabled.|
 
 Example sending the ` Autorecord ` command to your parrot drone :
 
@@ -1999,7 +2051,8 @@ Get video automatic recording status.
 
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------||enabled|false|u8|0: Disabled 1: Enabled.|
+|--------|----|------------|-----------|
+|enabled|u8|false|0: Disabled 1: Enabled.|
 
 
 Example binding to listen for the ` AutorecordChanged ` event from the drone :

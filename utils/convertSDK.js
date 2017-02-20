@@ -348,14 +348,15 @@ ${
 }
 
 |argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|`;
+|--------|----|------------|-----------|
+`;
 
                   const enums=[];
 
                   for(const key in command.lookup){
                       const argName=command.lookup[key];
                       const arg=command[argName];
-                      markdown+=`|${arg.info.name}|${Object.keys(arg.lookup).length>0}|${arg.info.type}|${arg.details}|
+                      markdown+=`|${arg.info.name}|${arg.info.type}|${Object.keys(arg.lookup).length>0}|${arg.details}|
 `;
                       if(Object.keys(arg.lookup).length>0){
                         enums.push(arg);
