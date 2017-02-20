@@ -1,6 +1,6 @@
 {
   "name": "node-parrot-drone",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "extendable node module to allow control of any Parrot Mini Drone",
   "main": "node-parrot-drone.js",
   "repository": {
