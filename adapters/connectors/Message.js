@@ -68,7 +68,7 @@ class Message{
 
       commandArgs.writeUInt8(projectID,0);
       commandArgs.writeUInt8(classID,1);
-      commandArgs.writeUInt16LE(commandRef.id,2);
+      commandArgs.writeUInt16LE(commandRef.info.id,2);
 
       let currentArgByte=4;
       for(const arg of args){

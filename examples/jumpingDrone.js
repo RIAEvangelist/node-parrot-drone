@@ -15,6 +15,22 @@ drone.on(
     //   1000
     // );
 
+    const project=drone.projects.jpsumo;
+    const commandClass=project.Piloting;
+
+    //change the value of the args you want to change if applicable
+    commandClass.Posture.type.value=0;
+
+    console.log(commandClass.info);
+
+    //build a message requesting all settings
+    const MoveMessage=drone.message.build(
+      project.info.id,
+      commandClass.info.id,
+      commandClass.Posture
+    );
+    drone.message.send(MoveMessage);
+
     setInterval(
       flip,
       1000
