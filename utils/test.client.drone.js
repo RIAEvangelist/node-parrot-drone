@@ -5,5 +5,23 @@ const drone=new parrot.Wifi;
 drone.discovery.config.networkHost='localhost';
 drone.d2c.config.networkHost='localhost';
 
+drone.on(
+  '*',
+  function(type,data){
+    console.log(` Detected ${type} event on drone with data of : `);
+    console.log(data);
+    console.log(
+      `
+        You can also listen for '${type}' events on the drone.
+
+        drone.on(
+          '${type}',
+          (commandRef) => console.log(commandRef)
+        );
+      `
+    );
+  }
+);
+
 
 drone.connect();

@@ -4,7 +4,7 @@ const UDP=new ipc.IPC;
 ipc.config.id = 'test.drone';
 ipc.config.retry= 1500;
 ipc.config.rawBuffer=true;
-ipc.config.encoding='binary';
+ipc.config.encoding='ascii';
 ipc.config.networkPort=44444;
 
 UDP.config.id='c2d';
@@ -17,10 +17,7 @@ ipc.serveNet(
         ipc.server.on(
             'connect',
             function(socket){
-                ipc.server.emit(
-                    socket,
-                    [0xaa]
-                );
+
             }
         );
 
@@ -48,19 +45,19 @@ ipc.serveNet(
 UDP.serveNet(
     'udp4',
     function(){
-        ipc.server.on(
+        UDP.server.on(
             'data',
             function(data){
-                ipc.log('got a message from node app ', data, data.toString());
+                UDP.log('got a message from node app ', data, data.toString());
+                UDP.server.emit(
+                    {
+                        address : 'localhost',
+                        port    : 7778
+                    },
+                    data
+                );
             }
         );
-        // ipc.server.emit(
-        //     {
-        //         address : 'localhost',
-        //         port    : ipc.config.networkPort
-        //     },
-        //     'hello'
-        // );
     }
 );
 

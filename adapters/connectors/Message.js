@@ -43,17 +43,26 @@ class Message{
       const args=[];
       let argSize=0;
 
-      for(const argName of commandRef.lookup){
+      for(const argName in commandRef){
         const arg=commandRef[argName];
-        let size=arg.bytes;
-        if(arg.type=='string'){
+        if(!arg.info){
+          continue;
+        }
+        if(!arg.info.tagType){
+          continue;
+        }
+        let size=arg.info.bytes;
+        console.log(arg);
+        if(arg.info.type=='string'){
           arg.value+='\0';
           size=arg.value.length;
-          arg.bytes=size;
+          arg.info.bytes=size;
         }
         args.push(arg);
         argSize+=size;
       }
+
+      console.log(argSize+4);
 
       const commandArgs = new Buffer.allocUnsafe(argSize+4);
       commandArgs.fill(0);
@@ -64,53 +73,49 @@ class Message{
 
       let currentArgByte=0;
       for(const arg of args){
-        switch(arg.bytes){
-          case 1 :
-            if(arg.type=='unsigned'){
-              commandArgs.writeUInt8(
-                Number(arg.value),
-                currentArgByte
-              );
-              break;
-            }
+        switch(arg.info.type){
+          case 'u8' :
+            commandArgs.writeUInt8(
+              Number(arg.value),
+              currentArgByte
+            );
+            break;
+          case 'i8' :
             commandArgs.writeInt8(
               Number(arg.value),
               currentArgByte
             );
-          break;
-          case 2 :
-            if(arg.type=='unsigned'){
-              commandArgs.writeUInt16LE(
-                Number(arg.value),
-                currentArgByte
-              );
-              break;
-            }
+            break;
+          case 'u16' :
+            commandArgs.writeUInt16LE(
+              Number(arg.value),
+              currentArgByte
+            );
+            break;
+          case 'i16' :
             commandArgs.writeInt16LE(
               Number(arg.value),
               currentArgByte
             );
           break;
-          case 4 :
-            if(arg.type=='unsigned'){
-              commandArgs.writeUInt32LE(
-                Number(arg.value),
-                currentArgByte
-              );
-              break;
-            }
-            if(arg.type=='float'){
-              commandArgs.writeFloatLE(
-                Number(arg.value),
-                currentArgByte
-              );
-              break;
-            }
+          case 'u32' :
+            commandArgs.writeUInt32LE(
+              Number(arg.value),
+              currentArgByte
+            );
+            break;
+          case 'i32' :
             commandArgs.writeInt32LE(
               Number(arg.value),
               currentArgByte
             );
-          break;
+            break;
+          case 'float' :
+            commandArgs.writeFloatLE(
+              Number(arg.value),
+              currentArgByte
+            );
+            break;
           default :
             commandArgs.write(arg.value,currentArgByte);
         }

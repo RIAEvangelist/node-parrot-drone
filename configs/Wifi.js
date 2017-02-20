@@ -1,7 +1,7 @@
 'use strict';
 const IPCConfig=require('./IPC.js');
 
-class MiniDroneConfig{
+class DroneConfig{
   constructor(){
     this.ipc=new IPCConfig;
     this.droneName=null;
@@ -19,7 +19,7 @@ class MiniDroneConfig{
     this.arstream_max_ack_interval=null;
 
     this.controller_type='tablet';
-    this.controller_name='node-mini-drone';
+    this.controller_name='node-parrot-drone';
     this.device_id=null;
 
     this.skycontroller_version=null;
@@ -43,4 +43,4 @@ class MiniDroneConfig{
   }
 };
 
-module.exports=MiniDroneConfig;
+module.exports=DroneConfig;

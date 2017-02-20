@@ -85,7 +85,7 @@ class DroneWifi extends Events{
         this.discovery.config.stopRetrying=true;
         this.discovery.disconnect('discovery');
         data=data.toString().replace(/\0/g,'');
-
+        console.log(data)
         this.config.assign(
           data
         );
@@ -97,7 +97,7 @@ class DroneWifi extends Events{
 
         const project=this.projects.common;
 
-        console.log(project)
+        //console.log(project)
 
         const getSettingsState=this.message.build(
           project.id,
