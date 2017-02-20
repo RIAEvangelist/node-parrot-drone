@@ -4,21 +4,36 @@ const drone=new parrot.Wifi;
 drone.connect();
 
 drone.on(
-  'connect',
+  'connected',
   function(){
+    console.log('CONNECTED\n\n')
     const project=drone.projects.jpsumo;
     const commandClass=project.Piloting;
 
     //change the value of the args you want to change if applicable
-    project.Piloting.Posture.type.value=1;
+    commandClass.PCMD.flag.value=0;
+    commandClass.PCMD.speed.value=100;
+    commandClass.PCMD.turn.value=100;
 
     //build a message requesting all settings
     const PostureMessage=drone.message.build(
-      project.id,
-      commandClass.id,
-      commandClass.Posture
+      project.info.id,
+      commandClass.info.id,
+      commandClass.PCMD
     );
 
-    drone.message.send(PostureMessage);
+    setInterval(
+      function(){
+        drone.message.send(PostureMessage);
+      },
+      10
+    );
+  }
+);
+
+drone.on(
+  'messageSent',
+  function(data){
+    console.log(data)
   }
 );

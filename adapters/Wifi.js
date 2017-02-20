@@ -95,36 +95,36 @@ class DroneWifi extends Events{
           port    : this.config.c2d_port
         };
 
-        const project=this.projects.common;
-        let commandClass=project.Settings;
-        //console.log(project)
-
-        const getSettingsState=this.message.build(
-          project.info.id,
-          commandClass.info.id,
-          commandClass.AllSettings
-        );
-
-        commandClass=project.Common;
-
-        const getCommonState=this.message.build(
-          project.info.id,
-          commandClass.info.id,
-          commandClass.AllStates
-        );
-
-        commandClass=project.Controller;
-
-        commandClass.isPiloting.piloting.value=1;
-
-        const setPiloting=this.message.build(
-          project.info.id,
-          commandClass.info.id,
-          commandClass.isPiloting
-        );
-
-        this.message.send(getSettingsState);
-        this.message.send(getCommonState);
+        // const project=this.projects.common;
+        // let commandClass=project.Settings;
+        // //console.log(project)
+        //
+        // const getSettingsState=this.message.build(
+        //   project.info.id,
+        //   commandClass.info.id,
+        //   commandClass.AllSettings
+        // );
+        //
+        // commandClass=project.Common;
+        //
+        // const getCommonState=this.message.build(
+        //   project.info.id,
+        //   commandClass.info.id,
+        //   commandClass.AllStates
+        // );
+        //
+        // commandClass=project.Controller;
+        //
+        // commandClass.isPiloting.piloting.value=1;
+        //
+        // const setPiloting=this.message.build(
+        //   project.info.id,
+        //   commandClass.info.id,
+        //   commandClass.isPiloting
+        // );
+        //
+        // this.message.send(getSettingsState);
+        // this.message.send(getCommonState);
 
         this.emit(
           'connected',

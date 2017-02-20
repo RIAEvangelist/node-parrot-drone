@@ -62,7 +62,9 @@ class Message{
         argSize+=size;
       }
 
-      console.log(argSize+4);
+      console.log(`
+        ${argSize+4}
+      `);
 
       const commandArgs = new Buffer.allocUnsafe(argSize+4);
       commandArgs.fill(0);

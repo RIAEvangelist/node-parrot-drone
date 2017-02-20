@@ -63,12 +63,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.Piloting;
 
 //change the value of the args you want to change if applicable
-project.Piloting.PCMD.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const PCMDMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.PCMD
 );
 
@@ -104,12 +104,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.Piloting;
 
 //change the value of the args you want to change if applicable
-project.Piloting.Posture.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const PostureMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.Posture
 );
 
@@ -138,12 +138,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.Piloting;
 
 //change the value of the args you want to change if applicable
-project.Piloting.addCapOffset.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const addCapOffsetMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.addCapOffset
 );
 
@@ -295,12 +295,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.Animations;
 
 //change the value of the args you want to change if applicable
-project.Animations.JumpStop.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const JumpStopMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.JumpStop
 );
 
@@ -328,12 +328,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.Animations;
 
 //change the value of the args you want to change if applicable
-project.Animations.JumpCancel.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const JumpCancelMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.JumpCancel
 );
 
@@ -361,12 +361,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.Animations;
 
 //change the value of the args you want to change if applicable
-project.Animations.JumpLoad.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const JumpLoadMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.JumpLoad
 );
 
@@ -401,12 +401,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.Animations;
 
 //change the value of the args you want to change if applicable
-project.Animations.Jump.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const JumpMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.Jump
 );
 
@@ -449,12 +449,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.Animations;
 
 //change the value of the args you want to change if applicable
-project.Animations.SimpleAnimation.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const SimpleAnimationMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.SimpleAnimation
 );
 
@@ -651,12 +651,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.MediaRecord;
 
 //change the value of the args you want to change if applicable
-project.MediaRecord.Picture.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const PictureMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.Picture
 );
 
@@ -692,12 +692,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.MediaRecord;
 
 //change the value of the args you want to change if applicable
-project.MediaRecord.Video.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const VideoMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.Video
 );
 
@@ -725,12 +725,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.MediaRecord;
 
 //change the value of the args you want to change if applicable
-project.MediaRecord.PictureV2.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const PictureV2Message=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.PictureV2
 );
 
@@ -765,12 +765,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.MediaRecord;
 
 //change the value of the args you want to change if applicable
-project.MediaRecord.VideoV2.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const VideoV2Message=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.VideoV2
 );
 
@@ -988,12 +988,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.NetworkSettings;
 
 //change the value of the args you want to change if applicable
-project.NetworkSettings.WifiSelection.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const WifiSelectionMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.WifiSelection
 );
 
@@ -1094,12 +1094,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.Network;
 
 //change the value of the args you want to change if applicable
-project.Network.WifiScan.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const WifiScanMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.WifiScan
 );
 
@@ -1127,12 +1127,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.Network;
 
 //change the value of the args you want to change if applicable
-project.Network.WifiAuthChannel.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const WifiAuthChannelMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.WifiAuthChannel
 );
 
@@ -1336,12 +1336,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.AudioSettings;
 
 //change the value of the args you want to change if applicable
-project.AudioSettings.MasterVolume.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const MasterVolumeMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.MasterVolume
 );
 
@@ -1378,12 +1378,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.AudioSettings;
 
 //change the value of the args you want to change if applicable
-project.AudioSettings.Theme.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const ThemeMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.Theme
 );
 
@@ -1497,12 +1497,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.RoadPlan;
 
 //change the value of the args you want to change if applicable
-project.RoadPlan.AllScriptsMetadata.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const AllScriptsMetadataMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.AllScriptsMetadata
 );
 
@@ -1532,12 +1532,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.RoadPlan;
 
 //change the value of the args you want to change if applicable
-project.RoadPlan.ScriptUploaded.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const ScriptUploadedMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.ScriptUploaded
 );
 
@@ -1566,12 +1566,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.RoadPlan;
 
 //change the value of the args you want to change if applicable
-project.RoadPlan.ScriptDelete.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const ScriptDeleteMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.ScriptDelete
 );
 
@@ -1600,12 +1600,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.RoadPlan;
 
 //change the value of the args you want to change if applicable
-project.RoadPlan.PlayScript.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const PlayScriptMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.PlayScript
 );
 
@@ -1820,12 +1820,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.SpeedSettings;
 
 //change the value of the args you want to change if applicable
-project.SpeedSettings.Outdoor.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const OutdoorMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.Outdoor
 );
 
@@ -1901,12 +1901,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.MediaStreaming;
 
 //change the value of the args you want to change if applicable
-project.MediaStreaming.VideoEnable.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const VideoEnableMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.VideoEnable
 );
 
@@ -2090,12 +2090,12 @@ const project=drone.projects.jpsumo;
 const commandClass=project.VideoSettings;
 
 //change the value of the args you want to change if applicable
-project.VideoSettings.Autorecord.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const AutorecordMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.Autorecord
 );
 

@@ -58,12 +58,12 @@ const project=drone.projects.powerup;
 const commandClass=project.Piloting;
 
 //change the value of the args you want to change if applicable
-project.Piloting.PCMD.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const PCMDMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.PCMD
 );
 
@@ -92,12 +92,12 @@ const project=drone.projects.powerup;
 const commandClass=project.Piloting;
 
 //change the value of the args you want to change if applicable
-project.Piloting.UserTakeOff.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const UserTakeOffMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.UserTakeOff
 );
 
@@ -132,12 +132,12 @@ const project=drone.projects.powerup;
 const commandClass=project.Piloting;
 
 //change the value of the args you want to change if applicable
-project.Piloting.MotorMode.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const MotorModeMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.MotorMode
 );
 
@@ -373,12 +373,12 @@ const project=drone.projects.powerup;
 const commandClass=project.PilotingSettings;
 
 //change the value of the args you want to change if applicable
-project.PilotingSettings.set.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const setMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.set
 );
 
@@ -479,12 +479,12 @@ const project=drone.projects.powerup;
 const commandClass=project.MediaRecord;
 
 //change the value of the args you want to change if applicable
-project.MediaRecord.PictureV2.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const PictureV2Message=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.PictureV2
 );
 
@@ -519,12 +519,12 @@ const project=drone.projects.powerup;
 const commandClass=project.MediaRecord;
 
 //change the value of the args you want to change if applicable
-project.MediaRecord.VideoV2.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const VideoV2Message=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.VideoV2
 );
 
@@ -778,12 +778,12 @@ const project=drone.projects.powerup;
 const commandClass=project.NetworkSettings;
 
 //change the value of the args you want to change if applicable
-project.NetworkSettings.WifiSelection.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const WifiSelectionMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.WifiSelection
 );
 
@@ -884,12 +884,12 @@ const project=drone.projects.powerup;
 const commandClass=project.Network;
 
 //change the value of the args you want to change if applicable
-project.Network.WifiScan.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const WifiScanMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.WifiScan
 );
 
@@ -917,12 +917,12 @@ const project=drone.projects.powerup;
 const commandClass=project.Network;
 
 //change the value of the args you want to change if applicable
-project.Network.WifiAuthChannel.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const WifiAuthChannelMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.WifiAuthChannel
 );
 
@@ -1125,12 +1125,12 @@ const project=drone.projects.powerup;
 const commandClass=project.MediaStreaming;
 
 //change the value of the args you want to change if applicable
-project.MediaStreaming.VideoEnable.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const VideoEnableMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.VideoEnable
 );
 
@@ -1214,12 +1214,12 @@ const project=drone.projects.powerup;
 const commandClass=project.VideoSettings;
 
 //change the value of the args you want to change if applicable
-project.VideoSettings.Autorecord.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const AutorecordMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.Autorecord
 );
 
@@ -1254,12 +1254,12 @@ const project=drone.projects.powerup;
 const commandClass=project.VideoSettings;
 
 //change the value of the args you want to change if applicable
-project.VideoSettings.VideoMode.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const VideoModeMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.VideoMode
 );
 
@@ -1369,12 +1369,12 @@ const project=drone.projects.powerup;
 const commandClass=project.Sounds;
 
 //change the value of the args you want to change if applicable
-project.Sounds.buzz.${argName}.value=1;
+commandClass.${argName}.value=1;
 
 //build a message requesting all settings
 const buzzMessage=drone.message.build(
-  project.id,
-  commandClass.id,
+  project.info.id,
+  commandClass.info.id,
   commandClass.buzz
 );
 

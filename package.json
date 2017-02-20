@@ -28,7 +28,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Brandon Nozaki Miller",
+  "author": "brandon@diginow.it",
   "license": "SEE LICENCE IN Licence.md",
   "bugs": {
     "url": "https://github.com/RIAEvangelist/parrot-mini-drone/issues"
