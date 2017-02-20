@@ -1,11 +1,25 @@
-# node-parrot-drone for node
+# node-parrot-drone for node  
+A fully featured implementation of the Parrot SDK for node.js so you can do stuff with drones!
 
 ## Control Any Parrot Drone
-This is the core module for connecting to and controlling ` any ` Parrot drone with JavaScript! It is designed to be extended with new drone projects, classes and commands as they are created by Parrot.
+This is the core module for connecting to and controlling ` any ` Parrot drone with JavaScript via node! It is designed to be extended with new drone projects, classes and commands as they are created by Parrot.
 
-This module contains the core code for such extensions with all shared information and commands. It is responsible for connecting, receiving and sending messages, automated responses, parsing data and populating drone status as well as dispatching drone events, updates and status changes. All drone modules using this as the core will automatically receive this information once they have updated the ` drone.projects ` object. This should be done by creating new classes and commands extending the ` /api/BaseClasses.js ` class.  
+This module contains the core code for such extensions with all shared information and commands. It is responsible for connecting, receiving and sending messages, automated responses, parsing data and populating drone status as well as dispatching drone events, updates and status changes.
+
+# Contributing
+
+* Star
+* Fork
+* Make awesome changes
+* Merge from this repo's Master branch to make sure you don't have conflicts
+* Submit a PR
+* Have a beer, milkshake, raw juice, or just feel good inside knowing you helped move the JS drone community forward!
 
 # This module is Beta as of February 2017
+
+To use the module install it via npm
+
+` npm i node-parrot-drone `
 
 ## Connecting to a drone
 
