@@ -38,6 +38,9 @@ function assignLookup(parent,child){
 
 function isCommandRelated(child){
   //console.trace(child)
+  if(child===null){
+    return false;
+  }
   if(!child.info){
     return false;
   }
@@ -215,7 +218,20 @@ fs.readdir(
 
                     arg.value=null;
 
+                    let enumCount=0;
                     assignLookup(command,arg);
+
+                    for(const key in arg){
+                      const enumEntry=arg[key];
+                      if(!isCommandRelated(enumEntry)){
+                        continue;
+                      }
+
+                      enumEntry.info.id=enumCount;
+                      enumCount++;
+
+                      assignLookup(arg,enumEntry);
+                    }
                   }
                 }
               }
@@ -331,15 +347,35 @@ ${
 `)
 }
 
-argument|type|description|
-|--------|----|-----------|`;
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------|`;
 
+                  const enums=[];
 
                   for(const key in command.lookup){
                       const argName=command.lookup[key];
                       const arg=command[argName];
-                      markdown+=`|${arg.info.name}|${arg.info.type}|${arg.details}|
+                      markdown+=`|${arg.info.name}|${Object.keys(arg.lookup).length>0}|${arg.info.type}|${arg.details}|
 `;
+                      if(Object.keys(arg.lookup).length>0){
+                        enums.push(arg);
+                      }
+                  }
+
+                  for(const arg of enums){
+                    markdown+=`Enums/Symbols (fancy way of saying possible values) for ${arg.info.name} :
+
+|value|name|description|
+|-----|----|-----------|
+`;
+                    for(const enumID in arg.lookup){
+                      const enumEntry=arg[
+                        arg.lookup[enumID]
+                      ];
+
+                      markdown+=`|${enumID}|${enumEntry.info.name}|${enumEntry.details}|
+`;
+                    }
                   }
 
                   if(

@@ -51,8 +51,8 @@ Do a flat trim
 
 
 
-argument|type|description|
-|--------|----|-----------|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------|
 Example sending the ` FlatTrim ` command to your parrot drone :
 
 ```javascript
@@ -80,8 +80,8 @@ Ask the drone to take off
 
 
 
-argument|type|description|
-|--------|----|-----------|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------|
 Example sending the ` TakeOff ` command to your parrot drone :
 
 ```javascript
@@ -109,13 +109,13 @@ Ask the drone to move around.
 
 
 
-argument|type|description|
-|--------|----|-----------||flag|u8|Boolean flag to activate roll/pitch movement|
-|roll|i8|Roll consign for the MiniDrone [_100;100]|
-|pitch|i8|Pitch consign for the MiniDrone [_100;100]|
-|yaw|i8|Yaw consign for the MiniDrone [_100;100]|
-|gaz|i8|Gaz consign for the MiniDrone [_100;100]|
-|timestamp|u32|Timestamp in miliseconds. Not an absolute time. (Typically 0 = time of connexion).|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||flag|false|u8|Boolean flag to activate roll/pitch movement|
+|roll|false|i8|Roll consign for the MiniDrone [_100;100]|
+|pitch|false|i8|Pitch consign for the MiniDrone [_100;100]|
+|yaw|false|i8|Yaw consign for the MiniDrone [_100;100]|
+|gaz|false|i8|Gaz consign for the MiniDrone [_100;100]|
+|timestamp|false|u32|Timestamp in miliseconds. Not an absolute time. (Typically 0 = time of connexion).|
 
 Example sending the ` PCMD ` command to your parrot drone :
 
@@ -144,8 +144,8 @@ Ask the MiniDrone to land
 
 
 
-argument|type|description|
-|--------|----|-----------|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------|
 Example sending the ` Landing ` command to your parrot drone :
 
 ```javascript
@@ -173,8 +173,8 @@ Put drone in emergency state
 
 
 
-argument|type|description|
-|--------|----|-----------|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------|
 Example sending the ` Emergency ` command to your parrot drone :
 
 ```javascript
@@ -202,8 +202,8 @@ Set MiniDrone automatic take off mode
 
 
 
-argument|type|description|
-|--------|----|-----------||state|u8|State of automatic take off mode|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||state|false|u8|State of automatic take off mode|
 
 Example sending the ` AutoTakeOffMode ` command to your parrot drone :
 
@@ -232,8 +232,15 @@ Set drone FlyingMode. Only supported by WingX
 
 
 
-argument|type|description|
-|--------|----|-----------||mode|u8|Drone Flying Mode|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||mode|true|u8|Drone Flying Mode|
+Enums/Symbols (fancy way of saying possible values) for mode :
+
+|value|name|description|
+|-----|----|-----------|
+|0|quadricopter|Fly as a quadrictopter|
+|1|plane_forward|Fly as a plane in forward mode|
+|2|plane_backward|Fly as a plane in backward mode|
 
 Example sending the ` FlyingMode ` command to your parrot drone :
 
@@ -262,8 +269,15 @@ Set Plane Gear Box. Only supported by WingX
 
 
 
-argument|type|description|
-|--------|----|-----------||state|enum|Plane Gear Box|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||state|true|enum|Plane Gear Box|
+Enums/Symbols (fancy way of saying possible values) for state :
+
+|value|name|description|
+|-----|----|-----------|
+|0|gear_1|Gear 1. Low speed|
+|1|gear_2|Gear 2. Middle speed|
+|2|gear_3|Gear 3. High speed|
 
 Example sending the ` PlaneGearBox ` command to your parrot drone :
 
@@ -306,8 +320,8 @@ Set Max Vertical speed
 
 
 
-argument|type|description|
-|--------|----|-----------||current|float|Current max vertical speed in m/s|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||current|false|float|Current max vertical speed in m/s|
 
 Example sending the ` MaxVerticalSpeed ` command to your parrot drone :
 
@@ -336,8 +350,8 @@ Set Max Rotation speed
 
 
 
-argument|type|description|
-|--------|----|-----------||current|float|Current max rotation speed in degree/s|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||current|false|float|Current max rotation speed in degree/s|
 
 Example sending the ` MaxRotationSpeed ` command to your parrot drone :
 
@@ -366,8 +380,8 @@ Presence of wheels
 
 
 
-argument|type|description|
-|--------|----|-----------||present|u8|1 if present, 0 if not present|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||present|false|u8|1 if present, 0 if not present|
 
 Example sending the ` Wheels ` command to your parrot drone :
 
@@ -396,8 +410,8 @@ Set Max Horizontal speed (only used in case where PilotingSettings_MaxTilt is no
 
 
 
-argument|type|description|
-|--------|----|-----------||current|float|Current max Horizontal speed in m/s|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||current|false|float|Current max Horizontal speed in m/s|
 
 Example sending the ` MaxHorizontalSpeed ` command to your parrot drone :
 
@@ -426,8 +440,8 @@ Set max plane mode rotation speed (only available for wing x)
 
 
 
-argument|type|description|
-|--------|----|-----------||current|float|Current max plane mode rotation speed in degree/s|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||current|false|float|Current max plane mode rotation speed in degree/s|
 
 Example sending the ` MaxPlaneModeRotationSpeed ` command to your parrot drone :
 
@@ -466,9 +480,25 @@ Event of picture recording
 
 
 
-argument|type|description|
-|--------|----|-----------||event|enum|Last event of picture recording|
-|error|enum|Error to explain the event|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||event|true|enum|Last event of picture recording|
+|error|true|enum|Error to explain the event|
+Enums/Symbols (fancy way of saying possible values) for event :
+
+|value|name|description|
+|-----|----|-----------|
+|0|taken|Picture taken and saved|
+|1|failed|Picture failed|
+Enums/Symbols (fancy way of saying possible values) for error :
+
+|value|name|description|
+|-----|----|-----------|
+|0|ok|No Error|
+|1|unknown|Unknown generic error ; only when state is failed|
+|2|busy|Picture recording is busy ; only when state is failed|
+|3|notAvailable|Picture recording not available ; only when state is failed|
+|4|memoryFull|Memory full ; only when state is failed|
+|5|lowBattery|Battery is too low to record.|
 
 
 Example binding to listen for the ` PictureEventChanged ` event from the drone :
@@ -508,8 +538,8 @@ MiniDrone send flat trim was correctly processed
 
 
 
-argument|type|description|
-|--------|----|-----------|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------|
 
 Example binding to listen for the ` FlatTrimChanged ` event from the drone :
 
@@ -533,8 +563,20 @@ Drone flying state changed
 
 
 
-argument|type|description|
-|--------|----|-----------||state|enum|Drone flying state|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||state|true|enum|Drone flying state|
+Enums/Symbols (fancy way of saying possible values) for state :
+
+|value|name|description|
+|-----|----|-----------|
+|0|landed|Landed state|
+|1|takingoff|Taking off state|
+|2|hovering|Hovering state|
+|3|flying|Flying state|
+|4|landing|Landing state|
+|5|emergency|Emergency state|
+|6|rolling|Rolling state|
+|7|init|Initializing state (user should let the drone steady for a while)|
 
 
 Example binding to listen for the ` FlyingStateChanged ` event from the drone :
@@ -559,8 +601,17 @@ Drone alert state changed
 
 
 
-argument|type|description|
-|--------|----|-----------||state|enum|Drone alert state|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||state|true|enum|Drone alert state|
+Enums/Symbols (fancy way of saying possible values) for state :
+
+|value|name|description|
+|-----|----|-----------|
+|0|none|No alert|
+|1|user|User emergency alert|
+|2|cut_out|Cut out alert|
+|3|critical_battery|Critical battery alert|
+|4|low_battery|Low battery alert|
 
 
 Example binding to listen for the ` AlertStateChanged ` event from the drone :
@@ -585,8 +636,8 @@ Set MiniDrone automatic take off mode
 
 
 
-argument|type|description|
-|--------|----|-----------||state|u8|State of automatic take off mode|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||state|false|u8|State of automatic take off mode|
 
 
 Example binding to listen for the ` AutoTakeOffModeChanged ` event from the drone :
@@ -611,8 +662,15 @@ FlyingMode changed. Only supported by WingX
 
 
 
-argument|type|description|
-|--------|----|-----------||mode|u8|Drone Flying Mode|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||mode|true|u8|Drone Flying Mode|
+Enums/Symbols (fancy way of saying possible values) for mode :
+
+|value|name|description|
+|-----|----|-----------|
+|0|quadricopter|Fly as a quadrictopter|
+|1|plane_forward|Fly as a plane in forward mode|
+|2|plane_backward|Fly as a plane in backward mode|
 
 
 Example binding to listen for the ` FlyingModeChanged ` event from the drone :
@@ -637,8 +695,15 @@ Plane Gear Box changed. Only supported by WingX
 
 
 
-argument|type|description|
-|--------|----|-----------||state|enum|Plane Gear Box|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||state|true|enum|Plane Gear Box|
+Enums/Symbols (fancy way of saying possible values) for state :
+
+|value|name|description|
+|-----|----|-----------|
+|0|gear_1|Gear 1. Low speed|
+|1|gear_2|Gear 2. Middle speed|
+|2|gear_3|Gear 3. High speed|
 
 
 Example binding to listen for the ` PlaneGearBoxChanged ` event from the drone :
@@ -674,8 +739,16 @@ Make a flip
 
 
 
-argument|type|description|
-|--------|----|-----------||direction|enum|Direction for the flip|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||direction|true|enum|Direction for the flip|
+Enums/Symbols (fancy way of saying possible values) for direction :
+
+|value|name|description|
+|-----|----|-----------|
+|0|front|Flip direction front|
+|1|back|Flip direction back|
+|2|right|Flip direction right|
+|3|left|Flip direction left|
 
 Example sending the ` Flip ` command to your parrot drone :
 
@@ -704,8 +777,8 @@ Change the product cap
 
 
 
-argument|type|description|
-|--------|----|-----------||offset|i16|Change the cap with offset angle [_180;180]|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||offset|false|i16|Change the cap with offset angle [_180;180]|
 
 Example sending the ` Cap ` command to your parrot drone :
 
@@ -748,10 +821,10 @@ Max vertical speed sent by product
 
 
 
-argument|type|description|
-|--------|----|-----------||current|float|Current max vertical speed in m/s|
-|min|float|Range min of vertical speed|
-|max|float|Range max of vertical speed|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||current|false|float|Current max vertical speed in m/s|
+|min|false|float|Range min of vertical speed|
+|max|false|float|Range max of vertical speed|
 
 
 Example binding to listen for the ` MaxVerticalSpeedChanged ` event from the drone :
@@ -776,10 +849,10 @@ Max rotation speed sent by product
 
 
 
-argument|type|description|
-|--------|----|-----------||current|float|Current max rotation speed in degree/s|
-|min|float|Range min of rotation speed|
-|max|float|Range max of rotation speed|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||current|false|float|Current max rotation speed in degree/s|
+|min|false|float|Range min of rotation speed|
+|max|false|float|Range max of rotation speed|
 
 
 Example binding to listen for the ` MaxRotationSpeedChanged ` event from the drone :
@@ -804,8 +877,8 @@ Presence of wheels sent by product
 
 
 
-argument|type|description|
-|--------|----|-----------||present|u8|1 if present, 0 if not present|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||present|false|u8|1 if present, 0 if not present|
 
 
 Example binding to listen for the ` WheelsChanged ` event from the drone :
@@ -830,10 +903,10 @@ Max horizontal speed sent by product (only used in case where PilotingSettings_M
 
 
 
-argument|type|description|
-|--------|----|-----------||current|float|Current max horizontal speed in m/s|
-|min|float|Range min of horizontal speed|
-|max|float|Range max of horizontal speed|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||current|false|float|Current max horizontal speed in m/s|
+|min|false|float|Range min of horizontal speed|
+|max|false|float|Range max of horizontal speed|
 
 
 Example binding to listen for the ` MaxHorizontalSpeedChanged ` event from the drone :
@@ -858,10 +931,10 @@ Max plane rotation speed sent by product (only available for wing x)
 
 
 
-argument|type|description|
-|--------|----|-----------||current|float|Current max plane mode rotation speed in degree/s|
-|min|float|Range min of plane mode rotation speed|
-|max|float|Range max of plane mode rotation speed|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||current|false|float|Current max plane mode rotation speed in degree/s|
+|min|false|float|Range min of plane mode rotation speed|
+|max|false|float|Range max of plane mode rotation speed|
 
 
 Example binding to listen for the ` MaxPlaneModeRotationSpeedChanged ` event from the drone :
@@ -897,8 +970,8 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 
-argument|type|description|
-|--------|----|-----------||mass_storage_id|u8|Mass storage id to take picture|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||mass_storage_id|false|u8|Mass storage id to take picture|
 
 Example sending the ` Picture ` command to your parrot drone :
 
@@ -927,8 +1000,8 @@ Take picture
 
 
 
-argument|type|description|
-|--------|----|-----------|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------|
 Example sending the ` PictureV2 ` command to your parrot drone :
 
 ```javascript
@@ -967,9 +1040,9 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 
-argument|type|description|
-|--------|----|-----------||state|u8|1 if picture has been taken, 0 otherwise|
-|mass_storage_id|u8|Mass storage id to record|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||state|false|u8|1 if picture has been taken, 0 otherwise|
+|mass_storage_id|false|u8|Mass storage id to record|
 
 
 Example binding to listen for the ` PictureStateChanged ` event from the drone :
@@ -994,9 +1067,25 @@ State of device picture recording changed
 
 
 
-argument|type|description|
-|--------|----|-----------||state|enum|State of device picture recording|
-|error|enum|Error to explain the state|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||state|true|enum|State of device picture recording|
+|error|true|enum|Error to explain the state|
+Enums/Symbols (fancy way of saying possible values) for state :
+
+|value|name|description|
+|-----|----|-----------|
+|0|ready|The picture recording is ready|
+|1|busy|The picture recording is busy|
+|2|notAvailable|The picture recording is not available|
+Enums/Symbols (fancy way of saying possible values) for error :
+
+|value|name|description|
+|-----|----|-----------|
+|0|ok|No Error|
+|1|unknown|Unknown generic error|
+|2|camera_ko|Picture camera is out of order|
+|3|memoryFull|Memory full ; cannot save one additional picture|
+|4|lowBattery|Battery is too low to start/keep recording.|
 
 
 Example binding to listen for the ` PictureStateChangedV2 ` event from the drone :
@@ -1033,8 +1122,8 @@ Set Max Altitude
 
 
 
-argument|type|description|
-|--------|----|-----------||current|float|Current altitude max in m|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||current|false|float|Current altitude max in m|
 
 Example sending the ` MaxAltitude ` command to your parrot drone :
 
@@ -1063,8 +1152,8 @@ Set Max Tilt
 
 
 
-argument|type|description|
-|--------|----|-----------||current|float|Current tilt max in degree|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||current|false|float|Current tilt max in degree|
 
 Example sending the ` MaxTilt ` command to your parrot drone :
 
@@ -1095,8 +1184,8 @@ Set banked turn mode.
 Result : The banked turn mode is enabled or disabled.
  Then, event [BankedTurnMode](#2_9_2) is triggered.
 
-argument|type|description|
-|--------|----|-----------||value|u8|1 to enable, 0 to disable|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||value|false|u8|1 to enable, 0 to disable|
 
 Example sending the ` BankedTurn ` command to your parrot drone :
 
@@ -1137,10 +1226,10 @@ Max Altitude sent by product
 
 
 
-argument|type|description|
-|--------|----|-----------||current|float|Current altitude max|
-|min|float|Range min of altitude|
-|max|float|Range max of altitude|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||current|false|float|Current altitude max|
+|min|false|float|Range min of altitude|
+|max|false|float|Range max of altitude|
 
 
 Example binding to listen for the ` MaxAltitudeChanged ` event from the drone :
@@ -1165,10 +1254,10 @@ Max tilt sent by product
 
 
 
-argument|type|description|
-|--------|----|-----------||current|float|Current max tilt|
-|min|float|Range min of tilt|
-|max|float|Range max of tilt|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||current|false|float|Current max tilt|
+|min|false|float|Range min of tilt|
+|max|false|float|Range max of tilt|
 
 
 Example binding to listen for the ` MaxTiltChanged ` event from the drone :
@@ -1194,8 +1283,8 @@ Banked Turn mode.
 
 Triggered : by [SetBankedTurnMode](#2_8_2).
 
-argument|type|description|
-|--------|----|-----------||state|u8|1 if enabled, 0 if disabled|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||state|false|u8|1 if enabled, 0 if disabled|
 
 
 Example binding to listen for the ` BankedTurnChanged ` event from the drone :
@@ -1230,8 +1319,8 @@ Set MiniDrone cut out mode
 
 
 
-argument|type|description|
-|--------|----|-----------||enable|u8|Enable cut out mode (1 if is activate, 0 otherwise)|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||enable|false|u8|Enable cut out mode (1 if is activate, 0 otherwise)|
 
 Example sending the ` CutOutMode ` command to your parrot drone :
 
@@ -1272,11 +1361,11 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 
-argument|type|description|
-|--------|----|-----------||motor|u8|Product Motor number [1 _ 4]|
-|type|string|Product Motor type|
-|software|string|Product Motors software version|
-|hardware|string|Product Motors hardware version|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||motor|false|u8|Product Motor number [1 _ 4]|
+|type|false|string|Product Motor type|
+|software|false|string|Product Motors software version|
+|hardware|false|string|Product Motors hardware version|
 
 
 Example binding to listen for the ` ProductMotorsVersionChanged ` event from the drone :
@@ -1301,9 +1390,9 @@ drone.on(
 
 
 
-argument|type|description|
-|--------|----|-----------||software|string|Product Inertial software version|
-|hardware|string|Product Inertial hardware version|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||software|false|string|Product Inertial software version|
+|hardware|false|string|Product Inertial hardware version|
 
 
 Example binding to listen for the ` ProductInertialVersionChanged ` event from the drone :
@@ -1328,8 +1417,8 @@ MiniDrone cut out mode
 
 
 
-argument|type|description|
-|--------|----|-----------||enable|u8|State of cut out mode (1 if is activate, 0 otherwise)|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||enable|false|u8|State of cut out mode (1 if is activate, 0 otherwise)|
 
 
 Example binding to listen for the ` CutOutModeChanged ` event from the drone :
@@ -1364,8 +1453,8 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 
-argument|type|description|
-|--------|----|-----------||delay|u16|Delay (in ms) between two PCMD|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||delay|false|u16|Delay (in ms) between two PCMD|
 
 
 Example binding to listen for the ` FloodControlChanged ` event from the drone :
@@ -1401,8 +1490,8 @@ Set the controller latitude for a run.
 
 
 
-argument|type|description|
-|--------|----|-----------||latitude|double|Controller latitude in decimal degrees|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||latitude|false|double|Controller latitude in decimal degrees|
 
 Example sending the ` ControllerLatitudeForRun ` command to your parrot drone :
 
@@ -1431,8 +1520,8 @@ Set the controller longitude for a run.
 
 
 
-argument|type|description|
-|--------|----|-----------||longitude|double|Controller longitude in decimal degrees|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||longitude|false|double|Controller longitude in decimal degrees|
 
 Example sending the ` ControllerLongitudeForRun ` command to your parrot drone :
 
@@ -1472,8 +1561,8 @@ Set the controller type.
 
 
 
-argument|type|description|
-|--------|----|-----------||type|string|Controller type like iOS or Android|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||type|false|string|Controller type like iOS or Android|
 
 Example sending the ` ControllerType ` command to your parrot drone :
 
@@ -1502,8 +1591,8 @@ Set the controller name.
 
 
 
-argument|type|description|
-|--------|----|-----------||name|string|Controller name like com.parrot.freeflight3|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||name|false|string|Controller name like com.parrot.freeflight3|
 
 Example sending the ` ControllerName ` command to your parrot drone :
 
@@ -1544,11 +1633,18 @@ USB Light accessory state cmd.
 
 
 
-argument|type|description|
-|--------|----|-----------||id|u8|Usb accessory id|
-|state|enum|Usb Light state.|
-|intensity|u8|Light intensity from 0 (OFF) to 100 (Max intensity). Only used in FIXED state.|
-|list_flags|u8|List entry attribute Bitfield. 0x01: First: indicate it's the first element of the list. 0x02: Last: indicate it's the last element of the list. 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored. 0x08: Remove: This value should be removed from the existing list.|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||id|false|u8|Usb accessory id|
+|state|true|enum|Usb Light state.|
+|intensity|false|u8|Light intensity from 0 (OFF) to 100 (Max intensity). Only used in FIXED state.|
+|list_flags|false|u8|List entry attribute Bitfield. 0x01: First: indicate it's the first element of the list. 0x02: Last: indicate it's the last element of the list. 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored. 0x08: Remove: This value should be removed from the existing list.|
+Enums/Symbols (fancy way of saying possible values) for state :
+
+|value|name|description|
+|-----|----|-----------|
+|0|FIXED|Fixed state at given intensity.|
+|1|BLINKED|Blinked state.|
+|2|OSCILLATED|Oscillated state.|
 
 Example sending the ` LightState ` command to your parrot drone :
 
@@ -1577,10 +1673,18 @@ USB Claw accessory state cmd.
 
 
 
-argument|type|description|
-|--------|----|-----------||id|u8|Usb accessory id|
-|state|enum|Usb Claw state.|
-|list_flags|u8|List entry attribute Bitfield. 0x01: First: indicate it's the first element of the list. 0x02: Last: indicate it's the last element of the list. 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored. 0x08: Remove: This value should be removed from the existing list.|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||id|false|u8|Usb accessory id|
+|state|true|enum|Usb Claw state.|
+|list_flags|false|u8|List entry attribute Bitfield. 0x01: First: indicate it's the first element of the list. 0x02: Last: indicate it's the last element of the list. 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored. 0x08: Remove: This value should be removed from the existing list.|
+Enums/Symbols (fancy way of saying possible values) for state :
+
+|value|name|description|
+|-----|----|-----------|
+|0|OPENED|Claw is fully opened.|
+|1|OPENING|Claw open in progress.|
+|2|CLOSED|Claw is fully closed.|
+|3|CLOSING|Claw close in progress.|
 
 Example sending the ` ClawState ` command to your parrot drone :
 
@@ -1609,10 +1713,16 @@ USB Gun accessory state cmd.
 
 
 
-argument|type|description|
-|--------|----|-----------||id|u8|Usb accessory id.|
-|state|enum|USB Claw state.|
-|list_flags|u8|List entry attribute Bitfield. 0x01: First: indicate it's the first element of the list. 0x02: Last: indicate it's the last element of the list. 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored. 0x08: Remove: This value should be removed from the existing list.|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||id|false|u8|Usb accessory id.|
+|state|true|enum|USB Claw state.|
+|list_flags|false|u8|List entry attribute Bitfield. 0x01: First: indicate it's the first element of the list. 0x02: Last: indicate it's the last element of the list. 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored. 0x08: Remove: This value should be removed from the existing list.|
+Enums/Symbols (fancy way of saying possible values) for state :
+
+|value|name|description|
+|-----|----|-----------|
+|0|READY|Gun is ready to fire.|
+|1|BUSY|Gun is busy (ie not ready to fire).|
 
 Example sending the ` GunState ` command to your parrot drone :
 
@@ -1653,10 +1763,17 @@ USB Light control cmd.
 
 
 
-argument|type|description|
-|--------|----|-----------||id|u8|Usb accessory id|
-|mode|enum|Usb Light mode.|
-|intensity|u8|Light intensity from 0 (OFF) to 100 (Max intensity). Only used in FIXED mode.|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||id|false|u8|Usb accessory id|
+|mode|true|enum|Usb Light mode.|
+|intensity|false|u8|Light intensity from 0 (OFF) to 100 (Max intensity). Only used in FIXED mode.|
+Enums/Symbols (fancy way of saying possible values) for mode :
+
+|value|name|description|
+|-----|----|-----------|
+|0|FIXED|Turn light in fixed state at a given intensity.|
+|1|BLINKED|Turn light in blinked state.|
+|2|OSCILLATED|Turn light in oscillated state.|
 
 Example sending the ` LightControl ` command to your parrot drone :
 
@@ -1685,9 +1802,15 @@ USB Claw control cmd.
 
 
 
-argument|type|description|
-|--------|----|-----------||id|u8|Usb accessory id.|
-|action|enum|USB Claw action.|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||id|false|u8|Usb accessory id.|
+|action|true|enum|USB Claw action.|
+Enums/Symbols (fancy way of saying possible values) for action :
+
+|value|name|description|
+|-----|----|-----------|
+|0|OPEN|Open Claw.|
+|1|CLOSE|Close Claw.|
 
 Example sending the ` ClawControl ` command to your parrot drone :
 
@@ -1716,9 +1839,14 @@ USB Gun control cmd.
 
 
 
-argument|type|description|
-|--------|----|-----------||id|u8|Usb accessory id|
-|action|enum|USB Gun action.|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||id|false|u8|Usb accessory id|
+|action|true|enum|USB Gun action.|
+Enums/Symbols (fancy way of saying possible values) for action :
+
+|value|name|description|
+|-----|----|-----------|
+|0|FIRE|Fire.|
 
 Example sending the ` GunControl ` command to your parrot drone :
 
@@ -1757,10 +1885,10 @@ Send the address of the remote controller on which the drone should be paired Th
 
 
 
-argument|type|description|
-|--------|----|-----------||msb_mac|u16|2 most significant bytes of mac address|
-|mid_mac|u16|2 middle bytes of mac address|
-|lsb_mac|u16|2 least significant bytes of mac address|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||msb_mac|false|u16|2 most significant bytes of mac address|
+|mid_mac|false|u16|2 middle bytes of mac address|
+|lsb_mac|false|u16|2 least significant bytes of mac address|
 
 Example sending the ` SetPairedRemote ` command to your parrot drone :
 
@@ -1799,12 +1927,12 @@ Get the drone position from takeoff point (0, 0, 0, 0). The orthonormal basis is
 
 
 
-argument|type|description|
-|--------|----|-----------||posx|float|Position on X axis, relative to take off position (cm).|
-|posy|float|Position on Y axis, relative to take off position (cm).|
-|posz|i16|Position on Z axis, relative to take off position (cm).|
-|psi|i16|Psi angle [_180; 180], relative to take off orientation.|
-|ts|i16|Time elapsed since last data send (ms).|
+|argument|type|enum/Symbol|description|
+|--------|----|------------|-----------||posx|false|float|Position on X axis, relative to take off position (cm).|
+|posy|false|float|Position on Y axis, relative to take off position (cm).|
+|posz|false|i16|Position on Z axis, relative to take off position (cm).|
+|psi|false|i16|Psi angle [_180; 180], relative to take off orientation.|
+|ts|false|i16|Time elapsed since last data send (ms).|
 
 Example sending the ` DronePosition ` command to your parrot drone :
 
