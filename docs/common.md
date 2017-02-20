@@ -57,8 +57,8 @@ Signals the remote that the host will disconnect.
 
 Result : None
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` Disconnect ` command to your parrot drone :
 
@@ -100,12 +100,12 @@ Drone will disconnect.
 
 Triggered : mainly when the user presses the power button of the drone.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|cause|enum|true|Cause of the disconnection of the product|
+|argument|type|description|
+|--------|----|-----------|
+|cause|enum|Cause of the disconnection of the product|
 Enums/Symbols (fancy way of saying possible values) for cause :
 
-|value|name|description|
+|cause value|cause name|cause description|
 |-----|----|-----------|
 |0|off_button|The button off has been pressed|
 |1|unknown|Unknown generic cause|
@@ -151,8 +151,8 @@ Ask for all settings.
 Result : The product will trigger all settings events (such as [CameraSettings](#0_15_0), or product specific settings as the [MaxAltitude](#1_6_0) for the Bebop).
  Then, it will trigger [AllSettingsEnd](#0_3_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` AllSettings ` command to your parrot drone :
 
@@ -182,8 +182,8 @@ Reset all settings.
 Result : It will trigger [ResetChanged](#0_3_1).
  Then, the product will trigger all settings events (such as [CameraSettings](#0_15_0), or product specific settings as the [MaxAltitude](#1_6_0) for the Bebop) with factory values.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` Reset ` command to your parrot drone :
 
@@ -214,9 +214,9 @@ Set the product name.
 Result : Name is changed.
  Then, it will trigger [NameChanged](#0_3_2).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|name|string|false|Product name|
+|argument|type|description|
+|--------|----|-----------|
+|name|string|Product name|
 
 Example sending the ` ProductName ` command to your parrot drone :
 
@@ -248,9 +248,9 @@ Set the country for Wifi products.
 Result : The country is set.
  Then, it will trigger [CountryChanged](#0_3_6).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|code|string|false|Country code with ISO 3166 format|
+|argument|type|description|
+|--------|----|-----------|
+|code|string|Country code with ISO 3166 format|
 
 Example sending the ` Country ` command to your parrot drone :
 
@@ -282,9 +282,9 @@ Enable auto_country.
 Result : The auto_country of the product is changed.
  Then, it will trigger [AutoCountryChanged](#0_3_7) and [CountryChanged](#0_3_6).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|automatic|u8|false|Boolean : 0 : Manual / 1 : Auto|
+|argument|type|description|
+|--------|----|-----------|
+|automatic|u8|Boolean : 0 : Manual / 1 : Auto|
 
 Example sending the ` AutoCountry ` command to your parrot drone :
 
@@ -332,8 +332,8 @@ All settings have been sent.
 
 Triggered : when all settings values have been sent.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 
 Example binding to listen for the ` AllSettingsChanged ` event from the drone :
@@ -358,8 +358,8 @@ All settings have been reset.
 
 Triggered : by [ResetSettings](#0_2_1).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 
 Example binding to listen for the ` ResetChanged ` event from the drone :
@@ -384,9 +384,9 @@ Product name changed.
 
 Triggered : by [SetProductName](#0_2_2).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|name|string|false|Product name|
+|argument|type|description|
+|--------|----|-----------|
+|name|string|Product name|
 
 
 Example binding to listen for the ` ProductNameChanged ` event from the drone :
@@ -411,10 +411,10 @@ Product version.
 
 Triggered : during the connection process.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|software|string|false|Product software version|
-|hardware|string|false|Product hardware version|
+|argument|type|description|
+|--------|----|-----------|
+|software|string|Product software version|
+|hardware|string|Product hardware version|
 
 
 Example binding to listen for the ` ProductVersionChanged ` event from the drone :
@@ -439,9 +439,9 @@ Product serial (1st part).
 
 Triggered : during the connection process.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|high|string|false|Serial high number (hexadecimal value)|
+|argument|type|description|
+|--------|----|-----------|
+|high|string|Serial high number (hexadecimal value)|
 
 
 Example binding to listen for the ` ProductSerialHighChanged ` event from the drone :
@@ -466,9 +466,9 @@ Product serial (2nd part).
 
 Triggered : during the connection process.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|low|string|false|Serial low number (hexadecimal value)|
+|argument|type|description|
+|--------|----|-----------|
+|low|string|Serial low number (hexadecimal value)|
 
 
 Example binding to listen for the ` ProductSerialLowChanged ` event from the drone :
@@ -493,9 +493,9 @@ Country changed.
 
 Triggered : by [SetCountry](#0_2_3).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|code|string|false|Country code with ISO 3166 format, empty string means unknown country.|
+|argument|type|description|
+|--------|----|-----------|
+|code|string|Country code with ISO 3166 format, empty string means unknown country.|
 
 
 Example binding to listen for the ` CountryChanged ` event from the drone :
@@ -520,9 +520,9 @@ Auto_country changed.
 
 Triggered : by [SetAutoCountry](#0_2_4).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|automatic|u8|false|Boolean : 0 : Manual / 1 : Auto|
+|argument|type|description|
+|--------|----|-----------|
+|automatic|u8|Boolean : 0 : Manual / 1 : Auto|
 
 
 Example binding to listen for the ` AutoCountryChanged ` event from the drone :
@@ -564,8 +564,8 @@ Ask for all states.
 Result : The product will trigger all states events (such as [FlyingState](#1_4_1) for the Bebop).
  Then, it will trigger [AllStatesEnd](#0_5_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` AllStates ` command to your parrot drone :
 
@@ -600,9 +600,9 @@ Set the date.
 Result : The date of the product is set.
  Then, it will trigger [DateChanged](#0_5_4).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|date|string|false|Date with ISO_8601 format|
+|argument|type|description|
+|--------|----|-----------|
+|date|string|Date with ISO_8601 format|
 
 Example sending the ` CurrentDate ` command to your parrot drone :
 
@@ -637,9 +637,9 @@ Set the time.
 Result : The time of the product is set.
  Then, it will trigger [TimeChanged](#0_5_5).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|time|string|false|Time with ISO_8601 format|
+|argument|type|description|
+|--------|----|-----------|
+|time|string|Time with ISO_8601 format|
 
 Example sending the ` CurrentTime ` command to your parrot drone :
 
@@ -669,8 +669,8 @@ Reboot the product.
 
 Result : The product will reboot if it can.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` Reboot ` command to your parrot drone :
 
@@ -725,8 +725,8 @@ All states have been sent.
 
 Triggered : when all states values have been sent.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 
 Example binding to listen for the ` AllStatesChanged ` event from the drone :
@@ -751,9 +751,9 @@ Battery state.
 
 Triggered : when the battery level changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|percent|u8|false|Battery percentage|
+|argument|type|description|
+|--------|----|-----------|
+|percent|u8|Battery percentage|
 
 
 Example binding to listen for the ` BatteryStateChanged ` event from the drone :
@@ -778,10 +778,10 @@ Mass storage state list.
 
 Triggered : when a mass storage is inserted or ejected.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|mass_storage_id|u8|false|Mass storage id (unique)|
-|name|string|false|Mass storage name|
+|argument|type|description|
+|--------|----|-----------|
+|mass_storage_id|u8|Mass storage id (unique)|
+|name|string|Mass storage name|
 
 
 Example binding to listen for the ` MassStorageStateListChanged ` event from the drone :
@@ -806,14 +806,14 @@ Mass storage info state list.
 
 Triggered : when a mass storage info changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|mass_storage_id|u8|false|Mass storage state id (unique)|
-|size|u32|false|Mass storage size in MBytes|
-|used_size|u32|false|Mass storage used size in MBytes|
-|plugged|u8|false|Mass storage plugged (1 if mass storage is plugged, otherwise 0)|
-|full|u8|false|Mass storage full information state (1 if mass storage full, 0 otherwise).|
-|internal|u8|false|Mass storage internal type state (1 if mass storage is internal, 0 otherwise)|
+|argument|type|description|
+|--------|----|-----------|
+|mass_storage_id|u8|Mass storage state id (unique)|
+|size|u32|Mass storage size in MBytes|
+|used_size|u32|Mass storage used size in MBytes|
+|plugged|u8|Mass storage plugged (1 if mass storage is plugged, otherwise 0)|
+|full|u8|Mass storage full information state (1 if mass storage full, 0 otherwise).|
+|internal|u8|Mass storage internal type state (1 if mass storage is internal, 0 otherwise)|
 
 
 Example binding to listen for the ` MassStorageInfoStateListChanged ` event from the drone :
@@ -841,9 +841,9 @@ Date changed.
 
 Triggered : by [SetDate](#0_4_1).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|date|string|false|Date with ISO_8601 format|
+|argument|type|description|
+|--------|----|-----------|
+|date|string|Date with ISO_8601 format|
 
 
 Example binding to listen for the ` CurrentDateChanged ` event from the drone :
@@ -871,9 +871,9 @@ Time changed.
 
 Triggered : by [SetTime](#0_4_2).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|time|string|false|Time with ISO_8601 format|
+|argument|type|description|
+|--------|----|-----------|
+|time|string|Time with ISO_8601 format|
 
 
 Example binding to listen for the ` CurrentTimeChanged ` event from the drone :
@@ -898,11 +898,11 @@ Mass storage remaining data list.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|free_space|u32|false|Mass storage free space in MBytes|
-|rec_time|u16|false|Mass storage record time reamining in minute|
-|photo_remaining|u32|false|Mass storage photo remaining|
+|argument|type|description|
+|--------|----|-----------|
+|free_space|u32|Mass storage free space in MBytes|
+|rec_time|u16|Mass storage record time reamining in minute|
+|photo_remaining|u32|Mass storage photo remaining|
 
 
 Example binding to listen for the ` MassStorageInfoRemainingListChanged ` event from the drone :
@@ -927,9 +927,9 @@ Rssi (Wifi Signal between controller and product) changed.
 
 Triggered : regularly.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|rssi|i16|false|RSSI of the signal between controller and the product (in dbm)|
+|argument|type|description|
+|--------|----|-----------|
+|rssi|i16|RSSI of the signal between controller and the product (in dbm)|
 
 
 Example binding to listen for the ` WifiSignalChanged ` event from the drone :
@@ -954,13 +954,13 @@ Sensors state list.
 
 Triggered : at connection and when a sensor state changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|sensorName|enum|true|Sensor name|
-|sensorState|u8|false|Sensor state (1 if the sensor is OK, 0 if the sensor is NOT OK)|
+|argument|type|description|
+|--------|----|-----------|
+|sensorName|enum|Sensor name|
+|sensorState|u8|Sensor state (1 if the sensor is OK, 0 if the sensor is NOT OK)|
 Enums/Symbols (fancy way of saying possible values) for sensorName :
 
-|value|name|description|
+|sensorName value|sensorName name|sensorName description|
 |-----|----|-----------|
 |0|IMU|Inertial Measurement Unit sensor|
 |1|barometer|Barometer sensor|
@@ -993,12 +993,12 @@ Product sub_model.
 
 Triggered : at connection.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|model|enum|true|The Model of the product.|
+|argument|type|description|
+|--------|----|-----------|
+|model|enum|The Model of the product.|
 Enums/Symbols (fancy way of saying possible values) for model :
 
-|value|name|description|
+|model value|model name|model description|
 |-----|----|-----------|
 |0|RS_TRAVIS|Travis (RS taxi) model.|
 |1|RS_MARS|Mars (RS space) model|
@@ -1039,10 +1039,10 @@ List of countries known by the drone.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|listFlags|u8|false|List entry attribute Bitfield. 0x01: First: indicate it's the first element of the list. 0x02: Last: indicate it's the last element of the list. 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.|
-|countryCodes|string|false|Following of country code with ISO 3166 format, separated by ";". Be careful of the command size allowed by the network used. If necessary, split the list in several commands.|
+|argument|type|description|
+|--------|----|-----------|
+|listFlags|u8|List entry attribute Bitfield. 0x01: First: indicate it's the first element of the list. 0x02: Last: indicate it's the last element of the list. 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.|
+|countryCodes|string|Following of country code with ISO 3166 format, separated by ";". Be careful of the command size allowed by the network used. If necessary, split the list in several commands.|
 
 Example sending the ` CountryListKnown ` command to your parrot drone :
 
@@ -1071,13 +1071,13 @@ Mass storage content changed.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|mass_storage_id|u8|false|Mass storage id (unique)|
-|nbPhotos|u16|false|Number of photos (does not include raw photos)|
-|nbVideos|u16|false|Number of videos|
-|nbPuds|u16|false|Number of puds|
-|nbCrashLogs|u16|false|Number of crash logs|
+|argument|type|description|
+|--------|----|-----------|
+|mass_storage_id|u8|Mass storage id (unique)|
+|nbPhotos|u16|Number of photos (does not include raw photos)|
+|nbVideos|u16|Number of videos|
+|nbPuds|u16|Number of puds|
+|nbCrashLogs|u16|Number of crash logs|
 
 
 Example binding to listen for the ` DeprecatedMassStorageContentChanged ` event from the drone :
@@ -1102,14 +1102,14 @@ Mass storage content.
 
 Triggered : when the content of the mass storage changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|mass_storage_id|u8|false|Mass storage id (unique)|
-|nbPhotos|u16|false|Number of photos (does not include raw photos)|
-|nbVideos|u16|false|Number of videos|
-|nbPuds|u16|false|Number of puds|
-|nbCrashLogs|u16|false|Number of crash logs|
-|nbRawPhotos|u16|false|Number of raw photos|
+|argument|type|description|
+|--------|----|-----------|
+|mass_storage_id|u8|Mass storage id (unique)|
+|nbPhotos|u16|Number of photos (does not include raw photos)|
+|nbVideos|u16|Number of videos|
+|nbPuds|u16|Number of puds|
+|nbCrashLogs|u16|Number of crash logs|
+|nbRawPhotos|u16|Number of raw photos|
 
 
 Example binding to listen for the ` MassStorageContent ` event from the drone :
@@ -1135,12 +1135,12 @@ Mass storage content for current run.
 
 Triggered : when the content of the mass storage changes and this content is related to the current run.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|mass_storage_id|u8|false|Mass storage id (unique)|
-|nbPhotos|u16|false|Number of photos (does not include raw photos)|
-|nbVideos|u16|false|Number of videos|
-|nbRawPhotos|u16|false|Number of raw photos|
+|argument|type|description|
+|--------|----|-----------|
+|mass_storage_id|u8|Mass storage id (unique)|
+|nbPhotos|u16|Number of photos (does not include raw photos)|
+|nbVideos|u16|Number of videos|
+|nbRawPhotos|u16|Number of raw photos|
 
 
 Example binding to listen for the ` MassStorageContentForCurrentRun ` event from the drone :
@@ -1168,10 +1168,10 @@ Current or last video recording timestamp.
 Triggered : on video recording start and video recording stop or 
  after that the date/time of the drone changed.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|startTimestamp|u64|false|Timestamp in milliseconds since 00_00_00 UTC on 1 January 1970.|
-|stopTimestamp|u64|false|Timestamp in milliseconds since 00_00_00 UTC on 1 January 1970. 0 mean that video is still recording.|
+|argument|type|description|
+|--------|----|-----------|
+|startTimestamp|u64|Timestamp in milliseconds since 00_00_00 UTC on 1 January 1970.|
+|stopTimestamp|u64|Timestamp in milliseconds since 00_00_00 UTC on 1 January 1970. 0 mean that video is still recording.|
 
 
 Example binding to listen for the ` VideoRecordingTimestamp ` event from the drone :
@@ -1207,8 +1207,8 @@ Switch off after an overheat.
 
 Result : None
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` SwitchOff ` command to your parrot drone :
 
@@ -1237,8 +1237,8 @@ Ventilate after an overheat.
 
 Result : None
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` Ventilate ` command to your parrot drone :
 
@@ -1278,8 +1278,8 @@ Overheat temperature reached.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 
 Example binding to listen for the ` OverHeatChanged ` event from the drone :
@@ -1304,9 +1304,9 @@ Overheat regulation type.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|regulationType|u8|false|Type of overheat regulation : 0 for ventilation, 1 for switch off|
+|argument|type|description|
+|--------|----|-----------|
+|regulationType|u8|Type of overheat regulation : 0 for ventilation, 1 for switch off|
 
 
 Example binding to listen for the ` OverHeatRegulationChanged ` event from the drone :
@@ -1344,9 +1344,9 @@ Inform about hud entering.
 Result : If yes, the product will begin a new session (so it should send a new [runId](#0_30_0)).
  Also, on the JumpingSumos, if the video is in autorecord mode, it will start recording.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|piloting|u8|false|0 when the application is not in the piloting HUD, 1 when it enters the HUD.|
+|argument|type|description|
+|--------|----|-----------|
+|piloting|u8|0 when the application is not in the piloting HUD, 1 when it enters the HUD.|
 
 Example sending the ` isPiloting ` command to your parrot drone :
 
@@ -1387,9 +1387,9 @@ Set wifi indoor/outdoor mode.
 Result : The product change its indoor/outdoor wifi settings.
  Then, it will trigger [WifiOutdoorMode](#0_10_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|outdoor|u8|false|1 if it should use outdoor wifi settings, 0 otherwise|
+|argument|type|description|
+|--------|----|-----------|
+|outdoor|u8|1 if it should use outdoor wifi settings, 0 otherwise|
 
 Example sending the ` OutdoorSetting ` command to your parrot drone :
 
@@ -1428,9 +1428,9 @@ Wifi outdoor mode.
 
 Triggered : by [SetWifiOutdoorMode](#0_9_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|outdoor|u8|false|1 if it should use outdoor wifi settings, 0 otherwise|
+|argument|type|description|
+|--------|----|-----------|
+|outdoor|u8|1 if it should use outdoor wifi settings, 0 otherwise|
 
 
 Example binding to listen for the ` outdoorSettingsChanged ` event from the drone :
@@ -1474,13 +1474,13 @@ Start a FlightPlan based on a mavlink file existing on the drone.
 Result : If the FlightPlan has been started, event [FlightPlanPlayingStateChanged](#0_12_0) is triggered with param state set to *playing*.
  Otherwise, event [FlightPlanPlayingStateChanged](#0_12_0) is triggered with param state set to stopped and event [MavlinkPlayErrorStateChanged](#0_12_1) is triggered with an explanation of the error.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|filepath|string|false|flight plan file path from the mavlink ftp root|
-|type|enum|true|type of the played mavlink file|
+|argument|type|description|
+|--------|----|-----------|
+|filepath|string|flight plan file path from the mavlink ftp root|
+|type|enum|type of the played mavlink file|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|flightPlan|Mavlink file for FlightPlan|
 |1|mapMyHouse|Mavlink file for MapMyHouse|
@@ -1514,8 +1514,8 @@ Pause a FlightPlan that was playing.
 
 Result : The currently playing FlightPlan will be paused. Then, event [FlightPlanPlayingStateChanged](#0_12_0) is triggered with param state set to the current state of the FlightPlan (should be *paused* if everything went well).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` Pause ` command to your parrot drone :
 
@@ -1545,8 +1545,8 @@ Stop a FlightPlan that was playing.
 
 Result : The currently playing FlightPlan will be stopped. Then, event [FlightPlanPlayingStateChanged](#0_12_0) is triggered with param state set to the current state of the FlightPlan (should be *stopped* if everything went well).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` Stop ` command to your parrot drone :
 
@@ -1587,14 +1587,14 @@ Playing state of a FlightPlan.
 
 Triggered : by [StartFlightPlan](#0_11_0), [PauseFlightPlan](#0_11_1) or [StopFlightPlan](#0_11_2).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|enum|true|State of the mavlink|
-|filepath|string|false|flight plan file path from the mavlink ftp root|
-|type|enum|true|type of the played mavlink file|
+|argument|type|description|
+|--------|----|-----------|
+|state|enum|State of the mavlink|
+|filepath|string|flight plan file path from the mavlink ftp root|
+|type|enum|type of the played mavlink file|
 Enums/Symbols (fancy way of saying possible values) for state :
 
-|value|name|description|
+|state value|state name|state description|
 |-----|----|-----------|
 |0|playing|Mavlink file is playing|
 |1|stopped|Mavlink file is stopped (arg filepath and type are useless in this state)|
@@ -1602,7 +1602,7 @@ Enums/Symbols (fancy way of saying possible values) for state :
 |3|loaded|Mavlink file is loaded (it will be played at take_off)|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|flightPlan|Mavlink file for FlightPlan|
 |1|mapMyHouse|Mavlink file for MapMyHouse|
@@ -1630,12 +1630,12 @@ FlightPlan error.
 
 Triggered : by [StartFlightPlan](#0_11_0) if an error occurs.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|error|enum|true|State of play error|
+|argument|type|description|
+|--------|----|-----------|
+|error|enum|State of play error|
 Enums/Symbols (fancy way of saying possible values) for error :
 
-|value|name|description|
+|error value|error name|error description|
 |-----|----|-----------|
 |0|none|There is no error|
 |1|notInOutDoorMode|The drone is not in outdoor mode|
@@ -1665,9 +1665,9 @@ Mission item has been executed.
 
 Triggered : when a mission item has been executed during a flight plan.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|idx|u32|false|Index of the mission item. This is the place of the mission item in the list of the items of the mission. Begins at 0.|
+|argument|type|description|
+|--------|----|-----------|
+|idx|u32|Index of the mission item. This is the place of the mission item in the list of the items of the mission. Begins at 0.|
 
 
 Example binding to listen for the ` MissonItemExecuted ` event from the drone :
@@ -1705,9 +1705,9 @@ Start or abort magnetometer calibration process.
 Result : The magnetometer calibration process is started or aborted. Then, event [MagnetoCalibrationStartedChanged](#0_14_3) is triggered.
  If started, event [MagnetoCalibrationStateChanged](#0_14_3) is triggered with the current calibration state: a list of all axis and their calibration states.\n It will also trigger [MagnetoCalibrationAxisToCalibrateChanged](#0_14_2), that will inform the controller about the current axis to calibrate.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|calibrate|u8|false|1 if the calibration should be started, 0 if it should be aborted|
+|argument|type|description|
+|--------|----|-----------|
+|calibrate|u8|1 if the calibration should be started, 0 if it should be aborted|
 
 Example sending the ` MagnetoCalibration ` command to your parrot drone :
 
@@ -1736,9 +1736,9 @@ Sent when a calibration of the pitot is asked or is aborted
 
 
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|calibrate|u8|false|1 if the calibration should be started, 0 if it should be aborted|
+|argument|type|description|
+|--------|----|-----------|
+|calibrate|u8|1 if the calibration should be started, 0 if it should be aborted|
 
 Example sending the ` PitotCalibration ` command to your parrot drone :
 
@@ -1781,12 +1781,12 @@ Magneto calib process axis state.
 
 Triggered : when the calibration process is started with [StartOrAbortMagnetoCalib](#0_13_0) and each time an axis calibration state changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|xAxisCalibration|u8|false|State of the x axis (roll) calibration : 1 if calibration is done, 0 otherwise|
-|yAxisCalibration|u8|false|State of the y axis (pitch) calibration : 1 if calibration is done, 0 otherwise|
-|zAxisCalibration|u8|false|State of the z axis (yaw) calibration : 1 if calibration is done, 0 otherwise|
-|calibrationFailed|u8|false|1 if calibration has failed, 0 otherwise. If this arg is 1, consider all previous arg as 0|
+|argument|type|description|
+|--------|----|-----------|
+|xAxisCalibration|u8|State of the x axis (roll) calibration : 1 if calibration is done, 0 otherwise|
+|yAxisCalibration|u8|State of the y axis (pitch) calibration : 1 if calibration is done, 0 otherwise|
+|zAxisCalibration|u8|State of the z axis (yaw) calibration : 1 if calibration is done, 0 otherwise|
+|calibrationFailed|u8|1 if calibration has failed, 0 otherwise. If this arg is 1, consider all previous arg as 0|
 
 
 Example binding to listen for the ` MagnetoCalibrationStateChanged ` event from the drone :
@@ -1811,9 +1811,9 @@ Calibration required.
 
 Triggered : when the calibration requirement changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|required|u8|false|1 if calibration is required, 0 if current calibration is still valid|
+|argument|type|description|
+|--------|----|-----------|
+|required|u8|1 if calibration is required, 0 if current calibration is still valid|
 
 
 Example binding to listen for the ` MagnetoCalibrationRequiredState ` event from the drone :
@@ -1838,12 +1838,12 @@ Axis to calibrate during calibration process.
 
 Triggered : during the calibration process when the axis to calibrate changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|axis|enum|true|The axis to calibrate|
+|argument|type|description|
+|--------|----|-----------|
+|axis|enum|The axis to calibrate|
 Enums/Symbols (fancy way of saying possible values) for axis :
 
-|value|name|description|
+|axis value|axis name|axis description|
 |-----|----|-----------|
 |0|xAxis|If the current calibration axis should be the x axis|
 |1|yAxis|If the current calibration axis should be the y axis|
@@ -1873,9 +1873,9 @@ Calibration process state.
 
 Triggered : by [StartOrAbortMagnetoCalib](#0_13_0) or when the process ends because it succeeded.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|started|u8|false|1 if calibration has started, 0 otherwise|
+|argument|type|description|
+|--------|----|-----------|
+|started|u8|1 if calibration has started, 0 otherwise|
 
 
 Example binding to listen for the ` MagnetoCalibrationStartedChanged ` event from the drone :
@@ -1900,13 +1900,13 @@ Sent when the state of the pitot calibration has changed
 
 
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|enum|true|State of pitot calibration|
-|lastError|u8|false|lastError : 1 if an error occured and 0 if not|
+|argument|type|description|
+|--------|----|-----------|
+|state|enum|State of pitot calibration|
+|lastError|u8|lastError : 1 if an error occured and 0 if not|
 Enums/Symbols (fancy way of saying possible values) for state :
 
-|value|name|description|
+|state value|state name|state description|
 |-----|----|-----------|
 |0|done|Calibration is ok|
 |1|ready|Calibration is started, waiting user action|
@@ -1946,13 +1946,13 @@ Camera info.
 
 Triggered : at connection.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|fov|float|false|Value of the camera horizontal fov (in degree)|
-|panMax|float|false|Value of max pan (right pan) (in degree)|
-|panMin|float|false|Value of min pan (left pan) (in degree)|
-|tiltMax|float|false|Value of max tilt (top tilt) (in degree)|
-|tiltMin|float|false|Value of min tilt (bottom tilt) (in degree)|
+|argument|type|description|
+|--------|----|-----------|
+|fov|float|Value of the camera horizontal fov (in degree)|
+|panMax|float|Value of max pan (right pan) (in degree)|
+|panMin|float|Value of min pan (left pan) (in degree)|
+|tiltMax|float|Value of max tilt (top tilt) (in degree)|
+|tiltMin|float|Value of min tilt (bottom tilt) (in degree)|
 
 
 Example binding to listen for the ` CameraSettingsChanged ` event from the drone :
@@ -1990,10 +1990,10 @@ Set the position of a run.
 
 Result : The position is set.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|latitude|double|false|Controller latitude in decimal degrees|
-|longitude|double|false|Controller longitude in decimal degrees|
+|argument|type|description|
+|--------|----|-----------|
+|latitude|double|Controller latitude in decimal degrees|
+|longitude|double|Controller longitude in decimal degrees|
 
 Example sending the ` ControllerPositionForRun ` command to your parrot drone :
 
@@ -2035,9 +2035,9 @@ FlightPlan availability.
 
 Triggered : on change.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|AvailabilityState|u8|false|Running a flightPlan file is available (1 running a flightPlan file is available, otherwise 0)|
+|argument|type|description|
+|--------|----|-----------|
+|AvailabilityState|u8|Running a flightPlan file is available (1 running a flightPlan file is available, otherwise 0)|
 
 
 Example binding to listen for the ` AvailabilityStateChanged ` event from the drone :
@@ -2062,13 +2062,13 @@ FlightPlan components state list.
 
 Triggered : when the state of required components changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|component|enum|true|Drone FlightPlan component id (unique)|
-|State|u8|false|State of the FlightPlan component (1 FlightPlan component OK, otherwise 0)|
+|argument|type|description|
+|--------|----|-----------|
+|component|enum|Drone FlightPlan component id (unique)|
+|State|u8|State of the FlightPlan component (1 FlightPlan component OK, otherwise 0)|
 Enums/Symbols (fancy way of saying possible values) for component :
 
-|value|name|description|
+|component value|component name|component description|
 |-----|----|-----------|
 |0|GPS|GPS for Drone FlightPlan|
 |1|Calibration|Calibration for Drone FlightPlan|
@@ -2099,9 +2099,9 @@ FlightPlan lock state.
 
 Triggered : when the lock changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|LockState|u8|false|1 if FlightPlan is locked: can't pause or stop FlightPlan. 0 if FlightPlan is unlocked: pause or stop available.|
+|argument|type|description|
+|--------|----|-----------|
+|LockState|u8|1 if FlightPlan is locked: can't pause or stop FlightPlan. 0 if FlightPlan is unlocked: pause or stop available.|
 
 
 Example binding to listen for the ` LockStateChanged ` event from the drone :
@@ -2138,9 +2138,9 @@ Controller libARCommands version
 
 
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|version|string|false|version of libARCommands ("1.2.3.4" format)|
+|argument|type|description|
+|--------|----|-----------|
+|version|string|version of libARCommands ("1.2.3.4" format)|
 
 Example sending the ` ControllerLibARCommandsVersion ` command to your parrot drone :
 
@@ -2169,9 +2169,9 @@ SkyController libARCommands version
 
 
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|version|string|false|version of libARCommands ("1.2.3.4" format)|
+|argument|type|description|
+|--------|----|-----------|
+|version|string|version of libARCommands ("1.2.3.4" format)|
 
 Example sending the ` SkyControllerLibARCommandsVersion ` command to your parrot drone :
 
@@ -2200,9 +2200,9 @@ Device libARCommands version
 
 
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|version|string|false|version of libARCommands ("1.2.3.4" format)|
+|argument|type|description|
+|--------|----|-----------|
+|version|string|version of libARCommands ("1.2.3.4" format)|
 
 Example sending the ` DeviceLibARCommandsVersion ` command to your parrot drone :
 
@@ -2244,8 +2244,8 @@ FlightPlan start error.
 
 Triggered : on an error after a [StartFlightPlan](#0_11_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 
 Example binding to listen for the ` StartingErrorEvent ` event from the drone :
@@ -2273,8 +2273,8 @@ FlightPlan speed clamping.
 
 Triggered : on an speed related clamping after a [StartFlightPlan](#0_11_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 
 Example binding to listen for the ` SpeedBridleEvent ` event from the drone :
@@ -2310,9 +2310,9 @@ Set audio stream direction.
 Result : The audio stream direction is set.
  Then, event [AudioStreamDirection](#0_21_0) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|ready|u8|false|Bit field for TX and RX ready. bit 0 is 1 if controller is ready and wants to receive sound (Drone TX) bit 1 is 1 if controller is ready and wants to send sound (Drone RX)|
+|argument|type|description|
+|--------|----|-----------|
+|ready|u8|Bit field for TX and RX ready. bit 0 is 1 if controller is ready and wants to receive sound (Drone TX) bit 1 is 1 if controller is ready and wants to send sound (Drone RX)|
 
 Example sending the ` ControllerReadyForStreaming ` command to your parrot drone :
 
@@ -2351,9 +2351,9 @@ Audio stream direction.
 
 Triggered : by [SetAudioStreamDirection](#0_20_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|running|u8|false|Bit field for TX and RX running bit 0 is 1 if Drone TX is running bit 1 is 1 if Drone RX is running|
+|argument|type|description|
+|--------|----|-----------|
+|running|u8|Bit field for TX and RX running bit 0 is 1 if Drone TX is running bit 1 is 1 if Drone RX is running|
 
 
 Example binding to listen for the ` AudioStreamingRunning ` event from the drone :
@@ -2389,10 +2389,10 @@ Set lighting LEDs intensity.
 Result : The intensity of the LEDs is changed.
  Then, event [LedIntensity](#0_23_0) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|left|u8|false|Set the left LED intensity value (0 through 255).|
-|right|u8|false|Set the right LED intensity value (0 through 255).|
+|argument|type|description|
+|--------|----|-----------|
+|left|u8|Set the left LED intensity value (0 through 255).|
+|right|u8|Set the right LED intensity value (0 through 255).|
 
 Example sending the ` intensity ` command to your parrot drone :
 
@@ -2431,10 +2431,10 @@ Lighting LEDs intensity.
 
 Triggered : by [SetLedsIntensity](#0_22_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|left|u8|false|The intensity value for the left LED (0 through 255).|
-|right|u8|false|The intensity value for the right LED (0 through 255).|
+|argument|type|description|
+|--------|----|-----------|
+|left|u8|The intensity value for the left LED (0 through 255).|
+|right|u8|The intensity value for the right LED (0 through 255).|
 
 
 Example binding to listen for the ` intensityChanged ` event from the drone :
@@ -2472,12 +2472,12 @@ Start a paramaterless animation.
 
 Result : If possible, the product starts the requested animation. Then, event [AnimationsStateList](#0_25_0) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|anim|enum|true|Animation to start.|
+|argument|type|description|
+|--------|----|-----------|
+|anim|enum|Animation to start.|
 Enums/Symbols (fancy way of saying possible values) for anim :
 
-|value|name|description|
+|anim value|anim name|anim description|
 |-----|----|-----------|
 |0|HEADLIGHTS_FLASH|Flash headlights.|
 |1|HEADLIGHTS_BLINK|Blink headlights.|
@@ -2526,12 +2526,12 @@ Stop a paramaterless animation.
 Result : If the requested animation was running, it will be stopped.
  Then, event [AnimationsStateList](#0_25_0) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|anim|enum|true|Animation to stop.|
+|argument|type|description|
+|--------|----|-----------|
+|anim|enum|Animation to stop.|
 Enums/Symbols (fancy way of saying possible values) for anim :
 
-|value|name|description|
+|anim value|anim name|anim description|
 |-----|----|-----------|
 |0|HEADLIGHTS_FLASH|Flash headlights.|
 |1|HEADLIGHTS_BLINK|Blink headlights.|
@@ -2580,8 +2580,8 @@ Stop all running paramaterless animations.
 Result : All running animations are stopped.
  Then, event [AnimationsStateList](#0_25_0) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` StopAllAnimations ` command to your parrot drone :
 
@@ -2620,14 +2620,14 @@ Paramaterless animations state list.
 
 Triggered : when the list of available animations changes and also when an animation state changes (can be triggered by [StartAnim](#0_24_0), [StopAnim](#0_24_1) or [StopAllAnims](#0_24_2).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|anim|enum|true|Animation type.|
-|state|enum|true|State of the animation|
-|error|enum|true|Error to explain the state|
+|argument|type|description|
+|--------|----|-----------|
+|anim|enum|Animation type.|
+|state|enum|State of the animation|
+|error|enum|Error to explain the state|
 Enums/Symbols (fancy way of saying possible values) for anim :
 
-|value|name|description|
+|anim value|anim name|anim description|
 |-----|----|-----------|
 |0|HEADLIGHTS_FLASH|Flash headlights.|
 |1|HEADLIGHTS_BLINK|Blink headlights.|
@@ -2648,14 +2648,14 @@ Enums/Symbols (fancy way of saying possible values) for anim :
 |16|BACKSWAP|Put the drone upside down. (Only for WingX)|
 Enums/Symbols (fancy way of saying possible values) for state :
 
-|value|name|description|
+|state value|state name|state description|
 |-----|----|-----------|
 |0|stopped|animation is stopped|
 |1|started|animation is started|
 |2|notAvailable|The animation is not available|
 Enums/Symbols (fancy way of saying possible values) for error :
 
-|value|name|description|
+|error value|error name|error description|
 |-----|----|-----------|
 |0|ok|No Error|
 |1|unknown|Unknown generic error|
@@ -2699,12 +2699,12 @@ Declare an accessory.
 Result : The product knows which accessory it is wearing.
  Then, event [AccessoryConfigChanged](#0_27_1) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|accessory|enum|true|Accessory configuration to set.|
+|argument|type|description|
+|--------|----|-----------|
+|accessory|enum|Accessory configuration to set.|
 Enums/Symbols (fancy way of saying possible values) for accessory :
 
-|value|name|description|
+|accessory value|accessory name|accessory description|
 |-----|----|-----------|
 |0|NO_ACCESSORY|No accessory.|
 |1|STD_WHEELS|Standard wheels|
@@ -2751,12 +2751,12 @@ Supported accessories list.
 
 Triggered : at connection.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|accessory|enum|true|Accessory configurations supported by the product.|
+|argument|type|description|
+|--------|----|-----------|
+|accessory|enum|Accessory configurations supported by the product.|
 Enums/Symbols (fancy way of saying possible values) for accessory :
 
-|value|name|description|
+|accessory value|accessory name|accessory description|
 |-----|----|-----------|
 |0|NO_ACCESSORY|No accessory.|
 |1|STD_WHEELS|Standard wheels|
@@ -2787,13 +2787,13 @@ Accessory config.
 
 Triggered : by [DeclareAccessory](#0_26_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|newAccessory|enum|true|Accessory configuration reported by firmware.|
-|error|enum|true|Error code.|
+|argument|type|description|
+|--------|----|-----------|
+|newAccessory|enum|Accessory configuration reported by firmware.|
+|error|enum|Error code.|
 Enums/Symbols (fancy way of saying possible values) for newAccessory :
 
-|value|name|description|
+|newAccessory value|newAccessory name|newAccessory description|
 |-----|----|-----------|
 |0|UNCONFIGURED|No accessory configuration set. Controller needs to set one.|
 |1|NO_ACCESSORY|No accessory.|
@@ -2804,7 +2804,7 @@ Enums/Symbols (fancy way of saying possible values) for newAccessory :
 |6|IN_PROGRESS|Configuration in progress.|
 Enums/Symbols (fancy way of saying possible values) for error :
 
-|value|name|description|
+|error value|error name|error description|
 |-----|----|-----------|
 |0|OK|No error. Accessory config change successful.|
 |1|UNKNOWN|Cannot change accessory configuration for some reason.|
@@ -2833,9 +2833,9 @@ Availability to declare or not an accessory.
 
 Triggered : when the availability changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|enabled|u8|false|1 if the modification of the accessory Config is enabled, 0 otherwise|
+|argument|type|description|
+|--------|----|-----------|
+|enabled|u8|1 if the modification of the accessory Config is enabled, 0 otherwise|
 
 
 Example binding to listen for the ` AccessoryConfigModificationEnabled ` event from the drone :
@@ -2870,12 +2870,12 @@ The product will inform itself the controller about its charging type (see [Char
 
 Result : None.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|rate|enum|true|The new maximum charge rate.|
+|argument|type|description|
+|--------|----|-----------|
+|rate|enum|The new maximum charge rate.|
 Enums/Symbols (fancy way of saying possible values) for rate :
 
-|value|name|description|
+|rate value|rate name|rate description|
 |-----|----|-----------|
 |0|SLOW|Fully charge the battery at a slow rate. Typically limit max charge current to 512 mA.|
 |1|MODERATE|Almost fully_charge the battery at moderate rate (> 512mA) but slower than the fastest rate.|
@@ -2921,12 +2921,12 @@ Max charge rate.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|rate|enum|true|The current maximum charge rate.|
+|argument|type|description|
+|--------|----|-----------|
+|rate|enum|The current maximum charge rate.|
 Enums/Symbols (fancy way of saying possible values) for rate :
 
-|value|name|description|
+|rate value|rate name|rate description|
 |-----|----|-----------|
 |0|SLOW|Fully charge the battery at a slow rate. Typically limit max charge current to 512 mA.|
 |1|MODERATE|Almost fully_charge the battery at moderate rate (> 512 mA) but slower than the fastest rate.|
@@ -2955,13 +2955,13 @@ Current charge state.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|status|enum|true|Charger status.|
-|phase|enum|true|The current charging phase.|
+|argument|type|description|
+|--------|----|-----------|
+|status|enum|Charger status.|
+|phase|enum|The current charging phase.|
 Enums/Symbols (fancy way of saying possible values) for status :
 
-|value|name|description|
+|status value|status name|status description|
 |-----|----|-----------|
 |0|DISCHARGING|The battery is discharging.|
 |1|CHARGING_SLOW|The battery is charging at a slow rate about 512 mA.|
@@ -2970,7 +2970,7 @@ Enums/Symbols (fancy way of saying possible values) for status :
 |4|BATTERY_FULL|The charger is plugged and the battery is fully charged.|
 Enums/Symbols (fancy way of saying possible values) for phase :
 
-|value|name|description|
+|phase value|phase name|phase description|
 |-----|----|-----------|
 |0|UNKNOWN|The charge phase is unknown or irrelevant.|
 |1|CONSTANT_CURRENT_1|First phase of the charging process. The battery is charging with constant current.|
@@ -3001,12 +3001,12 @@ Last charge rate.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|rate|enum|true|The charge rate recorded by the firmware for the last charge.|
+|argument|type|description|
+|--------|----|-----------|
+|rate|enum|The charge rate recorded by the firmware for the last charge.|
 Enums/Symbols (fancy way of saying possible values) for rate :
 
-|value|name|description|
+|rate value|rate name|rate description|
 |-----|----|-----------|
 |0|UNKNOWN|The last charge rate is not known.|
 |1|SLOW|Slow charge rate.|
@@ -3036,15 +3036,15 @@ Charging information.
 
 Triggered : when the product is charging or when the charging state changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|phase|enum|true|The current charging phase.|
-|rate|enum|true|The charge rate. If phase is DISCHARGING, refers to the last charge.|
-|intensity|u8|false|The charging intensity, in dA. (12dA = 1,2A) ; If phase is DISCHARGING, refers to the last charge. Equals to 0 if not known.|
-|fullChargingTime|u8|false|The full charging time estimated, in minute. If phase is DISCHARGING, refers to the last charge. Equals to 0 if not known.|
+|argument|type|description|
+|--------|----|-----------|
+|phase|enum|The current charging phase.|
+|rate|enum|The charge rate. If phase is DISCHARGING, refers to the last charge.|
+|intensity|u8|The charging intensity, in dA. (12dA = 1,2A) ; If phase is DISCHARGING, refers to the last charge. Equals to 0 if not known.|
+|fullChargingTime|u8|The full charging time estimated, in minute. If phase is DISCHARGING, refers to the last charge. Equals to 0 if not known.|
 Enums/Symbols (fancy way of saying possible values) for phase :
 
-|value|name|description|
+|phase value|phase name|phase description|
 |-----|----|-----------|
 |0|UNKNOWN|The charge phase is unknown or irrelevant.|
 |1|CONSTANT_CURRENT_1|First phase of the charging process. The battery is charging with constant current.|
@@ -3054,7 +3054,7 @@ Enums/Symbols (fancy way of saying possible values) for phase :
 |5|DISCHARGING|The battery is discharging; Other arguments refers to the last charge.|
 Enums/Symbols (fancy way of saying possible values) for rate :
 
-|value|name|description|
+|rate value|rate name|rate description|
 |-----|----|-----------|
 |0|UNKNOWN|The charge rate is not known.|
 |1|SLOW|Slow charge rate.|
@@ -3097,9 +3097,9 @@ Current run id.
 
 Triggered : when the drone generates a new run id (generally right after a take off).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|runId|string|false|Id of the run|
+|argument|type|description|
+|--------|----|-----------|
+|runId|string|Id of the run|
 
 
 Example binding to listen for the ` RunIdChanged ` event from the drone :

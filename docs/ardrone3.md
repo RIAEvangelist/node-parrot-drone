@@ -63,8 +63,8 @@ Do a flat trim of the accelerometer/gyro.
 
 Result : Accelerometer and gyroscope are calibrated then event [FlatTrimChanged](#1_4_0) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` FlatTrim ` command to your parrot drone :
 
@@ -95,8 +95,8 @@ Ask the drone to take off.
 Result : On the quadcopters: the drone takes off if its [FlyingState](#1_4_1) was landed.
  On the fixed wings, the landing process is aborted if the [FlyingState](#1_4_1) was landing.\n Then, event [FlyingState](#1_4_1) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` TakeOff ` command to your parrot drone :
 
@@ -129,14 +129,14 @@ Move the drone.
 Result : The drone moves! Yaaaaay!
  Event [SpeedChanged](#1_4_5), [AttitudeChanged](#1_4_6) and [PositionChanged](#1_4_4) (only if gps of the drone has fixed) are triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|flag|u8|false|Boolean flag: 1 if the roll and pitch values should be taken in consideration. 0 otherwise|
-|roll|i8|false|Roll angle as signed percentage. On copters: Roll angle expressed as signed percentage of the max pitch/roll setting, in range [_100, 100] _100 corresponds to a roll angle of max pitch/roll to the left (drone will fly left) 100 corresponds to a roll angle of max pitch/roll to the right (drone will fly right) This value may be clamped if necessary, in order to respect the maximum supported physical tilt of the copter. On fixed wings: Roll angle expressed as signed percentage of the physical max roll of the wing, in range [_100, 100] Negative value makes the plane fly to the left Positive value makes the plane fly to the right|
-|pitch|i8|false|Pitch angle as signed percentage. On copters: Expressed as signed percentage of the max pitch/roll setting, in range [_100, 100] _100 corresponds to a pitch angle of max pitch/roll towards sky (drone will fly backward) 100 corresponds to a pitch angle of max pitch/roll towards ground (drone will fly forward) This value may be clamped if necessary, in order to respect the maximum supported physical tilt of the copter. On fixed wings: Expressed as signed percentage of the physical max pitch of the wing, in range [_100, 100] Negative value makes the plane fly in direction of the sky Positive value makes the plane fly in direction of the ground|
-|yaw|i8|false|Yaw rotation speed as signed percentage. On copters: Expressed as signed percentage of the max yaw rotation speed setting, in range [_100, 100]. _100 corresponds to a counter_clockwise rotation of max yaw rotation speed 100 corresponds to a clockwise rotation of max yaw rotation speed This value may be clamped if necessary, in order to respect the maximum supported physical tilt of the copter. On fixed wings: Giving more than a fixed value (75% for the moment) triggers a circle. Positive value will trigger a clockwise circling Negative value will trigger a counter_clockwise circling|
-|gaz|i8|false|Throttle as signed percentage. On copters: Expressed as signed percentage of the max vertical speed setting, in range [_100, 100] _100 corresponds to a max vertical speed towards ground 100 corresponds to a max vertical speed towards sky This value may be clamped if necessary, in order to respect the maximum supported physical tilt of the copter. During the landing phase, putting some positive gaz will cancel the land. On fixed wings: Expressed as signed percentage of the physical max throttle, in range [_100, 100] Negative value makes the plane fly slower Positive value makes the plane fly faster|
-|timestampAndSeqNum|u32|false|Command timestamp in milliseconds (low 24 bits) + command sequence number (high 8 bits) [0;255].|
+|argument|type|description|
+|--------|----|-----------|
+|flag|u8|Boolean flag: 1 if the roll and pitch values should be taken in consideration. 0 otherwise|
+|roll|i8|Roll angle as signed percentage. On copters: Roll angle expressed as signed percentage of the max pitch/roll setting, in range [_100, 100] _100 corresponds to a roll angle of max pitch/roll to the left (drone will fly left) 100 corresponds to a roll angle of max pitch/roll to the right (drone will fly right) This value may be clamped if necessary, in order to respect the maximum supported physical tilt of the copter. On fixed wings: Roll angle expressed as signed percentage of the physical max roll of the wing, in range [_100, 100] Negative value makes the plane fly to the left Positive value makes the plane fly to the right|
+|pitch|i8|Pitch angle as signed percentage. On copters: Expressed as signed percentage of the max pitch/roll setting, in range [_100, 100] _100 corresponds to a pitch angle of max pitch/roll towards sky (drone will fly backward) 100 corresponds to a pitch angle of max pitch/roll towards ground (drone will fly forward) This value may be clamped if necessary, in order to respect the maximum supported physical tilt of the copter. On fixed wings: Expressed as signed percentage of the physical max pitch of the wing, in range [_100, 100] Negative value makes the plane fly in direction of the sky Positive value makes the plane fly in direction of the ground|
+|yaw|i8|Yaw rotation speed as signed percentage. On copters: Expressed as signed percentage of the max yaw rotation speed setting, in range [_100, 100]. _100 corresponds to a counter_clockwise rotation of max yaw rotation speed 100 corresponds to a clockwise rotation of max yaw rotation speed This value may be clamped if necessary, in order to respect the maximum supported physical tilt of the copter. On fixed wings: Giving more than a fixed value (75% for the moment) triggers a circle. Positive value will trigger a clockwise circling Negative value will trigger a counter_clockwise circling|
+|gaz|i8|Throttle as signed percentage. On copters: Expressed as signed percentage of the max vertical speed setting, in range [_100, 100] _100 corresponds to a max vertical speed towards ground 100 corresponds to a max vertical speed towards sky This value may be clamped if necessary, in order to respect the maximum supported physical tilt of the copter. During the landing phase, putting some positive gaz will cancel the land. On fixed wings: Expressed as signed percentage of the physical max throttle, in range [_100, 100] Negative value makes the plane fly slower Positive value makes the plane fly faster|
+|timestampAndSeqNum|u32|Command timestamp in milliseconds (low 24 bits) + command sequence number (high 8 bits) [0;255].|
 
 Example sending the ` PCMD ` command to your parrot drone :
 
@@ -167,8 +167,8 @@ Land.
 Result : On the copters, the drone lands if its [FlyingState](#1_4_1) was taking off, hovering or flying.
  On the fixed wings, the drone lands if its [FlyingState](#1_4_1) was hovering or flying.\n Then, event [FlyingState](#1_4_1) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` Landing ` command to your parrot drone :
 
@@ -200,8 +200,8 @@ Cut out the motors.
 Result : The drone immediatly cuts off its motors.
  Then, event [FlyingState](#1_4_1) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` Emergency ` command to your parrot drone :
 
@@ -234,9 +234,9 @@ Return home.
 Result : The drone will fly back to its home position.
  Then, event [ReturnHomeState](#1_4_3) is triggered.\n You can get a state pending if the drone is not ready to start its return home process but will do it as soon as it is possible.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|start|u8|false|1 to start the navigate home, 0 to stop it|
+|argument|type|description|
+|--------|----|-----------|
+|start|u8|1 to start the navigate home, 0 to stop it|
 
 Example sending the ` NavigateHome ` command to your parrot drone :
 
@@ -265,9 +265,9 @@ Auto take off mode.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|u8|false|State of automatic take off mode (1 for autotake off enabled)|
+|argument|type|description|
+|--------|----|-----------|
+|state|u8|State of automatic take off mode (1 for autotake off enabled)|
 
 Example sending the ` AutoTakeOffMode ` command to your parrot drone :
 
@@ -299,12 +299,12 @@ Move the drone to a relative position and rotate heading by a given angle.
 Result : The drone will move of the given offsets.
  Then, event [RelativeMoveEnded](#1_34_0) is triggered.\n If you send a second relative move command, the drone will trigger a [RelativeMoveEnded](#1_34_0) with the offsets it managed to do before this new command and the value of error set to interrupted.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|dX|float|false|Wanted displacement along the front axis [m]|
-|dY|float|false|Wanted displacement along the right axis [m]|
-|dZ|float|false|Wanted displacement along the down axis [m]|
-|dPsi|float|false|Wanted rotation of heading [rad]|
+|argument|type|description|
+|--------|----|-----------|
+|dX|float|Wanted displacement along the front axis [m]|
+|dY|float|Wanted displacement along the right axis [m]|
+|dZ|float|Wanted displacement along the down axis [m]|
+|dPsi|float|Wanted rotation of heading [rad]|
 
 Example sending the ` moveBy ` command to your parrot drone :
 
@@ -336,9 +336,9 @@ Prepare the drone to take off.
 Result : The drone will arm its motors if not already armed.
  Then, event [FlyingState](#1_4_1) is triggered with state set at motor ramping.\n Then, event [FlyingState](#1_4_1) is triggered with state set at userTakeOff.\n Then user can throw the drone to make it take off.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|u8|false|State of user take off mode _ 1 to enter in user take off. _ 0 to exit from user take off.|
+|argument|type|description|
+|--------|----|-----------|
+|state|u8|State of user take off mode _ 1 to enter in user take off. _ 0 to exit from user take off.|
 
 Example sending the ` UserTakeOff ` command to your parrot drone :
 
@@ -369,12 +369,12 @@ Make the fixed wing circle.
 Result : The fixed wing will circle in the given direction.
  Then, event [FlyingState](#1_4_1) is triggered with state set at hovering.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|direction|enum|true|The circling direction|
+|argument|type|description|
+|--------|----|-----------|
+|direction|enum|The circling direction|
 Enums/Symbols (fancy way of saying possible values) for direction :
 
-|value|name|description|
+|direction value|direction name|direction description|
 |-----|----|-----------|
 |0|CW|Circling ClockWise|
 |1|CCW|Circling Counter ClockWise|
@@ -421,10 +421,10 @@ Move the camera.
 Result : The drone moves its camera.
  Then, event [CameraOrientation](#1_25_0) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|tilt|i8|false|Tilt camera consign for the drone (in degree) The value is saturated by the drone. Saturation value is sent by thre drone through CameraSettingsChanged command.|
-|pan|i8|false|Pan camera consign for the drone (in degree) The value is saturated by the drone. Saturation value is sent by thre drone through CameraSettingsChanged command.|
+|argument|type|description|
+|--------|----|-----------|
+|tilt|i8|Tilt camera consign for the drone (in degree) The value is saturated by the drone. Saturation value is sent by thre drone through CameraSettingsChanged command.|
+|pan|i8|Pan camera consign for the drone (in degree) The value is saturated by the drone. Saturation value is sent by thre drone through CameraSettingsChanged command.|
 
 Example sending the ` Orientation ` command to your parrot drone :
 
@@ -455,10 +455,10 @@ Move the camera.
 Result : The drone moves its camera.
  Then, event [CameraOrientationV2](#1_25_2) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|tilt|float|false|Tilt camera consign for the drone (in degree) The value is saturated by the drone. Saturation value is sent by thre drone through CameraSettingsChanged command.|
-|pan|float|false|Pan camera consign for the drone (in degree) The value is saturated by the drone. Saturation value is sent by thre drone through CameraSettingsChanged command.|
+|argument|type|description|
+|--------|----|-----------|
+|tilt|float|Tilt camera consign for the drone (in degree) The value is saturated by the drone. Saturation value is sent by thre drone through CameraSettingsChanged command.|
+|pan|float|Pan camera consign for the drone (in degree) The value is saturated by the drone. Saturation value is sent by thre drone through CameraSettingsChanged command.|
 
 Example sending the ` OrientationV2 ` command to your parrot drone :
 
@@ -489,10 +489,10 @@ Move the camera given velocity consign.
 Result : The drone moves its camera.
  Then, event [CameraOrientationV2](#1_25_2) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|tilt|float|false|Tilt camera velocity consign [deg/s] Negative tilt velocity move camera to bottom Positive tilt velocity move camera to top|
-|pan|float|false|Pan camera velocity consign [deg/s] Negative pan velocity move camera to left Positive pan velocity move camera to right|
+|argument|type|description|
+|--------|----|-----------|
+|tilt|float|Tilt camera velocity consign [deg/s] Negative tilt velocity move camera to bottom Positive tilt velocity move camera to top|
+|pan|float|Pan camera velocity consign [deg/s] Negative pan velocity move camera to left Positive pan velocity move camera to right|
 
 Example sending the ` Velocity ` command to your parrot drone :
 
@@ -550,9 +550,9 @@ Set max altitude.
 Result : The max altitude is set.
  Then, event [MaxAltitude](#1_6_0) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|float|false|Current altitude max in m|
+|argument|type|description|
+|--------|----|-----------|
+|current|float|Current altitude max in m|
 
 Example sending the ` MaxAltitude ` command to your parrot drone :
 
@@ -584,9 +584,9 @@ Set max pitch/roll.
 Result : The max pitch/roll is set.
  Then, event [MaxPitchRoll](#1_6_1) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|float|false|Current tilt max in degree|
+|argument|type|description|
+|--------|----|-----------|
+|current|float|Current tilt max in degree|
 
 Example sending the ` MaxTilt ` command to your parrot drone :
 
@@ -615,9 +615,9 @@ Set absolut control.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|on|u8|false|1 to enable, 0 to disable|
+|argument|type|description|
+|--------|----|-----------|
+|on|u8|1 to enable, 0 to disable|
 
 Example sending the ` AbsolutControl ` command to your parrot drone :
 
@@ -650,9 +650,9 @@ Set max distance.
 Result : The max distance is set.
  Then, event [MaxDistance](#1_6_3) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|Current max distance in meter|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|Current max distance in meter|
 
 Example sending the ` MaxDistance ` command to your parrot drone :
 
@@ -686,9 +686,9 @@ Enable geofence.
 Result : Geofencing is enabled or disabled.
  Then, event [Geofencing](#1_6_4) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|shouldNotFlyOver|u8|false|1 if the drone can't fly further than max distance, 0 if no limitation on the drone should be done|
+|argument|type|description|
+|--------|----|-----------|
+|shouldNotFlyOver|u8|1 if the drone can't fly further than max distance, 0 if no limitation on the drone should be done|
 
 Example sending the ` NoFlyOverMaxDistance ` command to your parrot drone :
 
@@ -719,9 +719,9 @@ Set autonomous flight max horizontal speed.
 Result : The max horizontal speed is set.
  Then, event [AutonomousFlightMaxHorizontalSpeed](#1_6_5) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|maximum horizontal speed [m/s]|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|maximum horizontal speed [m/s]|
 
 Example sending the ` setAutonomousFlightMaxHorizontalSpeed ` command to your parrot drone :
 
@@ -752,9 +752,9 @@ Set autonomous flight max vertical speed.
 Result : The max vertical speed is set.
  Then, event [AutonomousFlightMaxVerticalSpeed](#1_6_6) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|maximum vertical speed [m/s]|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|maximum vertical speed [m/s]|
 
 Example sending the ` setAutonomousFlightMaxVerticalSpeed ` command to your parrot drone :
 
@@ -785,9 +785,9 @@ Set autonomous flight max horizontal acceleration.
 Result : The max horizontal acceleration is set.
  Then, event [AutonomousFlightMaxHorizontalAcceleration](#1_6_7) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|maximum horizontal acceleration [m/s2]|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|maximum horizontal acceleration [m/s2]|
 
 Example sending the ` setAutonomousFlightMaxHorizontalAcceleration ` command to your parrot drone :
 
@@ -818,9 +818,9 @@ Set autonomous flight max vertical acceleration.
 Result : The max vertical acceleration is set.
  Then, event [AutonomousFlightMaxVerticalAcceleration](#1_6_8) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|maximum vertical acceleration [m/s2]|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|maximum vertical acceleration [m/s2]|
 
 Example sending the ` setAutonomousFlightMaxVerticalAcceleration ` command to your parrot drone :
 
@@ -851,9 +851,9 @@ Set autonomous flight max rotation speed.
 Result : The max rotation speed is set.
  Then, event [AutonomousFlightMaxRotationSpeed](#1_6_9) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|maximum yaw rotation speed [deg/s]|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|maximum yaw rotation speed [deg/s]|
 
 Example sending the ` setAutonomousFlightMaxRotationSpeed ` command to your parrot drone :
 
@@ -884,9 +884,9 @@ Set banked turn mode.
 Result : The banked turn mode is enabled or disabled.
  Then, event [BankedTurnMode](#1_6_10) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|u8|false|1 to enable, 0 to disable|
+|argument|type|description|
+|--------|----|-----------|
+|value|u8|1 to enable, 0 to disable|
 
 Example sending the ` BankedTurn ` command to your parrot drone :
 
@@ -917,9 +917,9 @@ Set minimum altitude.
 Result : The minimum altitude is set.
  Then, event [MinimumAltitude](#1_6_11) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|float|false|Current altitude min in m|
+|argument|type|description|
+|--------|----|-----------|
+|current|float|Current altitude min in m|
 
 Example sending the ` MinAltitude ` command to your parrot drone :
 
@@ -950,12 +950,12 @@ Set default circling direction. This direction will be used when the drone use a
 Result : The circling direction is set.
  Then, event [DefaultCirclingDirection](#1_6_12) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|enum|true|The circling direction|
+|argument|type|description|
+|--------|----|-----------|
+|value|enum|The circling direction|
 Enums/Symbols (fancy way of saying possible values) for value :
 
-|value|name|description|
+|value value|value name|value description|
 |-----|----|-----------|
 |0|CW|Circling ClockWise|
 |1|CCW|Circling Counter ClockWise|
@@ -989,9 +989,9 @@ Set circling radius.
 Result : The circling radius is set.
  Then, event [CirclingRadius](#1_6_13) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|u16|false|The circling radius in meter|
+|argument|type|description|
+|--------|----|-----------|
+|value|u16|The circling radius in meter|
 
 Example sending the ` CirclingRadius ` command to your parrot drone :
 
@@ -1022,9 +1022,9 @@ Set min circling altitude (not used during take off).
 Result : The circling altitude is set.
  Then, event [CirclingAltitude](#1_6_14) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|u16|false|The circling altitude in meter|
+|argument|type|description|
+|--------|----|-----------|
+|value|u16|The circling altitude in meter|
 
 Example sending the ` CirclingAltitude ` command to your parrot drone :
 
@@ -1055,12 +1055,12 @@ Set pitch mode.
 Result : The pitch mode is set.
  Then, event [PitchMode](#1_6_15) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|enum|true|The Pitch mode|
+|argument|type|description|
+|--------|----|-----------|
+|value|enum|The Pitch mode|
 Enums/Symbols (fancy way of saying possible values) for value :
 
-|value|name|description|
+|value value|value name|value description|
 |-----|----|-----------|
 |0|NORMAL|Positive pitch values will make the drone lower its nose. Negative pitch values will make the drone raise its nose.|
 |1|INVERTED|Pitch commands are inverted. Positive pitch values will make the drone raise its nose. Negative pitch values will make the drone lower its nose.|
@@ -1105,19 +1105,19 @@ Picture taken.
 
 Triggered : after a [TakePicture](#1_7_2), when the picture has been taken (or it has failed).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|event|enum|true|Last event of picture recording|
-|error|enum|true|Error to explain the event|
+|argument|type|description|
+|--------|----|-----------|
+|event|enum|Last event of picture recording|
+|error|enum|Error to explain the event|
 Enums/Symbols (fancy way of saying possible values) for event :
 
-|value|name|description|
+|event value|event name|event description|
 |-----|----|-----------|
 |0|taken|Picture taken and saved|
 |1|failed|Picture failed|
 Enums/Symbols (fancy way of saying possible values) for error :
 
-|value|name|description|
+|error value|error name|error description|
 |-----|----|-----------|
 |0|ok|No Error|
 |1|unknown|Unknown generic error ; only when state is failed|
@@ -1151,20 +1151,20 @@ Video record notification.
 
 Triggered : by [RecordVideo](#1_7_3) or a change in the video state.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|event|enum|true|Event of video recording|
-|error|enum|true|Error to explain the event|
+|argument|type|description|
+|--------|----|-----------|
+|event|enum|Event of video recording|
+|error|enum|Error to explain the event|
 Enums/Symbols (fancy way of saying possible values) for event :
 
-|value|name|description|
+|event value|event name|event description|
 |-----|----|-----------|
 |0|start|Video start|
 |1|stop|Video stop and saved|
 |2|failed|Video failed|
 Enums/Symbols (fancy way of saying possible values) for error :
 
-|value|name|description|
+|error value|error name|error description|
 |-----|----|-----------|
 |0|ok|No Error|
 |1|unknown|Unknown generic error ; only when state is failed|
@@ -1218,8 +1218,8 @@ Drone acknowledges that flat trim was correctly processed.
 
 Triggered : by [FlatTrim](#1_0_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 
 Example binding to listen for the ` FlatTrimChanged ` event from the drone :
@@ -1244,12 +1244,12 @@ Flying state.
 
 Triggered : when the flying state changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|enum|true|Drone flying state|
+|argument|type|description|
+|--------|----|-----------|
+|state|enum|Drone flying state|
 Enums/Symbols (fancy way of saying possible values) for state :
 
-|value|name|description|
+|state value|state name|state description|
 |-----|----|-----------|
 |0|landed|Landed state|
 |1|takingoff|Taking off state|
@@ -1284,12 +1284,12 @@ Alert state.
 
 Triggered : when an alert happens on the drone.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|enum|true|Drone alert state|
+|argument|type|description|
+|--------|----|-----------|
+|state|enum|Drone alert state|
 Enums/Symbols (fancy way of saying possible values) for state :
 
-|value|name|description|
+|state value|state name|state description|
 |-----|----|-----------|
 |0|none|No alert|
 |1|user|User emergency alert|
@@ -1322,13 +1322,13 @@ Return home state.
 
 Triggered : by [ReturnHome](#1_0_5) or when the state of the return home changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|enum|true|State of navigate home|
-|reason|enum|true|Reason of the state|
+|argument|type|description|
+|--------|----|-----------|
+|state|enum|State of navigate home|
+|reason|enum|Reason of the state|
 Enums/Symbols (fancy way of saying possible values) for state :
 
-|value|name|description|
+|state value|state name|state description|
 |-----|----|-----------|
 |0|available|Navigate home is available|
 |1|inProgress|Navigate home is in progress|
@@ -1336,7 +1336,7 @@ Enums/Symbols (fancy way of saying possible values) for state :
 |3|pending|Navigate home has been received, but its process is pending|
 Enums/Symbols (fancy way of saying possible values) for reason :
 
-|value|name|description|
+|reason value|reason name|reason description|
 |-----|----|-----------|
 |0|userRequest|User requested a navigate home (available_>inProgress)|
 |1|connectionLost|Connection between controller and product lost (available_>inProgress)|
@@ -1369,11 +1369,11 @@ Drone's position changed.
 
 Triggered : regularly.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|latitude|double|false|Latitude position in decimal degrees (500.0 if not available)|
-|longitude|double|false|Longitude position in decimal degrees (500.0 if not available)|
-|altitude|double|false|Altitude in meters (from GPS)|
+|argument|type|description|
+|--------|----|-----------|
+|latitude|double|Latitude position in decimal degrees (500.0 if not available)|
+|longitude|double|Longitude position in decimal degrees (500.0 if not available)|
+|altitude|double|Altitude in meters (from GPS)|
 
 
 Example binding to listen for the ` PositionChanged ` event from the drone :
@@ -1399,11 +1399,11 @@ Drone's speed changed.
 
 Triggered : regularly.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|speedX|float|false|Speed relative to the North (when drone moves to the north, speed is > 0) (in m/s)|
-|speedY|float|false|Speed relative to the East (when drone moves to the east, speed is > 0) (in m/s)|
-|speedZ|float|false|Speed on the z axis (when drone moves down, speed is > 0) (in m/s)|
+|argument|type|description|
+|--------|----|-----------|
+|speedX|float|Speed relative to the North (when drone moves to the north, speed is > 0) (in m/s)|
+|speedY|float|Speed relative to the East (when drone moves to the east, speed is > 0) (in m/s)|
+|speedZ|float|Speed on the z axis (when drone moves down, speed is > 0) (in m/s)|
 
 
 Example binding to listen for the ` SpeedChanged ` event from the drone :
@@ -1428,11 +1428,11 @@ Drone's attitude changed.
 
 Triggered : regularly.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|roll|float|false|roll value (in radian)|
-|pitch|float|false|Pitch value (in radian)|
-|yaw|float|false|Yaw value (in radian)|
+|argument|type|description|
+|--------|----|-----------|
+|roll|float|roll value (in radian)|
+|pitch|float|Pitch value (in radian)|
+|yaw|float|Yaw value (in radian)|
 
 
 Example binding to listen for the ` AttitudeChanged ` event from the drone :
@@ -1457,9 +1457,9 @@ Auto takeoff mode
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|u8|false|State of automatic take off mode (1 if enabled)|
+|argument|type|description|
+|--------|----|-----------|
+|state|u8|State of automatic take off mode (1 if enabled)|
 
 
 Example binding to listen for the ` AutoTakeOffModeChanged ` event from the drone :
@@ -1486,9 +1486,9 @@ Drone's altitude changed.
 
 Triggered : regularly.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|altitude|double|false|Altitude in meters|
+|argument|type|description|
+|--------|----|-----------|
+|altitude|double|Altitude in meters|
 
 
 Example binding to listen for the ` AltitudeChanged ` event from the drone :
@@ -1514,14 +1514,14 @@ Drone's location changed.
 
 Triggered : regularly.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|latitude|double|false|Latitude location in decimal degrees (500.0 if not available)|
-|longitude|double|false|Longitude location in decimal degrees (500.0 if not available)|
-|altitude|double|false|Altitude location in meters.|
-|latitude_accuracy|i8|false|Latitude location error in meters (1 sigma/standard deviation) _1 if not available.|
-|longitude_accuracy|i8|false|Longitude location error in meters (1 sigma/standard deviation) _1 if not available.|
-|altitude_accuracy|i8|false|Altitude location error in meters (1 sigma/standard deviation) _1 if not available.|
+|argument|type|description|
+|--------|----|-----------|
+|latitude|double|Latitude location in decimal degrees (500.0 if not available)|
+|longitude|double|Longitude location in decimal degrees (500.0 if not available)|
+|altitude|double|Altitude location in meters.|
+|latitude_accuracy|i8|Latitude location error in meters (1 sigma/standard deviation) _1 if not available.|
+|longitude_accuracy|i8|Longitude location error in meters (1 sigma/standard deviation) _1 if not available.|
+|altitude_accuracy|i8|Altitude location error in meters (1 sigma/standard deviation) _1 if not available.|
 
 
 Example binding to listen for the ` GpsLocationChanged ` event from the drone :
@@ -1547,12 +1547,12 @@ Landing state.
 
 Triggered : when the landing state changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|enum|true|Drone landing state|
+|argument|type|description|
+|--------|----|-----------|
+|state|enum|Drone landing state|
 Enums/Symbols (fancy way of saying possible values) for state :
 
-|value|name|description|
+|state value|state name|state description|
 |-----|----|-----------|
 |0|linear|Linear landing|
 |1|spiral|Spiral landing|
@@ -1581,9 +1581,9 @@ Drone's air speed changed
 
 Triggered : regularly.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|airSpeed|float|false|Speed relative to air on x axis (speed is always > 0) (in m/s)|
+|argument|type|description|
+|--------|----|-----------|
+|airSpeed|float|Speed relative to air on x axis (speed is always > 0) (in m/s)|
 
 
 Example binding to listen for the ` AirSpeedChanged ` event from the drone :
@@ -1618,12 +1618,12 @@ Make a flip.
 
 Result : The drone will make a flip if it has enough battery.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|direction|enum|true|Direction for the flip|
+|argument|type|description|
+|--------|----|-----------|
+|direction|enum|Direction for the flip|
 Enums/Symbols (fancy way of saying possible values) for direction :
 
-|value|name|description|
+|direction value|direction name|direction description|
 |-----|----|-----------|
 |0|front|Flip direction front|
 |1|back|Flip direction back|
@@ -1683,11 +1683,11 @@ Max altitude.
 
 Triggered : by [SetMaxAltitude](#1_2_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|float|false|Current altitude max|
-|min|float|false|Range min of altitude|
-|max|float|false|Range max of altitude|
+|argument|type|description|
+|--------|----|-----------|
+|current|float|Current altitude max|
+|min|float|Range min of altitude|
+|max|float|Range max of altitude|
 
 
 Example binding to listen for the ` MaxAltitudeChanged ` event from the drone :
@@ -1713,11 +1713,11 @@ Max pitch/roll.
 
 Triggered : by [SetMaxAltitude](#1_2_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|float|false|Current max tilt|
-|min|float|false|Range min of tilt|
-|max|float|false|Range max of tilt|
+|argument|type|description|
+|--------|----|-----------|
+|current|float|Current max tilt|
+|min|float|Range min of tilt|
+|max|float|Range max of tilt|
 
 
 Example binding to listen for the ` MaxTiltChanged ` event from the drone :
@@ -1742,9 +1742,9 @@ Absolut control.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|on|u8|false|1 if enabled, 0 if disabled|
+|argument|type|description|
+|--------|----|-----------|
+|on|u8|1 if enabled, 0 if disabled|
 
 
 Example binding to listen for the ` AbsolutControlChanged ` event from the drone :
@@ -1769,11 +1769,11 @@ Max distance.
 
 Triggered : by [SetMaxDistance](#1_2_3).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|float|false|Current max distance in meter|
-|min|float|false|Minimal possible max distance|
-|max|float|false|Maximal possible max distance|
+|argument|type|description|
+|--------|----|-----------|
+|current|float|Current max distance in meter|
+|min|float|Minimal possible max distance|
+|max|float|Maximal possible max distance|
 
 
 Example binding to listen for the ` MaxDistanceChanged ` event from the drone :
@@ -1799,9 +1799,9 @@ Geofencing.
 
 Triggered : by [EnableGeofence](#1_2_4).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|shouldNotFlyOver|u8|false|1 if the drone won't fly further than max distance, 0 if no limitation on the drone will be done|
+|argument|type|description|
+|--------|----|-----------|
+|shouldNotFlyOver|u8|1 if the drone won't fly further than max distance, 0 if no limitation on the drone will be done|
 
 
 Example binding to listen for the ` NoFlyOverMaxDistanceChanged ` event from the drone :
@@ -1826,9 +1826,9 @@ Autonomous flight max horizontal speed.
 
 Triggered : by [SetAutonomousFlightMaxHorizontalSpeed](#1_2_5).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|maximum horizontal speed [m/s]|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|maximum horizontal speed [m/s]|
 
 
 Example binding to listen for the ` AutonomousFlightMaxHorizontalSpeed ` event from the drone :
@@ -1853,9 +1853,9 @@ Autonomous flight max vertical speed.
 
 Triggered : by [SetAutonomousFlightMaxVerticalSpeed](#1_2_6).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|maximum vertical speed [m/s]|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|maximum vertical speed [m/s]|
 
 
 Example binding to listen for the ` AutonomousFlightMaxVerticalSpeed ` event from the drone :
@@ -1880,9 +1880,9 @@ Autonomous flight max horizontal acceleration.
 
 Triggered : by [SetAutonomousFlightMaxHorizontalAcceleration](#1_2_7).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|maximum horizontal acceleration [m/s2]|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|maximum horizontal acceleration [m/s2]|
 
 
 Example binding to listen for the ` AutonomousFlightMaxHorizontalAcceleration ` event from the drone :
@@ -1907,9 +1907,9 @@ Autonomous flight max vertical acceleration.
 
 Triggered : by [SetAutonomousFlightMaxVerticalAcceleration](#1_2_8).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|maximum vertical acceleration [m/s2]|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|maximum vertical acceleration [m/s2]|
 
 
 Example binding to listen for the ` AutonomousFlightMaxVerticalAcceleration ` event from the drone :
@@ -1934,9 +1934,9 @@ Autonomous flight max rotation speed.
 
 Triggered : by [SetAutonomousFlightMaxRotationSpeed](#1_2_9).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|maximum yaw rotation speed [deg/s]|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|maximum yaw rotation speed [deg/s]|
 
 
 Example binding to listen for the ` AutonomousFlightMaxRotationSpeed ` event from the drone :
@@ -1962,9 +1962,9 @@ Banked Turn mode.
 
 Triggered : by [SetBankedTurnMode](#1_2_10).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|u8|false|1 if enabled, 0 if disabled|
+|argument|type|description|
+|--------|----|-----------|
+|state|u8|1 if enabled, 0 if disabled|
 
 
 Example binding to listen for the ` BankedTurnChanged ` event from the drone :
@@ -1990,11 +1990,11 @@ Min altitude.
 
 Triggered : by [SetMinAltitude](#1_2_11).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|float|false|Current altitude min|
-|min|float|false|Range min of altitude min|
-|max|float|false|Range max of altitude min|
+|argument|type|description|
+|--------|----|-----------|
+|current|float|Current altitude min|
+|min|float|Range min of altitude min|
+|max|float|Range max of altitude min|
 
 
 Example binding to listen for the ` MinAltitudeChanged ` event from the drone :
@@ -2020,12 +2020,12 @@ Circling direction.
 
 Triggered : by [SetCirclingDirection](#1_2_12).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|enum|true|The circling direction|
+|argument|type|description|
+|--------|----|-----------|
+|value|enum|The circling direction|
 Enums/Symbols (fancy way of saying possible values) for value :
 
-|value|name|description|
+|value value|value name|value description|
 |-----|----|-----------|
 |0|CW|Circling ClockWise|
 |1|CCW|Circling Counter ClockWise|
@@ -2054,11 +2054,11 @@ Circling radius.
 
 Triggered : by [SetCirclingRadius](#1_2_13).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|u16|false|The current circling radius in meter|
-|min|u16|false|Range min of circling radius in meter|
-|max|u16|false|Range max of circling radius in meter|
+|argument|type|description|
+|--------|----|-----------|
+|current|u16|The current circling radius in meter|
+|min|u16|Range min of circling radius in meter|
+|max|u16|Range max of circling radius in meter|
 
 
 Example binding to listen for the ` CirclingRadiusChanged ` event from the drone :
@@ -2085,11 +2085,11 @@ Circling altitude.
 
 Triggered : by [SetCirclingRadius](#1_2_14) or when bounds change due to [SetMaxAltitude](#1_2_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|u16|false|The current circling altitude in meter|
-|min|u16|false|Range min of circling altitude in meter|
-|max|u16|false|Range max of circling altitude in meter|
+|argument|type|description|
+|--------|----|-----------|
+|current|u16|The current circling altitude in meter|
+|min|u16|Range min of circling altitude in meter|
+|max|u16|Range max of circling altitude in meter|
 
 
 Example binding to listen for the ` CirclingAltitudeChanged ` event from the drone :
@@ -2114,12 +2114,12 @@ Pitch mode.
 
 Triggered : by [SetPitchMode](#1_2_15).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|enum|true|The Pitch mode|
+|argument|type|description|
+|--------|----|-----------|
+|value|enum|The Pitch mode|
 Enums/Symbols (fancy way of saying possible values) for value :
 
-|value|name|description|
+|value value|value name|value description|
 |-----|----|-----------|
 |0|NORMAL|Positive pitch values will make the drone lower its nose. Negative pitch values will make the drone raise its nose.|
 |1|INVERTED|Pitch commands are inverted. Positive pitch values will make the drone raise its nose. Negative pitch values will make the drone lower its nose.|
@@ -2160,9 +2160,9 @@ Take a picture.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|mass_storage_id|u8|false|Mass storage id to take picture|
+|argument|type|description|
+|--------|----|-----------|
+|mass_storage_id|u8|Mass storage id to take picture|
 
 Example sending the ` Picture ` command to your parrot drone :
 
@@ -2191,13 +2191,13 @@ Record a video.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|record|enum|true|Command to record video|
-|mass_storage_id|u8|false|Mass storage id to record|
+|argument|type|description|
+|--------|----|-----------|
+|record|enum|Command to record video|
+|mass_storage_id|u8|Mass storage id to record|
 Enums/Symbols (fancy way of saying possible values) for record :
 
-|value|name|description|
+|record value|record name|record description|
 |-----|----|-----------|
 |0|stop|Stop the video recording|
 |1|start|Start the video recording|
@@ -2236,8 +2236,8 @@ Take a picture.
 Result : Event [PictureState](#1_8_2) will be triggered with a state busy.
  The drone will take a picture.\n Then, when picture has been taken, notification [PictureEvent](#1_3_0) is triggered.\n And normally [PictureState](#1_8_2) will be triggered with a state ready.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` PictureV2 ` command to your parrot drone :
 
@@ -2270,12 +2270,12 @@ Record a video (or start timelapse).
 Result : The drone will begin or stop to record the video (or timelapse).
  Then, event [VideoState](#1_8_3) will be triggered. Also, notification [VideoEvent](#1_3_1) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|record|enum|true|Command to record video|
+|argument|type|description|
+|--------|----|-----------|
+|record|enum|Command to record video|
 Enums/Symbols (fancy way of saying possible values) for record :
 
-|value|name|description|
+|record value|record name|record description|
 |-----|----|-----------|
 |0|stop|Stop the video recording|
 |1|start|Start the video recording|
@@ -2321,10 +2321,10 @@ Picture state.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|u8|false|1 if picture has been taken, 0 otherwise|
-|mass_storage_id|u8|false|Mass storage id where the picture was recorded|
+|argument|type|description|
+|--------|----|-----------|
+|state|u8|1 if picture has been taken, 0 otherwise|
+|mass_storage_id|u8|Mass storage id where the picture was recorded|
 
 
 Example binding to listen for the ` PictureStateChanged ` event from the drone :
@@ -2349,13 +2349,13 @@ Picture record state.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|enum|true|State of video|
-|mass_storage_id|u8|false|Mass storage id where the video was recorded|
+|argument|type|description|
+|--------|----|-----------|
+|state|enum|State of video|
+|mass_storage_id|u8|Mass storage id where the video was recorded|
 Enums/Symbols (fancy way of saying possible values) for state :
 
-|value|name|description|
+|state value|state name|state description|
 |-----|----|-----------|
 |0|stopped|Video was stopped|
 |1|started|Video was started|
@@ -2385,20 +2385,20 @@ Picture state.
 
 Triggered : by [TakePicture](#1_7_2) or by a change in the picture state
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|enum|true|State of device picture recording|
-|error|enum|true|Error to explain the state|
+|argument|type|description|
+|--------|----|-----------|
+|state|enum|State of device picture recording|
+|error|enum|Error to explain the state|
 Enums/Symbols (fancy way of saying possible values) for state :
 
-|value|name|description|
+|state value|state name|state description|
 |-----|----|-----------|
 |0|ready|The picture recording is ready|
 |1|busy|The picture recording is busy|
 |2|notAvailable|The picture recording is not available|
 Enums/Symbols (fancy way of saying possible values) for error :
 
-|value|name|description|
+|error value|error name|error description|
 |-----|----|-----------|
 |0|ok|No Error|
 |1|unknown|Unknown generic error|
@@ -2429,20 +2429,20 @@ Video record state.
 
 Triggered : by [RecordVideo](#1_7_3) or by a change in the video state
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|enum|true|State of device video recording|
-|error|enum|true|Error to explain the state|
+|argument|type|description|
+|--------|----|-----------|
+|state|enum|State of device video recording|
+|error|enum|Error to explain the state|
 Enums/Symbols (fancy way of saying possible values) for state :
 
-|value|name|description|
+|state value|state name|state description|
 |-----|----|-----------|
 |0|stopped|Video is stopped|
 |1|started|Video is started|
 |2|notAvailable|The video recording is not available|
 Enums/Symbols (fancy way of saying possible values) for error :
 
-|value|name|description|
+|error value|error name|error description|
 |-----|----|-----------|
 |0|ok|No Error|
 |1|unknown|Unknown generic error|
@@ -2475,13 +2475,13 @@ Video resolution.
 
 Triggered : when the resolution changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|streaming|enum|true|Streaming resolution|
-|recording|enum|true|Recording resolution|
+|argument|type|description|
+|--------|----|-----------|
+|streaming|enum|Streaming resolution|
+|recording|enum|Recording resolution|
 Enums/Symbols (fancy way of saying possible values) for streaming :
 
-|value|name|description|
+|streaming value|streaming name|streaming description|
 |-----|----|-----------|
 |0|res360p|360p resolution.|
 |1|res480p|480p resolution.|
@@ -2489,7 +2489,7 @@ Enums/Symbols (fancy way of saying possible values) for streaming :
 |3|res1080p|1080p resolution.|
 Enums/Symbols (fancy way of saying possible values) for recording :
 
-|value|name|description|
+|recording value|recording name|recording description|
 |-----|----|-----------|
 |0|res360p|360p resolution.|
 |1|res480p|480p resolution.|
@@ -2531,20 +2531,20 @@ Select or auto_select channel of choosen band.
 Result : The wifi channel changes according to given parameters. Watch out, a disconnection might appear.
  Then, event [WifiSelection](#1_10_0) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|The type of wifi selection (auto, manual)|
-|band|enum|true|The allowed band(s) : 2.4 Ghz, 5 Ghz, or all|
-|channel|u8|false|The channel (not used in auto mode)|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|The type of wifi selection (auto, manual)|
+|band|enum|The allowed band(s) : 2.4 Ghz, 5 Ghz, or all|
+|channel|u8|The channel (not used in auto mode)|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|auto|Auto selection|
 |1|manual|Manual selection|
 Enums/Symbols (fancy way of saying possible values) for band :
 
-|value|name|description|
+|band value|band name|band description|
 |-----|----|-----------|
 |0|_2_4ghz|2.4 GHz band|
 |1|_5ghz|5 GHz band|
@@ -2579,20 +2579,20 @@ Set wifi security type.
 Result : The wifi security is set (but not applied until next restart).
  Then, event [WifiSecurityType](#1_10_2) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|The type of wifi security (open, wpa2)|
-|key|string|false|The key to secure the network (empty if type is open)|
-|keyType|enum|true|Type of the key|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|The type of wifi security (open, wpa2)|
+|key|string|The key to secure the network (empty if type is open)|
+|keyType|enum|Type of the key|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|open|Wifi is not protected by any security (default)|
 |1|wpa2|Wifi is protected by wpa2|
 Enums/Symbols (fancy way of saying possible values) for keyType :
 
-|value|name|description|
+|keyType value|keyType name|keyType description|
 |-----|----|-----------|
 |0|plain|Key is plain text, not encrypted|
 
@@ -2635,14 +2635,14 @@ Wifi selection.
 
 Triggered : by [SelectWifi](#1_9_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|The type of wifi selection settings|
-|band|enum|true|The actual wifi band state|
-|channel|u8|false|The channel (depends of the band)|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|The type of wifi selection settings|
+|band|enum|The actual wifi band state|
+|channel|u8|The channel (depends of the band)|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|auto_all|Auto selection|
 |1|auto__2_4ghz|Auto selection 2.4ghz|
@@ -2650,7 +2650,7 @@ Enums/Symbols (fancy way of saying possible values) for type :
 |3|manual|Manual selection|
 Enums/Symbols (fancy way of saying possible values) for band :
 
-|value|name|description|
+|band value|band name|band description|
 |-----|----|-----------|
 |0|_2_4ghz|2.4 GHz band|
 |1|_5ghz|5 GHz band|
@@ -2679,12 +2679,12 @@ Wifi security type.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|The type of wifi security (open, wpa2)|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|The type of wifi security (open, wpa2)|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|open|Wifi is not protected by any security (default)|
 |1|wpa2|Wifi is protected by wpa2|
@@ -2712,20 +2712,20 @@ Wifi security type.
 
 Triggered : by [SetWifiSecurityType](#1_9_1).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|The type of wifi security (open, wpa2)|
-|key|string|false|The key used to secure the network (empty if type is open)|
-|keyType|enum|true|Type of the key|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|The type of wifi security (open, wpa2)|
+|key|string|The key used to secure the network (empty if type is open)|
+|keyType|enum|Type of the key|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|open|Wifi is not protected by any security (default)|
 |1|wpa2|Wifi is protected by wpa2|
 Enums/Symbols (fancy way of saying possible values) for keyType :
 
-|value|name|description|
+|keyType value|keyType name|keyType description|
 |-----|----|-----------|
 |0|plain|Key is plain text, not encrypted|
 
@@ -2767,9 +2767,9 @@ Set max vertical speed.
 Result : The max vertical speed is set.
  Then, event [MaxVerticalSpeed](#1_12_0) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|float|false|Current max vertical speed in m/s|
+|argument|type|description|
+|--------|----|-----------|
+|current|float|Current max vertical speed in m/s|
 
 Example sending the ` MaxVerticalSpeed ` command to your parrot drone :
 
@@ -2799,9 +2799,9 @@ Set max rotation speed.
 Result : The max rotation speed is set.
  Then, event [MaxRotationSpeed](#1_12_1) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|float|false|Current max yaw rotation speed in degree/s|
+|argument|type|description|
+|--------|----|-----------|
+|current|float|Current max yaw rotation speed in degree/s|
 
 Example sending the ` MaxRotationSpeed ` command to your parrot drone :
 
@@ -2831,9 +2831,9 @@ Set the presence of hull protection.
 Result : The drone knows that it has a hull protection.
  Then, event [HullProtection](#1_12_2) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|present|u8|false|1 if present, 0 if not present|
+|argument|type|description|
+|--------|----|-----------|
+|present|u8|1 if present, 0 if not present|
 
 Example sending the ` HullProtection ` command to your parrot drone :
 
@@ -2862,9 +2862,9 @@ Set outdoor mode.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|outdoor|u8|false|1 if outdoor flight, 0 if indoor flight|
+|argument|type|description|
+|--------|----|-----------|
+|outdoor|u8|1 if outdoor flight, 0 if indoor flight|
 
 Example sending the ` Outdoor ` command to your parrot drone :
 
@@ -2894,9 +2894,9 @@ Set max pitch/roll rotation speed.
 Result : The max pitch/roll rotation speed is set.
  Then, event [MaxPitchRollRotationSpeed](#1_12_4) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|float|false|Current max pitch/roll rotation speed in degree/s|
+|argument|type|description|
+|--------|----|-----------|
+|current|float|Current max pitch/roll rotation speed in degree/s|
 
 Example sending the ` MaxPitchRollRotationSpeed ` command to your parrot drone :
 
@@ -2939,11 +2939,11 @@ Max vertical speed.
 
 Triggered : by [SetMaxVerticalSpeed](#1_11_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|float|false|Current max vertical speed in m/s|
-|min|float|false|Range min of vertical speed|
-|max|float|false|Range max of vertical speed|
+|argument|type|description|
+|--------|----|-----------|
+|current|float|Current max vertical speed in m/s|
+|min|float|Range min of vertical speed|
+|max|float|Range max of vertical speed|
 
 
 Example binding to listen for the ` MaxVerticalSpeedChanged ` event from the drone :
@@ -2968,11 +2968,11 @@ Max rotation speed.
 
 Triggered : by [SetMaxRotationSpeed](#1_11_1).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|float|false|Current max yaw rotation speed in degree/s|
-|min|float|false|Range min of yaw rotation speed|
-|max|float|false|Range max of yaw rotation speed|
+|argument|type|description|
+|--------|----|-----------|
+|current|float|Current max yaw rotation speed in degree/s|
+|min|float|Range min of yaw rotation speed|
+|max|float|Range max of yaw rotation speed|
 
 
 Example binding to listen for the ` MaxRotationSpeedChanged ` event from the drone :
@@ -2997,9 +2997,9 @@ Presence of hull protection.
 
 Triggered : by [SetHullProtectionPresence](#1_11_2).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|present|u8|false|1 if present, 0 if not present|
+|argument|type|description|
+|--------|----|-----------|
+|present|u8|1 if present, 0 if not present|
 
 
 Example binding to listen for the ` HullProtectionChanged ` event from the drone :
@@ -3024,9 +3024,9 @@ Outdoor mode.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|outdoor|u8|false|1 if outdoor flight, 0 if indoor flight|
+|argument|type|description|
+|--------|----|-----------|
+|outdoor|u8|1 if outdoor flight, 0 if indoor flight|
 
 
 Example binding to listen for the ` OutdoorChanged ` event from the drone :
@@ -3051,11 +3051,11 @@ Max pitch/roll rotation speed.
 
 Triggered : by [SetMaxPitchRollRotationSpeed](#1_11_4).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|current|float|false|Current max pitch/roll rotation speed in degree/s|
-|min|float|false|Range min of pitch/roll rotation speed|
-|max|float|false|Range max of pitch/roll rotation speed|
+|argument|type|description|
+|--------|----|-----------|
+|current|float|Current max pitch/roll rotation speed in degree/s|
+|min|float|Range min of pitch/roll rotation speed|
+|max|float|Range max of pitch/roll rotation speed|
 
 
 Example binding to listen for the ` MaxPitchRollRotationSpeedChanged ` event from the drone :
@@ -3092,12 +3092,12 @@ Scan wifi network to get a list of all networks found by the drone
 Result : Event [WifiScanResults](#1_14_0) is triggered with all networks found.
  When all networks have been sent, event [WifiScanEnded](#1_14_1) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|band|enum|true|The band(s) : 2.4 Ghz, 5 Ghz, or both|
+|argument|type|description|
+|--------|----|-----------|
+|band|enum|The band(s) : 2.4 Ghz, 5 Ghz, or both|
 Enums/Symbols (fancy way of saying possible values) for band :
 
-|value|name|description|
+|band value|band name|band description|
 |-----|----|-----------|
 |0|_2_4ghz|2.4 GHz band|
 |1|_5ghz|5 GHz band|
@@ -3131,8 +3131,8 @@ Ask for available wifi channels.
 
 Result : Event [AvailableWifiChannels](#1_14_2) is triggered with all available channels. When all channels have been sent, event [AvailableWifiChannelsCompleted](#1_14_3) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` WifiAuthChannel ` command to your parrot drone :
 
@@ -3175,15 +3175,15 @@ Wifi scan results.
 
 Triggered : for each wifi network scanned after a [ScanWifi](#1_13_0)
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|ssid|string|false|SSID of the AP|
-|rssi|i16|false|RSSI of the AP in dbm (negative value)|
-|band|enum|true|The band : 2.4 GHz or 5 GHz|
-|channel|u8|false|Channel of the AP|
+|argument|type|description|
+|--------|----|-----------|
+|ssid|string|SSID of the AP|
+|rssi|i16|RSSI of the AP in dbm (negative value)|
+|band|enum|The band : 2.4 GHz or 5 GHz|
+|channel|u8|Channel of the AP|
 Enums/Symbols (fancy way of saying possible values) for band :
 
-|value|name|description|
+|band value|band name|band description|
 |-----|----|-----------|
 |0|_2_4ghz|2.4 GHz band|
 |1|_5ghz|5 GHz band|
@@ -3212,8 +3212,8 @@ Wifi scan ended.
 
 Triggered : after the last [WifiScanResult](#1_14_0) has been sent.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 
 Example binding to listen for the ` AllWifiScanChanged ` event from the drone :
@@ -3239,14 +3239,14 @@ Available wifi channels.
 
 Triggered : for each available channel after a [GetAvailableWifiChannels](#1_13_1).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|band|enum|true|The band of this channel : 2.4 GHz or 5 GHz|
-|channel|u8|false|The authorized channel.|
-|in_or_out|u8|false|Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)|
+|argument|type|description|
+|--------|----|-----------|
+|band|enum|The band of this channel : 2.4 GHz or 5 GHz|
+|channel|u8|The authorized channel.|
+|in_or_out|u8|Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)|
 Enums/Symbols (fancy way of saying possible values) for band :
 
-|value|name|description|
+|band value|band name|band description|
 |-----|----|-----------|
 |0|_2_4ghz|2.4 GHz band|
 |1|_5ghz|5 GHz band|
@@ -3275,8 +3275,8 @@ Available wifi channels completed.
 
 Triggered : after the last [AvailableWifiChannel](#1_14_2) has been sent.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 
 Example binding to listen for the ` AllWifiAuthChannelChanged ` event from the drone :
@@ -3318,12 +3318,12 @@ Motor version.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|motor_number|u8|false|Product Motor number|
-|type|string|false|Product Motor type|
-|software|string|false|Product Motors software version|
-|hardware|string|false|Product Motors hardware version|
+|argument|type|description|
+|--------|----|-----------|
+|motor_number|u8|Product Motor number|
+|type|string|Product Motor type|
+|software|string|Product Motors software version|
+|hardware|string|Product Motors hardware version|
 
 
 Example binding to listen for the ` ProductMotorVersionListChanged ` event from the drone :
@@ -3348,10 +3348,10 @@ GPS version.
 
 Triggered : at connection.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|software|string|false|Product GPS software version|
-|hardware|string|false|Product GPS hardware version|
+|argument|type|description|
+|--------|----|-----------|
+|software|string|Product GPS software version|
+|hardware|string|Product GPS hardware version|
 
 
 Example binding to listen for the ` ProductGPSVersionChanged ` event from the drone :
@@ -3377,13 +3377,13 @@ Motor error.
 
 Triggered : when a motor error occurs.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|motorIds|u8|false|Bit field for concerned motor. If bit 0 = 1, motor 1 is affected by this error. Same with bit 1, 2 and 3. Motor 1: front left Motor 2: front right Motor 3: back right Motor 4: back left|
-|motorError|enum|true|Enumeration of the motor error|
+|argument|type|description|
+|--------|----|-----------|
+|motorIds|u8|Bit field for concerned motor. If bit 0 = 1, motor 1 is affected by this error. Same with bit 1, 2 and 3. Motor 1: front left Motor 2: front right Motor 3: back right Motor 4: back left|
+|motorError|enum|Enumeration of the motor error|
 Enums/Symbols (fancy way of saying possible values) for motorError :
 
-|value|name|description|
+|motorError value|motorError name|motorError description|
 |-----|----|-----------|
 |0|noError|No error detected|
 |1|errorEEPRom|EEPROM access failure|
@@ -3423,9 +3423,9 @@ Motor version.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|version|string|false|name of the version : dot separated fields (major version _ minor version _ firmware type _ nb motors handled). Firmware types : Release, Debug, Alpha, Test_bench|
+|argument|type|description|
+|--------|----|-----------|
+|version|string|name of the version : dot separated fields (major version _ minor version _ firmware type _ nb motors handled). Firmware types : Release, Debug, Alpha, Test_bench|
 
 
 Example binding to listen for the ` MotorSoftwareVersionChanged ` event from the drone :
@@ -3450,11 +3450,11 @@ Motor flight status.
 
 Triggered : at connection.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|nbFlights|u16|false|total number of flights|
-|lastFlightDuration|u16|false|Duration of the last flight (in seconds)|
-|totalFlightDuration|u32|false|Duration of all flights (in seconds)|
+|argument|type|description|
+|--------|----|-----------|
+|nbFlights|u16|total number of flights|
+|lastFlightDuration|u16|Duration of the last flight (in seconds)|
+|totalFlightDuration|u32|Duration of all flights (in seconds)|
 
 
 Example binding to listen for the ` MotorFlightsStatusChanged ` event from the drone :
@@ -3480,12 +3480,12 @@ Last motor error.
 
 Triggered : at connection and when an error occurs.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|motorError|enum|true|Enumeration of the motor error|
+|argument|type|description|
+|--------|----|-----------|
+|motorError|enum|Enumeration of the motor error|
 Enums/Symbols (fancy way of saying possible values) for motorError :
 
-|value|name|description|
+|motorError value|motorError name|motorError description|
 |-----|----|-----------|
 |0|noError|No error detected|
 |1|errorEEPRom|EEPROM access failure|
@@ -3525,9 +3525,9 @@ P7ID.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|serialID|string|false|Product P7ID|
+|argument|type|description|
+|--------|----|-----------|
+|serialID|string|Product P7ID|
 
 Example sending the ` P7ID ` command to your parrot drone :
 
@@ -3556,9 +3556,9 @@ Product main cpu id
 
 
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|id|string|false|Product main cpu id|
+|argument|type|description|
+|--------|----|-----------|
+|id|string|Product main cpu id|
 
 Example sending the ` CPUID ` command to your parrot drone :
 
@@ -3609,12 +3609,12 @@ Set picture format.
 Result : The picture format is set.
  Then, event [PictureFormat](#1_20_0) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|The type of photo format|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|The type of photo format|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|raw|Take raw image|
 |1|jpeg|Take a 4_3 jpeg photo|
@@ -3649,12 +3649,12 @@ Set White Balance mode.
 Result : The white balance mode is set.
  Then, event [WhiteBalanceMode](#1_20_1) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|The type auto white balance|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|The type auto white balance|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|auto|Auto guess of best white balance params|
 |1|tungsten|Tungsten white balance|
@@ -3690,9 +3690,9 @@ Set image exposure.
 Result : The exposure is set.
  Then, event [ImageExposure](#1_20_2) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|Exposition value (bounds given by ExpositionChanged arg min and max, by default [_3_3])|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|Exposition value (bounds given by ExpositionChanged arg min and max, by default [_3_3])|
 
 Example sending the ` ExpositionSelection ` command to your parrot drone :
 
@@ -3722,9 +3722,9 @@ Set image saturation.
 Result : The saturation is set.
  Then, event [ImageSaturation](#1_20_3) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|Saturation value (bounds given by SaturationChanged arg min and max, by default [_100_100])|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|Saturation value (bounds given by SaturationChanged arg min and max, by default [_100_100])|
 
 Example sending the ` SaturationSelection ` command to your parrot drone :
 
@@ -3756,10 +3756,10 @@ Set timelapse mode.
 Result : The timelapse mode is set (but not started).
  Then, event [TimelapseMode](#1_20_4) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|enabled|u8|false|1 if timelapse is enabled, 0 otherwise|
-|interval|float|false|interval in seconds for taking pictures|
+|argument|type|description|
+|--------|----|-----------|
+|enabled|u8|1 if timelapse is enabled, 0 otherwise|
+|interval|float|interval in seconds for taking pictures|
 
 Example sending the ` TimelapseSelection ` command to your parrot drone :
 
@@ -3790,10 +3790,10 @@ Set video autorecord mode.
 Result : The autorecord mode is set.
  Then, event [AutorecordMode](#1_20_5) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|enabled|u8|false|1 if video autorecord is enabled, 0 otherwise|
-|mass_storage_id|u8|false|Mass storage id to take video|
+|argument|type|description|
+|--------|----|-----------|
+|enabled|u8|1 if video autorecord is enabled, 0 otherwise|
+|mass_storage_id|u8|Mass storage id to take video|
 
 Example sending the ` VideoAutorecordSelection ` command to your parrot drone :
 
@@ -3823,12 +3823,12 @@ Set video stabilization mode.
 Result : The video stabilization mode is set.
  Then, event [VideoStabilizationMode](#1_20_6) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|mode|enum|true|Video stabilization mode|
+|argument|type|description|
+|--------|----|-----------|
+|mode|enum|Video stabilization mode|
 Enums/Symbols (fancy way of saying possible values) for mode :
 
-|value|name|description|
+|mode value|mode name|mode description|
 |-----|----|-----------|
 |0|roll_pitch|Video flat on roll and pitch|
 |1|pitch|Video flat on pitch only|
@@ -3863,12 +3863,12 @@ Set video recording mode.
 Result : The video recording mode is set.
  Then, event [VideoRecordingMode](#1_20_7) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|mode|enum|true|Video recording mode|
+|argument|type|description|
+|--------|----|-----------|
+|mode|enum|Video recording mode|
 Enums/Symbols (fancy way of saying possible values) for mode :
 
-|value|name|description|
+|mode value|mode name|mode description|
 |-----|----|-----------|
 |0|quality|Maximize recording quality.|
 |1|time|Maximize recording time.|
@@ -3901,12 +3901,12 @@ Set video framerate.
 Result : The video framerate is set.
  Then, event [VideoFramerate](#1_20_8) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|framerate|enum|true|Video framerate|
+|argument|type|description|
+|--------|----|-----------|
+|framerate|enum|Video framerate|
 Enums/Symbols (fancy way of saying possible values) for framerate :
 
-|value|name|description|
+|framerate value|framerate name|framerate description|
 |-----|----|-----------|
 |0|_24_FPS|23.976 frames per second.|
 |1|_25_FPS|25 frames per second.|
@@ -3940,12 +3940,12 @@ Set video streaming and recording resolutions.
 Result : The video resolutions is set.
  Then, event [VideoResolutions](#1_20_9) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|Video streaming and recording resolutions|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|Video streaming and recording resolutions|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|rec1080_stream480|1080p recording, 480p streaming.|
 |1|rec720_stream720|720p recording, 720p streaming.|
@@ -3996,12 +3996,12 @@ Picture format.
 
 Triggered : by [SetPictureFormat](#1_19_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|The type of photo format|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|The type of photo format|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|raw|Take raw image|
 |1|jpeg|Take a 4_3 jpeg photo|
@@ -4031,12 +4031,12 @@ White balance mode.
 
 Triggered : by [SetWhiteBalanceMode](#1_19_1).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|The type auto white balance|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|The type auto white balance|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|auto|Auto guess of best white balance params|
 |1|tungsten|Tungsten white balance|
@@ -4067,11 +4067,11 @@ Image exposure.
 
 Triggered : by [SetImageExposure](#1_19_2).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|Exposure value|
-|min|float|false|Min exposure value|
-|max|float|false|Max exposure value|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|Exposure value|
+|min|float|Min exposure value|
+|max|float|Max exposure value|
 
 
 Example binding to listen for the ` ExpositionChanged ` event from the drone :
@@ -4096,11 +4096,11 @@ Image saturation.
 
 Triggered : by [SetImageSaturation](#1_19_3).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|value|float|false|Saturation value|
-|min|float|false|Min saturation value|
-|max|float|false|Max saturation value|
+|argument|type|description|
+|--------|----|-----------|
+|value|float|Saturation value|
+|min|float|Min saturation value|
+|max|float|Max saturation value|
 
 
 Example binding to listen for the ` SaturationChanged ` event from the drone :
@@ -4125,12 +4125,12 @@ Timelapse mode.
 
 Triggered : by [SetTimelapseMode](#1_19_4).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|enabled|u8|false|1 if timelapse is enabled, 0 otherwise|
-|interval|float|false|interval in seconds for taking pictures|
-|minInterval|float|false|Minimal interval for taking pictures|
-|maxInterval|float|false|Maximal interval for taking pictures|
+|argument|type|description|
+|--------|----|-----------|
+|enabled|u8|1 if timelapse is enabled, 0 otherwise|
+|interval|float|interval in seconds for taking pictures|
+|minInterval|float|Minimal interval for taking pictures|
+|maxInterval|float|Maximal interval for taking pictures|
 
 
 Example binding to listen for the ` TimelapseChanged ` event from the drone :
@@ -4155,10 +4155,10 @@ Video Autorecord mode.
 
 Triggered : by [SetVideoAutorecordMode](#1_19_5).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|enabled|u8|false|1 if video autorecord is enabled, 0 otherwise|
-|mass_storage_id|u8|false|Mass storage id for the taken video|
+|argument|type|description|
+|--------|----|-----------|
+|enabled|u8|1 if video autorecord is enabled, 0 otherwise|
+|mass_storage_id|u8|Mass storage id for the taken video|
 
 
 Example binding to listen for the ` VideoAutorecordChanged ` event from the drone :
@@ -4183,12 +4183,12 @@ Video stabilization mode.
 
 Triggered : by [SetVideoStabilizationMode](#1_19_6).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|mode|enum|true|Video stabilization mode|
+|argument|type|description|
+|--------|----|-----------|
+|mode|enum|Video stabilization mode|
 Enums/Symbols (fancy way of saying possible values) for mode :
 
-|value|name|description|
+|mode value|mode name|mode description|
 |-----|----|-----------|
 |0|roll_pitch|Video flat on roll and pitch|
 |1|pitch|Video flat on pitch only|
@@ -4218,12 +4218,12 @@ Video recording mode.
 
 Triggered : by [SetVideoRecordingMode](#1_19_7).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|mode|enum|true|Video recording mode|
+|argument|type|description|
+|--------|----|-----------|
+|mode|enum|Video recording mode|
 Enums/Symbols (fancy way of saying possible values) for mode :
 
-|value|name|description|
+|mode value|mode name|mode description|
 |-----|----|-----------|
 |0|quality|Maximize recording quality.|
 |1|time|Maximize recording time.|
@@ -4251,12 +4251,12 @@ Video framerate.
 
 Triggered : by [SetVideoFramerateMode](#1_19_8).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|framerate|enum|true|Video framerate|
+|argument|type|description|
+|--------|----|-----------|
+|framerate|enum|Video framerate|
 Enums/Symbols (fancy way of saying possible values) for framerate :
 
-|value|name|description|
+|framerate value|framerate name|framerate description|
 |-----|----|-----------|
 |0|_24_FPS|23.976 frames per second.|
 |1|_25_FPS|25 frames per second.|
@@ -4286,12 +4286,12 @@ Video resolutions.
 
 Triggered : by [SetVideResolutions](#1_19_9).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|Video resolution type.|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|Video resolution type.|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|rec1080_stream480|1080p recording, 480p streaming.|
 |1|rec720_stream720|720p recording, 720p streaming.|
@@ -4331,9 +4331,9 @@ Enable/disable video streaming.
 Result : The video stream is started or stopped.
  Then, event [VideoStreamState](#1_22_0) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|enable|u8|false|1 to enable, 0 to disable.|
+|argument|type|description|
+|--------|----|-----------|
+|enable|u8|1 to enable, 0 to disable.|
 
 Example sending the ` VideoEnable ` command to your parrot drone :
 
@@ -4362,12 +4362,12 @@ Video stream mode
 
 
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|mode|enum|true|stream mode|
+|argument|type|description|
+|--------|----|-----------|
+|mode|enum|stream mode|
 Enums/Symbols (fancy way of saying possible values) for mode :
 
-|value|name|description|
+|mode value|mode name|mode description|
 |-----|----|-----------|
 |0|low_latency|Minimize latency with average reliability (best for piloting).|
 |1|high_reliability|Maximize the reliability with an average latency (best when streaming quality is important but not the latency).|
@@ -4411,12 +4411,12 @@ Video stream state.
 
 Triggered : by [EnableOrDisableVideoStream](#1_21_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|enabled|enum|true|Current video streaming status.|
+|argument|type|description|
+|--------|----|-----------|
+|enabled|enum|Current video streaming status.|
 Enums/Symbols (fancy way of saying possible values) for enabled :
 
-|value|name|description|
+|enabled value|enabled name|enabled description|
 |-----|----|-----------|
 |0|enabled|Video streaming is enabled.|
 |1|disabled|Video streaming is disabled.|
@@ -4445,12 +4445,12 @@ Video stream mode state
 
 
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|mode|enum|true|stream mode|
+|argument|type|description|
+|--------|----|-----------|
+|mode|enum|stream mode|
 Enums/Symbols (fancy way of saying possible values) for mode :
 
-|value|name|description|
+|mode value|mode name|mode description|
 |-----|----|-----------|
 |0|low_latency|Minimize latency with average reliability (best for piloting).|
 |1|high_reliability|Maximize the reliability with an average latency (best when streaming quality is important but not the latency).|
@@ -4493,11 +4493,11 @@ Set home position.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|latitude|double|false|Home latitude in decimal degrees|
-|longitude|double|false|Home longitude in decimal degrees|
-|altitude|double|false|Home altitude in meters|
+|argument|type|description|
+|--------|----|-----------|
+|latitude|double|Home latitude in decimal degrees|
+|longitude|double|Home longitude in decimal degrees|
+|altitude|double|Home altitude in meters|
 
 Example sending the ` SetHome ` command to your parrot drone :
 
@@ -4527,8 +4527,8 @@ Reset home position.
 Result : The home position is reset.
  Then, event [HomeLocationReset](#1_24_1) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 
 Example sending the ` ResetHome ` command to your parrot drone :
 
@@ -4559,13 +4559,13 @@ Set controller gps location.
 Result : The controller position is known by the drone.
  Then, event [HomeLocation](#1_24_2) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|latitude|double|false|GPS latitude in decimal degrees|
-|longitude|double|false|GPS longitude in decimal degrees|
-|altitude|double|false|GPS altitude in meters|
-|horizontalAccuracy|double|false|Horizontal Accuracy in meter ; equal _1 if no horizontal Accuracy|
-|verticalAccuracy|double|false|Vertical Accuracy in meter ; equal _1 if no vertical Accuracy|
+|argument|type|description|
+|--------|----|-----------|
+|latitude|double|GPS latitude in decimal degrees|
+|longitude|double|GPS longitude in decimal degrees|
+|altitude|double|GPS altitude in meters|
+|horizontalAccuracy|double|Horizontal Accuracy in meter ; equal _1 if no horizontal Accuracy|
+|verticalAccuracy|double|Vertical Accuracy in meter ; equal _1 if no vertical Accuracy|
 
 Example sending the ` SendControllerGPS ` command to your parrot drone :
 
@@ -4597,12 +4597,12 @@ Set the preferred home type.
 Result : The user choice is known by the drone.
  Then, event [PreferredHomeType](#1_24_4) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|The type of the home position|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|The type of the home position|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|TAKEOFF|The drone will try to return to the take off position|
 |1|PILOT|The drone will try to return to the pilot position|
@@ -4636,9 +4636,9 @@ Set the delay after which the drone will automatically try to return home after 
 Result : The delay of the return home is set.
  Then, event [ReturnHomeDelay](#1_24_5) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|delay|u16|false|Delay in second|
+|argument|type|description|
+|--------|----|-----------|
+|delay|u16|Delay in second|
 
 Example sending the ` ReturnHomeDelay ` command to your parrot drone :
 
@@ -4682,11 +4682,11 @@ Home location.
 
 Triggered : when [HomeType](#1_31_2) changes. Or by [SetHomeLocation](#1_23_2) when [HomeType](#1_31_2) is Pilot. Or regularly after [SetControllerGPS](#140_1) when [HomeType](#1_31_2) is FollowMeTarget. Or at take off [HomeType](#1_31_2) is Takeoff. Or when the first fix occurs and the [HomeType](#1_31_2) is FirstFix.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|latitude|double|false|Home latitude in decimal degrees|
-|longitude|double|false|Home longitude in decimal degrees|
-|altitude|double|false|Home altitude in meters|
+|argument|type|description|
+|--------|----|-----------|
+|latitude|double|Home latitude in decimal degrees|
+|longitude|double|Home longitude in decimal degrees|
+|altitude|double|Home altitude in meters|
 
 
 Example binding to listen for the ` HomeChanged ` event from the drone :
@@ -4711,11 +4711,11 @@ Home location has been reset.
 
 Triggered : by [ResetHomeLocation](#1_23_1).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|latitude|double|false|Home latitude in decimal degrees|
-|longitude|double|false|Home longitude in decimal degrees|
-|altitude|double|false|Home altitude in meters|
+|argument|type|description|
+|--------|----|-----------|
+|latitude|double|Home latitude in decimal degrees|
+|longitude|double|Home longitude in decimal degrees|
+|altitude|double|Home altitude in meters|
 
 
 Example binding to listen for the ` ResetHomeChanged ` event from the drone :
@@ -4740,9 +4740,9 @@ Gps fix info.
 
 Triggered : on change.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|fixed|u8|false|1 if gps on drone is fixed, 0 otherwise|
+|argument|type|description|
+|--------|----|-----------|
+|fixed|u8|1 if gps on drone is fixed, 0 otherwise|
 
 
 Example binding to listen for the ` GPSFixStateChanged ` event from the drone :
@@ -4767,12 +4767,12 @@ Gps update state.
 
 Triggered : on change.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|state|enum|true|The state of the gps update|
+|argument|type|description|
+|--------|----|-----------|
+|state|enum|The state of the gps update|
 Enums/Symbols (fancy way of saying possible values) for state :
 
-|value|name|description|
+|state value|state name|state description|
 |-----|----|-----------|
 |0|updated|Drone GPS update succeed|
 |1|inProgress|Drone GPS update In progress|
@@ -4802,12 +4802,12 @@ User preference for the home type.
 
 Triggered : by [SetPreferredHomeType](#1_23_3).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|The type of the home position|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|The type of the home position|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|TAKEOFF|The drone will try to return to the take off position|
 |1|PILOT|The drone will try to return to the pilot position|
@@ -4836,9 +4836,9 @@ Return home trigger delay. This delay represents the time after which the return
 
 Triggered : by [SetReturnHomeDelay](#1_23_4).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|delay|u16|false|Delay in second|
+|argument|type|description|
+|--------|----|-----------|
+|delay|u16|Delay in second|
 
 
 Example binding to listen for the ` ReturnHomeDelayChanged ` event from the drone :
@@ -4877,10 +4877,10 @@ Camera orientation.
 
 Triggered : by [SetCameraOrientation](#1_1_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|tilt|i8|false|Tilt camera consign for the drone [_100;100]|
-|pan|i8|false|Pan camera consign for the drone [_100;100]|
+|argument|type|description|
+|--------|----|-----------|
+|tilt|i8|Tilt camera consign for the drone [_100;100]|
+|pan|i8|Pan camera consign for the drone [_100;100]|
 
 
 Example binding to listen for the ` Orientation ` event from the drone :
@@ -4906,10 +4906,10 @@ Orientation of the center of the camera.
 
 Triggered : at connection.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|tilt|i8|false|Tilt value (in degree)|
-|pan|i8|false|Pan value (in degree)|
+|argument|type|description|
+|--------|----|-----------|
+|tilt|i8|Tilt value (in degree)|
+|pan|i8|Pan value (in degree)|
 
 
 Example binding to listen for the ` defaultCameraOrientation ` event from the drone :
@@ -4934,10 +4934,10 @@ Camera orientation with float arguments.
 
 Triggered : by [SetCameraOrientationV2](#1_1_1)
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|tilt|float|false|Tilt camera consign for the drone [deg]|
-|pan|float|false|Pan camera consign for the drone [deg]|
+|argument|type|description|
+|--------|----|-----------|
+|tilt|float|Tilt camera consign for the drone [deg]|
+|pan|float|Pan camera consign for the drone [deg]|
 
 
 Example binding to listen for the ` OrientationV2 ` event from the drone :
@@ -4963,10 +4963,10 @@ Orientation of the center of the camera.
 
 Triggered : at connection.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|tilt|float|false|Tilt value [deg]|
-|pan|float|false|Pan value [deg]|
+|argument|type|description|
+|--------|----|-----------|
+|tilt|float|Tilt value [deg]|
+|pan|float|Pan value [deg]|
 
 
 Example binding to listen for the ` defaultCameraOrientationV2 ` event from the drone :
@@ -4991,10 +4991,10 @@ Camera Orientation velocity limits.
 
 Triggered : at connection.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|max_tilt|float|false|Absolute max tilt velocity [deg/s]|
-|max_pan|float|false|Absolute max pan velocity [deg/s]|
+|argument|type|description|
+|--------|----|-----------|
+|max_tilt|float|Absolute max tilt velocity [deg/s]|
+|max_pan|float|Absolute max pan velocity [deg/s]|
 
 
 Example binding to listen for the ` VelocityRange ` event from the drone :
@@ -5032,12 +5032,12 @@ Set the electric frequency of the surrounding lights.
 Result : The electric frequency is set.
  Then, event [ElectricFrequency](#1_30_0) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|frequency|enum|true|Type of the electric frequency|
+|argument|type|description|
+|--------|----|-----------|
+|frequency|enum|Type of the electric frequency|
 Enums/Symbols (fancy way of saying possible values) for frequency :
 
-|value|name|description|
+|frequency value|frequency name|frequency description|
 |-----|----|-----------|
 |0|fiftyHertz|Electric frequency of the country is 50hz|
 |1|sixtyHertz|Electric frequency of the country is 60hz|
@@ -5073,12 +5073,12 @@ Set the antiflickering mode.
 Result : The antiflickering mode is set.
  Then, event [AntiflickeringMode](#1_30_1) is triggered.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|mode|enum|true|Mode of the anti flickering functionnality|
+|argument|type|description|
+|--------|----|-----------|
+|mode|enum|Mode of the anti flickering functionnality|
 Enums/Symbols (fancy way of saying possible values) for mode :
 
-|value|name|description|
+|mode value|mode name|mode description|
 |-----|----|-----------|
 |0|auto|Anti flickering based on the electric frequency previously sent|
 |1|FixedFiftyHertz|Anti flickering based on a fixed frequency of 50Hz|
@@ -5123,12 +5123,12 @@ Electric frequency.
 
 Triggered : by [SetElectricFrequency](#1_29_0).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|frequency|enum|true|Type of the electric frequency|
+|argument|type|description|
+|--------|----|-----------|
+|frequency|enum|Type of the electric frequency|
 Enums/Symbols (fancy way of saying possible values) for frequency :
 
-|value|name|description|
+|frequency value|frequency name|frequency description|
 |-----|----|-----------|
 |0|fiftyHertz|Electric frequency of the country is 50hz|
 |1|sixtyHertz|Electric frequency of the country is 60hz|
@@ -5156,12 +5156,12 @@ Antiflickering mode.
 
 Triggered : by [SetAntiflickeringMode](#1_29_1).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|mode|enum|true|Mode of the anti flickering functionnality|
+|argument|type|description|
+|--------|----|-----------|
+|mode|enum|Mode of the anti flickering functionnality|
 Enums/Symbols (fancy way of saying possible values) for mode :
 
-|value|name|description|
+|mode value|mode name|mode description|
 |-----|----|-----------|
 |0|auto|Anti flickering based on the electric frequency previously sent|
 |1|FixedFiftyHertz|Anti flickering based on a fixed frequency of 50Hz|
@@ -5202,9 +5202,9 @@ Number of GPS satellites.
 
 Triggered : on change.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|numberOfSatellite|u8|false|The number of satellite|
+|argument|type|description|
+|--------|----|-----------|
+|numberOfSatellite|u8|The number of satellite|
 
 
 Example binding to listen for the ` NumberOfSatelliteChanged ` event from the drone :
@@ -5230,13 +5230,13 @@ Home type availability.
 Triggered : when the availability of, at least, one type changes.
  This might be due to controller position availability, gps fix before take off or other reason.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|The type of the return home|
-|available|u8|false|1 if this type is available, 0 otherwise|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|The type of the return home|
+|available|u8|1 if this type is available, 0 otherwise|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|TAKEOFF|The drone has enough information to return to the take off position|
 |1|PILOT|The drone has enough information to return to the pilot position|
@@ -5269,12 +5269,12 @@ Home type.
 Triggered : when the return home type chosen by the drone changes.
  This might be produced by a user preference triggered by [SetPreferedHomeType](#1_23_3) or by a change in the [HomeTypesAvailabilityChanged](#1_31_1).
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|type|enum|true|The type of the return home chosen|
+|argument|type|description|
+|--------|----|-----------|
+|type|enum|The type of the return home chosen|
 Enums/Symbols (fancy way of saying possible values) for type :
 
-|value|name|description|
+|type value|type name|type description|
 |-----|----|-----------|
 |0|TAKEOFF|The drone will return to the take off position|
 |1|PILOT|The drone will return to the pilot position In this case, the drone will use the position given by ARDrone3_SendControllerGPS|
@@ -5314,9 +5314,9 @@ Pro features.
 
 Result : undefined
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|features|u64|false|Bitfield representing enabled features.|
+|argument|type|description|
+|--------|----|-----------|
+|features|u64|Bitfield representing enabled features.|
 
 Example sending the ` Features ` command to your parrot drone :
 
@@ -5356,16 +5356,16 @@ Relative move ended.
 
 Triggered : when the landing state changes.
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
-|dX|float|false|Distance traveled along the front axis [m]|
-|dY|float|false|Distance traveled along the right axis [m]|
-|dZ|float|false|Distance traveled along the down axis [m]|
-|dPsi|float|false|Applied angle on heading [rad]|
-|error|enum|true|Error to explain the event|
+|argument|type|description|
+|--------|----|-----------|
+|dX|float|Distance traveled along the front axis [m]|
+|dY|float|Distance traveled along the right axis [m]|
+|dZ|float|Distance traveled along the down axis [m]|
+|dPsi|float|Applied angle on heading [rad]|
+|error|enum|Error to explain the event|
 Enums/Symbols (fancy way of saying possible values) for error :
 
-|value|name|description|
+|error value|error name|error description|
 |-----|----|-----------|
 |0|ok|No Error ; The relative displacement|
 |1|unknown|Unknown generic error|

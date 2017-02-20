@@ -347,8 +347,8 @@ ${
 `)
 }
 
-|argument|type|enum/Symbol|description|
-|--------|----|------------|-----------|
+|argument|type|description|
+|--------|----|-----------|
 `;
 
                   const enums=[];
@@ -356,7 +356,7 @@ ${
                   for(const key in command.lookup){
                       const argName=command.lookup[key];
                       const arg=command[argName];
-                      markdown+=`|${arg.info.name}|${arg.info.type}|${Object.keys(arg.lookup).length>0}|${arg.details}|
+                      markdown+=`|${arg.info.name}|${arg.info.type}|${arg.details}|
 `;
                       if(Object.keys(arg.lookup).length>0){
                         enums.push(arg);
@@ -366,7 +366,7 @@ ${
                   for(const arg of enums){
                     markdown+=`Enums/Symbols (fancy way of saying possible values) for ${arg.info.name} :
 
-|value|name|description|
+|${arg.info.name} value|${arg.info.name} name|${arg.info.name} description|
 |-----|----|-----------|
 `;
                     for(const enumID in arg.lookup){
