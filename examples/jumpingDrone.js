@@ -10,8 +10,13 @@ drone.on(
 
     //console.log(MoveMessage);
 
+    // setInterval(
+    //   move,
+    //   1000
+    // );
+
     setInterval(
-      move,
+      flip,
       1000
     );
   }
@@ -31,6 +36,24 @@ function move(){
     project.info.id,
     commandClass.info.id,
     commandClass.PCMD
+  );
+  drone.message.send(MoveMessage);
+}
+
+function flip(){
+  const project=drone.projects.jpsumo;
+  const commandClass=project.Piloting;
+
+  //change the value of the args you want to change if applicable
+  commandClass.Posture.type.value=Math.round(
+    Math.random()*3
+  );
+
+  //build a message requesting all settings
+  const MoveMessage=drone.message.build(
+    project.info.id,
+    commandClass.info.id,
+    commandClass.Posture
   );
   drone.message.send(MoveMessage);
 }

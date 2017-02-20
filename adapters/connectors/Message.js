@@ -98,6 +98,7 @@ class Message{
               currentArgByte
             );
           break;
+          case 'enum' :
           case 'u32' :
             commandArgs.writeUInt32LE(
               Number(arg.value),

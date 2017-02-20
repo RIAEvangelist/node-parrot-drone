@@ -207,6 +207,7 @@ fs.readdir(
                       case 'i16' :
                         arg.info.bytes=2;
                         break;
+                      case 'enum'  :
                       case 'u32'  :
                       case 'i32'  :
                       case 'float':
