@@ -4,14 +4,14 @@ const Config =require('../configs/Wifi.js');
 const Response=require('./connectors/Response.js');
 const Message=require('./connectors/Message.js');
 const ipc=require('node-ipc');
-const Projects=require('../api/deviceControllers.js');
+const controllers=require('../projects/deviceControllers.js');
 
 class DroneWifi extends Events{
     constructor(){
       super();
-      this.config=new Config;
-      this.discovery=new ipc.IPC;
-      this.d2c=new ipc.IPC;
+      this.config   = new Config;
+      this.discovery= new ipc.IPC;
+      this.d2c      = new ipc.IPC;
 
       Object.assign(
         this.discovery.config,
@@ -23,8 +23,9 @@ class DroneWifi extends Events{
         this.config.ipc.d2c
       );
 
-      this.projects=new Projects;
-      this.message=new Message(this);
+      this.drones   = controllers.drones;
+      this.projects = controllers.projects;
+      this.message  = new Message(this);
     }
 
     connect(callback=function(){}){
@@ -96,28 +97,22 @@ class DroneWifi extends Events{
 
         const project=this.projects.common;
 
+        console.log(project)
+
         const getSettingsState=this.message.build(
           project.id,
-          project.settings.id,
-          project.settings.allSettings
+          project.Settings.info.id,
+          project.Settings.AllSettings
         );
 
         const getCommonState=this.message.build(
           project.id,
-          project.common.id,
-          project.common.allStates
+          project.Common.info.id,
+          project.Common.AllStates
         );
 
-        const getBatteryState=this.message.build(
-          project.id,
-          project.common.id,
-          project.commonState.batteryStateChanged
-        );
-
-        //this.message.send(getSettingsState);
-        //this.message.send(getCommonState);
-
-        this.message.send(getBatteryState);
+        this.message.send(getSettingsState);
+        this.message.send(getCommonState);
 
         this.emit(
           'connected',

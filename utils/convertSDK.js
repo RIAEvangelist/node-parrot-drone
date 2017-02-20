@@ -439,12 +439,12 @@ function buildDrones(){
       }
 
       let droneRequires='const projects={};';
+      let merge='Object.assign(projects,'
       for(const req of result.pass){
         droneRequires+=`
 const ${req}=require('./${req}.js');
-projects.${req}=${req};
 `;
-
+        merge+=`${req},`;
         for(deviceName in devices.deviceControllers){
           const device=devices.deviceControllers[deviceName];
           if(device[req]){
@@ -452,6 +452,8 @@ projects.${req}=${req};
           }
         }
       }
+      
+      droneRequires+=`${merge.slice(0,-1)});`;
 
       let droneRefs=JSON.stringify(
         devices,

@@ -11,6 +11,8 @@ This module contains the core code for such extensions with all shared informati
 
 ## Connecting to a drone
 
+```javascript
+
     const parrot=require('node-parrot-drone');
 
     const drone=new parrot.Wifi;
@@ -28,9 +30,13 @@ This module contains the core code for such extensions with all shared informati
     //optionally you can pass a callback to the connect method if you prefer
     drone.connect(connected);
 
+```
+
 ## Listening for all messages from the drone
 
 There will be a lot of messages, but you can check for the ones you like using the projectID, classID and commandName. This is especially useful when debugging or hacking a new drone.
+
+```javascript
 
     drone.on(
         'message',
@@ -39,9 +45,13 @@ There will be a lot of messages, but you can check for the ones you like using t
         }
     );
 
+```
+
 ## Listening for changes on specific drone argument sets
 
 This is probably the most useful way to monitor your drones state.
+
+```javascript
 
     //debug or see non automatic messages (pings, pongs, etc. are not bubbled)
     drone.on(
@@ -75,7 +85,11 @@ This is probably the most useful way to monitor your drones state.
         }
     );
 
+```
+
 ## Sending commands or updating values on your drone
+
+```javascript
 
     const project=drone.projects.common;
 
@@ -108,7 +122,11 @@ This is probably the most useful way to monitor your drones state.
     drone.message.send(getCommonState);
     drone.message.send(calibrate);
 
+```
+
 ## Listening for updates to specific drone data
+
+```javascript
 
     function batteryStateChanged(commandRef){
       //commandRef is a reference to the command itself in the project state
@@ -127,12 +145,18 @@ This is probably the most useful way to monitor your drones state.
         batteryStateChanged
     );
 
+```
+
 ## Really verbose logging about messages and drone connectivity
 
 Put these lines in before connecting to see detailed TCP and UDP info.
 
+```javascript
+
     drone.discovery.config.silent=false;
     drone.d2c.config.silent=false;
+
+```
 
 ## License
 
