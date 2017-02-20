@@ -10,14 +10,6 @@ class Message{
     this.drone        = drone;
     this.sequence     = {};
 
-    this.reset();
-  }
-
-  reset(){
-    this.frameType=this.frameTypes.dataType;
-    this.frameID=this.frameIDs.cdNoNackID;
-
-    this.payload=null;
   }
 
   build(
@@ -25,7 +17,12 @@ class Message{
     classID=null,
     commandRef=null
   ){
-      this.reset();
+      let frameType=this.frameTypes.dataType;
+      let frameID=this.frameIDs.cdNoNackID;
+
+      // if(commandRef.info.buffer && commandRef.info.buffer=='NON_ACK'){
+      //   this.frameType=
+      // }
 
       const header = new Buffer.allocUnsafe(7);
       header.fill(0);
@@ -52,7 +49,7 @@ class Message{
           continue;
         }
         let size=arg.info.bytes;
-        console.log(arg);
+        //console.log(arg);
         if(arg.info.type=='string'){
           arg.value+='\0';
           size=arg.value.length;
@@ -62,9 +59,9 @@ class Message{
         argSize+=size;
       }
 
-      console.log(`
-        ${argSize+4}
-      `);
+      // console.log(`
+      //   ${argSize+4}
+      // `);
 
       const commandArgs = new Buffer.allocUnsafe(argSize+4);
       commandArgs.fill(0);
@@ -73,8 +70,9 @@ class Message{
       commandArgs.writeUInt8(classID,1);
       commandArgs.writeUInt16LE(commandRef.id,2);
 
-      let currentArgByte=0;
+      let currentArgByte=4;
       for(const arg of args){
+        console.log(arg.info.type,arg.value,currentArgByte);
         switch(arg.info.type){
           case 'u8' :
             commandArgs.writeUInt8(
@@ -121,23 +119,23 @@ class Message{
           default :
             commandArgs.write(arg.value,currentArgByte);
         }
-        currentArgByte+=arg.size;
+        currentArgByte+=arg.info.bytes;
       }
 
       const payloadSize=commandArgs.length + header.length;
 
       header.writeUInt8(
-        Number(this.frameType),
+        Number(frameType),
         0
       );
       header.writeUInt8(
-        Number(this.frameID),
+        Number(frameID),
         1
       );
       header.writeUInt8(this.sequence[this.frameID], 2);
       header.writeUInt32LE(payloadSize, 3);
 
-      this.payload=Buffer.concat(
+      const payload=Buffer.concat(
           [
               header,
               commandArgs
@@ -145,10 +143,10 @@ class Message{
           payloadSize
       );
 
-      return this.payload;
+      return payload;
   };
 
-  send(payload=this.payload){
+  send(payload){
     if(!this.drone.droneSocket){
       setTimeout(
         this.send.bind(this,payload),

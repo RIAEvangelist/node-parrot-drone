@@ -7,29 +7,33 @@ drone.on(
   'connected',
   function(){
     console.log('CONNECTED\n\n')
-    const project=drone.projects.jpsumo;
-    const commandClass=project.Piloting;
 
-    //change the value of the args you want to change if applicable
-    commandClass.PCMD.flag.value=0;
-    commandClass.PCMD.speed.value=100;
-    commandClass.PCMD.turn.value=100;
-
-    //build a message requesting all settings
-    const PostureMessage=drone.message.build(
-      project.info.id,
-      commandClass.info.id,
-      commandClass.PCMD
-    );
+    //console.log(MoveMessage);
 
     setInterval(
-      function(){
-        drone.message.send(PostureMessage);
-      },
-      10
+      move,
+      1000
     );
   }
 );
+
+function move(){
+  const project=drone.projects.jpsumo;
+  const commandClass=project.Piloting;
+
+  //change the value of the args you want to change if applicable
+  commandClass.PCMD.flag.value=1;
+  commandClass.PCMD.speed.value=commandClass.PCMD.speed.value*-1||100;
+  commandClass.PCMD.turn.value=0;
+
+  //build a message requesting all settings
+  const MoveMessage=drone.message.build(
+    project.info.id,
+    commandClass.info.id,
+    commandClass.PCMD
+  );
+  drone.message.send(MoveMessage);
+}
 
 drone.on(
   'messageSent',
