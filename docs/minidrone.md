@@ -50,6 +50,9 @@ Do a flat trim
 
 
 
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` FlatTrim ` command to your parrot drone :
 
 ```javascript
@@ -76,6 +79,9 @@ Ask the drone to take off
 
 
 
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` TakeOff ` command to your parrot drone :
 
 ```javascript
@@ -101,6 +107,15 @@ Ask the drone to move around.
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||flag|u8|Boolean flag to activate roll/pitch movement|
+|roll|i8|Roll consign for the MiniDrone [_100;100]|
+|pitch|i8|Pitch consign for the MiniDrone [_100;100]|
+|yaw|i8|Yaw consign for the MiniDrone [_100;100]|
+|gaz|i8|Gaz consign for the MiniDrone [_100;100]|
+|timestamp|u32|Timestamp in miliseconds. Not an absolute time. (Typically 0 = time of connexion).|
 
 Example sending the ` PCMD ` command to your parrot drone :
 
@@ -128,6 +143,9 @@ Ask the MiniDrone to land
 
 
 
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` Landing ` command to your parrot drone :
 
 ```javascript
@@ -154,6 +172,9 @@ Put drone in emergency state
 
 
 
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` Emergency ` command to your parrot drone :
 
 ```javascript
@@ -179,6 +200,10 @@ Set MiniDrone automatic take off mode
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||state|u8|State of automatic take off mode|
 
 Example sending the ` AutoTakeOffMode ` command to your parrot drone :
 
@@ -206,6 +231,10 @@ Set drone FlyingMode. Only supported by WingX
 
 
 
+
+argument|type|description|
+|--------|----|-----------||mode|u8|Drone Flying Mode|
+
 Example sending the ` FlyingMode ` command to your parrot drone :
 
 ```javascript
@@ -231,6 +260,10 @@ Set Plane Gear Box. Only supported by WingX
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||state|enum|Plane Gear Box|
 
 Example sending the ` PlaneGearBox ` command to your parrot drone :
 
@@ -272,6 +305,10 @@ Set Max Vertical speed
 
 
 
+
+argument|type|description|
+|--------|----|-----------||current|float|Current max vertical speed in m/s|
+
 Example sending the ` MaxVerticalSpeed ` command to your parrot drone :
 
 ```javascript
@@ -297,6 +334,10 @@ Set Max Rotation speed
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||current|float|Current max rotation speed in degree/s|
 
 Example sending the ` MaxRotationSpeed ` command to your parrot drone :
 
@@ -324,6 +365,10 @@ Presence of wheels
 
 
 
+
+argument|type|description|
+|--------|----|-----------||present|u8|1 if present, 0 if not present|
+
 Example sending the ` Wheels ` command to your parrot drone :
 
 ```javascript
@@ -350,6 +395,10 @@ Set Max Horizontal speed (only used in case where PilotingSettings_MaxTilt is no
 
 
 
+
+argument|type|description|
+|--------|----|-----------||current|float|Current max Horizontal speed in m/s|
+
 Example sending the ` MaxHorizontalSpeed ` command to your parrot drone :
 
 ```javascript
@@ -375,6 +424,10 @@ Set max plane mode rotation speed (only available for wing x)
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||current|float|Current max plane mode rotation speed in degree/s|
 
 Example sending the ` MaxPlaneModeRotationSpeed ` command to your parrot drone :
 
@@ -413,14 +466,19 @@ Event of picture recording
 
 
 
+argument|type|description|
+|--------|----|-----------||event|enum|Last event of picture recording|
+|error|enum|Error to explain the event|
+
+
 Example binding to listen for the ` PictureEventChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'PictureEventChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -450,14 +508,17 @@ MiniDrone send flat trim was correctly processed
 
 
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` FlatTrimChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'FlatTrimChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -472,14 +533,18 @@ Drone flying state changed
 
 
 
+argument|type|description|
+|--------|----|-----------||state|enum|Drone flying state|
+
+
 Example binding to listen for the ` FlyingStateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'FlyingStateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -494,14 +559,18 @@ Drone alert state changed
 
 
 
+argument|type|description|
+|--------|----|-----------||state|enum|Drone alert state|
+
+
 Example binding to listen for the ` AlertStateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AlertStateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -516,14 +585,18 @@ Set MiniDrone automatic take off mode
 
 
 
+argument|type|description|
+|--------|----|-----------||state|u8|State of automatic take off mode|
+
+
 Example binding to listen for the ` AutoTakeOffModeChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AutoTakeOffModeChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -538,14 +611,18 @@ FlyingMode changed. Only supported by WingX
 
 
 
+argument|type|description|
+|--------|----|-----------||mode|u8|Drone Flying Mode|
+
+
 Example binding to listen for the ` FlyingModeChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'FlyingModeChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -560,14 +637,18 @@ Plane Gear Box changed. Only supported by WingX
 
 
 
+argument|type|description|
+|--------|----|-----------||state|enum|Plane Gear Box|
+
+
 Example binding to listen for the ` PlaneGearBoxChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'PlaneGearBoxChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -591,6 +672,10 @@ Make a flip
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||direction|enum|Direction for the flip|
 
 Example sending the ` Flip ` command to your parrot drone :
 
@@ -617,6 +702,10 @@ Change the product cap
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||offset|i16|Change the cap with offset angle [_180;180]|
 
 Example sending the ` Cap ` command to your parrot drone :
 
@@ -659,14 +748,20 @@ Max vertical speed sent by product
 
 
 
+argument|type|description|
+|--------|----|-----------||current|float|Current max vertical speed in m/s|
+|min|float|Range min of vertical speed|
+|max|float|Range max of vertical speed|
+
+
 Example binding to listen for the ` MaxVerticalSpeedChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MaxVerticalSpeedChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -681,14 +776,20 @@ Max rotation speed sent by product
 
 
 
+argument|type|description|
+|--------|----|-----------||current|float|Current max rotation speed in degree/s|
+|min|float|Range min of rotation speed|
+|max|float|Range max of rotation speed|
+
+
 Example binding to listen for the ` MaxRotationSpeedChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MaxRotationSpeedChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -703,14 +804,18 @@ Presence of wheels sent by product
 
 
 
+argument|type|description|
+|--------|----|-----------||present|u8|1 if present, 0 if not present|
+
+
 Example binding to listen for the ` WheelsChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'WheelsChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -725,14 +830,20 @@ Max horizontal speed sent by product (only used in case where PilotingSettings_M
 
 
 
+argument|type|description|
+|--------|----|-----------||current|float|Current max horizontal speed in m/s|
+|min|float|Range min of horizontal speed|
+|max|float|Range max of horizontal speed|
+
+
 Example binding to listen for the ` MaxHorizontalSpeedChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MaxHorizontalSpeedChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -747,14 +858,20 @@ Max plane rotation speed sent by product (only available for wing x)
 
 
 
+argument|type|description|
+|--------|----|-----------||current|float|Current max plane mode rotation speed in degree/s|
+|min|float|Range min of plane mode rotation speed|
+|max|float|Range max of plane mode rotation speed|
+
+
 Example binding to listen for the ` MaxPlaneModeRotationSpeedChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MaxPlaneModeRotationSpeedChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -778,6 +895,10 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||mass_storage_id|u8|Mass storage id to take picture|
 
 Example sending the ` Picture ` command to your parrot drone :
 
@@ -805,6 +926,9 @@ Take picture
 
 
 
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` PictureV2 ` command to your parrot drone :
 
 ```javascript
@@ -843,14 +967,19 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 
+argument|type|description|
+|--------|----|-----------||state|u8|1 if picture has been taken, 0 otherwise|
+|mass_storage_id|u8|Mass storage id to record|
+
+
 Example binding to listen for the ` PictureStateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'PictureStateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -865,14 +994,19 @@ State of device picture recording changed
 
 
 
+argument|type|description|
+|--------|----|-----------||state|enum|State of device picture recording|
+|error|enum|Error to explain the state|
+
+
 Example binding to listen for the ` PictureStateChangedV2 ` event from the drone :
 
 ```javascript
 
 drone.on(
   'PictureStateChangedV2',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -897,6 +1031,10 @@ Set Max Altitude
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||current|float|Current altitude max in m|
 
 Example sending the ` MaxAltitude ` command to your parrot drone :
 
@@ -923,6 +1061,10 @@ Set Max Tilt
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||current|float|Current tilt max in degree|
 
 Example sending the ` MaxTilt ` command to your parrot drone :
 
@@ -952,6 +1094,10 @@ Set banked turn mode.
 
 Result : The banked turn mode is enabled or disabled.
  Then, event [BankedTurnMode](#2_9_2) is triggered.
+
+argument|type|description|
+|--------|----|-----------||value|u8|1 to enable, 0 to disable|
+
 Example sending the ` BankedTurn ` command to your parrot drone :
 
 ```javascript
@@ -991,14 +1137,20 @@ Max Altitude sent by product
 
 
 
+argument|type|description|
+|--------|----|-----------||current|float|Current altitude max|
+|min|float|Range min of altitude|
+|max|float|Range max of altitude|
+
+
 Example binding to listen for the ` MaxAltitudeChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MaxAltitudeChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1013,14 +1165,20 @@ Max tilt sent by product
 
 
 
+argument|type|description|
+|--------|----|-----------||current|float|Current max tilt|
+|min|float|Range min of tilt|
+|max|float|Range max of tilt|
+
+
 Example binding to listen for the ` MaxTiltChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MaxTiltChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1036,14 +1194,18 @@ Banked Turn mode.
 
 Triggered : by [SetBankedTurnMode](#2_8_2).
 
+argument|type|description|
+|--------|----|-----------||state|u8|1 if enabled, 0 if disabled|
+
+
 Example binding to listen for the ` BankedTurnChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'BankedTurnChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1066,6 +1228,10 @@ Set MiniDrone cut out mode
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||enable|u8|Enable cut out mode (1 if is activate, 0 otherwise)|
 
 Example sending the ` CutOutMode ` command to your parrot drone :
 
@@ -1106,14 +1272,21 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 
+argument|type|description|
+|--------|----|-----------||motor|u8|Product Motor number [1 _ 4]|
+|type|string|Product Motor type|
+|software|string|Product Motors software version|
+|hardware|string|Product Motors hardware version|
+
+
 Example binding to listen for the ` ProductMotorsVersionChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ProductMotorsVersionChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1128,14 +1301,19 @@ drone.on(
 
 
 
+argument|type|description|
+|--------|----|-----------||software|string|Product Inertial software version|
+|hardware|string|Product Inertial hardware version|
+
+
 Example binding to listen for the ` ProductInertialVersionChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ProductInertialVersionChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1150,14 +1328,18 @@ MiniDrone cut out mode
 
 
 
+argument|type|description|
+|--------|----|-----------||enable|u8|State of cut out mode (1 if is activate, 0 otherwise)|
+
+
 Example binding to listen for the ` CutOutModeChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'CutOutModeChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1182,14 +1364,18 @@ All hex IDs are included as well incase you need them for debugging or extending
 
 
 
+argument|type|description|
+|--------|----|-----------||delay|u16|Delay (in ms) between two PCMD|
+
+
 Example binding to listen for the ` FloodControlChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'FloodControlChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1213,6 +1399,10 @@ Set the controller latitude for a run.
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||latitude|double|Controller latitude in decimal degrees|
 
 Example sending the ` ControllerLatitudeForRun ` command to your parrot drone :
 
@@ -1239,6 +1429,10 @@ Set the controller longitude for a run.
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||longitude|double|Controller longitude in decimal degrees|
 
 Example sending the ` ControllerLongitudeForRun ` command to your parrot drone :
 
@@ -1277,6 +1471,10 @@ Set the controller type.
 
 
 
+
+argument|type|description|
+|--------|----|-----------||type|string|Controller type like iOS or Android|
+
 Example sending the ` ControllerType ` command to your parrot drone :
 
 ```javascript
@@ -1302,6 +1500,10 @@ Set the controller name.
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||name|string|Controller name like com.parrot.freeflight3|
 
 Example sending the ` ControllerName ` command to your parrot drone :
 
@@ -1341,6 +1543,13 @@ USB Light accessory state cmd.
 
 
 
+
+argument|type|description|
+|--------|----|-----------||id|u8|Usb accessory id|
+|state|enum|Usb Light state.|
+|intensity|u8|Light intensity from 0 (OFF) to 100 (Max intensity). Only used in FIXED state.|
+|list_flags|u8|List entry attribute Bitfield. 0x01: First: indicate it's the first element of the list. 0x02: Last: indicate it's the last element of the list. 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored. 0x08: Remove: This value should be removed from the existing list.|
+
 Example sending the ` LightState ` command to your parrot drone :
 
 ```javascript
@@ -1367,6 +1576,12 @@ USB Claw accessory state cmd.
 
 
 
+
+argument|type|description|
+|--------|----|-----------||id|u8|Usb accessory id|
+|state|enum|Usb Claw state.|
+|list_flags|u8|List entry attribute Bitfield. 0x01: First: indicate it's the first element of the list. 0x02: Last: indicate it's the last element of the list. 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored. 0x08: Remove: This value should be removed from the existing list.|
+
 Example sending the ` ClawState ` command to your parrot drone :
 
 ```javascript
@@ -1392,6 +1607,12 @@ USB Gun accessory state cmd.
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||id|u8|Usb accessory id.|
+|state|enum|USB Claw state.|
+|list_flags|u8|List entry attribute Bitfield. 0x01: First: indicate it's the first element of the list. 0x02: Last: indicate it's the last element of the list. 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored. 0x08: Remove: This value should be removed from the existing list.|
 
 Example sending the ` GunState ` command to your parrot drone :
 
@@ -1431,6 +1652,12 @@ USB Light control cmd.
 
 
 
+
+argument|type|description|
+|--------|----|-----------||id|u8|Usb accessory id|
+|mode|enum|Usb Light mode.|
+|intensity|u8|Light intensity from 0 (OFF) to 100 (Max intensity). Only used in FIXED mode.|
+
 Example sending the ` LightControl ` command to your parrot drone :
 
 ```javascript
@@ -1457,6 +1684,11 @@ USB Claw control cmd.
 
 
 
+
+argument|type|description|
+|--------|----|-----------||id|u8|Usb accessory id.|
+|action|enum|USB Claw action.|
+
 Example sending the ` ClawControl ` command to your parrot drone :
 
 ```javascript
@@ -1482,6 +1714,11 @@ USB Gun control cmd.
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||id|u8|Usb accessory id|
+|action|enum|USB Gun action.|
 
 Example sending the ` GunControl ` command to your parrot drone :
 
@@ -1519,6 +1756,12 @@ Send the address of the remote controller on which the drone should be paired Th
 
 
 
+
+argument|type|description|
+|--------|----|-----------||msb_mac|u16|2 most significant bytes of mac address|
+|mid_mac|u16|2 middle bytes of mac address|
+|lsb_mac|u16|2 least significant bytes of mac address|
+
 Example sending the ` SetPairedRemote ` command to your parrot drone :
 
 ```javascript
@@ -1554,6 +1797,14 @@ Get the drone position from takeoff point (0, 0, 0, 0). The orthonormal basis is
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||posx|float|Position on X axis, relative to take off position (cm).|
+|posy|float|Position on Y axis, relative to take off position (cm).|
+|posz|i16|Position on Z axis, relative to take off position (cm).|
+|psi|i16|Psi angle [_180; 180], relative to take off orientation.|
+|ts|i16|Time elapsed since last data send (ms).|
 
 Example sending the ` DronePosition ` command to your parrot drone :
 

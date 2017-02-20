@@ -56,14 +56,23 @@ List of visible wifi networks.
 
 Triggered : by a [RequestWifiList](#4_1_0) command.
 
+argument|type|description|
+|--------|----|-----------||bssid|string|Wifi bssid|
+|ssid|string|Wifi ssid|
+|secured|u8|Is wifi secured by passphrase|
+|saved|u8|Is wifi saved in terminal|
+|rssi|i32|Wifi rssi|
+|frequency|i32|Wifi frequency|
+
+
 Example binding to listen for the ` WifiList ` event from the drone :
 
 ```javascript
 
 drone.on(
   'WifiList',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -79,14 +88,19 @@ Describes the current wifi connection status of the SkyController.
 
 Triggered : when the wifi connection status changes, or after a [RequestCurrentWifi](#4_1_1) command.
 
+argument|type|description|
+|--------|----|-----------||ssid|string|Wifi ssid|
+|status|enum|Wifi status|
+
+
 Example binding to listen for the ` ConnexionChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ConnexionChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -103,14 +117,20 @@ Each element represent an authorized wifi channel for the current country regula
 
 Triggered : by a [WifiAuthChannel](#4_1_4) command.
 
+argument|type|description|
+|--------|----|-----------||band|enum|The band of this channel : 2.4 GHz or 5 GHz|
+|channel|u8|The authorized channel|
+|in_or_out|u8|Bit 0 is 1 if channel is authorized outside (0 otherwise) Bit 1 is 1 if channel is authorized inside (0 otherwise)|
+
+
 Example binding to listen for the ` WifiAuthChannelListChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'WifiAuthChannelListChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -125,14 +145,17 @@ This event closes the [WifiAuthChannel](#4_1_4) command response. No more [WifiA
 
 Triggered : by a [WifiAuthChannel](#4_1_4) command.
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` AllWifiAuthChannelChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AllWifiAuthChannelChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -148,14 +171,18 @@ This event describes the signal strength for the long range wifi.
 
 Triggered : each time the wifi signal changes
 
+argument|type|description|
+|--------|----|-----------||level|u8|Level of the signal. Levels are from 0 to 5. 0 is an unknown value. 1 is a weak wifi signal, 5 is the best.|
+
+
 Example binding to listen for the ` WifiSignalChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'WifiSignalChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -185,6 +212,9 @@ After recieving this command, the SkyController will do a network scan to get th
  The controller should clear the local wifi list before sending this command.
 
 Result : Event [WifiList](#4_0_0) is triggered for each visible wifi networks.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` RequestWifiList ` command to your parrot drone :
 
 ```javascript
@@ -211,6 +241,9 @@ Request current wifi informations
 This is a synchronization command. The SkyController will automatically send its current wifi info when any data changes, so this command should only be used when connecting, in order to get an initial state.
 
 Result : Event [wifi ConnectionChanged](#4_0_1) is triggered.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` RequestCurrentWifi ` command to your parrot drone :
 
 ```javascript
@@ -239,6 +272,12 @@ The network should be a visible network retrieved from the [WifiList](#4_0_0) ev
 
 Result : The SkyController should connect to the network.
  A [wifi ConnectionChanged](#4_0_1) event is triggered.
+
+argument|type|description|
+|--------|----|-----------||bssid|string|Wifi bssid|
+|ssid|string|Wifi ssid|
+|passphrase|string|Wifi passphrase|
+
 Example sending the ` ConnectToWifi ` command to your parrot drone :
 
 ```javascript
@@ -267,6 +306,10 @@ Removes the network from the saved network list.
 
 Result : The next [WifiList](#4_0_0) event will report this network as not saved.
  If the SkyController is connected to this network, a [wifi ConnectionChanged](#4_0_1) event is triggered
+
+argument|type|description|
+|--------|----|-----------||ssid|string|Wifi ssid|
+
 Example sending the ` ForgetWifi ` command to your parrot drone :
 
 ```javascript
@@ -294,6 +337,9 @@ Requests the list of authorized wifi channels for the current country/regulatory
  These channels are valid for the [AccessPointChannel](#4_9_1) command.
 
 Result : A list of [WifiAuthChannelListChanged](#4_0_2) events will be sent, followed by an [AllWifiAuthChannelChanged](#4_0_3) event.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` WifiAuthChannel ` command to your parrot drone :
 
 ```javascript
@@ -332,6 +378,9 @@ Request the list of visible devices
 This command is deprecated (The SkyController can only see one device at a time, so a device list is not required), and should not be used.
 
 Result : This command is not implemented.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` RequestDeviceList ` command to your parrot drone :
 
 ```javascript
@@ -358,6 +407,9 @@ Request current device informations
 This command is deprecated and should not be used.
 
 Result : This command is not implemented
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` RequestCurrentDevice ` command to your parrot drone :
 
 ```javascript
@@ -385,6 +437,10 @@ This command is deprecated and should not be used.
  The SkyController will automatically connect to the first visible device on the current wifi network.
 
 Result : This command is not implemented.
+
+argument|type|description|
+|--------|----|-----------||deviceName|string|Device name|
+
 Example sending the ` ConnectToDevice ` command to your parrot drone :
 
 ```javascript
@@ -423,6 +479,10 @@ List of visible ARDiscoveryDevices.
  This event is deprecated and will never be sent by a SkyController
 
 Result : undefined
+
+argument|type|description|
+|--------|----|-----------||name|string|Device name|
+
 Example sending the ` DeviceList ` command to your parrot drone :
 
 ```javascript
@@ -450,14 +510,20 @@ Status of the connection to a drone.
 
 Triggered : when the connection state to a drone has changed.
 
+argument|type|description|
+|--------|----|-----------||status|enum|Connection status|
+|deviceName|string|Drone name|
+|deviceProductID|u16|Drone product IDentifier|
+
+
 Example binding to listen for the ` ConnexionChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ConnexionChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -482,6 +548,9 @@ Ask for all controller's settings
 Request the controller to send all its settings.
 
 Result : The controller will trigger all settings events and will finally trigger [AllSettingsChanged](#4_5_0).
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` AllSettings ` command to your parrot drone :
 
 ```javascript
@@ -508,6 +577,9 @@ Reset all settings
 This command is not implemented.
 
 Result : All settings are reset, then a [ResetChanged](#4_5_1) event is fired.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` Reset ` command to your parrot drone :
 
 ```javascript
@@ -549,14 +621,17 @@ All settings have been sent by the controller.
 
 Triggered : when all settings that have been requested by [AllSettings](#4_4_0) are sent.
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` AllSettingsChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AllSettingsChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -571,14 +646,17 @@ This command is not implemented.
 
 Triggered : by a [Reset](#4_4_1) command.
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` ResetChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ResetChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -593,14 +671,18 @@ The product serial of the controller.
 
 Triggered : during the [AllSettings](#4_4_0) phase.
 
+argument|type|description|
+|--------|----|-----------||serialNumber|string|Serial number (hexadecimal value)|
+
+
 Example binding to listen for the ` ProductSerialChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ProductSerialChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -615,14 +697,18 @@ This event allow differentiation between original (red/blue/yellow) SkyControlle
 
 Triggered : during the [AllSettings](#4_4_0) phase.
 
+argument|type|description|
+|--------|----|-----------||variant|enum|Variant of the product|
+
+
 Example binding to listen for the ` ProductVariantChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ProductVariantChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -637,14 +723,19 @@ Software and hardware versions of the controller.
 
 Triggered : during the [AllSettings](#4_4_0) phase.
 
+argument|type|description|
+|--------|----|-----------||software|string|Product software version|
+|hardware|string|Product hardware version|
+
+
 Example binding to listen for the ` ProductVersionChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ProductVersionChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -668,6 +759,9 @@ Ask for all controller's states.
 Request the controller to send all its states.
 
 Result : The controller will trigger all states events and will finally trigger [AllStatesChanged](#4_7_0).
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` AllStates ` command to your parrot drone :
 
 ```javascript
@@ -705,14 +799,17 @@ All states have been sent by the controller.
 
 Triggered : when all states that have been requested by [AllStates](#4_6_0) are sent.
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` AllStatesChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AllStatesChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -741,14 +838,18 @@ The battery percentage has changed.
 
 Triggered : when the battery level changes.
 
+argument|type|description|
+|--------|----|-----------||percent|u8|Controller battery: from 0 (empty) to 100 (full charge). Value of 255 when charging.|
+
+
 Example binding to listen for the ` BatteryChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'BatteryChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -763,14 +864,18 @@ The SkyController GPS has gained or lost the fix. If the fix is lost, thent the 
 
 Triggered : when the GPS accuracy goes under/over a certain level.
 
+argument|type|description|
+|--------|----|-----------||fixed|u8|SkyController fixed|
+
+
 Example binding to listen for the ` GpsFixChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'GpsFixChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -786,14 +891,21 @@ The SkyController position or heading values changed.
 
 Triggered : each time the position or heading of the SkyController is updated, or when a data becomes (un)available.
 
+argument|type|description|
+|--------|----|-----------||latitude|double|SkyController latitude (500. if not available)|
+|longitude|double|SkyController longiture (500. if not available)|
+|altitude|double|Altitude (in meters) above sea level. Only meaningful if latitude and longiture are available|
+|heading|float|SkyController heading relative to magnetic north (500.f if not available)|
+
+
 Example binding to listen for the ` GpsPositionChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'GpsPositionChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -808,14 +920,18 @@ The state of the controller battery
 
 Triggered : when the controller battery state has changed.
 
+argument|type|description|
+|--------|----|-----------||state|enum|Current battery state|
+
+
 Example binding to listen for the ` BatteryState ` event from the drone :
 
 ```javascript
 
 drone.on(
   'BatteryState',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -831,14 +947,21 @@ SkyController Attitude in north_east_down (NED) coordinate system.
 
 Triggered : when the SkyController attitude changes.
 
+argument|type|description|
+|--------|----|-----------||q0|float|SkyController Attitude q0 (quaternion scalar part)|
+|q1|float|SkyController Attitude q1 (quaternion vector part)|
+|q2|float|SkyController Attitude q2 (quaternion vector part)|
+|q3|float|SkyController Attitude q3 (quaternion vector part)|
+
+
 Example binding to listen for the ` AttitudeChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AttitudeChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -865,6 +988,10 @@ Set the SkyController access point SSID.
  The name will be checked, and can be modified before application. Use the [AccessPointSSIDChanged](#4_10_0) event to get the applied network name.
 
 Result : The network name will change (which will likely disconnect the controller), then an [AccessPointSSIDChanged](#4_10_0) event will be sent
+
+argument|type|description|
+|--------|----|-----------||ssid|string|AccessPoint SSID|
+
 Example sending the ` AccessPointSSID ` command to your parrot drone :
 
 ```javascript
@@ -894,6 +1021,10 @@ Set the SkyController access point channel.
  This command is deprecated. Use the [WifiSelection](#4_9_2) command instead.
 
 Result : The network channel will change (which will likely disconnect the controller), then an [AccessPointChannelChanged](#4_10_1) event will be sent
+
+argument|type|description|
+|--------|----|-----------||channel|u8|AccessPoint Channel|
+
 Example sending the ` AccessPointChannel ` command to your parrot drone :
 
 ```javascript
@@ -923,6 +1054,12 @@ Set the SkyController access point channel.
  This command is deprecated. Use the [WifiSelection](#4_9_2) command instead.
 
 Result : The network channel will change (which will likely disconnect the controller), then a [WifiSelectionChanged](#4_10_2) event will be sent
+
+argument|type|description|
+|--------|----|-----------||type|enum|The type of wifi selection (only manual at the moment)|
+|band|enum|The allowed band : 2.4 Ghz or 5 Ghz|
+|channel|u8|The channel|
+
 Example sending the ` WifiSelection ` command to your parrot drone :
 
 ```javascript
@@ -962,14 +1099,18 @@ Changing the SSID will often (if not always) trigger a disconnection of the cont
 
 Triggered : by an [AccessPointSSID](#4_9_0) command.
 
+argument|type|description|
+|--------|----|-----------||ssid|string|AccessPoint SSID|
+
+
 Example binding to listen for the ` AccessPointSSIDChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AccessPointSSIDChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -984,14 +1125,18 @@ This command is deprecated, as the returned channel number does not contain info
 
 Triggered : by an [AccessPointChannel](#4_9_1) command
 
+argument|type|description|
+|--------|----|-----------||channel|u8|AccessPoint Channel|
+
+
 Example binding to listen for the ` AccessPointChannelChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AccessPointChannelChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1006,14 +1151,20 @@ Changing the channel will often (if not always) trigger a disconnection of the c
 
 Triggered : by an [WifiSelection](#4_9_2) command
 
+argument|type|description|
+|--------|----|-----------||type|enum|The type of wifi selection (only manual at the moment)|
+|band|enum|The allowed band : 2.4 Ghz or 5 Ghz|
+|channel|u8|The channel|
+
+
 Example binding to listen for the ` WifiSelectionChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'WifiSelectionChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1037,6 +1188,9 @@ Reset the camera orientation
 This command is deprecated. The same effect can be achieved by sending a [CameraOrientation](#1_1_0) command with values retrieved from the [defaultCameraOrientation](#1_25_1) event.
 
 Result : The drone will reset its camera orientation
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` ResetOrientation ` command to your parrot drone :
 
 ```javascript
@@ -1076,6 +1230,9 @@ Get the current button mappings
 The SkyController will send its full button mapping. This command is mainly useful for initial synchronization, as every change to the button mapping (via the [setButtonMapping](#4_12_2) command) will trigger [currentButtonMappings](#4_13_0) events.
 
 Result : The SkyController will send a full list of [currentButtonMappings](#4_13_0) events, followed by an [allCurrentButtonMappingsSent](#4_13_1) event.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` getCurrentButtonMappings ` command to your parrot drone :
 
 ```javascript
@@ -1103,6 +1260,9 @@ The SkyController will send all the available action that can be mapped on butto
  As this list is static, the controller only need to request this information once.
 
 Result : The SkyController will send a list of [availableButtonMappings](#4_13_2) events, followed by an [allAvailableButtonsMappingsSent](#4_13_3) event.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` getAvailableButtonMappings ` command to your parrot drone :
 
 ```javascript
@@ -1131,6 +1291,11 @@ Any previous mapping for the given button will be removed, as a button can only 
  Some actions can not be mapped to two different buttons at the same time. In this case, the first button will automatically be set to NO_ACTION, and the corresponding [currentButtonMappings](#4_13_0) event will be fired.
 
 Result : The SkyController will send a list of [currentButtonMappings](#4_13_0) events, describing the changes to the mapping table, followed by an [allCurrentButtonMappingsSent](#4_13_1) event.
+
+argument|type|description|
+|--------|----|-----------||key_id|i32|The keycode to map|
+|mapping_uid|string|The mapping to associate with the key|
+
 Example sending the ` setButtonMapping ` command to your parrot drone :
 
 ```javascript
@@ -1158,6 +1323,9 @@ The default values can change between software versions.
  The default values are different for Black Edition SkyControllers
 
 Result : The SkyController will send a list of [currentButtonMappings](#4_13_0) events, describing the changes to the mapping table, followed by an [allCurrentButtonMappingsSent](#4_13_1) event.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` defaultButtonMapping ` command to your parrot drone :
 
 ```javascript
@@ -1199,14 +1367,19 @@ The mapping maps a key_id (as found in [gamepadControl](#4_19_0) events) to a ma
 
 Triggered : by a [getCurrentButtonMappings](#4_12_0) command for complete synchronization, or by either a [setButtonMapping](#4_12_2) or a [defaultButtonMapping](#4_12_3) command, only for changed mappings.
 
+argument|type|description|
+|--------|----|-----------||key_id|i32|The keycode mapped|
+|mapping_uid|string|The mapping associated|
+
+
 Example binding to listen for the ` currentButtonMappings ` event from the drone :
 
 ```javascript
 
 drone.on(
   'currentButtonMappings',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1222,14 +1395,17 @@ Sent by the SkyController to notify the end of a [currentButtonMappings](#4_13_0
 
 Triggered : by a [getCurrentButtonMappings](#4_12_0), [setButtonMapping](#4_12_2) or [defaultButtonMapping](#4_12_3) command, to notify the end of list.
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` allCurrentButtonMappingsSent ` event from the drone :
 
 ```javascript
 
 drone.on(
   'allCurrentButtonMappingsSent',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1247,14 +1423,19 @@ Each action that can be mapped on a button is identified by its mapping_uid, whi
 
 Triggered : by a [getAvailableButtonMappings](#4_12_1) command.
 
+argument|type|description|
+|--------|----|-----------||mapping_uid|string|The mapping UID (used in communication with the SkyController)|
+|name|string|Display name for the user|
+
+
 Example binding to listen for the ` availableButtonMappings ` event from the drone :
 
 ```javascript
 
 drone.on(
   'availableButtonMappings',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1269,14 +1450,17 @@ Sent by the SkyController to notify the end of a [availableButtonMappings](#4_13
 
 Triggered : by a [getAvailableButtonMappings](#4_12_1) command, to notify the end of list.
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` allAvailableButtonsMappingsSent ` event from the drone :
 
 ```javascript
 
 drone.on(
   'allAvailableButtonsMappingsSent',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1303,6 +1487,9 @@ Get the current axis mappings
 The SkyController will send its full axis mapping. This command is mainly useful for initial synchronization, as every change to the axis mapping (via the [setAxisMapping](#4_14_2) command) will trigger [currentAxisMappings](#4_15_0) events.
 
 Result : The SkyController will send a full list of [currentAxisMappings](#4_15_0) events, followed by an [allCurrentAxisMappingsSent](#4_15_1) event.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` getCurrentAxisMappings ` command to your parrot drone :
 
 ```javascript
@@ -1330,6 +1517,9 @@ The SkyController will send all the available action that can be mapped on axes.
  As this list is static, the controller only need to request this information once.
 
 Result : The SkyController will send a list of [availableAxisMappings](#4_15_2) events, followed by an [allAvailableAxissMappingsSent](#4_15_3) event.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` getAvailableAxisMappings ` command to your parrot drone :
 
 ```javascript
@@ -1358,6 +1548,11 @@ Any previous mapping for the given axis will be removed, as a axis can only be m
  Some actions can not be mapped to two different axes at the same time. In this case, the first axis will automatically be set to NO_ACTION, and the corresponding [currentAxisMappings](#4_15_0) event will be fired.
 
 Result : The SkyController will send a list of [currentAxisMappings](#4_15_0) events, describing the changes to the mapping table, followed by an [allCurrentAxisMappingsSent](#4_15_1) event.
+
+argument|type|description|
+|--------|----|-----------||axis_id|i32|The axiscode to map|
+|mapping_uid|string|The mapping to associate with the axis|
+
 Example sending the ` setAxisMapping ` command to your parrot drone :
 
 ```javascript
@@ -1384,6 +1579,9 @@ Reset the axis mappings to the default value
 The default values can change between software versions.
 
 Result : The SkyController will send a list of [currentAxisMappings](#4_15_0) events, describing the changes to the mapping table, followed by an [allCurrentAxisMappingsSent](#4_15_1) event.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` defaultAxisMapping ` command to your parrot drone :
 
 ```javascript
@@ -1425,14 +1623,19 @@ The mapping maps an axis_id (as found in [gamepadControl](#4_19_0) events) to a 
 
 Triggered : by a [getCurrentAxisMappings](#4_14_0) command for complete synchronization, or by either a [setAxisMapping](#4_14_2) or [defaultAxisMapping](#4_14_3) command, only for changed mappings.
 
+argument|type|description|
+|--------|----|-----------||axis_id|i32|The axiscode mapped|
+|mapping_uid|string|The mapping associated|
+
+
 Example binding to listen for the ` currentAxisMappings ` event from the drone :
 
 ```javascript
 
 drone.on(
   'currentAxisMappings',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1448,14 +1651,17 @@ Sent by the SkyController to notify the end of a [currentAxisMappings](#4_15_0) 
 
 Triggered : by a [getCurrentAxisMappings](#4_14_0), [setAxisMapping](#4_14_2) or [defaultAxisMapping](#4_14_3) command, to notify the end of list.
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` allCurrentAxisMappingsSent ` event from the drone :
 
 ```javascript
 
 drone.on(
   'allCurrentAxisMappingsSent',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1473,14 +1679,19 @@ Each action that can be mapped on an axis is identified by its mapping_uid, whic
 
 Triggered : by a [getAvailableAxisMappings](#4_14_1) command.
 
+argument|type|description|
+|--------|----|-----------||mapping_uid|string|The mapping UID (used in communication with the SkyController)|
+|name|string|Display name for the user|
+
+
 Example binding to listen for the ` availableAxisMappings ` event from the drone :
 
 ```javascript
 
 drone.on(
   'availableAxisMappings',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1495,14 +1706,17 @@ Sent by the SkyController to notify the end of a [availableAxisMappings](#4_15_2
 
 Triggered : by a [getAvailableAxisMappings](#4_14_1) command.
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` allAvailableAxisMappingsSent ` event from the drone :
 
 ```javascript
 
 drone.on(
   'allAvailableAxisMappingsSent',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1529,6 +1743,9 @@ Get the current axis filters
 The SkyController will send its full axis filters map. This command is mainly useful for initial synchronization, as every change to the filters map (via the [setAxisFilter](#4_16_2) command) will trigger [currentAxisFilters](#4_17_0) events.
 
 Result : The SkyController will send a full list of [currentAxisFilters](#4_17_0) events, followed by an [allCurrentFiltersSent](#4_17_1) event.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` getCurrentAxisFilters ` command to your parrot drone :
 
 ```javascript
@@ -1555,6 +1772,9 @@ Get the available preset axis filters
 The preset list is empty and will never be filled, so this command is flagged as deprecated.
 
 Result : As the preset list is empty, the SkyController will just send an [allPresetFiltersSent](#4_17_3) event.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` getPresetAxisFilters ` command to your parrot drone :
 
 ```javascript
@@ -1594,6 +1814,11 @@ A filter modifies the response curve of an axis.
  * If the control point is on the diagonal (i.e. `CPx == CPy`), then the resulting filter will be linear.
 
 Result : The SkyController will send a list of [currentAxisFilters](#4_17_0) events, describing the changes to the filters table, followed by an [allCurrentFiltersSent](#4_17_1) event.
+
+argument|type|description|
+|--------|----|-----------||axis_id|i32|The axiscode to filter|
+|filter_uid_or_builder|string|The mapping preset to associate with the axis (Or a string to build a new one)|
+
 Example sending the ` setAxisFilter ` command to your parrot drone :
 
 ```javascript
@@ -1620,6 +1845,9 @@ Reset the axis filters to the default value
 The default values can change between software versions.
 
 Result : The SkyController will send a list of [currentAxisFilters](#4_17_0) events, describing the changes to the filters table, followed by an [allCurrentFiltersSent](#4_17_1) event.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` defaultAxisFilters ` command to your parrot drone :
 
 ```javascript
@@ -1660,14 +1888,19 @@ As the preset filters list is empty, all the filters are transmitted using the b
 
 Triggered : by a [getCurrentAxisFilters](#4_16_0) command for complete synchronization, or after either a [setAxisFilter](#4_16_2) or [defaultAxisFilters](#4_16_3) command, only for changed filters.
 
+argument|type|description|
+|--------|----|-----------||axis_id|i32|The axiscode filtered|
+|filter_uid_or_builder|string|The filter associated|
+
+
 Example binding to listen for the ` currentAxisFilters ` event from the drone :
 
 ```javascript
 
 drone.on(
   'currentAxisFilters',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1683,14 +1916,17 @@ Sent by the SkyController to notify the end of a [currentAxisFilters](#4_17_0) e
 
 Triggered : by a [getCurrentAxisFilters](#4_16_0), [setAxisFilter](#4_16_2) or [defaultAxisFilters](#4_16_3) command, to notify the end of list.
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` allCurrentFiltersSent ` event from the drone :
 
 ```javascript
 
 drone.on(
   'allCurrentFiltersSent',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1704,6 +1940,11 @@ Predefined axis filters
 No preset axis filter is defined on the SkyController, so this command will never be sent by the firmware.
 
 Result : undefined
+
+argument|type|description|
+|--------|----|-----------||filter_uid|string|The filter UID (used in communication with the SkyController)|
+|name|string|Display name for the user|
+
 Example sending the ` presetAxisFilters ` command to your parrot drone :
 
 ```javascript
@@ -1731,14 +1972,17 @@ As the SkyController will never send a [presetAxisFilters](#4_17_2) event, this 
 
 Triggered : by a [getPresetAxisFilters](#4_16_1) command.
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` allPresetFiltersSent ` event from the drone :
 
 ```javascript
 
 drone.on(
   'allPresetFiltersSent',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1762,6 +2006,9 @@ Get the SkyController buttons and axis list
 This commands allow the application to get a representation of all the mappable controls on the SkyController. Some physical controls might be absent from this list because their function can not be changed.
 
 Result : The SkyController will send a list of [GamepadControl](#4_19_0) events, describing all available controls, followed by an [allGamepadControlsSent](#4_19_1) event.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` getGamepadControls ` command to your parrot drone :
 
 ```javascript
@@ -1801,14 +2048,20 @@ Each gamepad control element represents a mappable control on the SkyController.
 
 Triggered : by a [getGamepadControls](#4_18_0) command.
 
+argument|type|description|
+|--------|----|-----------||type|enum|The type (axis/button) of the control|
+|id|i32|The button or axis id A button and an axis can have the same ID, but their type is different|
+|name|string|Display name for the control|
+
+
 Example binding to listen for the ` gamepadControl ` event from the drone :
 
 ```javascript
 
 drone.on(
   'gamepadControl',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1823,14 +2076,17 @@ This event marks the end of the GamepadControl list
 
 Triggered : by a [getGamepadControls](#4_18_0) command, after sending all the [GamepadControl](#4_19_0) events.
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` allGamepadControlsSent ` event from the drone :
 
 ```javascript
 
 drone.on(
   'allGamepadControlsSent',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1856,6 +2112,10 @@ Change who is piloting the drone.
  The piloting source is automatically reset to SkyController when the controller is disconnected.
 
 Result : The SkyController will sent a [pilotingSource](#4_21_0) event.
+
+argument|type|description|
+|--------|----|-----------||source|enum|The new piloting source|
+
 Example sending the ` setPilotingSource ` command to your parrot drone :
 
 ```javascript
@@ -1894,14 +2154,18 @@ Define who is piloting the drone.
 
 Triggered : by a [setPilotingSource](#4_20_0) command
 
+argument|type|description|
+|--------|----|-----------||source|enum|The source|
+
+
 Example binding to listen for the ` pilotingSource ` event from the drone :
 
 ```javascript
 
 drone.on(
   'pilotingSource',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1926,6 +2190,10 @@ Asks the SkyController to send (or not) the magneto calibration quality updates.
  The [MagnetoCalibrationState](#4_23_0) event will always be sent when the status parameters changes, regardless of this setting.
 
 Result : The SkyController will send a [MagnetoCalibrationQualityUpdatesState](#4_23_1) event.
+
+argument|type|description|
+|--------|----|-----------||enable|u8|Flag to enable the feature: 1 = Enable quality updates 0 = Disable quality updates|
+
 Example sending the ` enableMagnetoCalibrationQualityUpdates ` command to your parrot drone :
 
 ```javascript
@@ -1965,14 +2233,21 @@ The current state of the magnetometer calibration.
 
 Triggered : when the magnetometer calibration state has changed.
 
+argument|type|description|
+|--------|----|-----------||status|enum|The global status of the calibration|
+|X_Quality|u8|Calibration quality on X axis. 0 is bad, 255 is perfect|
+|Y_Quality|u8|Calibration quality on Y axis. 0 is bad, 255 is perfect|
+|Z_Quality|u8|Calibration quality on Z axis. 0 is bad, 255 is perfect|
+
+
 Example binding to listen for the ` MagnetoCalibrationState ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MagnetoCalibrationState',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1988,14 +2263,18 @@ State of the magnetometer calibration quality sender.
 
 Triggered : by an [enableMagnetoCalibrationQualityUpdates](#4_22_0) command.
 
+argument|type|description|
+|--------|----|-----------||enabled|u8|Flag (is the feature enabled). 1 = The skycontroller sends updated when quality is updated 0 = The skycontroller only sent updated when state is updated|
+
+
 Example binding to listen for the ` MagnetoCalibrationQualityUpdatesState ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MagnetoCalibrationQualityUpdatesState',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -2021,14 +2300,17 @@ This event notifies the application that the settings button was pressed on the 
 
 Triggered : when the user presses the settings button on a connected SkyController.
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` Settings ` event from the drone :
 
 ```javascript
 
 drone.on(
   'Settings',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -2052,6 +2334,9 @@ Reset the SkyController 2 to its factory settings
 This command will request a factory reset from the SkyController 2. *The factory reset procedure implies an automatic reboot*, which will be done immediately after recieving this command.
 
 Result : The SkyController 2 will reboot, all settings will be reset to their default values. Products that were paired in factory will **NOT** lose this pairing.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` Reset ` command to your parrot drone :
 
 ```javascript

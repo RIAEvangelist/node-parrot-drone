@@ -124,24 +124,23 @@ class Response extends Events{
 
       this.message.commandName    = null;
       this.message.className      = null;
-      this.message.project    = this.drone.projects.lookup[
+      //console.log(this.drone.projects)
+      this.message.projectName=this.drone.projects.lookup[
         this.message.projectID
       ];
 
+      const project = this.drone.projects[this.message.projectName];
+
       this.message.command = null;
 
-      if(this.message.project){
-        this.message.className    = this.drone.projects[
-          this.message.project.name
-        ].lookup[
+      if(project){
+        this.message.className    = project.lookup[
           this.message.classID
         ];
       }
 
       if(this.message.className){
-        const classRef=this.drone.projects[
-          this.message.project.name
-        ][
+        const classRef=project[
           this.message.className
         ];
 
@@ -154,42 +153,39 @@ class Response extends Events{
         ];
       }
 
-      if(this.message.command && this.message.command.lookup.length>0){
-        for(const argName of this.message.command.lookup){
+      //console.log(this.message.projectID,this.message.classID,this.message.className,this.message.commandID,this.message.commandName,this.message.command);
+      //console.log(this.message.command.lookup);
+      if(this.message.command && Object.keys(this.message.command.lookup).length>0){
+        for(const argID in this.message.command.lookup){
+          const argName=this.message.command.lookup[argID];
           const arg=this.message.command[argName];
-          //console.log(argName,arg,this.message.arguments)
-          switch(arg.type){
-            case 'unsigned' :
-              switch(arg.bytes){
-                case 1 :
-                  arg.value=this.message.arguments.readUInt8(0);
-                break;
-                case 2 :
-                  arg.value=this.message.arguments.readUInt16LE(0);
-                break;
-                default :
-                  arg.value=this.message.arguments.readUInt32LE(0);
-              }
+          console.log(argName,this.message.arguments)
+          switch(arg.info.type){
+            case 'u8' :
+              arg.value=this.message.arguments.readUInt8(0);
+              break;
+            case 'i8' :
+              arg.value=this.message.arguments.readInt8(0);
+              break;
+            case 'u16' :
+              arg.value=this.message.arguments.readUInt16LE(0);
+              break;
+            case 'i16' :
+              arg.value=this.message.arguments.readInt16LE(0);
             break;
-            case 'signed' :
-              switch(arg.bytes){
-                case 1 :
-                  arg.value=this.message.arguments.readInt8(0);
-                break;
-                case 2 :
-                  arg.value=this.message.arguments.readInt16LE(0);
-                break;
-                default :
-                  arg.value=this.message.arguments.readInt32LE(0);
-              }
-            break;
+            case 'u32' :
+            case 'enum' :
+              arg.value=this.message.arguments.readUInt32LE(0);
+              break;
+            case 'i32' :
+              arg.value=this.message.arguments.readInt32LE(0);
+              break;
             case 'float' :
               arg.value=this.message.arguments.readFloatLE(0);
-            break;
-            case 'string' :
+              break;
+            default :
               arg.bytes=this.message.arguments.indexOf('\0');
               arg.value=this.message.arguments.slice(0,arg.bytes).toString();
-            break;
           }
 
           this.message.arguments=this.message.arguments.slice(arg.bytes);
@@ -203,17 +199,6 @@ class Response extends Events{
           this.message.commandName,
           this.message.command
         );
-
-        this.message.command.emit(
-          'change',
-          this.message.command
-        );
-
-        for(const key in this.message.command){
-          if(this.message.command.lookup.indexOf(key)<0){
-            continue;
-          }
-        }
       }
 
       //console.log(this.message.frameType.id,this.drone.message.frameTypes.dataWithAckType)

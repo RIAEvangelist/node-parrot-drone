@@ -43,6 +43,12 @@ Ask the Power Up speed and turn ratio.
 
 
 
+
+argument|type|description|
+|--------|----|-----------||flag|u8|Boolean for "touch screen".|
+|throttle|u8|Throttle value [0_100].|
+|roll|i8|Yaw_roll value. [_100_100]|
+
 Example sending the ` PCMD ` command to your parrot drone :
 
 ```javascript
@@ -69,6 +75,10 @@ Set drone in user take off state
 
 
 
+
+argument|type|description|
+|--------|----|-----------||state|u8|State of user take off mode _ 1 to enter in user take off. _ 0 to exit from user take off.|
+
 Example sending the ` UserTakeOff ` command to your parrot drone :
 
 ```javascript
@@ -94,6 +104,10 @@ Motor mode
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||mode|enum|undefined|
 
 Example sending the ` MotorMode ` command to your parrot drone :
 
@@ -136,14 +150,18 @@ JS alert state changed
 
 
 
+argument|type|description|
+|--------|----|-----------||state|enum|JS alert state|
+
+
 Example binding to listen for the ` AlertStateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AlertStateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -158,14 +176,18 @@ Drone flying state changed
 
 
 
+argument|type|description|
+|--------|----|-----------||state|enum|Drone flying state|
+
+
 Example binding to listen for the ` FlyingStateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'FlyingStateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -180,14 +202,18 @@ Motor mode changed
 
 
 
+argument|type|description|
+|--------|----|-----------||mode|enum|undefined|
+
+
 Example binding to listen for the ` MotorModeChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MotorModeChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -202,14 +228,20 @@ Drone attitude changed
 
 
 
+argument|type|description|
+|--------|----|-----------||roll|float|roll value (in radian) (relative to horizontal)|
+|pitch|float|Pitch value (in radian) (relative to horizontal)|
+|yaw|float|Yaw value (in radian) (relative to North)|
+
+
 Example binding to listen for the ` AttitudeChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AttitudeChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -224,14 +256,18 @@ Drone altitude changed
 
 
 
+argument|type|description|
+|--------|----|-----------||altitude|float|Altitude in meters relative to take off altitude|
+
+
 Example binding to listen for the ` AltitudeChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AltitudeChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -254,6 +290,11 @@ Set the given setting
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||setting|enum|Variety of setting that can be customized|
+|value|float|value of the given setting|
 
 Example sending the ` set ` command to your parrot drone :
 
@@ -292,14 +333,22 @@ Fired when a setting has changed
 
 
 
+argument|type|description|
+|--------|----|-----------||setting|enum|Variety of setting that can be customized|
+|current|float|Current value of the given setting|
+|min|float|Minimal value of the given setting|
+|max|float|Max value of the given setting|
+|list_flags|u8|List entry attribute Bitfield. 0x01: First: indicate it's the first element of the list. 0x02: Last: indicate it's the last element of the list. 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored. 0x08: Remove: This value should be removed from the existing list.|
+
+
 Example binding to listen for the ` settingChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'settingChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -324,6 +373,9 @@ Take picture
 
 
 
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` PictureV2 ` command to your parrot drone :
 
 ```javascript
@@ -349,6 +401,10 @@ Video record
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||record|enum|Command to record video|
 
 Example sending the ` VideoV2 ` command to your parrot drone :
 
@@ -388,14 +444,19 @@ State of device picture recording changed
 
 
 
+argument|type|description|
+|--------|----|-----------||state|enum|State of device picture recording|
+|error|enum|Error to explain the state|
+
+
 Example binding to listen for the ` PictureStateChangedV2 ` event from the drone :
 
 ```javascript
 
 drone.on(
   'PictureStateChangedV2',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -410,14 +471,19 @@ State of device video recording changed
 
 
 
+argument|type|description|
+|--------|----|-----------||state|enum|State of device video recording|
+|error|enum|Error to explain the state|
+
+
 Example binding to listen for the ` VideoStateChangedV2 ` event from the drone :
 
 ```javascript
 
 drone.on(
   'VideoStateChangedV2',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -443,14 +509,19 @@ Event of picture recording
 
 
 
+argument|type|description|
+|--------|----|-----------||event|enum|Last event of picture recording|
+|error|enum|Error to explain the event|
+
+
 Example binding to listen for the ` PictureEventChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'PictureEventChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -465,14 +536,19 @@ Event of video recording
 
 
 
+argument|type|description|
+|--------|----|-----------||event|enum|Event of video recording|
+|error|enum|Error to explain the event|
+
+
 Example binding to listen for the ` VideoEventChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'VideoEventChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -495,6 +571,12 @@ Auto_select channel of choosen band
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||type|enum|The type of wifi selection (auto, manual)|
+|band|enum|The allowed band(s) : 2.4 Ghz, 5 Ghz, or all|
+|channel|u8|The channel (not used in auto mode)|
 
 Example sending the ` WifiSelection ` command to your parrot drone :
 
@@ -533,14 +615,20 @@ Wifi selection from product
 
 
 
+argument|type|description|
+|--------|----|-----------||type|enum|The type of wifi selection settings|
+|band|enum|The actual wifi band state|
+|channel|u8|The channel (depends of the band)|
+
+
 Example binding to listen for the ` WifiSelectionChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'WifiSelectionChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -564,6 +652,10 @@ Launches wifi network scan
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||band|enum|The band(s) : 2.4 Ghz, 5 Ghz, or both|
 
 Example sending the ` WifiScan ` command to your parrot drone :
 
@@ -591,6 +683,9 @@ Controller inquire the list of authorized wifi channels.
 
 
 
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` WifiAuthChannel ` command to your parrot drone :
 
 ```javascript
@@ -632,14 +727,21 @@ One scanning result found
 
 
 
+argument|type|description|
+|--------|----|-----------||ssid|string|SSID of the AP|
+|rssi|i16|RSSI of the AP in dbm (negative value)|
+|band|enum|The band : 2.4 GHz or 5 GHz|
+|channel|u8|Channel of the AP|
+
+
 Example binding to listen for the ` WifiScanListChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'WifiScanListChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -654,14 +756,17 @@ State sent when all scanning result sent
 
 
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` AllWifiScanChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AllWifiScanChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -676,14 +781,20 @@ Notify of an Authorized Channel.
 
 
 
+argument|type|description|
+|--------|----|-----------||band|enum|The band of this channel : 2.4 GHz or 5 GHz|
+|channel|u8|The authorized channel.|
+|in_or_out|u8|Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)|
+
+
 Example binding to listen for the ` WifiAuthChannelListChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'WifiAuthChannelListChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -698,14 +809,17 @@ Notify the end of the list of Authorized wifi Channel.
 
 
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` AllWifiAuthChannelChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AllWifiAuthChannelChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -720,14 +834,18 @@ Notification sent by the firmware to give an indication of the WiFi link quality
 
 
 
+argument|type|description|
+|--------|----|-----------||quality|u8|The WiFi link quality in range 0_6, the higher the value, the higher the link quality.|
+
+
 Example binding to listen for the ` LinkQualityChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'LinkQualityChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -750,6 +868,10 @@ Enable/disable video streaming.
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||enable|u8|1 to enable, 0 to disable.|
 
 Example sending the ` VideoEnable ` command to your parrot drone :
 
@@ -788,14 +910,18 @@ Return video streaming status.
 
 
 
+argument|type|description|
+|--------|----|-----------||enabled|enum|Current video streaming status.|
+
+
 Example binding to listen for the ` VideoEnableChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'VideoEnableChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -819,6 +945,10 @@ Set video automatic recording state.
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||enable|u8|0: Disabled 1: Enabled.|
 
 Example sending the ` Autorecord ` command to your parrot drone :
 
@@ -845,6 +975,10 @@ Set video mode
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||mode|enum|Video mode|
 
 Example sending the ` VideoMode ` command to your parrot drone :
 
@@ -884,14 +1018,18 @@ Get video automatic recording status.
 
 
 
+argument|type|description|
+|--------|----|-----------||enabled|u8|0: Disabled 1: Enabled.|
+
+
 Example binding to listen for the ` AutorecordChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AutorecordChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -906,14 +1044,18 @@ Video mode
 
 
 
+argument|type|description|
+|--------|----|-----------||mode|enum|Video mode|
+
+
 Example binding to listen for the ` VideoModeChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'VideoModeChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -936,6 +1078,10 @@ Enable/disable the buzzer sound
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||enable|u8|0: Disabled 1: Enabled.|
 
 Example sending the ` buzz ` command to your parrot drone :
 
@@ -974,14 +1120,18 @@ State of the buzzer
 
 
 
+argument|type|description|
+|--------|----|-----------||enabled|u8|0: Disabled 1: Enabled.|
+
+
 Example binding to listen for the ` buzzChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'buzzChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 

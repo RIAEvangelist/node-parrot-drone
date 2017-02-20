@@ -1,5 +1,5 @@
 'use strict';
-const projects={};
+const projects={lookup:{}};
 const ardrone3=require('./ardrone3.js');
 
 const common=require('./common.js');
@@ -12,6 +12,7 @@ const powerup=require('./powerup.js');
 
 const skyctrl=require('./skyctrl.js');
 Object.assign(projects,ardrone3,common,jpsumo,minidrone,powerup,skyctrl);
+Object.assign(projects.lookup,ardrone3.lookup,common.lookup,jpsumo.lookup,minidrone.lookup,powerup.lookup,skyctrl.lookup);
 
 const droneRefs={
   "deviceControllers": {

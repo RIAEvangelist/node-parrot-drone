@@ -85,6 +85,23 @@ This is probably the most useful way to monitor your drones state.
         }
     );
 
+    function batteryStateChanged(commandRef){
+      //commandRef is a reference to the command itself in the project state
+      console.log('battery is now at %d percent',commandRef.percent);
+    }
+
+    //listen for changes on the command state
+    drone.projects.common.BatteryStateChanged.on(
+        'change',
+        batteryStateChanged
+    );
+
+    //or listen for the specific event on the drone
+    drone.on(
+        'batteryStateChanged',
+        batteryStateChanged
+    );
+
 ```
 
 ## Sending commands or updating values on your drone
@@ -121,29 +138,6 @@ This is probably the most useful way to monitor your drones state.
     drone.message.send(getSettingsState);
     drone.message.send(getCommonState);
     drone.message.send(calibrate);
-
-```
-
-## Listening for updates to specific drone data
-
-```javascript
-
-    function batteryStateChanged(commandRef){
-      //commandRef is a reference to the command itself in the project state
-      console.log(`battery is ${(commandRef.percent}%`);
-    }
-
-    //listen for changes on the command state
-    drone.projects.common.BatteryStateChanged.on(
-        'change',
-        batteryStateChanged
-    );
-
-    //or listen for the specific event on the drone
-    drone.on(
-        'batteryStateChanged',
-        batteryStateChanged
-    );
 
 ```
 

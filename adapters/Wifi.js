@@ -96,19 +96,31 @@ class DroneWifi extends Events{
         };
 
         const project=this.projects.common;
-
+        let commandClass=project.Settings;
         //console.log(project)
 
         const getSettingsState=this.message.build(
-          project.id,
-          project.Settings.info.id,
-          project.Settings.AllSettings
+          project.info.id,
+          commandClass.info.id,
+          commandClass.AllSettings
         );
 
+        commandClass=project.Common;
+
         const getCommonState=this.message.build(
-          project.id,
-          project.Common.info.id,
-          project.Common.AllStates
+          project.info.id,
+          commandClass.info.id,
+          commandClass.AllStates
+        );
+
+        commandClass=project.Controller;
+
+        commandClass.isPiloting.piloting.value=1;
+
+        const setPiloting=this.message.build(
+          project.info.id,
+          commandClass.info.id,
+          commandClass.isPiloting
         );
 
         this.message.send(getSettingsState);

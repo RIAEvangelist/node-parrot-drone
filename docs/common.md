@@ -56,6 +56,9 @@ Signals the remote that the host will disconnect.
 
 
 Result : None
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` Disconnect ` command to your parrot drone :
 
 ```javascript
@@ -96,14 +99,18 @@ Drone will disconnect.
 
 Triggered : mainly when the user presses the power button of the drone.
 
+argument|type|description|
+|--------|----|-----------||cause|enum|Cause of the disconnection of the product|
+
+
 Example binding to listen for the ` Disconnection ` event from the drone :
 
 ```javascript
 
 drone.on(
   'Disconnection',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -135,6 +142,9 @@ Ask for all settings.
 
 Result : The product will trigger all settings events (such as [CameraSettings](#0_15_0), or product specific settings as the [MaxAltitude](#1_6_0) for the Bebop).
  Then, it will trigger [AllSettingsEnd](#0_3_0).
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` AllSettings ` command to your parrot drone :
 
 ```javascript
@@ -162,6 +172,9 @@ Reset all settings.
 
 Result : It will trigger [ResetChanged](#0_3_1).
  Then, the product will trigger all settings events (such as [CameraSettings](#0_15_0), or product specific settings as the [MaxAltitude](#1_6_0) for the Bebop) with factory values.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` Reset ` command to your parrot drone :
 
 ```javascript
@@ -190,6 +203,10 @@ Set the product name.
 
 Result : Name is changed.
  Then, it will trigger [NameChanged](#0_3_2).
+
+argument|type|description|
+|--------|----|-----------||name|string|Product name|
+
 Example sending the ` ProductName ` command to your parrot drone :
 
 ```javascript
@@ -219,6 +236,10 @@ Set the country for Wifi products.
 
 Result : The country is set.
  Then, it will trigger [CountryChanged](#0_3_6).
+
+argument|type|description|
+|--------|----|-----------||code|string|Country code with ISO 3166 format|
+
 Example sending the ` Country ` command to your parrot drone :
 
 ```javascript
@@ -248,6 +269,10 @@ Enable auto_country.
 
 Result : The auto_country of the product is changed.
  Then, it will trigger [AutoCountryChanged](#0_3_7) and [CountryChanged](#0_3_6).
+
+argument|type|description|
+|--------|----|-----------||automatic|u8|Boolean : 0 : Manual / 1 : Auto|
+
 Example sending the ` AutoCountry ` command to your parrot drone :
 
 ```javascript
@@ -294,14 +319,17 @@ All settings have been sent.
 
 Triggered : when all settings values have been sent.
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` AllSettingsChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AllSettingsChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -316,14 +344,17 @@ All settings have been reset.
 
 Triggered : by [ResetSettings](#0_2_1).
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` ResetChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ResetChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -338,14 +369,18 @@ Product name changed.
 
 Triggered : by [SetProductName](#0_2_2).
 
+argument|type|description|
+|--------|----|-----------||name|string|Product name|
+
+
 Example binding to listen for the ` ProductNameChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ProductNameChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -360,14 +395,19 @@ Product version.
 
 Triggered : during the connection process.
 
+argument|type|description|
+|--------|----|-----------||software|string|Product software version|
+|hardware|string|Product hardware version|
+
+
 Example binding to listen for the ` ProductVersionChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ProductVersionChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -382,14 +422,18 @@ Product serial (1st part).
 
 Triggered : during the connection process.
 
+argument|type|description|
+|--------|----|-----------||high|string|Serial high number (hexadecimal value)|
+
+
 Example binding to listen for the ` ProductSerialHighChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ProductSerialHighChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -404,14 +448,18 @@ Product serial (2nd part).
 
 Triggered : during the connection process.
 
+argument|type|description|
+|--------|----|-----------||low|string|Serial low number (hexadecimal value)|
+
+
 Example binding to listen for the ` ProductSerialLowChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ProductSerialLowChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -426,14 +474,18 @@ Country changed.
 
 Triggered : by [SetCountry](#0_2_3).
 
+argument|type|description|
+|--------|----|-----------||code|string|Country code with ISO 3166 format, empty string means unknown country.|
+
+
 Example binding to listen for the ` CountryChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'CountryChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -448,14 +500,18 @@ Auto_country changed.
 
 Triggered : by [SetAutoCountry](#0_2_4).
 
+argument|type|description|
+|--------|----|-----------||automatic|u8|Boolean : 0 : Manual / 1 : Auto|
+
+
 Example binding to listen for the ` AutoCountryChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AutoCountryChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -486,6 +542,9 @@ Ask for all states.
 
 Result : The product will trigger all states events (such as [FlyingState](#1_4_1) for the Bebop).
  Then, it will trigger [AllStatesEnd](#0_5_0).
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` AllStates ` command to your parrot drone :
 
 ```javascript
@@ -518,6 +577,10 @@ Set the date.
 
 Result : The date of the product is set.
  Then, it will trigger [DateChanged](#0_5_4).
+
+argument|type|description|
+|--------|----|-----------||date|string|Date with ISO_8601 format|
+
 Example sending the ` CurrentDate ` command to your parrot drone :
 
 ```javascript
@@ -550,6 +613,10 @@ Set the time.
 
 Result : The time of the product is set.
  Then, it will trigger [TimeChanged](#0_5_5).
+
+argument|type|description|
+|--------|----|-----------||time|string|Time with ISO_8601 format|
+
 Example sending the ` CurrentTime ` command to your parrot drone :
 
 ```javascript
@@ -577,6 +644,9 @@ Reboot the product.
  The product will accept this command only if is not flying.
 
 Result : The product will reboot if it can.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` Reboot ` command to your parrot drone :
 
 ```javascript
@@ -630,14 +700,17 @@ All states have been sent.
 
 Triggered : when all states values have been sent.
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` AllStatesChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AllStatesChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -652,14 +725,18 @@ Battery state.
 
 Triggered : when the battery level changes.
 
+argument|type|description|
+|--------|----|-----------||percent|u8|Battery percentage|
+
+
 Example binding to listen for the ` BatteryStateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'BatteryStateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -674,14 +751,19 @@ Mass storage state list.
 
 Triggered : when a mass storage is inserted or ejected.
 
+argument|type|description|
+|--------|----|-----------||mass_storage_id|u8|Mass storage id (unique)|
+|name|string|Mass storage name|
+
+
 Example binding to listen for the ` MassStorageStateListChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MassStorageStateListChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -696,14 +778,23 @@ Mass storage info state list.
 
 Triggered : when a mass storage info changes.
 
+argument|type|description|
+|--------|----|-----------||mass_storage_id|u8|Mass storage state id (unique)|
+|size|u32|Mass storage size in MBytes|
+|used_size|u32|Mass storage used size in MBytes|
+|plugged|u8|Mass storage plugged (1 if mass storage is plugged, otherwise 0)|
+|full|u8|Mass storage full information state (1 if mass storage full, 0 otherwise).|
+|internal|u8|Mass storage internal type state (1 if mass storage is internal, 0 otherwise)|
+
+
 Example binding to listen for the ` MassStorageInfoStateListChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MassStorageInfoStateListChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -721,14 +812,18 @@ Date changed.
 
 Triggered : by [SetDate](#0_4_1).
 
+argument|type|description|
+|--------|----|-----------||date|string|Date with ISO_8601 format|
+
+
 Example binding to listen for the ` CurrentDateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'CurrentDateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -746,14 +841,18 @@ Time changed.
 
 Triggered : by [SetTime](#0_4_2).
 
+argument|type|description|
+|--------|----|-----------||time|string|Time with ISO_8601 format|
+
+
 Example binding to listen for the ` CurrentTimeChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'CurrentTimeChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -768,14 +867,20 @@ Mass storage remaining data list.
 
 Result : undefined
 
+argument|type|description|
+|--------|----|-----------||free_space|u32|Mass storage free space in MBytes|
+|rec_time|u16|Mass storage record time reamining in minute|
+|photo_remaining|u32|Mass storage photo remaining|
+
+
 Example binding to listen for the ` MassStorageInfoRemainingListChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MassStorageInfoRemainingListChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -790,14 +895,18 @@ Rssi (Wifi Signal between controller and product) changed.
 
 Triggered : regularly.
 
+argument|type|description|
+|--------|----|-----------||rssi|i16|RSSI of the signal between controller and the product (in dbm)|
+
+
 Example binding to listen for the ` WifiSignalChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'WifiSignalChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -812,14 +921,19 @@ Sensors state list.
 
 Triggered : at connection and when a sensor state changes.
 
+argument|type|description|
+|--------|----|-----------||sensorName|enum|Sensor name|
+|sensorState|u8|Sensor state (1 if the sensor is OK, 0 if the sensor is NOT OK)|
+
+
 Example binding to listen for the ` SensorsStatesListChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'SensorsStatesListChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -835,14 +949,18 @@ Product sub_model.
 
 Triggered : at connection.
 
+argument|type|description|
+|--------|----|-----------||model|enum|The Model of the product.|
+
+
 Example binding to listen for the ` ProductModel ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ProductModel',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -856,6 +974,11 @@ Country list
 List of countries known by the drone.
 
 Result : undefined
+
+argument|type|description|
+|--------|----|-----------||listFlags|u8|List entry attribute Bitfield. 0x01: First: indicate it's the first element of the list. 0x02: Last: indicate it's the last element of the list. 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.|
+|countryCodes|string|Following of country code with ISO 3166 format, separated by ";". Be careful of the command size allowed by the network used. If necessary, split the list in several commands.|
+
 Example sending the ` CountryListKnown ` command to your parrot drone :
 
 ```javascript
@@ -883,14 +1006,22 @@ Mass storage content changed.
 
 Result : undefined
 
+argument|type|description|
+|--------|----|-----------||mass_storage_id|u8|Mass storage id (unique)|
+|nbPhotos|u16|Number of photos (does not include raw photos)|
+|nbVideos|u16|Number of videos|
+|nbPuds|u16|Number of puds|
+|nbCrashLogs|u16|Number of crash logs|
+
+
 Example binding to listen for the ` DeprecatedMassStorageContentChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'DeprecatedMassStorageContentChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -905,14 +1036,23 @@ Mass storage content.
 
 Triggered : when the content of the mass storage changes.
 
+argument|type|description|
+|--------|----|-----------||mass_storage_id|u8|Mass storage id (unique)|
+|nbPhotos|u16|Number of photos (does not include raw photos)|
+|nbVideos|u16|Number of videos|
+|nbPuds|u16|Number of puds|
+|nbCrashLogs|u16|Number of crash logs|
+|nbRawPhotos|u16|Number of raw photos|
+
+
 Example binding to listen for the ` MassStorageContent ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MassStorageContent',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -928,14 +1068,21 @@ Mass storage content for current run.
 
 Triggered : when the content of the mass storage changes and this content is related to the current run.
 
+argument|type|description|
+|--------|----|-----------||mass_storage_id|u8|Mass storage id (unique)|
+|nbPhotos|u16|Number of photos (does not include raw photos)|
+|nbVideos|u16|Number of videos|
+|nbRawPhotos|u16|Number of raw photos|
+
+
 Example binding to listen for the ` MassStorageContentForCurrentRun ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MassStorageContentForCurrentRun',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -953,14 +1100,19 @@ Current or last video recording timestamp.
 Triggered : on video recording start and video recording stop or 
  after that the date/time of the drone changed.
 
+argument|type|description|
+|--------|----|-----------||startTimestamp|u64|Timestamp in milliseconds since 00_00_00 UTC on 1 January 1970.|
+|stopTimestamp|u64|Timestamp in milliseconds since 00_00_00 UTC on 1 January 1970. 0 mean that video is still recording.|
+
+
 Example binding to listen for the ` VideoRecordingTimestamp ` event from the drone :
 
 ```javascript
 
 drone.on(
   'VideoRecordingTimestamp',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -985,6 +1137,9 @@ Switch off after an overheat
 Switch off after an overheat.
 
 Result : None
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` SwitchOff ` command to your parrot drone :
 
 ```javascript
@@ -1011,6 +1166,9 @@ Ventilate after an overheat
 Ventilate after an overheat.
 
 Result : None
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` Ventilate ` command to your parrot drone :
 
 ```javascript
@@ -1049,14 +1207,17 @@ Overheat temperature reached.
 
 Result : undefined
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` OverHeatChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'OverHeatChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1071,14 +1232,18 @@ Overheat regulation type.
 
 Result : undefined
 
+argument|type|description|
+|--------|----|-----------||regulationType|u8|Type of overheat regulation : 0 for ventilation, 1 for switch off|
+
+
 Example binding to listen for the ` OverHeatRegulationChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'OverHeatRegulationChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1105,6 +1270,10 @@ Inform about hud entering.
 
 Result : If yes, the product will begin a new session (so it should send a new [runId](#0_30_0)).
  Also, on the JumpingSumos, if the video is in autorecord mode, it will start recording.
+
+argument|type|description|
+|--------|----|-----------||piloting|u8|0 when the application is not in the piloting HUD, 1 when it enters the HUD.|
+
 Example sending the ` isPiloting ` command to your parrot drone :
 
 ```javascript
@@ -1143,6 +1312,10 @@ Set wifi indoor/outdoor mode.
 
 Result : The product change its indoor/outdoor wifi settings.
  Then, it will trigger [WifiOutdoorMode](#0_10_0).
+
+argument|type|description|
+|--------|----|-----------||outdoor|u8|1 if it should use outdoor wifi settings, 0 otherwise|
+
 Example sending the ` OutdoorSetting ` command to your parrot drone :
 
 ```javascript
@@ -1180,14 +1353,18 @@ Wifi outdoor mode.
 
 Triggered : by [SetWifiOutdoorMode](#0_9_0).
 
+argument|type|description|
+|--------|----|-----------||outdoor|u8|1 if it should use outdoor wifi settings, 0 otherwise|
+
+
 Example binding to listen for the ` outdoorSettingsChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'outdoorSettingsChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1220,6 +1397,11 @@ Start a FlightPlan based on a mavlink file existing on the drone.
 
 Result : If the FlightPlan has been started, event [FlightPlanPlayingStateChanged](#0_12_0) is triggered with param state set to *playing*.
  Otherwise, event [FlightPlanPlayingStateChanged](#0_12_0) is triggered with param state set to stopped and event [MavlinkPlayErrorStateChanged](#0_12_1) is triggered with an explanation of the error.
+
+argument|type|description|
+|--------|----|-----------||filepath|string|flight plan file path from the mavlink ftp root|
+|type|enum|type of the played mavlink file|
+
 Example sending the ` Start ` command to your parrot drone :
 
 ```javascript
@@ -1248,6 +1430,9 @@ Pause a FlightPlan that was playing.
 
 
 Result : The currently playing FlightPlan will be paused. Then, event [FlightPlanPlayingStateChanged](#0_12_0) is triggered with param state set to the current state of the FlightPlan (should be *paused* if everything went well).
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` Pause ` command to your parrot drone :
 
 ```javascript
@@ -1275,6 +1460,9 @@ Stop a FlightPlan that was playing.
 
 
 Result : The currently playing FlightPlan will be stopped. Then, event [FlightPlanPlayingStateChanged](#0_12_0) is triggered with param state set to the current state of the FlightPlan (should be *stopped* if everything went well).
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` Stop ` command to your parrot drone :
 
 ```javascript
@@ -1314,14 +1502,20 @@ Playing state of a FlightPlan.
 
 Triggered : by [StartFlightPlan](#0_11_0), [PauseFlightPlan](#0_11_1) or [StopFlightPlan](#0_11_2).
 
+argument|type|description|
+|--------|----|-----------||state|enum|State of the mavlink|
+|filepath|string|flight plan file path from the mavlink ftp root|
+|type|enum|type of the played mavlink file|
+
+
 Example binding to listen for the ` MavlinkFilePlayingStateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MavlinkFilePlayingStateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1336,14 +1530,18 @@ FlightPlan error.
 
 Triggered : by [StartFlightPlan](#0_11_0) if an error occurs.
 
+argument|type|description|
+|--------|----|-----------||error|enum|State of play error|
+
+
 Example binding to listen for the ` MavlinkPlayErrorStateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MavlinkPlayErrorStateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1358,14 +1556,18 @@ Mission item has been executed.
 
 Triggered : when a mission item has been executed during a flight plan.
 
+argument|type|description|
+|--------|----|-----------||idx|u32|Index of the mission item. This is the place of the mission item in the list of the items of the mission. Begins at 0.|
+
+
 Example binding to listen for the ` MissonItemExecuted ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MissonItemExecuted',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1392,6 +1594,10 @@ Start or abort magnetometer calibration process.
 
 Result : The magnetometer calibration process is started or aborted. Then, event [MagnetoCalibrationStartedChanged](#0_14_3) is triggered.
  If started, event [MagnetoCalibrationStateChanged](#0_14_3) is triggered with the current calibration state: a list of all axis and their calibration states.\n It will also trigger [MagnetoCalibrationAxisToCalibrateChanged](#0_14_2), that will inform the controller about the current axis to calibrate.
+
+argument|type|description|
+|--------|----|-----------||calibrate|u8|1 if the calibration should be started, 0 if it should be aborted|
+
 Example sending the ` MagnetoCalibration ` command to your parrot drone :
 
 ```javascript
@@ -1417,6 +1623,10 @@ Sent when a calibration of the pitot is asked or is aborted
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||calibrate|u8|1 if the calibration should be started, 0 if it should be aborted|
 
 Example sending the ` PitotCalibration ` command to your parrot drone :
 
@@ -1459,14 +1669,21 @@ Magneto calib process axis state.
 
 Triggered : when the calibration process is started with [StartOrAbortMagnetoCalib](#0_13_0) and each time an axis calibration state changes.
 
+argument|type|description|
+|--------|----|-----------||xAxisCalibration|u8|State of the x axis (roll) calibration : 1 if calibration is done, 0 otherwise|
+|yAxisCalibration|u8|State of the y axis (pitch) calibration : 1 if calibration is done, 0 otherwise|
+|zAxisCalibration|u8|State of the z axis (yaw) calibration : 1 if calibration is done, 0 otherwise|
+|calibrationFailed|u8|1 if calibration has failed, 0 otherwise. If this arg is 1, consider all previous arg as 0|
+
+
 Example binding to listen for the ` MagnetoCalibrationStateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MagnetoCalibrationStateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1481,14 +1698,18 @@ Calibration required.
 
 Triggered : when the calibration requirement changes.
 
+argument|type|description|
+|--------|----|-----------||required|u8|1 if calibration is required, 0 if current calibration is still valid|
+
+
 Example binding to listen for the ` MagnetoCalibrationRequiredState ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MagnetoCalibrationRequiredState',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1503,14 +1724,18 @@ Axis to calibrate during calibration process.
 
 Triggered : during the calibration process when the axis to calibrate changes.
 
+argument|type|description|
+|--------|----|-----------||axis|enum|The axis to calibrate|
+
+
 Example binding to listen for the ` MagnetoCalibrationAxisToCalibrateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MagnetoCalibrationAxisToCalibrateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1525,14 +1750,18 @@ Calibration process state.
 
 Triggered : by [StartOrAbortMagnetoCalib](#0_13_0) or when the process ends because it succeeded.
 
+argument|type|description|
+|--------|----|-----------||started|u8|1 if calibration has started, 0 otherwise|
+
+
 Example binding to listen for the ` MagnetoCalibrationStartedChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MagnetoCalibrationStartedChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1547,14 +1776,19 @@ Sent when the state of the pitot calibration has changed
 
 
 
+argument|type|description|
+|--------|----|-----------||state|enum|State of pitot calibration|
+|lastError|u8|lastError : 1 if an error occured and 0 if not|
+
+
 Example binding to listen for the ` PitotCalibrationStateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'PitotCalibrationStateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1579,14 +1813,22 @@ Camera info.
 
 Triggered : at connection.
 
+argument|type|description|
+|--------|----|-----------||fov|float|Value of the camera horizontal fov (in degree)|
+|panMax|float|Value of max pan (right pan) (in degree)|
+|panMin|float|Value of min pan (left pan) (in degree)|
+|tiltMax|float|Value of max tilt (top tilt) (in degree)|
+|tiltMin|float|Value of min tilt (bottom tilt) (in degree)|
+
+
 Example binding to listen for the ` CameraSettingsChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'CameraSettingsChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1613,6 +1855,11 @@ Set the position of a run.
  Watch out, this command is not used by BLE products.
 
 Result : The position is set.
+
+argument|type|description|
+|--------|----|-----------||latitude|double|Controller latitude in decimal degrees|
+|longitude|double|Controller longitude in decimal degrees|
+
 Example sending the ` ControllerPositionForRun ` command to your parrot drone :
 
 ```javascript
@@ -1653,14 +1900,18 @@ FlightPlan availability.
 
 Triggered : on change.
 
+argument|type|description|
+|--------|----|-----------||AvailabilityState|u8|Running a flightPlan file is available (1 running a flightPlan file is available, otherwise 0)|
+
+
 Example binding to listen for the ` AvailabilityStateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AvailabilityStateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1675,14 +1926,19 @@ FlightPlan components state list.
 
 Triggered : when the state of required components changes.
 
+argument|type|description|
+|--------|----|-----------||component|enum|Drone FlightPlan component id (unique)|
+|State|u8|State of the FlightPlan component (1 FlightPlan component OK, otherwise 0)|
+
+
 Example binding to listen for the ` ComponentStateListChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ComponentStateListChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1698,14 +1954,18 @@ FlightPlan lock state.
 
 Triggered : when the lock changes.
 
+argument|type|description|
+|--------|----|-----------||LockState|u8|1 if FlightPlan is locked: can't pause or stop FlightPlan. 0 if FlightPlan is unlocked: pause or stop available.|
+
+
 Example binding to listen for the ` LockStateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'LockStateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1730,6 +1990,10 @@ Controller libARCommands version
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||version|string|version of libARCommands ("1.2.3.4" format)|
 
 Example sending the ` ControllerLibARCommandsVersion ` command to your parrot drone :
 
@@ -1757,6 +2021,10 @@ SkyController libARCommands version
 
 
 
+
+argument|type|description|
+|--------|----|-----------||version|string|version of libARCommands ("1.2.3.4" format)|
+
 Example sending the ` SkyControllerLibARCommandsVersion ` command to your parrot drone :
 
 ```javascript
@@ -1782,6 +2050,10 @@ Device libARCommands version
 
 
 
+
+
+argument|type|description|
+|--------|----|-----------||version|string|version of libARCommands ("1.2.3.4" format)|
 
 Example sending the ` DeviceLibARCommandsVersion ` command to your parrot drone :
 
@@ -1823,14 +2095,17 @@ FlightPlan start error.
 
 Triggered : on an error after a [StartFlightPlan](#0_11_0).
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` StartingErrorEvent ` event from the drone :
 
 ```javascript
 
 drone.on(
   'StartingErrorEvent',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1848,14 +2123,17 @@ FlightPlan speed clamping.
 
 Triggered : on an speed related clamping after a [StartFlightPlan](#0_11_0).
 
+argument|type|description|
+|--------|----|-----------|
+
 Example binding to listen for the ` SpeedBridleEvent ` event from the drone :
 
 ```javascript
 
 drone.on(
   'SpeedBridleEvent',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1880,6 +2158,10 @@ Set audio stream direction.
 
 Result : The audio stream direction is set.
  Then, event [AudioStreamDirection](#0_21_0) is triggered.
+
+argument|type|description|
+|--------|----|-----------||ready|u8|Bit field for TX and RX ready. bit 0 is 1 if controller is ready and wants to receive sound (Drone TX) bit 1 is 1 if controller is ready and wants to send sound (Drone RX)|
+
 Example sending the ` ControllerReadyForStreaming ` command to your parrot drone :
 
 ```javascript
@@ -1917,14 +2199,18 @@ Audio stream direction.
 
 Triggered : by [SetAudioStreamDirection](#0_20_0).
 
+argument|type|description|
+|--------|----|-----------||running|u8|Bit field for TX and RX running bit 0 is 1 if Drone TX is running bit 1 is 1 if Drone RX is running|
+
+
 Example binding to listen for the ` AudioStreamingRunning ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AudioStreamingRunning',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -1949,6 +2235,11 @@ Set lighting LEDs intensity.
 
 Result : The intensity of the LEDs is changed.
  Then, event [LedIntensity](#0_23_0) is triggered.
+
+argument|type|description|
+|--------|----|-----------||left|u8|Set the left LED intensity value (0 through 255).|
+|right|u8|Set the right LED intensity value (0 through 255).|
+
 Example sending the ` intensity ` command to your parrot drone :
 
 ```javascript
@@ -1986,14 +2277,19 @@ Lighting LEDs intensity.
 
 Triggered : by [SetLedsIntensity](#0_22_0).
 
+argument|type|description|
+|--------|----|-----------||left|u8|The intensity value for the left LED (0 through 255).|
+|right|u8|The intensity value for the right LED (0 through 255).|
+
+
 Example binding to listen for the ` intensityChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'intensityChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -2020,6 +2316,10 @@ Start a paramaterless animation.
  List of available animations can be retrieved from [AnimationsStateList](#0_25_0).
 
 Result : If possible, the product starts the requested animation. Then, event [AnimationsStateList](#0_25_0) is triggered.
+
+argument|type|description|
+|--------|----|-----------||anim|enum|Animation to start.|
+
 Example sending the ` StartAnimation ` command to your parrot drone :
 
 ```javascript
@@ -2048,6 +2348,10 @@ Stop a paramaterless animation.
 
 Result : If the requested animation was running, it will be stopped.
  Then, event [AnimationsStateList](#0_25_0) is triggered.
+
+argument|type|description|
+|--------|----|-----------||anim|enum|Animation to stop.|
+
 Example sending the ` StopAnimation ` command to your parrot drone :
 
 ```javascript
@@ -2076,6 +2380,9 @@ Stop all running paramaterless animations.
 
 Result : All running animations are stopped.
  Then, event [AnimationsStateList](#0_25_0) is triggered.
+
+argument|type|description|
+|--------|----|-----------|
 Example sending the ` StopAllAnimations ` command to your parrot drone :
 
 ```javascript
@@ -2113,14 +2420,20 @@ Paramaterless animations state list.
 
 Triggered : when the list of available animations changes and also when an animation state changes (can be triggered by [StartAnim](#0_24_0), [StopAnim](#0_24_1) or [StopAllAnims](#0_24_2).
 
+argument|type|description|
+|--------|----|-----------||anim|enum|Animation type.|
+|state|enum|State of the animation|
+|error|enum|Error to explain the state|
+
+
 Example binding to listen for the ` List ` event from the drone :
 
 ```javascript
 
 drone.on(
   'List',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -2150,6 +2463,10 @@ Declare an accessory.
 
 Result : The product knows which accessory it is wearing.
  Then, event [AccessoryConfigChanged](#0_27_1) is triggered.
+
+argument|type|description|
+|--------|----|-----------||accessory|enum|Accessory configuration to set.|
+
 Example sending the ` Config ` command to your parrot drone :
 
 ```javascript
@@ -2189,14 +2506,18 @@ Supported accessories list.
 
 Triggered : at connection.
 
+argument|type|description|
+|--------|----|-----------||accessory|enum|Accessory configurations supported by the product.|
+
+
 Example binding to listen for the ` SupportedAccessoriesListChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'SupportedAccessoriesListChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -2211,14 +2532,19 @@ Accessory config.
 
 Triggered : by [DeclareAccessory](#0_26_0).
 
+argument|type|description|
+|--------|----|-----------||newAccessory|enum|Accessory configuration reported by firmware.|
+|error|enum|Error code.|
+
+
 Example binding to listen for the ` AccessoryConfigChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AccessoryConfigChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -2233,14 +2559,18 @@ Availability to declare or not an accessory.
 
 Triggered : when the availability changes.
 
+argument|type|description|
+|--------|----|-----------||enabled|u8|1 if the modification of the accessory Config is enabled, 0 otherwise|
+
+
 Example binding to listen for the ` AccessoryConfigModificationEnabled ` event from the drone :
 
 ```javascript
 
 drone.on(
   'AccessoryConfigModificationEnabled',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -2264,6 +2594,10 @@ Set max charge rate
 The product will inform itself the controller about its charging type (see [ChargingInfoChanged](#0_29_3)).
 
 Result : None.
+
+argument|type|description|
+|--------|----|-----------||rate|enum|The new maximum charge rate.|
+
 Example sending the ` SetMaxChargeRate ` command to your parrot drone :
 
 ```javascript
@@ -2304,14 +2638,18 @@ Max charge rate.
 
 Result : undefined
 
+argument|type|description|
+|--------|----|-----------||rate|enum|The current maximum charge rate.|
+
+
 Example binding to listen for the ` MaxChargeRateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'MaxChargeRateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -2326,14 +2664,19 @@ Current charge state.
 
 Result : undefined
 
+argument|type|description|
+|--------|----|-----------||status|enum|Charger status.|
+|phase|enum|The current charging phase.|
+
+
 Example binding to listen for the ` CurrentChargeStateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'CurrentChargeStateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -2348,14 +2691,18 @@ Last charge rate.
 
 Result : undefined
 
+argument|type|description|
+|--------|----|-----------||rate|enum|The charge rate recorded by the firmware for the last charge.|
+
+
 Example binding to listen for the ` LastChargeRateChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'LastChargeRateChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -2370,14 +2717,21 @@ Charging information.
 
 Triggered : when the product is charging or when the charging state changes.
 
+argument|type|description|
+|--------|----|-----------||phase|enum|The current charging phase.|
+|rate|enum|The charge rate. If phase is DISCHARGING, refers to the last charge.|
+|intensity|u8|The charging intensity, in dA. (12dA = 1,2A) ; If phase is DISCHARGING, refers to the last charge. Equals to 0 if not known.|
+|fullChargingTime|u8|The full charging time estimated, in minute. If phase is DISCHARGING, refers to the last charge. Equals to 0 if not known.|
+
+
 Example binding to listen for the ` ChargingInfo ` event from the drone :
 
 ```javascript
 
 drone.on(
   'ChargingInfo',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -2405,14 +2759,18 @@ Current run id.
 
 Triggered : when the drone generates a new run id (generally right after a take off).
 
+argument|type|description|
+|--------|----|-----------||runId|string|Id of the run|
+
+
 Example binding to listen for the ` RunIdChanged ` event from the drone :
 
 ```javascript
 
 drone.on(
   'RunIdChanged',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 

@@ -329,7 +329,18 @@ ${
       ) : ''
   ).replace(/\\n/,`
 `)
-}`;
+}
+
+argument|type|description|
+|--------|----|-----------|`;
+
+
+                  for(const key in command.lookup){
+                      const argName=command.lookup[key];
+                      const arg=command[argName];
+                      markdown+=`|${arg.info.name}|${arg.info.type}|${arg.details}|
+`;
+                  }
 
                   if(
                     (
@@ -346,8 +357,8 @@ Example binding to listen for the \` ${commandName} \` event from the drone :
 
 drone.on(
   '${commandName}',
-  function(data){
-    console.log(data);
+  function(commandObject){
+    console.log(commandObject);
   }
 )
 
@@ -438,13 +449,16 @@ function buildDrones(){
         return;
       }
 
-      let droneRequires='const projects={};';
-      let merge='Object.assign(projects,'
+      let droneRequires='const projects={lookup:{}};';
+      let mergeLookup='Object.assign(projects.lookup,';
+      let merge='Object.assign(projects,';
+      ``
       for(const req of result.pass){
         droneRequires+=`
 const ${req}=require('./${req}.js');
 `;
         merge+=`${req},`;
+        mergeLookup+=`${req}.lookup,`;
         for(deviceName in devices.deviceControllers){
           const device=devices.deviceControllers[deviceName];
           if(device[req]){
@@ -452,8 +466,8 @@ const ${req}=require('./${req}.js');
           }
         }
       }
-      
-      droneRequires+=`${merge.slice(0,-1)});`;
+      droneRequires+=`${merge.slice(0,-1)});
+${mergeLookup.slice(0,-1)});`;
 
       let droneRefs=JSON.stringify(
         devices,
