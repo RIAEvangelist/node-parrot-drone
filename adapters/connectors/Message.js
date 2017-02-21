@@ -15,10 +15,10 @@ class Message{
   build(
     projectID=null,
     classID=null,
-    commandRef=null
+    commandRef=null,
+    frameType=this.frameTypes.dataType,
+    frameID=this.frameIDs.cdNoNackID
   ){
-      let frameType=this.frameTypes.dataType;
-      let frameID=this.frameIDs.cdNoNackID;
 
       // if(commandRef.info.buffer && commandRef.info.buffer=='NON_ACK'){
       //   this.frameType=

@@ -415,13 +415,14 @@ const commandClass=project.${className};
 //change the value of the args you want to change if applicable
 commandClass.\${argName}.value=1;
 
-//build a message requesting all settings
+//build the ${commandName} command message
 const ${commandName}Message=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.${commandName}
 );
 
+//send the ${commandName} command message
 drone.message.send(${commandName}Message);
 
 \`\`\`

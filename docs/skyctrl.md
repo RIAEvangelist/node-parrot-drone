@@ -244,13 +244,14 @@ const commandClass=project.Wifi;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the RequestWifiList command message
 const RequestWifiListMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.RequestWifiList
 );
 
+//send the RequestWifiList command message
 drone.message.send(RequestWifiListMessage);
 
 ```
@@ -277,13 +278,14 @@ const commandClass=project.Wifi;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the RequestCurrentWifi command message
 const RequestCurrentWifiMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.RequestCurrentWifi
 );
 
+//send the RequestCurrentWifi command message
 drone.message.send(RequestCurrentWifiMessage);
 
 ```
@@ -315,13 +317,14 @@ const commandClass=project.Wifi;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the ConnectToWifi command message
 const ConnectToWifiMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.ConnectToWifi
 );
 
+//send the ConnectToWifi command message
 drone.message.send(ConnectToWifiMessage);
 
 ```
@@ -351,13 +354,14 @@ const commandClass=project.Wifi;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the ForgetWifi command message
 const ForgetWifiMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.ForgetWifi
 );
 
+//send the ForgetWifi command message
 drone.message.send(ForgetWifiMessage);
 
 ```
@@ -385,13 +389,14 @@ const commandClass=project.Wifi;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the WifiAuthChannel command message
 const WifiAuthChannelMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.WifiAuthChannel
 );
 
+//send the WifiAuthChannel command message
 drone.message.send(WifiAuthChannelMessage);
 
 ```
@@ -430,13 +435,14 @@ const commandClass=project.Device;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the RequestDeviceList command message
 const RequestDeviceListMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.RequestDeviceList
 );
 
+//send the RequestDeviceList command message
 drone.message.send(RequestDeviceListMessage);
 
 ```
@@ -463,13 +469,14 @@ const commandClass=project.Device;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the RequestCurrentDevice command message
 const RequestCurrentDeviceMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.RequestCurrentDevice
 );
 
+//send the RequestCurrentDevice command message
 drone.message.send(RequestCurrentDeviceMessage);
 
 ```
@@ -498,13 +505,14 @@ const commandClass=project.Device;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the ConnectToDevice command message
 const ConnectToDeviceMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.ConnectToDevice
 );
 
+//send the ConnectToDevice command message
 drone.message.send(ConnectToDeviceMessage);
 
 ```
@@ -544,13 +552,14 @@ const commandClass=project.DeviceState;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the DeviceList command message
 const DeviceListMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.DeviceList
 );
 
+//send the DeviceList command message
 drone.message.send(DeviceListMessage);
 
 ```
@@ -625,13 +634,14 @@ const commandClass=project.Settings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the AllSettings command message
 const AllSettingsMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.AllSettings
 );
 
+//send the AllSettings command message
 drone.message.send(AllSettingsMessage);
 
 ```
@@ -658,13 +668,14 @@ const commandClass=project.Settings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the Reset command message
 const ResetMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.Reset
 );
 
+//send the Reset command message
 drone.message.send(ResetMessage);
 
 ```
@@ -855,13 +866,14 @@ const commandClass=project.Common;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the AllStates command message
 const AllStatesMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.AllStates
 );
 
+//send the AllStates command message
 drone.message.send(AllStatesMessage);
 
 ```
@@ -1104,13 +1116,14 @@ const commandClass=project.AccessPointSettings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the AccessPointSSID command message
 const AccessPointSSIDMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.AccessPointSSID
 );
 
+//send the AccessPointSSID command message
 drone.message.send(AccessPointSSIDMessage);
 
 ```
@@ -1141,13 +1154,14 @@ const commandClass=project.AccessPointSettings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the AccessPointChannel command message
 const AccessPointChannelMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.AccessPointChannel
 );
 
+//send the AccessPointChannel command message
 drone.message.send(AccessPointChannelMessage);
 
 ```
@@ -1191,13 +1205,14 @@ const commandClass=project.AccessPointSettings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the WifiSelection command message
 const WifiSelectionMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.WifiSelection
 );
 
+//send the WifiSelection command message
 drone.message.send(WifiSelectionMessage);
 
 ```
@@ -1340,13 +1355,14 @@ const commandClass=project.Camera;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the ResetOrientation command message
 const ResetOrientationMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.ResetOrientation
 );
 
+//send the ResetOrientation command message
 drone.message.send(ResetOrientationMessage);
 
 ```
@@ -1386,13 +1402,14 @@ const commandClass=project.ButtonMappings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the getCurrentButtonMappings command message
 const getCurrentButtonMappingsMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.getCurrentButtonMappings
 );
 
+//send the getCurrentButtonMappings command message
 drone.message.send(getCurrentButtonMappingsMessage);
 
 ```
@@ -1420,13 +1437,14 @@ const commandClass=project.ButtonMappings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the getAvailableButtonMappings command message
 const getAvailableButtonMappingsMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.getAvailableButtonMappings
 );
 
+//send the getAvailableButtonMappings command message
 drone.message.send(getAvailableButtonMappingsMessage);
 
 ```
@@ -1457,13 +1475,14 @@ const commandClass=project.ButtonMappings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the setButtonMapping command message
 const setButtonMappingMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.setButtonMapping
 );
 
+//send the setButtonMapping command message
 drone.message.send(setButtonMappingMessage);
 
 ```
@@ -1491,13 +1510,14 @@ const commandClass=project.ButtonMappings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the defaultButtonMapping command message
 const defaultButtonMappingMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.defaultButtonMapping
 );
 
+//send the defaultButtonMapping command message
 drone.message.send(defaultButtonMappingMessage);
 
 ```
@@ -1663,13 +1683,14 @@ const commandClass=project.AxisMappings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the getCurrentAxisMappings command message
 const getCurrentAxisMappingsMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.getCurrentAxisMappings
 );
 
+//send the getCurrentAxisMappings command message
 drone.message.send(getCurrentAxisMappingsMessage);
 
 ```
@@ -1697,13 +1718,14 @@ const commandClass=project.AxisMappings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the getAvailableAxisMappings command message
 const getAvailableAxisMappingsMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.getAvailableAxisMappings
 );
 
+//send the getAvailableAxisMappings command message
 drone.message.send(getAvailableAxisMappingsMessage);
 
 ```
@@ -1734,13 +1756,14 @@ const commandClass=project.AxisMappings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the setAxisMapping command message
 const setAxisMappingMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.setAxisMapping
 );
 
+//send the setAxisMapping command message
 drone.message.send(setAxisMappingMessage);
 
 ```
@@ -1767,13 +1790,14 @@ const commandClass=project.AxisMappings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the defaultAxisMapping command message
 const defaultAxisMappingMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.defaultAxisMapping
 );
 
+//send the defaultAxisMapping command message
 drone.message.send(defaultAxisMappingMessage);
 
 ```
@@ -1939,13 +1963,14 @@ const commandClass=project.AxisFilters;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the getCurrentAxisFilters command message
 const getCurrentAxisFiltersMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.getCurrentAxisFilters
 );
 
+//send the getCurrentAxisFilters command message
 drone.message.send(getCurrentAxisFiltersMessage);
 
 ```
@@ -1972,13 +1997,14 @@ const commandClass=project.AxisFilters;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the getPresetAxisFilters command message
 const getPresetAxisFiltersMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.getPresetAxisFilters
 );
 
+//send the getPresetAxisFilters command message
 drone.message.send(getPresetAxisFiltersMessage);
 
 ```
@@ -2020,13 +2046,14 @@ const commandClass=project.AxisFilters;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the setAxisFilter command message
 const setAxisFilterMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.setAxisFilter
 );
 
+//send the setAxisFilter command message
 drone.message.send(setAxisFilterMessage);
 
 ```
@@ -2053,13 +2080,14 @@ const commandClass=project.AxisFilters;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the defaultAxisFilters command message
 const defaultAxisFiltersMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.defaultAxisFilters
 );
 
+//send the defaultAxisFilters command message
 drone.message.send(defaultAxisFiltersMessage);
 
 ```
@@ -2156,13 +2184,14 @@ const commandClass=project.AxisFiltersState;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the presetAxisFilters command message
 const presetAxisFiltersMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.presetAxisFilters
 );
 
+//send the presetAxisFilters command message
 drone.message.send(presetAxisFiltersMessage);
 
 ```
@@ -2225,13 +2254,14 @@ const commandClass=project.GamepadInfos;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the getGamepadControls command message
 const getGamepadControlsMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.getGamepadControls
 );
 
+//send the getGamepadControls command message
 drone.message.send(getGamepadControlsMessage);
 
 ```
@@ -2350,13 +2380,14 @@ const commandClass=project.CoPiloting;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the setPilotingSource command message
 const setPilotingSourceMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.setPilotingSource
 );
 
+//send the setPilotingSource command message
 drone.message.send(setPilotingSourceMessage);
 
 ```
@@ -2439,13 +2470,14 @@ const commandClass=project.Calibration;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the enableMagnetoCalibrationQualityUpdates command message
 const enableMagnetoCalibrationQualityUpdatesMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.enableMagnetoCalibrationQualityUpdates
 );
 
+//send the enableMagnetoCalibrationQualityUpdates command message
 drone.message.send(enableMagnetoCalibrationQualityUpdatesMessage);
 
 ```
@@ -2596,13 +2628,14 @@ const commandClass=project.Factory;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the Reset command message
 const ResetMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.Reset
 );
 
+//send the Reset command message
 drone.message.send(ResetMessage);
 
 ```

@@ -78,7 +78,14 @@ class Response extends Events{
         return;
       }
 
-      if(this.message.frameID.id == this.drone.message.frameIDs.internalBufferPong){
+      if (networkFrame.type === constants.ARNETWORKAL_FRAME_TYPE_DATA_LOW_LATENCY &&
+          this.message.frameID.id === constants.BD_NET_DC_VIDEO_DATA_ID)
+      {
+        var arstreamFrame = arstreamFrameParser(networkFrame.data);
+        this._writePacket(this._createARStreamACK(arstreamFrame));
+      }
+
+      if(this.message.frameID == this.drone.message.frameIDs.internalBufferPong){
         this.drone.emit(
           'dronePong',
           this.message.raw

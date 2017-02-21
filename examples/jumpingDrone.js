@@ -75,7 +75,7 @@ function flip(){
 }
 
 drone.on(
-  'messageSent',
+  'SpeedChanged',
   function(data){
     console.log(data)
   }

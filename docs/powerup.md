@@ -60,13 +60,14 @@ const commandClass=project.Piloting;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the PCMD command message
 const PCMDMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.PCMD
 );
 
+//send the PCMD command message
 drone.message.send(PCMDMessage);
 
 ```
@@ -94,13 +95,14 @@ const commandClass=project.Piloting;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the UserTakeOff command message
 const UserTakeOffMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.UserTakeOff
 );
 
+//send the UserTakeOff command message
 drone.message.send(UserTakeOffMessage);
 
 ```
@@ -134,13 +136,14 @@ const commandClass=project.Piloting;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the MotorMode command message
 const MotorModeMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.MotorMode
 );
 
+//send the MotorMode command message
 drone.message.send(MotorModeMessage);
 
 ```
@@ -375,13 +378,14 @@ const commandClass=project.PilotingSettings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the set command message
 const setMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.set
 );
 
+//send the set command message
 drone.message.send(setMessage);
 
 ```
@@ -481,13 +485,14 @@ const commandClass=project.MediaRecord;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the PictureV2 command message
 const PictureV2Message=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.PictureV2
 );
 
+//send the PictureV2 command message
 drone.message.send(PictureV2Message);
 
 ```
@@ -521,13 +526,14 @@ const commandClass=project.MediaRecord;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the VideoV2 command message
 const VideoV2Message=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.VideoV2
 );
 
+//send the VideoV2 command message
 drone.message.send(VideoV2Message);
 
 ```
@@ -780,13 +786,14 @@ const commandClass=project.NetworkSettings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the WifiSelection command message
 const WifiSelectionMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.WifiSelection
 );
 
+//send the WifiSelection command message
 drone.message.send(WifiSelectionMessage);
 
 ```
@@ -886,13 +893,14 @@ const commandClass=project.Network;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the WifiScan command message
 const WifiScanMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.WifiScan
 );
 
+//send the WifiScan command message
 drone.message.send(WifiScanMessage);
 
 ```
@@ -919,13 +927,14 @@ const commandClass=project.Network;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the WifiAuthChannel command message
 const WifiAuthChannelMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.WifiAuthChannel
 );
 
+//send the WifiAuthChannel command message
 drone.message.send(WifiAuthChannelMessage);
 
 ```
@@ -1127,13 +1136,14 @@ const commandClass=project.MediaStreaming;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the VideoEnable command message
 const VideoEnableMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.VideoEnable
 );
 
+//send the VideoEnable command message
 drone.message.send(VideoEnableMessage);
 
 ```
@@ -1216,13 +1226,14 @@ const commandClass=project.VideoSettings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the Autorecord command message
 const AutorecordMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.Autorecord
 );
 
+//send the Autorecord command message
 drone.message.send(AutorecordMessage);
 
 ```
@@ -1256,13 +1267,14 @@ const commandClass=project.VideoSettings;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the VideoMode command message
 const VideoModeMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.VideoMode
 );
 
+//send the VideoMode command message
 drone.message.send(VideoModeMessage);
 
 ```
@@ -1371,13 +1383,14 @@ const commandClass=project.Sounds;
 //change the value of the args you want to change if applicable
 commandClass.${argName}.value=1;
 
-//build a message requesting all settings
+//build the buzz command message
 const buzzMessage=drone.message.build(
   project.info.id,
   commandClass.info.id,
   commandClass.buzz
 );
 
+//send the buzz command message
 drone.message.send(buzzMessage);
 
 ```
