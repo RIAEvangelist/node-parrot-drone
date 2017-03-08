@@ -2,7 +2,7 @@
 A fully featured implementation of the Parrot SDK for node.js so you can do stuff with drones!
 
 ## Control Any Parrot Drone
-This is the core module for connecting to and controlling ` any ` Parrot drone with JavaScript via node! It is designed to be extended with new drone projects, classes and commands as they are created by Parrot.
+This is the core module for connecting to and controlling ` any ` WiFi connected Parrot drone with JavaScript via node! It is designed to be extended with new drone projects, classes and commands as they are created by Parrot.
 
 This module contains the core code for such extensions with all shared information and commands. It is responsible for connecting, receiving and sending messages, automated responses, parsing data and populating drone status as well as dispatching drone events, updates and status changes.
 
